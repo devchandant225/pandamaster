@@ -15,28 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('desc')->nullable();
-            $table->text('keyword')->nullable();
+            $table->string('keyword')->nullable();
             $table->string('image')->nullable();
             $table->json('schema_head')->nullable();
             $table->json('schema_body')->nullable();
-            $table->enum('page_type', [
-                'home',
-                'about',
-                'contact',
-                'investors',
-                'tools',
-                'city',
-                'property',
-                'properties',
-                'blog',
-                'post',
-                'privacy',
-                'terms-condition'
-            ]);
+            $table->string('page_type')->unique();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
-
-            $table->unique('page_type');
         });
     }
 
