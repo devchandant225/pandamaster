@@ -170,9 +170,6 @@
         </div>
     </section>
 
-    <!-- Leadership Team -->
-    <x-team-section />
-
     <!-- Final CTA -->
     <section class="py-24 relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1)_0%,rgba(0,0,0,1)_100%)]"></div>

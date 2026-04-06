@@ -1,31 +1,38 @@
-Symfony\Component\Routing\Exception\RouteNotFoundException
-vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php:528
-Route [contact] not defined.
+Illuminate\Database\QueryException
+vendor/laravel/framework/src/Illuminate/Database/Connection.php:838
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orion.team_members' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: orion, SQL: select * from `team_members` order by `sort_order` asc)
 
 LARAVEL
 12.56.0
 PHP
 8.2.30
 UNHANDLED
-CODE 0
+CODE 42S02
 500
 GET
 http://orionstars.joomni.com/about
 
 Exception trace
-2 vendor frames
+9 vendor frames
 
-route()
-resources/views/about.blade.php:32
+Illuminate\Database\Eloquent\Builder->get()
+resources/views/components/team-section.blade.php:1
 
-27                <p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
-28                    We're not just another real estate company. We're your trusted partner in navigating 
-29                    Vancouver's dynamic property market with confidence and ease.
-30                </p>
-31
-32                <a href="{{ route('contact') }}" class="inline-block bg-[#D4AF37] text-black hover:bg-[#F4D03F] px-12 py-6 text-xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
-33                    Get Started Today
-34                </a>
-35            </div>
-36        </div>
-37    </section>
+1@php
+2    $members = \App\Models\TeamMember::orderBy('sort_order')->get();
+3@endphp
+4
+5@if($members->count() > 0)
+6<section class="py-20 bg-gray-50">
+7    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+8        <div class="text-center mb-16">
+9            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+10                Meet Our <span class="text-[#D4AF37]">Leadership Team</span>
+11            </h2>
+12            <p class="text-xl text-gray-600">
+13                Experienced professionals dedicated to your success
+14            </p>
+15        </div>
+16
+17        <div class="grid md:grid-cols-3 gap-8">
+18
