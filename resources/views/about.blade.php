@@ -5,101 +5,113 @@
 @endpush
 
 @section('content')
-<div class="min-h-screen bg-white">
+<div class="min-h-screen bg-black relative overflow-hidden">
+    <!-- Sophisticated Background Lighting -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
+        <div class="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[150px] animate-pulse"></div>
+        <div class="absolute bottom-1/4 -right-20 w-[800px] h-[800px] bg-pink-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Stars Animation -->
+    <div class="absolute inset-0 pointer-events-none">
+        @for($i = 0; $i < 40; $i++)
+            <div class="absolute w-[1px] h-[1px] bg-white rounded-full animate-twinkle" 
+                 style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(3000, 6000) }}ms;"></div>
+        @endfor
+    </div>
+
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-black via-gray-900 to-black text-white py-24 lg:py-32 overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-        </div>
+    <section class="relative py-24 lg:py-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-3 px-6 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-xs text-yellow-500 font-black uppercase tracking-[0.3em] mb-10 animate-fade-in-down shadow-lg shadow-yellow-500/5">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                </span>
+                The Galaxy of Gaming
+            </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-sm text-[#D4AF37] font-semibold mb-8">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                    About 888Realty
-                </div>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-10 leading-[0.85] tracking-tighter animate-fade-in-up">
+                REDEFINING THE <span class="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow uppercase">LEVEL</span> OF PLAY
+            </h1>
+            
+            <p class="text-2xl md:text-3xl text-gray-400 mb-16 leading-relaxed font-bold tracking-tight max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.2s;">
+                We're not just another gaming platform. We're your gateway to immersive experiences, high-stakes thrills, and a community built for winners.
+            </p>
 
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-                    Redefining Real Estate in <span class="text-[#D4AF37]">Vancouver</span>
-                </h1>
-                
-                <p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
-                    We're not just another real estate company. We're your trusted partner in navigating 
-                    Vancouver's dynamic property market with confidence and ease.
-                </p>
-
-                <a href="{{ route('contact') }}" class="inline-block bg-[#D4AF37] text-black hover:bg-[#F4D03F] px-12 py-6 text-xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
-                    Get Started Today
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
+                <a href="{{ route('contact') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white text-2xl font-black rounded-[2rem] transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
+                    <span class="relative z-10 uppercase tracking-tighter">🚀 JOIN THE ELITE</span>
+                </a>
+                <a href="{{ route('games.index') }}" class="px-14 py-6 bg-gray-900/50 hover:bg-gray-800 text-white text-2xl font-black rounded-[2rem] transition-all border-2 border-gray-700 hover:border-yellow-500 shadow-xl backdrop-blur-sm transform hover:-translate-y-1.5 uppercase tracking-tighter">
+                    Explore Games
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-20 bg-white">
+    <section class="py-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold text-[#D4AF37] mb-2">$500M+</div>
-                    <div class="text-gray-600 font-medium">Transaction Volume</div>
+                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-yellow-500/50 transition-all text-center">
+                    <div class="text-5xl md:text-6xl font-black text-yellow-500 mb-3 group-hover:scale-110 transition-transform text-glow-yellow tracking-tighter">$2M+</div>
+                    <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Weekly Payouts</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold text-[#D4AF37] mb-2">2,000+</div>
-                    <div class="text-gray-600 font-medium">Happy Clients</div>
+                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-pink-500/50 transition-all text-center">
+                    <div class="text-5xl md:text-6xl font-black text-pink-500 mb-3 group-hover:scale-110 transition-transform text-glow-pink tracking-tighter">50K+</div>
+                    <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Active Players</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold text-[#D4AF37] mb-2">50+</div>
-                    <div class="text-gray-600 font-medium">Expert Agents</div>
+                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all text-center">
+                    <div class="text-5xl md:text-6xl font-black text-blue-500 mb-3 group-hover:scale-110 transition-transform tracking-tighter">100+</div>
+                    <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Premium Titles</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold text-[#D4AF37] mb-2">15+</div>
-                    <div class="text-gray-600 font-medium">Years Experience</div>
+                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-green-500/50 transition-all text-center">
+                    <div class="text-5xl md:text-6xl font-black text-green-500 mb-3 group-hover:scale-110 transition-transform tracking-tighter">24/7</div>
+                    <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Live Support</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Our Story -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-left">
-                        Our <span class="text-[#D4AF37]">Story</span>
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="animate-fade-in-up">
+                    <h2 class="text-5xl md:text-6xl font-black mb-8 tracking-tighter uppercase">
+                        OUR <span class="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">GALAXY</span>
                     </h2>
-                    <div class="space-y-4 text-gray-700 leading-relaxed text-lg text-left">
+                    <div class="space-y-6 text-gray-400 leading-relaxed text-xl font-medium">
                         <p>
-                            Founded in 2011, 888Realty was born from a simple vision: to revolutionize the way people 
-                            buy and sell real estate in Vancouver. We saw a market that needed transparency, innovation, 
-                            and a genuine commitment to client success.
+                            Born in the digital age, <span class="text-white font-black tracking-widest uppercase">OrionStar</span> was created with one mission: to build the most immersive, rewarding, and fair online gaming ecosystem in the world.
                         </p>
                         <p>
-                            What started as a small team of passionate real estate professionals has grown into Vancouver's 
-                            premier real estate matching service, connecting thousands of buyers and sellers with top-rated 
-                            local agents who truly understand their needs.
+                            We've combined cutting-edge blockchain technology with world-class game design to deliver an experience that traditional platforms simply can't match. Every spin, every catch, and every bet is built on a foundation of transparency and high-octane fun.
                         </p>
                         <p>
-                            Today, we're proud to serve clients across Greater Vancouver, from first-time homebuyers to 
-                            seasoned investors, providing personalized service and exceptional results every step of the way.
+                            Today, we're proud to lead the frontier of global online gaming, connecting thousands of winners every minute across every timezone.
                         </p>
                     </div>
-                    <div class="mt-8 text-left">
-                        <a href="{{ route('contact') }}" class="inline-block bg-[#D4AF37] text-black hover:bg-[#F4D03F] px-8 py-4 text-lg font-bold rounded-xl transition-all">
-                            Learn More About Our Process
+                    <div class="mt-12">
+                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-3 bg-white/5 border border-white/10 hover:border-pink-500 text-white px-10 py-5 rounded-[2rem] text-lg font-black transition-all uppercase tracking-tighter">
+                            Learn Our Methods
+                            <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
                     </div>
                 </div>
 
-                <div class="relative">
+                <div class="relative group animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 rounded-[3.5rem] opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700"></div>
                     <img
-                        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800"
-                        alt="Modern Vancouver architecture"
-                        class="rounded-2xl shadow-2xl"
+                        src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200"
+                        alt="Pro Gaming Setup"
+                        class="relative rounded-[3rem] shadow-2xl border border-white/10 grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
                     />
-                    <div class="absolute -bottom-6 -left-6 bg-[#D4AF37] text-black p-6 rounded-xl shadow-xl">
-                        <div class="text-3xl font-bold mb-1">15+</div>
-                        <div class="text-sm font-semibold">Years of Excellence</div>
+                    <div class="absolute -bottom-10 -left-10 bg-black/80 backdrop-blur-xl border border-white/10 p-10 rounded-[2.5rem] shadow-2xl group-hover:-translate-y-2 transition-transform duration-500">
+                        <div class="text-5xl font-black text-yellow-500 mb-1 tracking-tighter text-glow-yellow">#1</div>
+                        <div class="text-xs font-black text-gray-400 uppercase tracking-widest">Global Platform</div>
                     </div>
                 </div>
             </div>
@@ -107,52 +119,52 @@
     </section>
 
     <!-- Our Values -->
-    <section class="py-20 bg-white">
+    <section class="py-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    Our Core <span class="text-[#D4AF37]">Values</span>
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-black mb-6 tracking-tighter uppercase">
+                    OUR CORE <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">CODE</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    The principles that guide everything we do
+                <p class="text-xl text-gray-500 font-bold max-w-3xl mx-auto uppercase tracking-widest">
+                    The principles that fuel our galaxy
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Client-First -->
-                <div class="bg-white border-2 border-gray-100 p-8 rounded-2xl hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300 text-left">
-                    <div class="w-16 h-16 bg-[#D4AF37]/10 text-[#D4AF37] rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Winner-First -->
+                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-yellow-500/30 hover:-translate-y-3 transition-all duration-500 group">
+                    <div class="w-20 h-20 bg-yellow-500/10 text-yellow-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Client-First Approach</h3>
-                    <p class="text-gray-600 leading-relaxed">Your goals and satisfaction are our top priority. We tailor every service to meet your unique needs.</p>
+                    <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">WINNER FIRST</h3>
+                    <p class="text-gray-500 leading-relaxed font-medium">Your success is our success. We build every algorithm to maximize player enjoyment and rewards.</p>
                 </div>
 
-                <!-- Integrity -->
-                <div class="bg-white border-2 border-gray-100 p-8 rounded-2xl hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300 text-left">
-                    <div class="w-16 h-16 bg-[#D4AF37]/10 text-[#D4AF37] rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <!-- Security -->
+                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-pink-500/30 hover:-translate-y-3 transition-all duration-500 group">
+                    <div class="w-20 h-20 bg-pink-500/10 text-pink-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:-rotate-12 transition-transform">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Integrity & Transparency</h3>
-                    <p class="text-gray-600 leading-relaxed">We believe in honest communication, clear processes, and building trust through transparency.</p>
+                    <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">IRONCLAD</h3>
+                    <p class="text-gray-500 leading-relaxed font-medium">Your data and winnings are protected by the highest level of encryption known to mankind.</p>
                 </div>
 
                 <!-- Innovation -->
-                <div class="bg-white border-2 border-gray-100 p-8 rounded-2xl hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300 text-left">
-                    <div class="w-16 h-16 bg-[#D4AF37]/10 text-[#D4AF37] rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-blue-500/30 hover:-translate-y-3 transition-all duration-500 group">
+                    <div class="w-20 h-20 bg-blue-500/10 text-blue-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Innovation & Excellence</h3>
-                    <p class="text-gray-600 leading-relaxed">We leverage cutting-edge technology and market insights to deliver exceptional results.</p>
+                    <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">NEXT-GEN</h3>
+                    <p class="text-gray-500 leading-relaxed font-medium">We don't follow trends; we set them. Expect titles and features you won't find anywhere else.</p>
                 </div>
 
                 <!-- Community -->
-                <div class="bg-white border-2 border-gray-100 p-8 rounded-2xl hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300 text-left">
-                    <div class="w-16 h-16 bg-[#D4AF37]/10 text-[#D4AF37] rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-green-500/30 hover:-translate-y-3 transition-all duration-500 group">
+                    <div class="w-20 h-20 bg-green-500/10 text-green-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:-rotate-12 transition-transform">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Community Commitment</h3>
-                    <p class="text-gray-600 leading-relaxed">We're deeply invested in Vancouver's communities and committed to giving back.</p>
+                    <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">ONE GALAXY</h3>
+                    <p class="text-gray-500 leading-relaxed font-medium">We're building a global community of gamers who support each other's journey to the top.</p>
                 </div>
             </div>
         </div>
@@ -161,95 +173,60 @@
     <!-- Leadership Team -->
     <x-team-section />
 
-    <!-- Why Choose Us -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800" alt="Team collaboration" class="rounded-2xl shadow-2xl" />
-                </div>
+    <!-- Final CTA -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1)_0%,rgba(0,0,0,1)_100%)]"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-6xl sm:text-7xl md:text-8xl font-black mb-8 leading-[0.85] tracking-tighter uppercase">
+                READY TO BECOME A <span class="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow">LEGEND?</span>
+            </h2>
+            <p class="text-2xl md:text-3xl text-gray-300 mb-16 font-bold tracking-tight uppercase">
+                The next massive jackpot has your name on it
+            </p>
 
-                <div class="order-1 lg:order-2 text-left">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                        Why Choose <span class="text-[#D4AF37]">888Realty</span>
-                    </h2>
-                    <div class="space-y-4">
-                        @foreach([
-                            "Expert knowledge of Vancouver's diverse neighborhoods",
-                            "Personalized matching with pre-vetted, top-rated agents",
-                            "Cutting-edge technology for seamless transactions",
-                            "Transparent process from start to finish",
-                            "Dedicated support throughout your journey",
-                            "Proven track record of successful outcomes",
-                        ] as $item)
-                        <div class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="text-lg text-gray-700">{{ $item }}</span>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section class="py-20 bg-gradient-to-br from-black via-gray-900 to-black text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center text-left">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                        Ready to Get <span class="text-[#D4AF37]">Started?</span>
-                    </h2>
-                    <p class="text-xl text-gray-300 mb-8">
-                        Whether you're buying, selling, or investing, our team is here to help you achieve 
-                        your real estate goals.
-                    </p>
-                    <a href="{{ route('contact') }}" class="inline-block bg-[#D4AF37] text-black hover:bg-[#F4D03F] px-12 py-4 text-xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
-                        Get Matched with an Agent
+            <div class="flex flex-wrap justify-center gap-10">
+                @auth
+                    <a href="{{ route('dashboard') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                        <span class="relative z-10 uppercase tracking-tighter">🚀 START PLAYING NOW</span>
                     </a>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-[#D4AF37]/20 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-400">Phone</div>
-                                <a href="tel:2505526542" class="text-lg font-semibold hover:text-[#D4AF37] transition-colors">
-                                    250 552 6542
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-[#D4AF37]/20 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-400">Email</div>
-                                <a href="mailto:info@888realty.ca" class="text-lg font-semibold hover:text-[#D4AF37] transition-colors">
-                                    info@888realty.ca
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-[#D4AF37]/20 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-400">Location</div>
-                                <div class="text-lg font-semibold">Vancouver, BC, Canada</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @else
+                    <a href="{{ route('register') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                        <span class="relative z-10 uppercase tracking-tighter">🎰 CREATE ACCOUNT & WIN</span>
+                    </a>
+                @endauth
             </div>
         </div>
     </section>
 </div>
+
+<style>
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    @keyframes fade-in-up {
+        0% { opacity: 0; transform: translateY(40px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fade-in-down {
+        0% { opacity: 0; transform: translateY(-40px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-twinkle {
+        animation: twinkle 4s ease-in-out infinite;
+    }
+
+    .animate-fade-in-up {
+        animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+    }
+
+    .animate-fade-in-down {
+        animation: fade-in-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+    }
+</style>
 @endsection

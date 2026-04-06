@@ -32,8 +32,8 @@
                     Your Premier Online Gaming Destination
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
-                    <a href="{{ route('register') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-500 to-yellow-400 text-black text-2xl font-black rounded-2xl transition-all shadow-2xl shadow-yellow-500/40 hover:shadow-yellow-500/60 transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
-                        <span class="relative z-10 uppercase tracking-tighter">🎰 START PLAYING</span>
+                    <a href="{{ route('register') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white text-2xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
+                        <span class="relative z-10 uppercase tracking-tighter">🎰 START PLAYING - GET $1000 BONUS</span>
                     </a>
                     <a href="{{ route('games.index') }}" class="px-14 py-6 bg-gray-900/50 hover:bg-gray-800 text-white text-2xl font-black rounded-2xl transition-all border-2 border-gray-700 hover:border-yellow-500 shadow-xl backdrop-blur-sm transform hover:-translate-y-1.5">
                         BROWSE GAMES

@@ -19,4 +19,24 @@ class HomeController extends Controller
 
         return view('home', compact('heroSection', 'featuredGames', 'hotGames', 'newGames', 'latestPosts'));
     }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function contactStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        // For now, just simulate sending or log it
+        // In a real app, you'd use Mail::to('devchandant225@gmail.com')->send(new ContactMail($request->all()));
+        
+        return back()->with('success', 'Thank you for your message! We will get back to you shortly.');
+    }
 }
