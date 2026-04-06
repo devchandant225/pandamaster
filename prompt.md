@@ -1,27 +1,27 @@
-ParseError
-resources/views/components/hero-section.blade.php:65
-Unclosed '[' does not match ')'
+Illuminate\Database\QueryException
+vendor/laravel/framework/src/Illuminate/Database/Connection.php:838
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orion.categories' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: orion, SQL: select `categories`.*, (select count(*) from `posts` where `categories`.`id` = `posts`.`category_id`) as `posts_count` from `categories`)
 
 LARAVEL
 12.56.0
 PHP
 8.2.30
 UNHANDLED
-CODE 0
+CODE 42S02
 500
 GET
-http://orionstars.joomni.com
+http://orionstars.joomni.com/blog
 
 Exception trace
-Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
-resources/views/components/hero-section.blade.php:65
+9 vendor frames
 
-60                    @php
-61                        $titleParts = explode(' ', $heroSection->title);
-62                        $colors = ['text-yellow-500', 'text-pink-500', 'text-white'];
-63                    @endphp
-64                    @foreach($titleParts as $index => $word)
-65                        <span class="{{ $colors[$index % count($colors) }}">{{ $word }}</span>@if(!$loop->last) @endif
-66                    @endforeach
-67                </h1>
-68            @endif
+Illuminate\Database\Eloquent\Builder->get()
+app/Http/Controllers/BlogController.php:29
+
+24                  ->orWhere('content', 'like', '%' . $request->search . '%');
+25            });
+26        }
+27
+28        $posts = $query->paginate(9);
+29        $categories = Category::withCount('posts')->get();
+30        $recentPosts = Post::latest()->take(5)->get();
