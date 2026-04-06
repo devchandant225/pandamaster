@@ -4,18 +4,22 @@
     if(!$heroSection) return;
 @endphp
 
-<section class="relative overflow-hidden min-h-screen flex items-center justify-center" id="hero-section"
+<section class="relative overflow-hidden min-h-screen flex items-center justify-center bg-gray-950" id="hero-section"
      data-animation="{{ $heroSection->animation_type ?? 'stars' }}"
      data-background="{{ $heroSection->background_type ?? 'gradient' }}">
     
-    <!-- Animated Background -->
+    <!-- Animated Background & Lighting -->
     <div class="absolute inset-0">
         @if(($heroSection->background_type ?? 'gradient') === 'gradient')
-            <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/10 via-pink-500/10 to-yellow-500/10 animate-pulse"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
+            
+            <!-- Dynamic Light Orbs -->
+            <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse"></div>
+            <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 4s;"></div>
         @elseif($heroSection->background_type === 'image' && $heroSection->background_url)
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ $heroSection->background_url }}')"></div>
-            <div class="absolute inset-0 bg-black/70"></div>
+            <div class="absolute inset-0 bg-black/70 backdrop-blur-[2px]"></div>
         @endif
     </div>
 
@@ -23,21 +27,20 @@
     <div class="absolute inset-0 pointer-events-none" id="animation-container">
         @if(($heroSection->animation_type ?? 'stars') === 'stars')
             <!-- Stars Animation -->
-            @for($i = 0; $i < 50; $i++)
-                <div class="absolute w-1 h-1 bg-white rounded-full animate-twinkle" 
-                     style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 3000) }}ms; animation-duration: {{ rand(2000, 4000) }}ms;"></div>
+            @for($i = 0; $i < 80; $i++)
+                <div class="absolute w-[1px] h-[1px] bg-white rounded-full animate-twinkle" 
+                     style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(3000, 6000) }}ms;"></div>
             @endfor
+            <!-- Shooting Stars -->
+            <div class="shooting-star"></div>
+            <div class="shooting-star" style="top: 20%; left: 30%; animation-delay: 4s;"></div>
+            <div class="shooting-star" style="top: 40%; left: 60%; animation-delay: 8s;"></div>
         @elseif($heroSection->animation_type === 'particles')
             <!-- Particles Animation -->
-            @for($i = 0; $i < 30; $i++)
-                <div class="absolute w-2 h-2 bg-yellow-500/30 rounded-full animate-float" 
-                     style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(5000, 10000) }}ms;"></div>
+            @for($i = 0; $i < 40; $i++)
+                <div class="absolute w-1 h-1 bg-yellow-500/20 rounded-full animate-float" 
+                     style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(6000, 12000) }}ms;"></div>
             @endfor
-        @elseif($heroSection->animation_type === 'neon')
-            <!-- Neon Glow Effects -->
-            <div class="absolute top-20 left-10 w-72 h-72 bg-yellow-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
         @endif
     </div>
 
@@ -46,55 +49,55 @@
         <div class="text-center">
             <!-- Badge -->
             @if($heroSection->badge_text)
-                <div class="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500/20 border border-yellow-500 rounded-full text-yellow-500 font-semibold mb-8 animate-fade-in-down">
-                    <svg class="w-5 h-5 animate-spin" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                    </svg>
+                <div class="inline-flex items-center gap-3 px-8 py-3 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-yellow-500 font-black text-sm tracking-widest uppercase mb-10 animate-fade-in-down shadow-lg shadow-yellow-500/5">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                    </span>
                     {{ $heroSection->badge_text }}
                 </div>
             @endif
 
             <!-- Title with Animation -->
             @if($heroSection->title)
-                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight animate-fade-in-up">
+                <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 leading-[0.9] animate-fade-in-up">
                     @php
                         $titleParts = explode(' ', $heroSection->title);
-                        $colors = ['text-yellow-500', 'text-pink-500', 'text-white'];
+                        $colors = ['text-yellow-500 text-glow-yellow', 'text-pink-500 text-glow-pink', 'text-white'];
                     @endphp
                     @foreach($titleParts as $index => $word)
-                        <span class="{{ $colors[$index % count($colors)] }}">{{ $word }}</span>
+                        <span class="{{ $colors[$index % count($colors)] }} block sm:inline">{{ $word }}</span>
                     @endforeach
                 </h1>
             @endif
 
             <!-- Subtitle -->
             @if($heroSection->subtitle)
-                <p class="text-2xl md:text-3xl text-gray-300 mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">
+                <p class="text-2xl md:text-4xl text-gray-300 mb-6 font-bold tracking-tight animate-fade-in-up" style="animation-delay: 0.2s;">
                     {{ $heroSection->subtitle }}
                 </p>
             @endif
 
             <!-- Description -->
             @if($heroSection->description)
-                <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.3s;">
+                <p class="text-lg md:text-xl text-gray-400 mb-14 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.3s;">
                     {{ $heroSection->description }}
                 </p>
             @endif
 
             <!-- CTA Buttons -->
             @if($heroSection->cta_primary_text || $heroSection->cta_secondary_text)
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
                     @if($heroSection->cta_primary_text)
                         <a href="{{ $heroSection->cta_primary_url ?? '/register' }}" 
-                           class="group relative px-12 py-5 bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black text-xl font-black rounded-xl transition-all shadow-2xl shadow-yellow-500/50 hover:shadow-yellow-500/70 transform hover:-translate-y-1 overflow-hidden">
-                            <span class="relative z-10">{{ $heroSection->cta_primary_text }}</span>
-                            <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                           class="group relative px-14 py-6 bg-gradient-to-r from-yellow-500 to-yellow-400 text-black text-2xl font-black rounded-2xl transition-all shadow-2xl shadow-yellow-500/40 hover:shadow-yellow-500/60 transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
+                            <span class="relative z-10 uppercase tracking-tighter">{{ $heroSection->cta_primary_text }}</span>
                         </a>
                     @endif
 
                     @if($heroSection->cta_secondary_text)
                         <a href="{{ $heroSection->cta_secondary_url ?? '/games' }}" 
-                           class="px-12 py-5 bg-gray-800 hover:bg-gray-700 text-white text-xl font-bold rounded-xl transition-all border-2 border-gray-700 hover:border-yellow-500 hover:shadow-lg transform hover:-translate-y-1">
+                           class="px-14 py-6 bg-gray-900/50 hover:bg-gray-800 text-white text-2xl font-black rounded-2xl transition-all border-2 border-gray-700 hover:border-yellow-500 shadow-xl backdrop-blur-sm transform hover:-translate-y-1.5">
                             {{ $heroSection->cta_secondary_text }}
                         </a>
                     @endif
@@ -103,13 +106,13 @@
 
             <!-- Stats -->
             @if($heroSection->stats && count($heroSection->stats) > 0)
-                <div class="grid grid-cols-3 gap-4 md:gap-8 pt-16 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.5s;">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 pt-20 max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.6s;">
                     @foreach($heroSection->stats as $stat)
-                        <div class="group">
-                            <div class="text-3xl md:text-5xl font-black text-yellow-500 mb-2 group-hover:scale-110 transition-transform">
+                        <div class="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-yellow-500/50 transition-colors">
+                            <div class="text-4xl md:text-5xl font-black text-yellow-500 mb-2 group-hover:scale-110 transition-transform text-glow-yellow">
                                 {{ $stat['value'] ?? '' }}
                             </div>
-                            <div class="text-xs md:text-sm text-gray-400">{{ $stat['label'] ?? '' }}</div>
+                            <div class="text-xs md:text-sm text-gray-400 font-bold uppercase tracking-widest">{{ $stat['label'] ?? '' }}</div>
                         </div>
                     @endforeach
                 </div>
@@ -118,51 +121,77 @@
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="w-8 h-12 rounded-full border-2 border-yellow-500/30 flex justify-center p-2">
+            <div class="w-1 h-3 bg-yellow-500 rounded-full animate-scroll"></div>
+        </div>
     </div>
 </section>
 
 <style>
     @keyframes twinkle {
-        0%, 100% { opacity: 0.2; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.5); }
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.3); }
     }
 
     @keyframes float {
-        0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
-        25% { transform: translateY(-20px) translateX(10px); opacity: 0.6; }
-        50% { transform: translateY(-40px) translateX(-10px); opacity: 0.3; }
-        75% { transform: translateY(-20px) translateX(20px); opacity: 0.6; }
+        0%, 100% { transform: translateY(0) translateX(0); }
+        50% { transform: translateY(-30px) translateX(15px); }
     }
 
     @keyframes fade-in-up {
-        0% { opacity: 0; transform: translateY(30px); }
+        0% { opacity: 0; transform: translateY(40px); }
         100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fade-in-down {
-        0% { opacity: 0; transform: translateY(-30px); }
+        0% { opacity: 0; transform: translateY(-40px); }
         100% { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes scroll {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(15px); opacity: 0; }
+    }
+
+    @keyframes shooting {
+        0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 0; }
+        10% { opacity: 1; }
+        20% { transform: translateX(-500px) translateY(500px) rotate(-45deg); opacity: 0; }
+        100% { transform: translateX(-500px) translateY(500px) rotate(-45deg); opacity: 0; }
+    }
+
     .animate-twinkle {
-        animation: twinkle 3s ease-in-out infinite;
+        animation: twinkle var(--duration, 4s) ease-in-out infinite;
     }
 
     .animate-float {
-        animation: float 8s ease-in-out infinite;
+        animation: float 10s ease-in-out infinite;
     }
 
     .animate-fade-in-up {
-        animation: fade-in-up 0.8s ease-out forwards;
+        animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         opacity: 0;
     }
 
     .animate-fade-in-down {
-        animation: fade-in-down 0.8s ease-out forwards;
+        animation: fade-in-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         opacity: 0;
+    }
+
+    .animate-scroll {
+        animation: scroll 2s ease-in-out infinite;
+    }
+
+    .shooting-star {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2px;
+        height: 100px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+        opacity: 0;
+        animation: shooting 10s linear infinite;
+        pointer-events: none;
     }
 </style>
