@@ -56,7 +56,6 @@
             </div>
         </section>
     @endif
-    @endif
 
     <!-- Featured Games Section -->
     @if(isset($featuredGames) && $featuredGames->count() > 0)
