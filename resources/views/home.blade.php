@@ -91,80 +91,153 @@
     @endif
 
     <!-- Game Categories -->
-    <section class="py-20 md:py-32 relative">
+    <section id="categories" class="py-20 md:py-32 relative overflow-hidden">
         <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-3xl"></div>
+        <!-- Decorative light blobs -->
+        <div class="absolute top-0 -left-20 w-80 h-80 bg-pink-500/10 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-0 -right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px]"></div>
+        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-black mb-6 tracking-tighter">
-                    <span class="text-white">🎮</span> <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent text-glow-pink">CHOOSE</span> <span class="text-white">YOUR DESTINY</span>
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-4xl md:text-7xl font-black mb-6 tracking-tighter animate-fade-in-down">
+                    <span class="inline-block animate-bounce-slow">🎮</span> 
+                    <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(236,72,153,0.3)]">CHOOSE</span> 
+                    <span class="text-white">YOUR DESTINY</span>
                 </h2>
-                <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-medium">Browse our massive collection of high-stakes entertainment</p>
+                <div class="h-1.5 w-24 bg-gradient-to-r from-pink-500 to-blue-500 mx-auto rounded-full shadow-[0_0_10px_rgba(236,72,153,0.5)]"></div>
+                <p class="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto font-medium opacity-80 pt-4">
+                    Dive into our premium selection of high-stakes entertainment
+                </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <!-- Mobile: Horizontal Scroll, Desktop: Grid -->
+            <div class="flex md:grid md:grid-cols-3 lg:grid-cols-5 gap-6 overflow-x-auto md:overflow-x-visible pb-12 md:pb-0 snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
                 @php
                     $categories = [
-                        ['type' => 'slots', 'emoji' => '🎰', 'label' => 'Slots', 'color' => 'from-yellow-500 to-orange-600', 'glow' => 'shadow-yellow-500/20', 'count' => '50+'],
-                        ['type' => 'fish', 'emoji' => '🐟', 'label' => 'Fish Games', 'color' => 'from-blue-500 to-cyan-600', 'glow' => 'shadow-blue-500/20', 'count' => '20+'],
-                        ['type' => 'keno', 'emoji' => '🎲', 'label' => 'Keno', 'color' => 'from-pink-500 to-rose-600', 'glow' => 'shadow-pink-500/20', 'count' => '10+'],
-                        ['type' => 'table', 'emoji' => '🎯', 'label' => 'Table Games', 'color' => 'from-green-500 to-emerald-600', 'glow' => 'shadow-green-500/20', 'count' => '15+'],
-                        ['type' => 'card', 'emoji' => '🃏', 'label' => 'Card Games', 'color' => 'from-purple-500 to-indigo-600', 'glow' => 'shadow-purple-500/20', 'count' => '15+'],
+                        ['type' => 'slots', 'emoji' => '🎰', 'label' => 'Slots', 'color' => 'from-yellow-400/20 to-orange-500/20', 'border' => 'hover:border-yellow-500/50', 'count' => '50+'],
+                        ['type' => 'fish', 'emoji' => '🐟', 'label' => 'Fish Games', 'color' => 'from-blue-400/20 to-cyan-500/20', 'border' => 'hover:border-blue-500/50', 'count' => '20+'],
+                        ['type' => 'keno', 'emoji' => '🎲', 'label' => 'Keno', 'color' => 'from-pink-400/20 to-rose-500/20', 'border' => 'hover:border-pink-500/50', 'count' => '10+'],
+                        ['type' => 'table', 'emoji' => '🎯', 'label' => 'Table Games', 'color' => 'from-green-400/20 to-emerald-500/20', 'border' => 'hover:border-green-500/50', 'count' => '15+'],
+                        ['type' => 'card', 'emoji' => '🃏', 'label' => 'Card Games', 'color' => 'from-purple-400/20 to-indigo-500/20', 'border' => 'hover:border-purple-500/50', 'count' => '15+'],
                     ];
                 @endphp
 
                 @foreach($categories as $cat)
                 <a href="{{ route('games.index', ['type' => $cat['type']]) }}" 
-                   class="group relative bg-gray-800/50 border border-white/5 p-10 rounded-[2rem] hover:border-white/20 transition-all duration-500 text-center transform hover:-translate-y-4 hover:shadow-2xl overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br {{ $cat['color'] }} opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                    <div class="text-6xl mb-6 transition-transform duration-500 group-hover:scale-125 group-hover:rotate-6">{{ $cat['emoji'] }}</div>
-                    <h3 class="text-2xl font-black text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:{{ $cat['color'] }} group-hover:bg-clip-text">{{ $cat['label'] }}</h3>
-                    <p class="text-gray-500 text-sm font-bold uppercase tracking-widest group-hover:text-gray-300">{{ $cat['count'] }} Games</p>
+                   class="group relative flex-none w-[80vw] md:w-auto bg-gray-900/40 backdrop-blur-xl border border-white/5 p-8 md:p-10 rounded-[2.5rem] {{ $cat['border'] }} transition-all duration-700 text-center transform hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden snap-center animate-shine-fast">
+                    
+                    <!-- Hover Background Reveal -->
+                    <div class="absolute inset-0 bg-gradient-to-br {{ $cat['color'] }} opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
+                    <!-- Emoji with floating animation -->
+                    <div class="text-7xl mb-8 relative z-10 transition-all duration-700 transform group-hover:scale-125 group-hover:-rotate-12 drop-shadow-2xl animate-float-slow">
+                        {{ $cat['emoji'] }}
+                    </div>
+
+                    <!-- Labels -->
+                    <div class="relative z-10 space-y-2">
+                        <h3 class="text-2xl font-black text-white group-hover:tracking-wider transition-all duration-500 uppercase">
+                            {{ $cat['label'] }}
+                        </h3>
+                        <p class="text-gray-400 text-sm font-bold uppercase tracking-[0.2em] group-hover:text-white/80 transition-colors">
+                            {{ $cat['count'] }} Games
+                        </p>
+                    </div>
+
+                    <!-- Decorative elements -->
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-colors duration-700"></div>
                 </a>
                 @endforeach
+            </div>
+            
+            <!-- Mobile Hint -->
+            <div class="md:hidden mt-4 text-center">
+                <div class="inline-flex items-center gap-2 text-gray-500 text-xs font-bold uppercase tracking-widest animate-pulse">
+                    <span>Swipe to explore</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="py-20 md:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-black mb-6 tracking-tighter">
-                    <span class="text-white">🚀</span> <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">3 STEPS</span> <span class="text-white">TO WIN</span>
+    <section id="how-it-works" class="py-20 md:py-32 relative overflow-hidden">
+        <!-- Decorative Background Elements -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-500/5 rounded-full blur-[120px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-24 space-y-6">
+                <h2 class="text-5xl md:text-8xl font-black mb-6 tracking-tighter leading-none">
+                    <span class="inline-block animate-bounce-slow">🚀</span> 
+                    <span class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">3 STEPS</span> 
+                    <span class="text-white">TO WIN</span>
                 </h2>
-                <p class="text-xl md:text-2xl text-gray-400 font-medium">Start your winning streak in under a minute</p>
+                <div class="h-1.5 w-32 bg-gradient-to-r from-yellow-400 to-red-500 mx-auto rounded-full shadow-[0_0_20px_rgba(234,179,8,0.5)]"></div>
+                <p class="text-xl md:text-3xl text-gray-400 font-medium max-w-2xl mx-auto">Start your winning streak in under a minute</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="group relative bg-gray-900/50 p-12 rounded-[2.5rem] border border-white/5 hover:border-yellow-500/30 transition-all duration-500 text-center transform hover:-translate-y-3">
-                    <div class="w-24 h-24 bg-gradient-to-br from-yellow-500 to-orange-500 text-black rounded-3xl flex items-center justify-center mb-10 text-4xl font-black mx-auto shadow-[0_0_30px_rgba(234,179,8,0.4)] transition-transform group-hover:rotate-12 group-hover:scale-110">
-                        1
+            <div class="relative grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
+                <!-- Connection Line (Desktop) -->
+                <div class="hidden md:block absolute top-32 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
+
+                <!-- Step 1 -->
+                <div class="group relative text-center">
+                    <div class="relative mb-12 inline-block">
+                        <div class="absolute inset-0 bg-yellow-500/20 blur-3xl rounded-full group-hover:bg-yellow-500/40 transition-all duration-700"></div>
+                        <div class="relative w-32 h-32 bg-gray-900 border-2 border-yellow-500/30 rounded-[2.5rem] flex items-center justify-center text-5xl font-black text-yellow-500 shadow-2xl transform group-hover:rotate-[15deg] group-hover:scale-110 transition-all duration-500">
+                            1
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-500 rounded-full animate-pulse"></div>
+                        </div>
                     </div>
-                    <h3 class="text-3xl font-black text-white mb-6 uppercase tracking-tighter group-hover:text-yellow-500 transition-colors">Sign Up</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed font-medium">
-                        Create your account in 30 seconds and instantly unlock a <span class="text-yellow-500 font-bold">$1000</span> starting bonus.
-                    </p>
+                    <div class="space-y-4 px-4">
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:text-yellow-400 transition-colors duration-500">Sign Up</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed font-medium group-hover:text-gray-300 transition-colors">
+                            Create your account in 30 seconds and instantly unlock a <span class="text-yellow-500 font-bold drop-shadow-[0_0_10px_rgba(234,179,8,0.3)]">$1000</span> starting bonus.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="group relative bg-gray-900/50 p-12 rounded-[2.5rem] border border-white/5 hover:border-pink-500/30 transition-all duration-500 text-center transform hover:-translate-y-3">
-                    <div class="w-24 h-24 bg-gradient-to-br from-pink-500 to-purple-600 text-white rounded-3xl flex items-center justify-center mb-10 text-4xl font-black mx-auto shadow-[0_0_30px_rgba(236,72,153,0.4)] transition-transform group-hover:-rotate-12 group-hover:scale-110">
-                        2
+                <!-- Step 2 -->
+                <div class="group relative text-center">
+                    <div class="relative mb-12 inline-block">
+                        <div class="absolute inset-0 bg-pink-500/20 blur-3xl rounded-full group-hover:bg-pink-500/40 transition-all duration-700"></div>
+                        <div class="relative w-32 h-32 bg-gray-900 border-2 border-pink-500/30 rounded-[2.5rem] flex items-center justify-center text-5xl font-black text-pink-500 shadow-2xl transform group-hover:-rotate-[15deg] group-hover:scale-110 transition-all duration-500">
+                            2
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-pink-500 rounded-full animate-pulse"></div>
+                        </div>
                     </div>
-                    <h3 class="text-3xl font-black text-white mb-6 uppercase tracking-tighter group-hover:text-pink-500 transition-colors">Choose Game</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed font-medium">
-                        Explore our massive library of premium titles and find your lucky match with the <span class="text-pink-500 font-bold">best odds</span>.
-                    </p>
+                    <div class="space-y-4 px-4">
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:text-pink-400 transition-colors duration-500">Choose Game</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed font-medium group-hover:text-gray-300 transition-colors">
+                            Explore our massive library of premium titles and find your lucky match with the <span class="text-pink-500 font-bold drop-shadow-[0_0_10px_rgba(236,72,153,0.3)]">best odds</span>.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="group relative bg-gray-900/50 p-12 rounded-[2.5rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500 text-center transform hover:-translate-y-3">
-                    <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-600 text-white rounded-3xl flex items-center justify-center mb-10 text-4xl font-black mx-auto shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-transform group-hover:rotate-12 group-hover:scale-110">
-                        3
+                <!-- Step 3 -->
+                <div class="group relative text-center">
+                    <div class="relative mb-12 inline-block">
+                        <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full group-hover:bg-blue-500/40 transition-all duration-700"></div>
+                        <div class="relative w-32 h-32 bg-gray-900 border-2 border-blue-500/30 rounded-[2.5rem] flex items-center justify-center text-5xl font-black text-blue-500 shadow-2xl transform group-hover:rotate-[15deg] group-hover:scale-110 transition-all duration-500">
+                            3
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full animate-pulse"></div>
+                        </div>
                     </div>
-                    <h3 class="text-3xl font-black text-white mb-6 uppercase tracking-tighter group-hover:text-blue-500 transition-colors">Play & Win</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed font-medium">
-                        Experience the rush of winning and withdraw your earnings <span class="text-blue-500 font-bold">instantly</span> to your account.
-                    </p>
+                    <div class="space-y-4 px-4">
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:text-blue-400 transition-colors duration-500">Play & Win</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed font-medium group-hover:text-gray-300 transition-colors">
+                            Experience the rush of winning and withdraw your earnings <span class="text-blue-500 font-bold drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">instantly</span> to your account.
+                        </p>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- Final CTA -->
+            <div class="mt-24 text-center">
+                <a href="#auth-section" class="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-2xl text-xl font-black hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_rgba(255,255,255,0.1)]">
+                    GET STARTED NOW
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </a>
             </div>
         </div>
     </section>
