@@ -1,6 +1,6 @@
 Illuminate\Database\QueryException
 vendor/laravel/framework/src/Illuminate/Database/Connection.php:838
-SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orion.categories' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: orion, SQL: select `categories`.*, (select count(*) from `posts` where `categories`.`id` = `posts`.`category_id`) as `posts_count` from `categories`)
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orion.faqs' doesn't exist (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: orion, SQL: select * from `faqs` where `faqs`.`post_id` in (4) order by `sort_order` asc)
 
 LARAVEL
 12.56.0
@@ -10,18 +10,19 @@ UNHANDLED
 CODE 42S02
 500
 GET
-http://orionstars.joomni.com/blog
+http://orionstars.joomni.com/blog/top-10-slot-strategies-for-maximum-wins-in-2026
 
 Exception trace
-9 vendor frames
+16 vendor frames
 
-Illuminate\Database\Eloquent\Builder->get()
-app/Http/Controllers/BlogController.php:29
+Illuminate\Database\Eloquent\Builder->firstOrFail()
+app/Http/Controllers/BlogController.php:37
 
-24                  ->orWhere('content', 'like', '%' . $request->search . '%');
-25            });
-26        }
-27
-28        $posts = $query->paginate(9);
-29        $categories = Category::withCount('posts')->get();
-30        $recentPosts = Post::latest()->take(5)->get();
+32        return view('blog.index', compact('posts', 'categories', 'recentPosts'));
+33    }
+34
+35    public function show($slug)
+36    {
+37        $post = Post::with(['category', 'faqs'])->where('slug', $slug)->firstOrFail();
+38        $recentPosts = Post::latest()->where('id', '!=', $post->id)->take(5)->get();
+39        $categories = Category::withCount('posts')->get();
