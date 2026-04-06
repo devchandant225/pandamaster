@@ -35,7 +35,7 @@
                     <div class="space-y-6">
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Article Title <span class="text-red-500">*</span></label>
-                            <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" placeholder="e.g. 5 Tips for First-Time Home Buyers in Vancouver" 
+                            <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" placeholder="e.g. 5 Pro Tips for Winning Big at OrionStar" 
                                 class="w-full h-16 px-6 bg-gray-50 border-2 border-gray-200 focus:border-[#D4AF37] focus:bg-white rounded-2xl outline-none transition-all font-black text-xl text-gray-900" 
                                 required onkeyup="generateSlug()">
                             @error('title') <p class="text-red-500 text-[10px] font-bold mt-1 uppercase">{{ $message }}</p> @enderror
@@ -158,7 +158,7 @@
 
                         <div class="space-y-1">
                             <label class="block text-[9px] font-black text-gray-400 uppercase tracking-widest">Meta Keywords</label>
-                            <input type="text" name="meta_keywords" value="{{ old('meta_keywords', $post->meta_keywords) }}" placeholder="vancouver, real estate, matching" 
+                            <input type="text" name="meta_keywords" value="{{ old('meta_keywords', $post->meta_keywords) }}" placeholder="slots, casino, gaming, strategy" 
                                 class="w-full h-10 px-4 bg-gray-50 border border-gray-100 focus:border-[#D4AF37] rounded-lg outline-none transition-all text-xs font-bold text-gray-900">
                         </div>
 
