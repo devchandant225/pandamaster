@@ -31,6 +31,10 @@
                     About
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
+                <a href="{{ route('contact') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-sm tracking-wider uppercase">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
 
                 @auth
                     <!-- Balance Display -->
@@ -92,6 +96,7 @@
             <a href="{{ route('games.index') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Games</a>
             <a href="{{ route('blog.index') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Blog</a>
             <a href="{{ route('about') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">About</a>
+            <a href="{{ route('contact') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Contact</a>
 
             @auth
                 @if(auth()->user()->player)
