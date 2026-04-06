@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', ['active' => 'blog'])
 
-@section('title', 'Create Article - 888Realty Admin')
+@section('title', 'Create Article - OrionstarBet Admin')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-50 min-h-screen">
@@ -100,8 +100,8 @@
 
                         <div class="space-y-2 text-left">
                             <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest">Author Display</label>
-                            <input type="text" name="author" value="{{ old('author', '888Realty Team') }}" 
-                                class="w-full h-12 px-4 bg-white border-2 border-gray-200 focus:border-[#D4AF37] rounded-xl outline-none transition-all font-bold text-sm text-gray-900">
+                            <input type="text" name="author" value="{{ old('author', 'OrionstarBet Team') }}"
+                                class="w-full h-12 px-4 bg-white border-2 border-gray-200 focus:border-yellow-500 rounded-xl outline-none transition-all font-bold text-sm text-gray-900">
                         </div>
 
                         <div class="pt-4 flex flex-col gap-3">

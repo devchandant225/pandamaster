@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', ['active' => 'blog'])
 
-@section('title', 'Blog Management - 888Realty Admin')
+@section('title', 'Blog Management - OrionstarBet Admin')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-50 min-h-screen">
