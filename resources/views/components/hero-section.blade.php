@@ -60,7 +60,7 @@
 
             <!-- Title with Animation -->
             @if($heroSection->title)
-                <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 leading-[0.9] animate-fade-in-up">
+                <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 leading-[0.9] animate-fade-in-up">
                     @php
                         $titleParts = explode(' ', $heroSection->title);
                         $colors = ['text-yellow-500 text-glow-yellow', 'text-pink-500 text-glow-pink', 'text-white'];
