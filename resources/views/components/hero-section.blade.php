@@ -62,7 +62,7 @@
                         $colors = ['text-yellow-500', 'text-pink-500', 'text-white'];
                     @endphp
                     @foreach($titleParts as $index => $word)
-                        <span class="{{ $colors[$index % count($colors) }}">{{ $word }}</span>@if(!$loop->last) @endif
+                        <span class="{{ $colors[$index % count($colors)] }}">{{ $word }}</span>
                     @endforeach
                 </h1>
             @endif
