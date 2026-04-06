@@ -4,66 +4,53 @@
 
 @section('content')
 <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden py-20 md:py-32">
-        <!-- Animated Background -->
-        <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-pink-500/10 animate-pulse"></div>
-            <div class="absolute top-20 left-10 w-72 h-72 bg-yellow-500/20 rounded-full blur-3xl animate-ping"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-ping" style="animation-delay: 1s;"></div>
-        </div>
+    <!-- Dynamic Hero Section -->
+    @if($heroSection && $heroSection->is_active)
+        <x-hero-section :section="$heroSection" />
+    @else
+        <!-- Fallback Hero Section -->
+        <section class="relative overflow-hidden min-h-screen flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/10 via-pink-500/10 to-yellow-500/10 animate-pulse"></div>
+            
+            @for($i = 0; $i < 50; $i++)
+                <div class="absolute w-1 h-1 bg-white rounded-full animate-twinkle" 
+                     style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 3000) }}ms;"></div>
+            @endfor
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500/20 border border-yellow-500 rounded-full text-yellow-500 font-semibold mb-8">
-                    <svg class="w-5 h-5 animate-spin" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                    </svg>
-                    Premium Gaming Experience
-                </div>
-
-                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight animate-fade-in-up">
                     <span class="text-yellow-500">Play</span> <span class="text-pink-500">Win</span> <span class="text-white">Repeat</span>
                 </h1>
-
-                <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto">
-                    Discover 100+ premium games with the best odds and biggest wins
+                <p class="text-2xl md:text-3xl text-gray-300 mb-12 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Your Premier Online Gaming Destination
                 </p>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    @auth
-                        <a href="{{ route('dashboard') }}" class="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-12 py-5 rounded-xl text-xl font-black transition-all shadow-2xl shadow-yellow-500/50 hover:shadow-yellow-500/70 transform hover:-translate-y-1">
-                            🎮 Start Playing
-                        </a>
-                    @else
-                        <a href="{{ route('register') }}" class="bg-gradient-to-r from-pink-500 to-pink-400 hover:from-pink-400 hover:to-pink-300 text-white px-12 py-5 rounded-xl text-xl font-black transition-all shadow-2xl shadow-pink-500/50 hover:shadow-pink-500/70 transform hover:-translate-y-1">
-                            🎰 Join Now - Get $1000 Bonus
-                        </a>
-                        <a href="{{ route('games.index') }}" class="bg-gray-800 hover:bg-gray-700 text-white px-12 py-5 rounded-xl text-xl font-bold transition-all border-2 border-gray-700 hover:border-yellow-500">
-                            Browse Games
-                        </a>
-                    @endauth
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <a href="{{ route('register') }}" class="group relative px-12 py-5 bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black text-xl font-black rounded-xl transition-all shadow-2xl shadow-yellow-500/50 hover:shadow-yellow-500/70 transform hover:-translate-y-1 overflow-hidden">
+                        <span class="relative z-10">🎰 Start Playing - Get $1000 Bonus</span>
+                        <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                    </a>
+                    <a href="{{ route('games.index') }}" class="px-12 py-5 bg-gray-800 hover:bg-gray-700 text-white text-xl font-bold rounded-xl transition-all border-2 border-gray-700 hover:border-yellow-500 hover:shadow-lg transform hover:-translate-y-1">
+                        Browse Games
+                    </a>
                 </div>
-
-                <!-- Trust Indicators -->
-                <div class="grid grid-cols-3 gap-4 md:gap-8 pt-16 max-w-3xl mx-auto">
-                    <div>
-                        <div class="text-3xl md:text-5xl font-black text-yellow-500 mb-2">100+</div>
+                <div class="grid grid-cols-3 gap-4 md:gap-8 pt-16 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="group">
+                        <div class="text-3xl md:text-5xl font-black text-yellow-500 mb-2 group-hover:scale-110 transition-transform">100+</div>
                         <div class="text-xs md:text-sm text-gray-400">Premium Games</div>
                     </div>
-                    <div>
-                        <div class="text-3xl md:text-5xl font-black text-pink-500 mb-2">$2M+</div>
+                    <div class="group">
+                        <div class="text-3xl md:text-5xl font-black text-pink-500 mb-2 group-hover:scale-110 transition-transform">$2M+</div>
                         <div class="text-xs md:text-sm text-gray-400">Won This Week</div>
                     </div>
-                    <div>
-                        <div class="text-3xl md:text-5xl font-black text-yellow-500 mb-2">50K+</div>
+                    <div class="group">
+                        <div class="text-3xl md:text-5xl font-black text-yellow-500 mb-2 group-hover:scale-110 transition-transform">50K+</div>
                         <div class="text-xs md:text-sm text-gray-400">Active Players</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <!-- Featured Games Section -->
     @if(isset($featuredGames) && $featuredGames->count() > 0)

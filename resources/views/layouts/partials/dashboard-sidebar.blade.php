@@ -30,11 +30,22 @@
         <div>
             <h3 class="px-4 text-[10px] font-black text-gray-500 uppercase tracking-wider mb-4 flex items-center gap-2">
                 <span class="w-1 h-1 bg-pink-500 rounded-full"></span>
-                Content & Users
+                Content & Pages
             </h3>
             <div class="space-y-1.5">
+                <x-sidebar-link :href="route('admin.landing-sections.index')" :active="$active === 'landing-sections'" icon="star" label="Landing Page" />
                 <x-sidebar-link :href="route('admin.blog.index')" :active="$active === 'blog'" icon="edit" label="Blog Articles" />
                 <x-sidebar-link :href="route('admin.categories.index')" :active="$active === 'categories'" icon="tag" label="Blog Categories" />
+            </div>
+        </div>
+
+        <!-- Users & Settings -->
+        <div>
+            <h3 class="px-4 text-[10px] font-black text-gray-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span class="w-1 h-1 bg-green-500 rounded-full"></span>
+                Users & Settings
+            </h3>
+            <div class="space-y-1.5">
                 <x-sidebar-link :href="route('admin.users.index')" :active="$active === 'users'" icon="user-group" label="Users" />
                 <x-sidebar-link :href="route('admin.meta-tags.index')" :active="$active === 'meta-tags'" icon="search" label="SEO Settings" />
             </div>

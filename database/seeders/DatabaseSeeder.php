@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      * 1. UserSeeder - Creates admin users
      * 2. PostSeeder - Creates blog posts
      * 3. GameSeeder - Creates sample games and categories
+     * 4. LandingSectionSeeder - Creates default landing page sections
      */
     public function run(): void
     {
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PostSeeder::class,
             GameSeeder::class,
+            LandingSectionSeeder::class,
         ]);
     }
 }

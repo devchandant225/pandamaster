@@ -64,16 +64,16 @@ class MetaTag extends Model
         return [
             'home' => 'Home Page',
             'about' => 'About Page',
-            'contact' => 'Contact Page',
-            'investors' => 'Investor Deals Page',
-            'tools' => 'Tools Page',
-            'city' => 'City Page',
-            'property' => 'Property Detail Page',
-            'properties' => 'Properties Listing',
+            'games' => 'Games Listing Page',
+            'game' => 'Game Detail Page',
             'blog' => 'Blog Listing',
             'post' => 'Blog Post',
+            'dashboard' => 'Player Dashboard',
+            'register' => 'Registration Page',
+            'login' => 'Login Page',
             'privacy' => 'Privacy Policy',
-            'terms-condition' => 'Terms & Conditions'
+            'terms' => 'Terms & Conditions',
+            'responsible-gaming' => 'Responsible Gaming'
         ];
     }
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\GameAdminController;
 use App\Http\Controllers\Admin\GameCategoryAdminController;
 use App\Http\Controllers\Admin\MetaTagController;
+use App\Http\Controllers\Admin\LandingSectionController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
@@ -91,6 +92,15 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::put('/meta-tags/{metaTag}', [MetaTagController::class, 'update'])->name('meta-tags.update');
     Route::delete('/meta-tags/{metaTag}', [MetaTagController::class, 'destroy'])->name('meta-tags.destroy');
     Route::post('/meta-tags/{metaTag}/toggle-status', [MetaTagController::class, 'toggleStatus'])->name('meta-tags.toggle-status');
+
+    // Landing Page Management
+    Route::get('/landing-sections', [LandingSectionController::class, 'index'])->name('landing-sections.index');
+    Route::get('/landing-sections/create', [LandingSectionController::class, 'create'])->name('landing-sections.create');
+    Route::post('/landing-sections', [LandingSectionController::class, 'store'])->name('landing-sections.store');
+    Route::get('/landing-sections/{landingSection}/edit', [LandingSectionController::class, 'edit'])->name('landing-sections.edit');
+    Route::put('/landing-sections/{landingSection}', [LandingSectionController::class, 'update'])->name('landing-sections.update');
+    Route::delete('/landing-sections/{landingSection}', [LandingSectionController::class, 'destroy'])->name('landing-sections.destroy');
+    Route::post('/landing-sections/{landingSection}/toggle-status', [LandingSectionController::class, 'toggleStatus'])->name('landing-sections.toggle-status');
 
     // Blog Management
     Route::get('/blog', [\App\Http\Controllers\Admin\AdminPostController::class, 'index'])->name('blog.index');
