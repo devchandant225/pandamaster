@@ -91,70 +91,78 @@
     @endif
 
     <!-- Game Categories -->
-    <section id="categories" class="py-20 md:py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-3xl"></div>
-        <!-- Decorative light blobs -->
-        <div class="absolute top-0 -left-20 w-80 h-80 bg-pink-500/10 rounded-full blur-[100px]"></div>
-        <div class="absolute bottom-0 -right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px]"></div>
+    <section id="categories" class="py-24 md:py-40 relative overflow-hidden bg-mesh">
+        <div class="absolute inset-0 bg-gray-950/60 backdrop-blur-md"></div>
         
+        <!-- Rotating Light Rays -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] animate-spin-slow opacity-20 pointer-events-none">
+            <div class="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0deg,rgba(236,72,153,0.3)_10deg,transparent_20deg,rgba(59,130,246,0.3)_30deg,transparent_40deg)]"></div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16 space-y-4">
-                <h2 class="text-4xl md:text-7xl font-black mb-6 tracking-tighter animate-fade-in-down">
-                    <span class="inline-block animate-bounce-slow">🎮</span> 
-                    <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(236,72,153,0.3)]">CHOOSE</span> 
-                    <span class="text-white">YOUR DESTINY</span>
+            <div class="text-center mb-20 space-y-6">
+                <div class="inline-block px-6 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-4">
+                    <span class="text-xs font-black uppercase tracking-[0.3em] text-pink-500 animate-pulse">Select Your Kingdom</span>
+                </div>
+                <h2 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-[0.8]">
+                    <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent filter drop-shadow-[0_0_20px_rgba(236,72,153,0.5)]">DESTINY</span>
+                    <br>
+                    <span class="text-white text-[0.6em] md:text-[0.4em] tracking-widest opacity-90">AWAITS YOU</span>
                 </h2>
-                <div class="h-1.5 w-24 bg-gradient-to-r from-pink-500 to-blue-500 mx-auto rounded-full shadow-[0_0_10px_rgba(236,72,153,0.5)]"></div>
-                <p class="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto font-medium opacity-80 pt-4">
-                    Dive into our premium selection of high-stakes entertainment
+                <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-medium opacity-80 pt-4">
+                    Choose from our legendary collection of high-stakes arenas
                 </p>
             </div>
 
             <!-- Mobile: Horizontal Scroll, Desktop: Grid -->
-            <div class="flex md:grid md:grid-cols-3 lg:grid-cols-5 gap-6 overflow-x-auto md:overflow-x-visible pb-12 md:pb-0 snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+            <div class="flex md:grid md:grid-cols-3 lg:grid-cols-5 gap-8 overflow-x-auto md:overflow-x-visible pb-12 md:pb-0 snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
                 @php
                     $categories = [
-                        ['type' => 'slots', 'emoji' => '🎰', 'label' => 'Slots', 'color' => 'from-yellow-400/20 to-orange-500/20', 'border' => 'hover:border-yellow-500/50', 'count' => '50+'],
-                        ['type' => 'fish', 'emoji' => '🐟', 'label' => 'Fish Games', 'color' => 'from-blue-400/20 to-cyan-500/20', 'border' => 'hover:border-blue-500/50', 'count' => '20+'],
-                        ['type' => 'keno', 'emoji' => '🎲', 'label' => 'Keno', 'color' => 'from-pink-400/20 to-rose-500/20', 'border' => 'hover:border-pink-500/50', 'count' => '10+'],
-                        ['type' => 'table', 'emoji' => '🎯', 'label' => 'Table Games', 'color' => 'from-green-400/20 to-emerald-500/20', 'border' => 'hover:border-green-500/50', 'count' => '15+'],
-                        ['type' => 'card', 'emoji' => '🃏', 'label' => 'Card Games', 'color' => 'from-purple-400/20 to-indigo-500/20', 'border' => 'hover:border-purple-500/50', 'count' => '15+'],
+                        ['type' => 'slots', 'emoji' => '🎰', 'label' => 'Slots', 'color' => 'from-yellow-400 via-orange-500 to-yellow-600', 'glow' => 'rgba(234,179,8,0.4)', 'bg' => 'bg-yellow-500/10'],
+                        ['type' => 'fish', 'emoji' => '🐟', 'label' => 'Ocean', 'color' => 'from-blue-400 via-cyan-500 to-indigo-600', 'glow' => 'rgba(59,130,246,0.4)', 'bg' => 'bg-blue-500/10'],
+                        ['type' => 'keno', 'emoji' => '🎲', 'label' => 'Keno', 'color' => 'from-pink-400 via-rose-500 to-purple-600', 'glow' => 'rgba(236,72,153,0.4)', 'bg' => 'bg-pink-500/10'],
+                        ['type' => 'table', 'emoji' => '🎯', 'label' => 'Elite', 'color' => 'from-green-400 via-emerald-500 to-teal-600', 'glow' => 'rgba(16,185,129,0.4)', 'bg' => 'bg-green-500/10'],
+                        ['type' => 'card', 'emoji' => '🃏', 'label' => 'Decks', 'color' => 'from-purple-400 via-indigo-500 to-blue-600', 'glow' => 'rgba(139,92,246,0.4)', 'bg' => 'bg-purple-500/10'],
                     ];
                 @endphp
 
                 @foreach($categories as $cat)
                 <a href="{{ route('games.index', ['type' => $cat['type']]) }}" 
-                   class="group relative flex-none w-[80vw] md:w-auto bg-gray-900/40 backdrop-blur-xl border border-white/5 p-8 md:p-10 rounded-[2.5rem] {{ $cat['border'] }} transition-all duration-700 text-center transform hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden snap-center animate-shine-fast">
+                   class="group relative flex-none w-[80vw] md:w-auto p-1 rounded-[3rem] transition-all duration-700 hover:scale-105 active:scale-95 snap-center">
                     
-                    <!-- Hover Background Reveal -->
-                    <div class="absolute inset-0 bg-gradient-to-br {{ $cat['color'] }} opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <!-- Rainbow Border Animation on Hover -->
+                    <div class="absolute inset-0 bg-gradient-to-r {{ $cat['color'] }} rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-[2px]"></div>
                     
-                    <!-- Emoji with floating animation -->
-                    <div class="text-7xl mb-8 relative z-10 transition-all duration-700 transform group-hover:scale-125 group-hover:-rotate-12 drop-shadow-2xl animate-float-slow">
-                        {{ $cat['emoji'] }}
-                    </div>
+                    <div class="relative h-full bg-gray-950/90 backdrop-blur-xl p-10 rounded-[2.9rem] flex flex-col items-center justify-center border border-white/5 overflow-hidden">
+                        <!-- Background glow pulse -->
+                        <div class="absolute inset-0 {{ $cat['bg'] }} opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        
+                        <!-- Floating Neon Emoji -->
+                        <div class="text-8xl mb-10 relative z-10 transition-all duration-700 transform group-hover:scale-125 group-hover:rotate-6 drop-shadow-[0_0_25px_{{ $cat['glow'] }}] animate-float-slow">
+                            {{ $cat['emoji'] }}
+                        </div>
 
-                    <!-- Labels -->
-                    <div class="relative z-10 space-y-2">
-                        <h3 class="text-2xl font-black text-white group-hover:tracking-wider transition-all duration-500 uppercase">
-                            {{ $cat['label'] }}
-                        </h3>
-                        <p class="text-gray-400 text-sm font-bold uppercase tracking-[0.2em] group-hover:text-white/80 transition-colors">
-                            {{ $cat['count'] }} Games
-                        </p>
-                    </div>
+                        <!-- Labels -->
+                        <div class="relative z-10 space-y-3">
+                            <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:bg-gradient-to-r group-hover:{{ $cat['color'] }} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500">
+                                {{ $cat['label'] }}
+                            </h3>
+                            <div class="h-1 w-8 bg-white/20 mx-auto rounded-full group-hover:w-16 group-hover:bg-gradient-to-r group-hover:{{ $cat['color'] }} transition-all duration-500"></div>
+                        </div>
 
-                    <!-- Decorative elements -->
-                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-colors duration-700"></div>
+                        <!-- Hover Flare -->
+                        <div class="absolute -top-1/2 -left-1/2 w-full h-full bg-white/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none"></div>
+                    </div>
                 </a>
                 @endforeach
             </div>
             
-            <!-- Mobile Hint -->
-            <div class="md:hidden mt-4 text-center">
-                <div class="inline-flex items-center gap-2 text-gray-500 text-xs font-bold uppercase tracking-widest animate-pulse">
-                    <span>Swipe to explore</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <!-- Custom Navigation Hint -->
+            <div class="md:hidden mt-8 text-center">
+                <div class="inline-flex items-center gap-4 text-gray-500 bg-white/5 px-6 py-3 rounded-2xl border border-white/10">
+                    <div class="w-12 h-1 bg-gradient-to-r from-transparent to-pink-500 rounded-full animate-pulse"></div>
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white">Slide to Explore</span>
+                    <div class="w-12 h-1 bg-gradient-to-r from-pink-500 to-transparent rounded-full animate-pulse"></div>
                 </div>
             </div>
         </div>
@@ -265,19 +273,31 @@
 
     <!-- New Games Section -->
     @if(isset($newGames) && $newGames->count() > 0)
-    <section class="py-20 md:py-32 relative overflow-hidden">
-        <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-green-500/5 rounded-full blur-[100px] -translate-y-1/2"></div>
+    <section class="py-24 md:py-32 relative overflow-hidden bg-gray-950">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] animate-pulse"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 1s;"></div>
+        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-black mb-6 tracking-tighter">
-                    <span class="text-white">✨</span> <span class="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-500 bg-clip-text text-transparent">FRESH</span> <span class="text-white">ARRIVALS</span>
-                </h2>
-                <p class="text-xl md:text-2xl text-gray-400 font-medium">Just landed! Be the first to play and conquer our latest additions</p>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="space-y-4">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+                        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
+                        <span class="text-xs font-black text-emerald-500 uppercase tracking-widest">Live Updates</span>
+                    </div>
+                    <h2 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">
+                        Fresh <span class="bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">Arrivals</span>
+                    </h2>
+                </div>
+                <p class="text-xl text-gray-400 max-w-md font-medium leading-tight">
+                    Be the first to conquer our latest legendary additions
+                </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach($newGames as $game)
-                    <x-game-card :game="$game" />
+                    <div class="hover-border-glow transition-all duration-500 rounded-[2rem]">
+                        <x-game-card :game="$game" />
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -286,53 +306,68 @@
 
     <!-- Blog Preview Section -->
     @if(isset($latestPosts) && $latestPosts->count() > 0)
-    <section class="py-20 md:py-32 relative">
-        <div class="absolute inset-0 bg-gray-900/20 backdrop-blur-3xl"></div>
+    <section class="py-24 md:py-40 relative bg-mesh overflow-hidden">
+        <div class="absolute inset-0 bg-gray-950/80 backdrop-blur-xl"></div>
+        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-6xl font-black mb-6 tracking-tighter">
-                    <span class="text-white">📝</span> <span class="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">PRO TIPS</span> <span class="text-white">& NEWS</span>
+            <div class="text-center mb-24 space-y-6">
+                <h2 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter leading-none">
+                    <span class="text-white">PRO</span> 
+                    <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(236,72,153,0.4)]">KNOWLEDGE</span>
                 </h2>
-                <p class="text-xl md:text-2xl text-gray-400 font-medium">Master the games with expert strategies and stay updated</p>
+                <div class="h-1 w-24 bg-pink-500 mx-auto rounded-full shadow-[0_0_15px_rgba(236,72,153,0.8)]"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 @foreach($latestPosts as $post)
-                <article class="group relative bg-gray-900 rounded-[2rem] overflow-hidden border border-white/5 hover:border-pink-500/30 transition-all duration-500 hover:-translate-y-3 shadow-2xl">
-                    <div class="aspect-[16/10] overflow-hidden">
+                <article class="group relative bg-gray-900/50 backdrop-blur-md rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-pink-500/50 transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
+                    <a href="{{ route('blog.show', $post->slug) }}" class="absolute inset-0 z-10" aria-label="{{ $post->title }}"></a>
+                    
+                    <!-- Image Container -->
+                    <div class="aspect-[16/11] overflow-hidden relative">
                         <img
                             src="{{ $post->image_url }}"
                             alt="{{ $post->title }}"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                         >
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60"></div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="px-3 py-1 bg-pink-500/10 text-pink-500 text-[10px] font-black uppercase tracking-widest rounded-full border border-pink-500/20">Strategy</span>
-                            <span class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">{{ $post->created_at->format('M d, Y') }}</span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent"></div>
+                        
+                        <!-- Floating Category Tag -->
+                        <div class="absolute top-6 left-6 px-4 py-2 bg-pink-500 text-white text-[10px] font-black uppercase tracking-widest rounded-xl shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform duration-500">
+                            Strategy Guide
                         </div>
-                        <h3 class="text-2xl font-black mb-4 group-hover:text-pink-500 transition-colors leading-tight">
+                    </div>
+
+                    <div class="p-10 relative z-20">
+                        <div class="flex items-center gap-4 mb-6 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
+                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-pink-500 rounded-full"></span> {{ $post->created_at->format('M d') }}</span>
+                            <span class="w-1 h-1 bg-gray-700 rounded-full"></span>
+                            <span>5 min read</span>
+                        </div>
+                        
+                        <h3 class="text-2xl font-black text-white mb-6 group-hover:text-pink-400 transition-colors duration-500 leading-tight">
                             {{ $post->title }}
                         </h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed font-medium line-clamp-2 text-sm">{{ $post->excerpt }}</p>
-                        <a href="{{ route('blog.show', $post->slug) }}" class="inline-flex items-center gap-2 text-pink-500 font-black uppercase tracking-tighter hover:gap-4 transition-all group/link">
-                            Read Full Guide
-                            <svg class="w-5 h-5 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
+                        
+                        <div class="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
+                            <div class="inline-flex items-center gap-3 text-pink-500 font-black uppercase tracking-tighter text-sm group-hover:gap-5 transition-all duration-500">
+                                EXPLORE GUIDE
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Ambient Glow -->
+                    <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl group-hover:bg-pink-500/20 transition-colors duration-700"></div>
                 </article>
                 @endforeach
             </div>
 
-            <div class="mt-16 text-center">
-                <a href="{{ route('blog.index') }}" class="inline-flex items-center gap-3 border-2 border-pink-500/30 hover:border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white px-12 py-5 rounded-2xl text-lg font-black transition-all shadow-xl">
-                    Explore All Articles
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
+            <div class="mt-24 text-center">
+                <a href="{{ route('blog.index') }}" class="group relative inline-flex items-center gap-4 bg-gray-900 border border-white/10 hover:border-pink-500/50 text-white px-16 py-6 rounded-[2rem] text-xl font-black transition-all shadow-2xl overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="relative z-10 uppercase tracking-widest">View Master Library</span>
+                    <svg class="w-6 h-6 relative z-10 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </a>
             </div>
         </div>
