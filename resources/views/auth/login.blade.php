@@ -8,7 +8,7 @@
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
         <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-yellow-500/5 rounded-full blur-[120px] animate-pulse"></div>
-        <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
     </div>
 
     <!-- Stars Animation -->
@@ -23,7 +23,7 @@
         <div class="text-center">
             <a href="{{ url('/') }}" class="inline-block mb-8">
                 <div class="text-4xl font-black tracking-tighter">
-                    <span class="text-yellow-500 text-glow-yellow uppercase">Orion</span><span class="text-pink-500 text-glow-pink uppercase">Star</span>
+                    <span class="text-yellow-500 text-glow-yellow uppercase">Orion</span><span class="text-purple-500 text-glow-purple uppercase">Star</span>
                 </div>
             </a>
             <h2 class="text-3xl font-black text-white uppercase tracking-tighter mb-2">
@@ -61,9 +61,9 @@
                     <label for="password" class="block text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] ml-4">Secret Password</label>
                     <div class="relative group">
                         <input id="password" name="password" type="password" autocomplete="current-password" required
-                            class="appearance-none block w-full px-6 py-4 bg-black/40 border-2 border-white/5 placeholder-gray-700 text-white font-bold rounded-2xl focus:outline-none focus:border-pink-500/50 focus:bg-black/60 transition-all @error('password') border-red-500/50 @enderror"
+                            class="appearance-none block w-full px-6 py-4 bg-black/40 border-2 border-white/5 placeholder-gray-700 text-white font-bold rounded-2xl focus:outline-none focus:border-purple-500/50 focus:bg-black/60 transition-all @error('password') border-red-500/50 @enderror"
                             placeholder="••••••••">
-                        <button type="button" onclick="togglePassword('password')" class="absolute inset-y-0 right-0 pr-6 flex items-center text-gray-500 hover:text-pink-500 transition-colors">
+                        <button type="button" onclick="togglePassword('password')" class="absolute inset-y-0 right-0 pr-6 flex items-center text-gray-500 hover:text-purple-500 transition-colors">
                             <svg class="h-6 w-6" id="password-eye" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="text-xs">
-                    <a href="{{ route('password.request') }}" class="font-black text-pink-500 hover:text-pink-400 transition-colors uppercase tracking-widest">
+                    <a href="{{ route('password.request') }}" class="font-black text-purple-500 hover:text-purple-400 transition-colors uppercase tracking-widest">
                         Lost Access?
                     </a>
                 </div>
@@ -92,7 +92,7 @@
 
             <div class="pt-4">
                 <button type="submit"
-                    class="group relative w-full flex justify-center py-6 px-4 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white text-xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1.5 animate-shine overflow-hidden uppercase tracking-tighter">
+                    class="group relative w-full flex justify-center py-6 px-4 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white text-xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1.5 animate-shine overflow-hidden uppercase tracking-tighter">
                     <span class="relative z-10">🎰 SIGN IN & WIN BIG</span>
                 </button>
             </div>
@@ -115,7 +115,7 @@
                     <div class="text-[8px] font-black text-gray-600 uppercase tracking-[0.2em]">Games</div>
                 </div>
                 <div class="text-center group">
-                    <div class="text-xl font-black text-pink-500 group-hover:scale-110 transition-transform tracking-tighter">$2M+</div>
+                    <div class="text-xl font-black text-purple-500 group-hover:scale-110 transition-transform tracking-tighter">$2M+</div>
                     <div class="text-[8px] font-black text-gray-600 uppercase tracking-[0.2em]">Wins</div>
                 </div>
                 <div class="text-center group">

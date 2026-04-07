@@ -8,7 +8,7 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div>
             <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                <span class="text-yellow-500">Admin</span> <span class="text-pink-500">Dashboard</span>
+                <span class="text-yellow-500">Admin</span> <span class="text-purple-500">Dashboard</span>
             </h1>
             <p class="text-gray-400 mt-2 font-medium">Welcome back, <span class="text-white font-bold">{{ explode(' ', auth()->user()->name)[0] }}</span>. Here's your gaming platform overview.</p>
         </div>
@@ -63,10 +63,10 @@
         </div>
 
         <!-- Total Games -->
-        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-pink-500/50 transition-all group relative overflow-hidden shadow-xl">
-            <div class="absolute -right-4 -top-4 w-24 h-24 bg-pink-500/10 rounded-full blur-3xl group-hover:bg-pink-500/20 transition-colors"></div>
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all group relative overflow-hidden shadow-xl">
+            <div class="absolute -right-4 -top-4 w-24 h-24 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-colors"></div>
             <div class="relative z-10">
-                <div class="w-12 h-12 bg-pink-500/20 text-pink-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="w-12 h-12 bg-purple-500/20 text-purple-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 012 0v3a1 1 0 11-2 0V9zm4-1a1 1 0 011 1v3a1 1 0 11-2 0V9a1 1 0 011-1z"/>
                     </svg>
@@ -77,7 +77,7 @@
         </div>
 
         <!-- Total Deposits -->
-        <div class="bg-gradient-to-br from-yellow-500/10 to-pink-500/10 p-8 rounded-2xl border border-yellow-500/30 shadow-xl hover:shadow-2xl transition-all group relative overflow-hidden">
+        <div class="bg-gradient-to-br from-yellow-500/10 to-purple-500/10 p-8 rounded-2xl border border-yellow-500/30 shadow-xl hover:shadow-2xl transition-all group relative overflow-hidden">
             <div class="absolute -right-4 -top-4 w-24 h-24 bg-yellow-500/20 rounded-full blur-3xl"></div>
             <div class="relative z-10">
                 <div class="w-12 h-12 bg-yellow-500 text-black rounded-xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
@@ -119,7 +119,7 @@
                             <tr class="hover:bg-gray-700/50 transition-colors">
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">
+                                        <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
                                             {{ strtoupper(substr($player->user->name, 0, 1)) }}
                                         </div>
                                         <div>
@@ -149,7 +149,7 @@
         <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden shadow-xl">
             <div class="px-8 py-6 border-b border-gray-700 flex items-center justify-between">
                 <div>
-                    <h2 class="text-xl font-black text-white tracking-tight">Top <span class="text-pink-500">Players</span></h2>
+                    <h2 class="text-xl font-black text-white tracking-tight">Top <span class="text-purple-500">Players</span></h2>
                     <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mt-1">Highest wagered</p>
                 </div>
             </div>
@@ -166,7 +166,7 @@
                         @forelse($topPlayers as $index => $player)
                             <tr class="hover:bg-gray-700/50 transition-colors">
                                 <td class="px-6 py-4">
-                                    <span class="text-2xl font-black {{ $index === 0 ? 'text-yellow-500' : ($index === 1 ? 'text-gray-400' : ($index === 2 ? 'text-pink-500' : 'text-gray-500')) }}">
+                                    <span class="text-2xl font-black {{ $index === 0 ? 'text-yellow-500' : ($index === 1 ? 'text-gray-400' : ($index === 2 ? 'text-purple-500' : 'text-gray-500')) }}">
                                         #{{ $index + 1 }}
                                     </span>
                                 </td>
@@ -175,7 +175,7 @@
                                     <div class="text-xs text-gray-400">VIP: {{ ucfirst($player->vip_status) }}</div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="text-pink-500 font-bold">${{ number_format($player->total_wagered, 2) }}</span>
+                                    <span class="text-purple-500 font-bold">${{ number_format($player->total_wagered, 2) }}</span>
                                 </td>
                             </tr>
                         @empty
@@ -197,9 +197,9 @@
             <p class="text-gray-400 text-sm">Expand your game library</p>
         </a>
 
-        <a href="{{ route('admin.game-categories.create') }}" class="bg-gradient-to-br from-pink-500/10 to-pink-600/10 border-2 border-pink-500/30 p-8 rounded-2xl hover:border-pink-500 hover:shadow-2xl hover:shadow-pink-500/20 transition-all group">
+        <a href="{{ route('admin.game-categories.create') }}" class="bg-gradient-to-br from-purple-500/10 to-purple-600/10 border-2 border-purple-500/30 p-8 rounded-2xl hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/20 transition-all group">
             <div class="text-4xl mb-4">📂</div>
-            <h3 class="text-xl font-black text-pink-500 mb-2">Add Category</h3>
+            <h3 class="text-xl font-black text-purple-500 mb-2">Add Category</h3>
             <p class="text-gray-400 text-sm">Organize your games</p>
         </a>
 

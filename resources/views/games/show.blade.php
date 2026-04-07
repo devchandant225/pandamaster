@@ -8,7 +8,7 @@
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
         <div class="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[150px] animate-pulse"></div>
-        <div class="absolute bottom-1/4 -right-20 w-[800px] h-[800px] bg-pink-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-1/4 -right-20 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
     </div>
 
     <!-- Stars Animation -->
@@ -70,7 +70,7 @@
                     <span class="bg-white/5 border border-white/10 text-gray-300 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
                         {{ $game->game_type }}
                     </span>
-                    <span class="bg-pink-500/10 border border-pink-500/20 text-pink-500 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
+                    <span class="bg-purple-500/10 border border-purple-500/20 text-purple-500 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
                         {{ $game->gameCategory->name }}
                     </span>
                     <div class="flex items-center gap-2 text-yellow-500 font-black text-xs uppercase tracking-widest ml-auto">
@@ -114,14 +114,14 @@
                 <div class="flex flex-col sm:flex-row gap-6 mb-12">
                     @auth
                         <a href="{{ route('games.play', $game->slug) }}" 
-                           class="flex-1 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white font-black py-6 px-12 rounded-[2rem] text-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 text-center animate-shine overflow-hidden group">
+                           class="flex-1 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white font-black py-6 px-12 rounded-[2rem] text-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 text-center animate-shine overflow-hidden group">
                             <span class="relative z-10 flex items-center justify-center gap-3 uppercase tracking-tighter">
                                 🎮 PLAY REAL MONEY
                             </span>
                         </a>
                     @else
                         <a href="{{ route('register') }}" 
-                           class="flex-1 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white font-black py-6 px-12 rounded-[2rem] text-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 text-center animate-shine overflow-hidden group">
+                           class="flex-1 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white font-black py-6 px-12 rounded-[2rem] text-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 text-center animate-shine overflow-hidden group">
                             <span class="relative z-10 flex items-center justify-center gap-3 uppercase tracking-tighter">
                                 🎰 SIGN UP TO PLAY
                             </span>
@@ -130,7 +130,7 @@
 
                     @if($game->demo_url)
                         <a href="{{ route('games.demo', $game->slug) }}" 
-                           class="flex-1 bg-gray-900/50 hover:bg-gray-800 text-white font-black py-6 px-12 rounded-[2rem] text-2xl transition-all border-2 border-gray-700 hover:border-pink-500 shadow-xl backdrop-blur-sm transform hover:-translate-y-1.5 text-center flex items-center justify-center gap-3 uppercase tracking-tighter">
+                           class="flex-1 bg-gray-900/50 hover:bg-gray-800 text-white font-black py-6 px-12 rounded-[2rem] text-2xl transition-all border-2 border-gray-700 hover:border-purple-500 shadow-xl backdrop-blur-sm transform hover:-translate-y-1.5 text-center flex items-center justify-center gap-3 uppercase tracking-tighter">
                             🎲 TRY DEMO
                         </a>
                     @endif
@@ -157,7 +157,7 @@
             <div class="mt-32 pt-20 border-t border-white/5">
                 <div class="flex items-center justify-between mb-16">
                     <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
-                        YOU MAY <span class="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">ALSO LIKE</span>
+                        YOU MAY <span class="bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">ALSO LIKE</span>
                     </h2>
                     <a href="{{ route('games.index') }}" class="text-gray-500 hover:text-white text-xs font-black uppercase tracking-widest transition-colors flex items-center gap-2 group">
                         View All Games 

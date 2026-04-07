@@ -4,48 +4,59 @@
 
 @section('content')
 <div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-    <!-- Dynamic Hero Section -->
+    <!-- 1. H1 WITH BRAND + CORE VALUE + ABOVE-FOLD CTA SPLIT -->
     @if($heroSection && $heroSection->is_active)
         <x-hero-section :section="$heroSection" />
     @else
         <!-- Fallback Hero Section -->
-        <section class="relative overflow-hidden min-h-screen flex items-center justify-center bg-gray-950">
+        <section id="hero" class="relative overflow-hidden min-h-screen flex items-center justify-center bg-gray-950">
             <!-- Animated Background & Lighting -->
             <div class="absolute inset-0">
                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
                 <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse"></div>
-                <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+                <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
             </div>
-            
+
             <div class="absolute inset-0 pointer-events-none">
                 @for($i = 0; $i < 60; $i++)
-                    <div class="absolute w-[1px] h-[1px] bg-white rounded-full animate-twinkle" 
+                    <div class="absolute w-[1px] h-[1px] bg-white rounded-full animate-twinkle"
                          style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(3000, 6000) }}ms;"></div>
                 @endfor
             </div>
 
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                 <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 leading-[0.9] animate-fade-in-up">
-                    <span class="text-yellow-500 text-glow-yellow">PLAY</span> <span class="text-pink-500 text-glow-pink">WIN</span> <span class="text-white">REPEAT</span>
+                    <span class="text-yellow-500 text-glow-yellow">ORIONSTAR</span> <span class="text-purple-500 text-glow-purple">GAMING</span>
                 </h1>
                 <p class="text-2xl md:text-3xl text-gray-300 mb-14 font-bold tracking-tight animate-fade-in-up" style="animation-delay: 0.2s;">
-                    Your Premier Online Gaming Destination
+                    Your Premier Online Gaming Destination - Play 100+ Games & Win Big
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
-                    <a href="{{ route('register') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white text-2xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
-                        <span class="relative z-10 uppercase tracking-tighter">🎰 START PLAYING - GET $1000 BONUS</span>
-                    </a>
+                    @auth
+                        <a href="{{ route('dashboard') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white text-2xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
+                            <span class="relative z-10 uppercase tracking-tighter">🎰 PLAY NOW</span>
+                        </a>
+                    @else
+                        <a href="{{ route('register') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white text-2xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
+                            <span class="relative z-10 uppercase tracking-tighter">🎰 START PLAYING - GET $1000 BONUS</span>
+                        </a>
+                    @endauth
                     <a href="{{ route('games.index') }}" class="px-14 py-6 bg-gray-900/50 hover:bg-gray-800 text-white text-2xl font-black rounded-2xl transition-all border-2 border-gray-700 hover:border-yellow-500 shadow-xl backdrop-blur-sm transform hover:-translate-y-1.5">
                         BROWSE GAMES
                     </a>
+                    @guest
+                        <a href="{{ route('login') }}" class="px-14 py-6 bg-white/5 hover:bg-white/10 text-white text-2xl font-black rounded-2xl transition-all border-2 border-white/10 hover:border-purple-500 shadow-xl backdrop-blur-sm transform hover:-translate-y-1.5">
+                            SIGN IN
+                        </a>
+                    @endguest
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 pt-20 max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.6s;">
                     <div class="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-yellow-500/50 transition-colors">
                         <div class="text-4xl md:text-5xl font-black text-yellow-500 mb-2 group-hover:scale-110 transition-transform text-glow-yellow">100+</div>
                         <div class="text-xs md:text-sm text-gray-400 font-bold uppercase tracking-widest">Premium Games</div>
                     </div>
-                    <div class="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-pink-500/50 transition-colors">
-                        <div class="text-4xl md:text-5xl font-black text-pink-500 mb-2 group-hover:scale-110 transition-transform text-glow-pink">$2M+</div>
+                    <div class="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-colors">
+                        <div class="text-4xl md:text-5xl font-black text-purple-500 mb-2 group-hover:scale-110 transition-transform text-glow-purple">$2M+</div>
                         <div class="text-xs md:text-sm text-gray-400 font-bold uppercase tracking-widest">Won This Week</div>
                     </div>
                     <div class="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-yellow-500/50 transition-colors">
@@ -57,12 +68,12 @@
         </section>
     @endif
 
-    <!-- Featured Games Section -->
+    <!-- 2. WHAT THE APP/GAME IS - Featured Games Section -->
     @if(isset($featuredGames) && $featuredGames->count() > 0)
-    <section class="py-20 md:py-32 relative overflow-hidden">
+    <section id="featured" class="py-20 md:py-32 relative overflow-hidden">
         <!-- Background Decor -->
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
-        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
@@ -79,7 +90,7 @@
             </div>
 
             <div class="mt-16 text-center">
-                <a href="{{ route('games.index') }}" class="group relative inline-flex items-center gap-4 bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 hover:from-yellow-400 hover:via-pink-400 hover:to-purple-500 text-white px-12 py-6 rounded-2xl text-xl font-black transition-all shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1 animate-shine overflow-hidden">
+                <a href="{{ route('games.index') }}" class="group relative inline-flex items-center gap-4 bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 hover:from-yellow-400 hover:via-purple-400 hover:to-purple-500 text-white px-12 py-6 rounded-2xl text-xl font-black transition-all shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1 animate-shine overflow-hidden">
                     <span class="relative z-10 uppercase tracking-tighter">Explore All Games</span>
                     <svg class="w-6 h-6 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -90,7 +101,7 @@
     </section>
     @endif
 
-    <!-- Game Categories -->
+    <!-- 3. CASINO/GAME CATEGORIES -->
     <section id="categories" class="py-24 md:py-40 relative overflow-hidden bg-mesh">
         <div class="absolute inset-0 bg-gray-950/60 backdrop-blur-md"></div>
         
@@ -102,10 +113,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-20 space-y-6">
                 <div class="inline-block px-6 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-4">
-                    <span class="text-xs font-black uppercase tracking-[0.3em] text-pink-500 animate-pulse">Select Your Kingdom</span>
+                    <span class="text-xs font-black uppercase tracking-[0.3em] text-purple-500 animate-pulse">Select Your Kingdom</span>
                 </div>
                 <h2 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-[0.8]">
-                    <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent filter drop-shadow-[0_0_20px_rgba(236,72,153,0.5)]">DESTINY</span>
+                    <span class="bg-gradient-to-r from-purple-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent filter drop-shadow-[0_0_20px_rgba(236,72,153,0.5)]">DESTINY</span>
                     <br>
                     <span class="text-white text-[0.6em] md:text-[0.4em] tracking-widest opacity-90">AWAITS YOU</span>
                 </h2>
@@ -120,7 +131,7 @@
                     $categories = [
                         ['type' => 'slots', 'emoji' => '🎰', 'label' => 'Slots', 'color' => 'from-yellow-400 via-orange-500 to-yellow-600', 'glow' => 'rgba(234,179,8,0.4)', 'bg' => 'bg-yellow-500/10'],
                         ['type' => 'fish', 'emoji' => '🐟', 'label' => 'Ocean', 'color' => 'from-blue-400 via-cyan-500 to-indigo-600', 'glow' => 'rgba(59,130,246,0.4)', 'bg' => 'bg-blue-500/10'],
-                        ['type' => 'keno', 'emoji' => '🎲', 'label' => 'Keno', 'color' => 'from-pink-400 via-rose-500 to-purple-600', 'glow' => 'rgba(236,72,153,0.4)', 'bg' => 'bg-pink-500/10'],
+                        ['type' => 'keno', 'emoji' => '🎲', 'label' => 'Keno', 'color' => 'from-purple-400 via-rose-500 to-purple-600', 'glow' => 'rgba(236,72,153,0.4)', 'bg' => 'bg-purple-500/10'],
                         ['type' => 'table', 'emoji' => '🎯', 'label' => 'Elite', 'color' => 'from-green-400 via-emerald-500 to-teal-600', 'glow' => 'rgba(16,185,129,0.4)', 'bg' => 'bg-green-500/10'],
                         ['type' => 'card', 'emoji' => '🃏', 'label' => 'Decks', 'color' => 'from-purple-400 via-indigo-500 to-blue-600', 'glow' => 'rgba(139,92,246,0.4)', 'bg' => 'bg-purple-500/10'],
                     ];
@@ -160,9 +171,9 @@
             <!-- Custom Navigation Hint -->
             <div class="md:hidden mt-8 text-center">
                 <div class="inline-flex items-center gap-4 text-gray-500 bg-white/5 px-6 py-3 rounded-2xl border border-white/10">
-                    <div class="w-12 h-1 bg-gradient-to-r from-transparent to-pink-500 rounded-full animate-pulse"></div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-transparent to-purple-500 rounded-full animate-pulse"></div>
                     <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white">Slide to Explore</span>
-                    <div class="w-12 h-1 bg-gradient-to-r from-pink-500 to-transparent rounded-full animate-pulse"></div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-purple-500 to-transparent rounded-full animate-pulse"></div>
                 </div>
             </div>
         </div>
@@ -208,16 +219,16 @@
                 <!-- Step 2 -->
                 <div class="group relative text-center">
                     <div class="relative mb-12 inline-block">
-                        <div class="absolute inset-0 bg-pink-500/20 blur-3xl rounded-full group-hover:bg-pink-500/40 transition-all duration-700"></div>
-                        <div class="relative w-32 h-32 bg-gray-900 border-2 border-pink-500/30 rounded-[2.5rem] flex items-center justify-center text-5xl font-black text-pink-500 shadow-2xl transform group-hover:-rotate-[15deg] group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-purple-500/20 blur-3xl rounded-full group-hover:bg-purple-500/40 transition-all duration-700"></div>
+                        <div class="relative w-32 h-32 bg-gray-900 border-2 border-purple-500/30 rounded-[2.5rem] flex items-center justify-center text-5xl font-black text-purple-500 shadow-2xl transform group-hover:-rotate-[15deg] group-hover:scale-110 transition-all duration-500">
                             2
-                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-pink-500 rounded-full animate-pulse"></div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-purple-500 rounded-full animate-pulse"></div>
                         </div>
                     </div>
                     <div class="space-y-4 px-4">
-                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:text-pink-400 transition-colors duration-500">Choose Game</h3>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:text-purple-400 transition-colors duration-500">Choose Game</h3>
                         <p class="text-gray-400 text-lg leading-relaxed font-medium group-hover:text-gray-300 transition-colors">
-                            Explore our massive library of premium titles and find your lucky match with the <span class="text-pink-500 font-bold drop-shadow-[0_0_10px_rgba(236,72,153,0.3)]">best odds</span>.
+                            Explore our massive library of premium titles and find your lucky match with the <span class="text-purple-500 font-bold drop-shadow-[0_0_10px_rgba(236,72,153,0.3)]">best odds</span>.
                         </p>
                     </div>
                 </div>
@@ -250,9 +261,9 @@
         </div>
     </section>
 
-    <!-- Hot Games Section -->
+    <!-- 4. PLAY ONLINE SECTION - Hot Games -->
     @if(isset($hotGames) && $hotGames->count() > 0)
-    <section class="py-20 md:py-32 relative overflow-hidden bg-gray-950">
+    <section id="play-online" class="py-20 md:py-32 relative overflow-hidden bg-gray-950">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.05)_0%,rgba(0,0,0,0)_70%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
@@ -271,9 +282,9 @@
     </section>
     @endif
 
-    <!-- New Games Section -->
+    <!-- 5. NEW GAMES - Player Play/Login -->
     @if(isset($newGames) && $newGames->count() > 0)
-    <section class="py-24 md:py-32 relative overflow-hidden bg-gray-950">
+    <section id="new-games" class="py-24 md:py-32 relative overflow-hidden bg-gray-950">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] animate-pulse"></div>
         <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 1s;"></div>
         
@@ -304,6 +315,15 @@
     </section>
     @endif
 
+    <!-- 6. DOWNLOAD SECTION -->
+    <x-download-section />
+
+    <!-- 7. MOBILE COMPATIBILITY -->
+    <x-mobile-compatibility />
+
+    <!-- 8. LOGIN/HELP ACCESS BLOCK -->
+    <x-login-help-block />
+
     <!-- Blog Preview Section -->
     @if(isset($latestPosts) && $latestPosts->count() > 0)
     <section class="py-24 md:py-40 relative bg-mesh overflow-hidden">
@@ -313,14 +333,14 @@
             <div class="text-center mb-24 space-y-6">
                 <h2 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter leading-none">
                     <span class="text-white">PRO</span> 
-                    <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(236,72,153,0.4)]">KNOWLEDGE</span>
+                    <span class="bg-gradient-to-r from-purple-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(236,72,153,0.4)]">KNOWLEDGE</span>
                 </h2>
-                <div class="h-1 w-24 bg-pink-500 mx-auto rounded-full shadow-[0_0_15px_rgba(236,72,153,0.8)]"></div>
+                <div class="h-1 w-24 bg-purple-500 mx-auto rounded-full shadow-[0_0_15px_rgba(236,72,153,0.8)]"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 @foreach($latestPosts as $post)
-                <article class="group relative bg-gray-900/50 backdrop-blur-md rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-pink-500/50 transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
+                <article class="group relative bg-gray-900/50 backdrop-blur-md rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-purple-500/50 transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
                     <a href="{{ route('blog.show', $post->slug) }}" class="absolute inset-0 z-10" aria-label="{{ $post->title }}"></a>
                     
                     <!-- Image Container -->
@@ -333,24 +353,24 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent"></div>
                         
                         <!-- Floating Category Tag -->
-                        <div class="absolute top-6 left-6 px-4 py-2 bg-pink-500 text-white text-[10px] font-black uppercase tracking-widest rounded-xl shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform duration-500">
+                        <div class="absolute top-6 left-6 px-4 py-2 bg-purple-500 text-white text-[10px] font-black uppercase tracking-widest rounded-xl shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform duration-500">
                             Strategy Guide
                         </div>
                     </div>
 
                     <div class="p-10 relative z-20">
                         <div class="flex items-center gap-4 mb-6 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
-                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-pink-500 rounded-full"></span> {{ $post->created_at->format('M d') }}</span>
+                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> {{ $post->created_at->format('M d') }}</span>
                             <span class="w-1 h-1 bg-gray-700 rounded-full"></span>
                             <span>5 min read</span>
                         </div>
                         
-                        <h3 class="text-2xl font-black text-white mb-6 group-hover:text-pink-400 transition-colors duration-500 leading-tight">
+                        <h3 class="text-2xl font-black text-white mb-6 group-hover:text-purple-400 transition-colors duration-500 leading-tight">
                             {{ $post->title }}
                         </h3>
                         
                         <div class="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
-                            <div class="inline-flex items-center gap-3 text-pink-500 font-black uppercase tracking-tighter text-sm group-hover:gap-5 transition-all duration-500">
+                            <div class="inline-flex items-center gap-3 text-purple-500 font-black uppercase tracking-tighter text-sm group-hover:gap-5 transition-all duration-500">
                                 EXPLORE GUIDE
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
                             </div>
@@ -358,14 +378,14 @@
                     </div>
 
                     <!-- Ambient Glow -->
-                    <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl group-hover:bg-pink-500/20 transition-colors duration-700"></div>
+                    <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-colors duration-700"></div>
                 </article>
                 @endforeach
             </div>
 
             <div class="mt-24 text-center">
-                <a href="{{ route('blog.index') }}" class="group relative inline-flex items-center gap-4 bg-gray-900 border border-white/10 hover:border-pink-500/50 text-white px-16 py-6 rounded-[2rem] text-xl font-black transition-all shadow-2xl overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <a href="{{ route('blog.index') }}" class="group relative inline-flex items-center gap-4 bg-gray-900 border border-white/10 hover:border-purple-500/50 text-white px-16 py-6 rounded-[2rem] text-xl font-black transition-all shadow-2xl overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="relative z-10 uppercase tracking-widest">View Master Library</span>
                     <svg class="w-6 h-6 relative z-10 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </a>
@@ -374,12 +394,15 @@
     </section>
     @endif
 
-    <!-- Final CTA Section -->
-    <section class="py-24 md:py-40 relative overflow-hidden">
+    <!-- 9. FAQ SECTION -->
+    <x-faq-section />
+
+    <!-- 10. FINAL CTA Section -->
+    <section id="final-cta" class="py-24 md:py-40 relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1)_0%,rgba(0,0,0,1)_100%)]"></div>
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 class="text-6xl sm:text-7xl md:text-8xl font-black mb-8 leading-[0.85] tracking-[ -0.05em]">
-                READY TO <span class="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow">CONQUER</span> THE GALAXY?
+                READY TO <span class="bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow">CONQUER</span> THE GALAXY?
             </h2>
             <p class="text-2xl md:text-3xl text-gray-300 mb-16 font-bold tracking-tight">
                 Join <span class="text-white underline decoration-yellow-500 decoration-4 underline-offset-8">50,000+</span> players winning big every day
@@ -393,7 +416,7 @@
                     <span class="font-black uppercase tracking-widest text-xs">$1000 BONUS</span>
                 </div>
                 <div class="flex items-center gap-3 text-gray-200 bg-white/5 px-6 py-3 rounded-full border border-white/10 backdrop-blur-md">
-                    <svg class="w-6 h-6 text-pink-500" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-6 h-6 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="font-black uppercase tracking-widest text-xs">INSTANT PAYOUTS</span>
@@ -407,11 +430,11 @@
             </div>
 
             @auth
-                <a href="{{ route('dashboard') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                <a href="{{ route('dashboard') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
                     <span class="relative z-10 uppercase tracking-tighter">🚀 START PLAYING NOW</span>
                 </a>
             @else
-                <a href="{{ route('register') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                <a href="{{ route('register') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
                     <span class="relative z-10 uppercase tracking-tighter">🎰 CREATE ACCOUNT & WIN</span>
                 </a>
             @endauth

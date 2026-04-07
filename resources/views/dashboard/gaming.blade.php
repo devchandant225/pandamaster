@@ -6,7 +6,7 @@
 <div class="min-h-screen bg-gradient-to-b from-gray-900 via-navy-900 to-gray-900 py-12">
     <div class="max-w-7xl mx-auto px-4">
         <!-- Balance Bar -->
-        <div class="bg-gradient-to-r from-yellow-500 to-pink-500 rounded-lg p-6 mb-8 shadow-lg">
+        <div class="bg-gradient-to-r from-yellow-500 to-purple-500 rounded-lg p-6 mb-8 shadow-lg">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-black/30 rounded-lg p-4">
                     <p class="text-white text-sm">Balance</p>

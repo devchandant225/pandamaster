@@ -1,6 +1,6 @@
 <footer class="relative bg-black text-gray-300 border-t border-white/5 overflow-hidden">
     <!-- Sophisticated Background Lighting -->
-    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 opacity-50 shadow-[0_0_20px_rgba(234,179,8,0.5)]"></div>
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 opacity-50 shadow-[0_0_20px_rgba(234,179,8,0.5)]"></div>
     <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[120px] -translate-y-1/2"></div>
     <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] translate-y-1/2"></div>
 
@@ -10,14 +10,14 @@
             <div class="lg:col-span-2">
                 <div class="flex items-center gap-2 mb-8">
                     <div class="text-5xl font-black tracking-tighter text-glow-yellow">
-                        <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Orion</span><span class="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent text-glow-pink">Star</span>
+                        <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Orion</span><span class="bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-purple">Star</span>
                     </div>
                 </div>
                 <p class="text-lg text-gray-400 mb-10 max-w-md leading-relaxed font-medium">
                     Experience the next generation of online gaming. From high-stakes slots to immersive fish games, OrionStar is your ultimate destination for big wins and endless entertainment.
                 </p>
                 <div class="flex items-center gap-4">
-                    <a href="{{ route('games.index') }}" class="group relative bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white px-10 py-5 rounded-2xl transition-all font-black inline-flex items-center gap-3 shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1 animate-shine overflow-hidden">
+                    <a href="{{ route('games.index') }}" class="group relative bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white px-10 py-5 rounded-2xl transition-all font-black inline-flex items-center gap-3 shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1 animate-shine overflow-hidden">
                         <span class="relative z-10 flex items-center gap-3 uppercase tracking-tighter text-lg">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-7.5 4a.5.5 0 010-1 4.5 4.5 0 019 0 .5.5 0 01-1 0 3.5 3.5 0 00-7 0 .5.5 0 01-1 0z"/>
@@ -57,7 +57,7 @@
             <!-- Game Categories -->
             <div>
                 <h3 class="text-white font-black uppercase tracking-widest text-sm mb-8 flex items-center gap-3">
-                    <span class="w-8 h-1 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full"></span>
+                    <span class="w-8 h-1 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full"></span>
                     Categories
                 </h3>
                 <ul class="space-y-5">
@@ -67,7 +67,7 @@
                     <li><a href="{{ route('games.index', ['type' => 'fish']) }}" class="text-base font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-500 hover:bg-clip-text transition-all flex items-center gap-4 group">
                         <span class="text-2xl group-hover:scale-125 transition-transform">🐟</span> Fish Games
                     </a></li>
-                    <li><a href="{{ route('games.index', ['type' => 'keno']) }}" class="text-base font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-pink-400 hover:to-rose-500 hover:bg-clip-text transition-all flex items-center gap-4 group">
+                    <li><a href="{{ route('games.index', ['type' => 'keno']) }}" class="text-base font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-rose-500 hover:bg-clip-text transition-all flex items-center gap-4 group">
                         <span class="text-2xl group-hover:scale-125 transition-transform">🎲</span> Keno
                     </a></li>
                     <li><a href="{{ route('games.index', ['type' => 'table']) }}" class="text-base font-bold hover:text-transparent hover:bg-gradient-to-r hover:from-green-400 hover:to-emerald-500 hover:bg-clip-text transition-all flex items-center gap-4 group">

@@ -132,7 +132,7 @@
                 <aside class="lg:col-span-1 space-y-8">
 
                     <!-- CTA Widget -->
-                    <div class="bg-gradient-to-br from-yellow-500 to-pink-500 text-white p-8 rounded-2xl shadow-xl sticky top-24 text-left">
+                    <div class="bg-gradient-to-br from-yellow-500 to-purple-500 text-white p-8 rounded-2xl shadow-xl sticky top-24 text-left">
                         <h3 class="text-2xl font-bold mb-4">Ready to Win Big?</h3>
                         <p class="text-white/90 mb-6">
                             Get $1000 bonus when you sign up and start playing today!
@@ -199,7 +199,7 @@
                 Join thousands of players and start your winning journey today
             </p>
 
-            <a href="{{ route('register') }}" class="inline-block bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-400 hover:to-pink-400 text-white px-10 py-5 text-xl font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <a href="{{ route('register') }}" class="inline-block bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-10 py-5 text-xl font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 🎰 Get $1000 Bonus →
             </a>
         </div>

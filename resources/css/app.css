@@ -51,9 +51,9 @@ html {
     50% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.6), 0 0 30px rgba(234, 179, 8, 0.4); }
 }
 
-@keyframes glow-pink {
-    0%, 100% { box-shadow: 0 0 5px rgba(236, 72, 153, 0.2), 0 0 10px rgba(236, 72, 153, 0.1); }
-    50% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.6), 0 0 30px rgba(236, 72, 153, 0.4); }
+@keyframes glow-purple {
+    0%, 100% { box-shadow: 0 0 5px rgba(168, 85, 247, 0.2), 0 0 10px rgba(168, 85, 247, 0.1); }
+    50% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 30px rgba(168, 85, 247, 0.4); }
 }
 
 @keyframes float {
@@ -86,8 +86,8 @@ html {
     animation: glow 1.5s ease-in-out infinite;
 }
 
-.hover-glow-pink:hover {
-    animation: glow-pink 1.5s ease-in-out infinite;
+.hover-glow-purple:hover {
+    animation: glow-purple 1.5s ease-in-out infinite;
 }
 
 .animate-float-slow {
@@ -103,6 +103,10 @@ html {
 
 .text-glow-yellow {
     text-shadow: 0 0 10px rgba(234, 179, 8, 0.5), 0 0 20px rgba(234, 179, 8, 0.3);
+}
+
+.text-glow-purple {
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5), 0 0 20px rgba(168, 85, 247, 0.3);
 }
 
 @keyframes bounce-slow {

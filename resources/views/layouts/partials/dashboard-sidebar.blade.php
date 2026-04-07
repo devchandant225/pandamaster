@@ -6,7 +6,7 @@
         <div class="absolute -top-10 -left-10 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl"></div>
         <a href="{{ url('/') }}" class="relative z-10 flex items-center gap-2 group">
             <div class="text-2xl font-black">
-                <span class="text-yellow-500">Orion</span><span class="text-pink-500">Star</span>
+                <span class="text-yellow-500">Orion</span><span class="text-purple-500">Star</span>
             </div>
         </a>
     </div>
@@ -29,7 +29,7 @@
         <!-- Content Section -->
         <div>
             <h3 class="px-4 text-[10px] font-black text-gray-500 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <span class="w-1 h-1 bg-pink-500 rounded-full"></span>
+                <span class="w-1 h-1 bg-purple-500 rounded-full"></span>
                 Content & Pages
             </h3>
             <div class="space-y-1.5">
@@ -73,7 +73,7 @@
     <div class="p-4 mt-auto">
         <div class="bg-gray-800 border border-yellow-500/20 rounded-xl p-4 flex items-center gap-3 hover:border-yellow-500/50 transition-colors cursor-pointer">
             <div class="relative">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-500 to-pink-500 flex items-center justify-center text-white font-black group-hover:scale-105 transition-transform">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-500 to-purple-500 flex items-center justify-center text-white font-black group-hover:scale-105 transition-transform">
                     {{ substr(auth()->user()->name, 0, 1) }}
                 </div>
                 <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-gray-900 rounded-full"></div>

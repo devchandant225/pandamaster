@@ -62,12 +62,12 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label class="block text-sm font-bold text-pink-500 mb-2">Secondary CTA Text</label>
-                    <input type="text" name="cta_secondary_text" value="{{ old('cta_secondary_text', $landingSection->cta_secondary_text) }}" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-pink-500 focus:outline-none" placeholder="Browse Games">
+                    <label class="block text-sm font-bold text-purple-500 mb-2">Secondary CTA Text</label>
+                    <input type="text" name="cta_secondary_text" value="{{ old('cta_secondary_text', $landingSection->cta_secondary_text) }}" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-purple-500 focus:outline-none" placeholder="Browse Games">
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-pink-500 mb-2">Secondary CTA URL</label>
-                    <input type="text" name="cta_secondary_url" value="{{ old('cta_secondary_url', $landingSection->cta_secondary_url) }}" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-pink-500 focus:outline-none" placeholder="/games">
+                    <label class="block text-sm font-bold text-purple-500 mb-2">Secondary CTA URL</label>
+                    <input type="text" name="cta_secondary_url" value="{{ old('cta_secondary_url', $landingSection->cta_secondary_url) }}" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-purple-500 focus:outline-none" placeholder="/games">
                 </div>
             </div>
 
@@ -123,7 +123,7 @@
 
             <!-- Submit -->
             <div class="flex gap-4 pt-4">
-                <button type="submit" class="flex-1 bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-400 hover:to-pink-400 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg">
+                <button type="submit" class="flex-1 bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg">
                     {{ $landingSection->id ? '💾 Update Section' : '✨ Create Section' }}
                 </button>
                 <a href="{{ route('admin.landing-sections.index') }}" class="px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-bold transition-colors">

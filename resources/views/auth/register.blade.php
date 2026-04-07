@@ -15,7 +15,7 @@
     <div class="max-w-md w-full space-y-8 bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-yellow-500/20 relative z-10">
         <div class="text-center">
             <h2 class="text-4xl font-extrabold text-white mb-2">
-                Join <span class="text-yellow-500">Orion</span><span class="text-pink-500">star</span><span class="text-white">Bet</span>
+                Join <span class="text-yellow-500">Orion</span><span class="text-purple-500">star</span><span class="text-white">Bet</span>
             </h2>
             <p class="text-sm text-gray-400">
                 Sign up now and get <span class="text-yellow-500 font-bold">$1000</span> starting bonus!
@@ -112,7 +112,7 @@
 
             <div>
                 <button type="submit"
-                    class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-400 hover:to-pink-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    class="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     🎰 Create Account & Get $1000 Bonus
                 </button>
             </div>

@@ -15,7 +15,7 @@
             
             <!-- Dynamic Light Orbs -->
             <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse"></div>
-            <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 4s;"></div>
         @elseif($heroSection->background_type === 'image' && $heroSection->background_url)
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ $heroSection->background_url }}')"></div>
@@ -63,7 +63,7 @@
                 <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 leading-[0.9] animate-fade-in-up">
                     @php
                         $titleParts = explode(' ', $heroSection->title);
-                        $colors = ['text-yellow-500 text-glow-yellow', 'text-pink-500 text-glow-pink', 'text-white'];
+                        $colors = ['text-yellow-500 text-glow-yellow', 'text-purple-500 text-glow-purple', 'text-white'];
                     @endphp
                     @foreach($titleParts as $index => $word)
                         <span class="{{ $colors[$index % count($colors)] }} block sm:inline">{{ $word }}</span>
@@ -90,7 +90,7 @@
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
                     @if($heroSection->cta_primary_text)
                         <a href="{{ $heroSection->cta_primary_url ?? '/register' }}" 
-                           class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white text-2xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
+                           class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white text-2xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
                             <span class="relative z-10 uppercase tracking-tighter">{{ $heroSection->cta_primary_text }}</span>
                         </a>
                     @endif

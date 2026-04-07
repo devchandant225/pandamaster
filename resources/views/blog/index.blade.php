@@ -24,7 +24,7 @@
                 </div>
 
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                    <span class="text-yellow-500">Orionstar</span><span class="text-pink-500">Bet</span> <span class="text-white">Blog</span>
+                    <span class="text-yellow-500">Orionstar</span><span class="text-purple-500">Bet</span> <span class="text-white">Blog</span>
                 </h1>
 
                 <p class="text-xl md:text-2xl text-gray-300 mb-8">
@@ -167,7 +167,7 @@
                     placeholder="Enter your email address"
                     class="flex-1 h-14 px-6 rounded-xl border-2 border-gray-700 bg-gray-800 text-white placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none transition-colors"
                 />
-                <button class="bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-400 hover:to-pink-400 text-white h-14 px-8 font-bold rounded-xl whitespace-nowrap transition-all shadow-lg">
+                <button class="bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white h-14 px-8 font-bold rounded-xl whitespace-nowrap transition-all shadow-lg">
                     Subscribe Now
                 </button>
             </form>

@@ -134,7 +134,7 @@
 
             <!-- Submit -->
             <div class="flex gap-4 pt-4">
-                <button type="submit" class="flex-1 bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-400 hover:to-pink-400 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg">
+                <button type="submit" class="flex-1 bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg">
                     {{ $game->id ? '💾 Update Game' : '✨ Add Game' }}
                 </button>
                 <a href="{{ route('admin.games.index') }}" class="px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-bold transition-colors">

@@ -12,7 +12,7 @@
             </h1>
             <p class="text-gray-400 mt-2 font-medium">Manage your gaming library and content</p>
         </div>
-        <a href="{{ route('admin.games.create') }}" class="bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-400 hover:to-pink-400 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg">
+        <a href="{{ route('admin.games.create') }}" class="bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg">
             + Add New Game
         </a>
     </div>
@@ -135,7 +135,7 @@
                                 <div class="text-6xl mb-4">🎮</div>
                                 <h3 class="text-xl font-bold text-white mb-2">No games found</h3>
                                 <p class="text-gray-400 mb-6">Add your first game to start building your gaming library</p>
-                                <a href="{{ route('admin.games.create') }}" class="inline-block bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-400 hover:to-pink-400 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg">
+                                <a href="{{ route('admin.games.create') }}" class="inline-block bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg">
                                     + Add First Game
                                 </a>
                             </td>

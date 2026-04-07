@@ -9,7 +9,7 @@
             <!-- Logo -->
             <a href="{{ url('/') }}" class="flex items-center gap-2 group">
                 <div class="text-3xl font-black transition-transform duration-300 group-hover:scale-110">
-                    <span class="text-yellow-500 text-glow-yellow">Orion</span><span class="text-pink-500 text-glow-pink">Star</span>
+                    <span class="text-yellow-500 text-glow-yellow">Orion</span><span class="text-purple-500 text-glow-purple">Star</span>
                 </div>
             </a>
 
@@ -59,7 +59,7 @@
                     <a href="{{ route('login') }}" class="text-gray-300 hover:text-yellow-500 transition-colors font-bold text-sm tracking-wider uppercase">
                         Login
                     </a>
-                    <a href="{{ route('register') }}" class="group relative bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
+                    <a href="{{ route('register') }}" class="group relative bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
                         <span class="relative z-10 uppercase tracking-tighter">Sign Up</span>
                     </a>
                 @endauth
@@ -109,7 +109,7 @@
             @else
                 <div class="pt-4 space-y-4">
                     <a href="{{ route('login') }}" class="block py-4 text-center text-lg font-bold text-gray-300 border border-gray-700 rounded-xl">LOGIN</a>
-                    <a href="{{ route('register') }}" class="block py-4 text-center bg-gradient-to-r from-pink-600 to-pink-500 text-white font-black rounded-xl shadow-lg">SIGN UP</a>
+                    <a href="{{ route('register') }}" class="block py-4 text-center bg-gradient-to-r from-purple-600 to-purple-500 text-white font-black rounded-xl shadow-lg">SIGN UP</a>
                 </div>
             @endauth
         </nav>

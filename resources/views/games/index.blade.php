@@ -10,7 +10,7 @@
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
             <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse"></div>
-            <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
         </div>
         
         <!-- Stars Animation -->
@@ -23,7 +23,7 @@
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
             <h1 class="text-6xl sm:text-7xl md:text-8xl font-black mb-8 leading-[0.9] tracking-tighter animate-fade-in-up">
-                <span class="bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500 bg-clip-text text-transparent text-glow-yellow">ORION</span><span class="bg-gradient-to-r from-pink-500 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-pink">STAR</span> <span class="text-white">GAMES</span>
+                <span class="bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500 bg-clip-text text-transparent text-glow-yellow">ORION</span><span class="bg-gradient-to-r from-purple-500 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-purple">STAR</span> <span class="text-white">GAMES</span>
             </h1>
             <p class="text-2xl md:text-3xl text-gray-300 font-bold tracking-tight animate-fade-in-up" style="animation-delay: 0.2s;">
                 Choose your destiny from our massive library of premium titles
@@ -42,7 +42,7 @@
                 
                 @foreach($categories as $category)
                     <a href="{{ route('games.index', ['category' => $category->slug]) }}" 
-                       class="flex-shrink-0 px-8 py-3 rounded-2xl font-black uppercase tracking-tighter transition-all {{ request('category') == $category->slug ? 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-lg shadow-pink-500/20' : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10' }}">
+                       class="flex-shrink-0 px-8 py-3 rounded-2xl font-black uppercase tracking-tighter transition-all {{ request('category') == $category->slug ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-lg shadow-purple-500/20' : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10' }}">
                         {{ $category->name }}
                     </a>
                 @endforeach
@@ -73,7 +73,7 @@
                     <!-- Type Filter -->
                     <div class="relative flex-1 md:w-48">
                         <select name="type" 
-                                class="w-full appearance-none px-6 py-4 bg-black/40 border-2 border-white/5 rounded-2xl text-white font-bold focus:outline-none focus:border-pink-500/50 transition-all cursor-pointer">
+                                class="w-full appearance-none px-6 py-4 bg-black/40 border-2 border-white/5 rounded-2xl text-white font-bold focus:outline-none focus:border-purple-500/50 transition-all cursor-pointer">
                             <option value="">All Types</option>
                             <option value="slots" {{ request('type') == 'slots' ? 'selected' : '' }}>🎰 Slots</option>
                             <option value="fish" {{ request('type') == 'fish' ? 'selected' : '' }}>🐟 Fish Games</option>
@@ -120,7 +120,7 @@
                 </p>
             </div>
             @if(request()->anyFilled(['search', 'type', 'category', 'sort']))
-                <a href="{{ route('games.index') }}" class="text-pink-500 text-xs font-black uppercase tracking-widest hover:text-pink-400 transition-colors">
+                <a href="{{ route('games.index') }}" class="text-purple-500 text-xs font-black uppercase tracking-widest hover:text-purple-400 transition-colors">
                     Clear All Filters
                 </a>
             @endif

@@ -8,7 +8,7 @@
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
         <div class="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[150px] animate-pulse"></div>
-        <div class="absolute bottom-1/4 -right-20 w-[800px] h-[800px] bg-pink-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-1/4 -right-20 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
     </div>
 
     <!-- Stars Animation -->
@@ -22,7 +22,7 @@
     <div class="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-32">
         <div class="text-center mb-16 animate-fade-in-up">
             <h1 class="text-6xl sm:text-7xl md:text-8xl font-black mb-6 leading-[0.9] tracking-tighter">
-                GET IN <span class="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow">TOUCH</span>
+                GET IN <span class="bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow">TOUCH</span>
             </h1>
             <p class="text-2xl text-gray-400 font-bold tracking-tight">Have questions? We're here to help you win big!</p>
         </div>
@@ -50,8 +50,8 @@
                         </div>
 
                         <div class="flex items-center gap-6 group">
-                            <div class="w-16 h-16 bg-pink-500/10 rounded-2xl flex items-center justify-center border border-pink-500/20 group-hover:border-pink-500/50 transition-all">
-                                <svg class="w-8 h-8 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center border border-purple-500/20 group-hover:border-purple-500/50 transition-all">
+                                <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
@@ -88,7 +88,7 @@
                         </div>
                         <div class="space-y-3">
                             <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-4">Email Address</label>
-                            <input type="email" name="email" required class="w-full px-6 py-4 bg-black/40 border-2 border-white/5 rounded-2xl text-white font-bold focus:outline-none focus:border-pink-500/50 transition-all" placeholder="john@example.com">
+                            <input type="email" name="email" required class="w-full px-6 py-4 bg-black/40 border-2 border-white/5 rounded-2xl text-white font-bold focus:outline-none focus:border-purple-500/50 transition-all" placeholder="john@example.com">
                         </div>
                     </div>
 
@@ -102,7 +102,7 @@
                         <textarea name="message" required rows="5" class="w-full px-6 py-4 bg-black/40 border-2 border-white/5 rounded-2xl text-white font-bold focus:outline-none focus:border-yellow-500/50 transition-all" placeholder="Tell us everything..."></textarea>
                     </div>
 
-                    <button type="submit" class="w-full bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 text-white font-black py-6 rounded-2xl text-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1.5 animate-shine overflow-hidden uppercase tracking-tighter">
+                    <button type="submit" class="w-full bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white font-black py-6 rounded-2xl text-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1.5 animate-shine overflow-hidden uppercase tracking-tighter">
                         🚀 Send Message Now
                     </button>
                 </form>

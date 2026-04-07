@@ -82,7 +82,7 @@
         </div>
         
         <div class="flex items-center justify-between text-[11px] font-bold">
-            <span class="text-pink-500 uppercase tracking-widest">
+            <span class="text-purple-500 uppercase tracking-widest">
                 {{ $game->gameCategory->name }}
             </span>
             

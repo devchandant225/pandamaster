@@ -8,11 +8,11 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div>
             <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                🎨 Landing <span class="text-yellow-500">Page</span> <span class="text-pink-500">Manager</span>
+                🎨 Landing <span class="text-yellow-500">Page</span> <span class="text-purple-500">Manager</span>
             </h1>
             <p class="text-gray-400 mt-2 font-medium">Customize your homepage hero section and animations</p>
         </div>
-        <a href="{{ route('admin.landing-sections.create') }}" class="bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-400 hover:to-pink-400 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg">
+        <a href="{{ route('admin.landing-sections.create') }}" class="bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg">
             + Add Section
         </a>
     </div>
@@ -31,7 +31,7 @@
         @forelse($sections as $section)
             <div class="bg-gray-800 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all overflow-hidden shadow-xl">
                 <!-- Section Header -->
-                <div class="bg-gradient-to-r from-yellow-500/10 to-pink-500/10 px-6 py-4 border-b border-gray-700 flex items-center justify-between">
+                <div class="bg-gradient-to-r from-yellow-500/10 to-purple-500/10 px-6 py-4 border-b border-gray-700 flex items-center justify-between">
                     <div>
                         <h3 class="text-xl font-black text-white">{{ $sectionKeys[$section->section_key] ?? $section->section_key }}</h3>
                         <p class="text-xs text-gray-400 mt-1">Key: <code class="bg-gray-900 px-2 py-0.5 rounded">{{ $section->section_key }}</code></p>
@@ -61,7 +61,7 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Primary CTA</p>
-                                <p class="text-pink-500 text-sm font-semibold">{{ $section->cta_primary_text }}</p>
+                                <p class="text-purple-500 text-sm font-semibold">{{ $section->cta_primary_text }}</p>
                             </div>
                             <div>
                                 <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Secondary CTA</p>
@@ -117,7 +117,7 @@
                 <div class="text-6xl mb-4">🎨</div>
                 <h3 class="text-2xl font-bold text-white mb-2">No landing sections yet</h3>
                 <p class="text-gray-400 mb-6">Create your first section to start customizing your homepage</p>
-                <a href="{{ route('admin.landing-sections.create') }}" class="inline-block bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-400 hover:to-pink-400 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all shadow-lg">
+                <a href="{{ route('admin.landing-sections.create') }}" class="inline-block bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all shadow-lg">
                     + Create First Section
                 </a>
             </div>

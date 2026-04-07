@@ -10,7 +10,7 @@
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
         <div class="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[150px] animate-pulse"></div>
-        <div class="absolute bottom-1/4 -right-20 w-[800px] h-[800px] bg-pink-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-1/4 -right-20 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
     </div>
 
     <!-- Stars Animation -->
@@ -33,7 +33,7 @@
             </div>
 
             <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-10 leading-[0.85] tracking-tighter animate-fade-in-up">
-                REDEFINING THE <span class="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow uppercase">LEVEL</span> OF PLAY
+                REDEFINING THE <span class="bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow uppercase">LEVEL</span> OF PLAY
             </h1>
             
             <p class="text-2xl md:text-3xl text-gray-400 mb-16 leading-relaxed font-bold tracking-tight max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.2s;">
@@ -41,7 +41,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="{{ route('contact') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white text-2xl font-black rounded-[2rem] transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
+                <a href="{{ route('contact') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white text-2xl font-black rounded-[2rem] transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
                     <span class="relative z-10 uppercase tracking-tighter">🚀 JOIN THE ELITE</span>
                 </a>
                 <a href="{{ route('games.index') }}" class="px-14 py-6 bg-gray-900/50 hover:bg-gray-800 text-white text-2xl font-black rounded-[2rem] transition-all border-2 border-gray-700 hover:border-yellow-500 shadow-xl backdrop-blur-sm transform hover:-translate-y-1.5 uppercase tracking-tighter">
@@ -59,8 +59,8 @@
                     <div class="text-5xl md:text-6xl font-black text-yellow-500 mb-3 group-hover:scale-110 transition-transform text-glow-yellow tracking-tighter">$2M+</div>
                     <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Weekly Payouts</div>
                 </div>
-                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-pink-500/50 transition-all text-center">
-                    <div class="text-5xl md:text-6xl font-black text-pink-500 mb-3 group-hover:scale-110 transition-transform text-glow-pink tracking-tighter">50K+</div>
+                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all text-center">
+                    <div class="text-5xl md:text-6xl font-black text-purple-500 mb-3 group-hover:scale-110 transition-transform text-glow-purple tracking-tighter">50K+</div>
                     <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Active Players</div>
                 </div>
                 <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all text-center">
@@ -81,7 +81,7 @@
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="animate-fade-in-up">
                     <h2 class="text-5xl md:text-6xl font-black mb-8 tracking-tighter uppercase">
-                        OUR <span class="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">GALAXY</span>
+                        OUR <span class="bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">GALAXY</span>
                     </h2>
                     <div class="space-y-6 text-gray-400 leading-relaxed text-xl font-medium">
                         <p>
@@ -95,15 +95,15 @@
                         </p>
                     </div>
                     <div class="mt-12">
-                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-3 bg-white/5 border border-white/10 hover:border-pink-500 text-white px-10 py-5 rounded-[2rem] text-lg font-black transition-all uppercase tracking-tighter">
+                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-3 bg-white/5 border border-white/10 hover:border-purple-500 text-white px-10 py-5 rounded-[2rem] text-lg font-black transition-all uppercase tracking-tighter">
                             Learn Our Methods
-                            <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
                     </div>
                 </div>
 
                 <div class="relative group animate-fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 rounded-[3.5rem] opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700"></div>
+                    <div class="absolute -inset-4 bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 rounded-[3.5rem] opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700"></div>
                     <img
                         src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200"
                         alt="Pro Gaming Setup"
@@ -141,8 +141,8 @@
                 </div>
 
                 <!-- Security -->
-                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-pink-500/30 hover:-translate-y-3 transition-all duration-500 group">
-                    <div class="w-20 h-20 bg-pink-500/10 text-pink-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:-rotate-12 transition-transform">
+                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-purple-500/30 hover:-translate-y-3 transition-all duration-500 group">
+                    <div class="w-20 h-20 bg-purple-500/10 text-purple-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:-rotate-12 transition-transform">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
                     <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">IRONCLAD</h3>
@@ -175,7 +175,7 @@
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1)_0%,rgba(0,0,0,1)_100%)]"></div>
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 class="text-6xl sm:text-7xl md:text-8xl font-black mb-8 leading-[0.85] tracking-tighter uppercase">
-                READY TO BECOME A <span class="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow">LEGEND?</span>
+                READY TO BECOME A <span class="bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow">LEGEND?</span>
             </h2>
             <p class="text-2xl md:text-3xl text-gray-300 mb-16 font-bold tracking-tight uppercase">
                 The next massive jackpot has your name on it
@@ -183,11 +183,11 @@
 
             <div class="flex flex-wrap justify-center gap-10">
                 @auth
-                    <a href="{{ route('dashboard') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                    <a href="{{ route('dashboard') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
                         <span class="relative z-10 uppercase tracking-tighter">🚀 START PLAYING NOW</span>
                     </a>
                 @else
-                    <a href="{{ route('register') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                    <a href="{{ route('register') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
                         <span class="relative z-10 uppercase tracking-tighter">🎰 CREATE ACCOUNT & WIN</span>
                     </a>
                 @endauth

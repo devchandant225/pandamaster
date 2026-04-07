@@ -4,7 +4,8 @@
       "Bash(rm *)",
       "Bash(mkdir *)",
       "Bash(sed *)",
-      "Bash(php *)"
+      "Bash(php *)",
+      "Bash(find *)"
     ]
   },
   "$version": 3
