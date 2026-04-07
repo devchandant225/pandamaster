@@ -266,84 +266,296 @@
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-20 md:py-32 relative overflow-hidden">
-        <!-- Decorative Background Elements -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-500/5 rounded-full blur-[120px]"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-24 space-y-6">
-                <h2 class="text-5xl md:text-8xl font-black mb-6 tracking-tighter leading-none">
-                    <span class="inline-block animate-bounce-slow">🚀</span> 
-                    <span class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">3 STEPS</span> 
-                    <span class="text-white">TO WIN</span>
-                </h2>
-                <div class="h-1.5 w-32 bg-gradient-to-r from-yellow-400 to-red-500 mx-auto rounded-full shadow-[0_0_20px_rgba(234,179,8,0.5)]"></div>
-                <p class="text-xl md:text-3xl text-gray-400 font-medium max-w-2xl mx-auto">Start your winning streak in under a minute</p>
-            </div>
-
-            <div class="relative grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
-                <!-- Connection Line (Desktop) -->
-                <div class="hidden md:block absolute top-32 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
-
-                <!-- Step 1 -->
-                <div class="group relative text-center">
-                    <div class="relative mb-12 inline-block">
-                        <div class="absolute inset-0 bg-yellow-500/20 blur-3xl rounded-full group-hover:bg-yellow-500/40 transition-all duration-700"></div>
-                        <div class="relative w-32 h-32 bg-gray-900 border-2 border-yellow-500/30 rounded-[2.5rem] flex items-center justify-center text-5xl font-black text-yellow-500 shadow-2xl transform group-hover:rotate-[15deg] group-hover:scale-110 transition-all duration-500">
-                            1
-                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-500 rounded-full animate-pulse"></div>
-                        </div>
-                    </div>
-                    <div class="space-y-4 px-4">
-                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:text-yellow-400 transition-colors duration-500">Sign Up</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed font-medium group-hover:text-gray-300 transition-colors">
-                            Create your account in 30 seconds and instantly unlock a <span class="text-yellow-500 font-bold drop-shadow-[0_0_10px_rgba(234,179,8,0.3)]">$1000</span> starting bonus.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="group relative text-center">
-                    <div class="relative mb-12 inline-block">
-                        <div class="absolute inset-0 bg-purple-500/20 blur-3xl rounded-full group-hover:bg-purple-500/40 transition-all duration-700"></div>
-                        <div class="relative w-32 h-32 bg-gray-900 border-2 border-purple-500/30 rounded-[2.5rem] flex items-center justify-center text-5xl font-black text-purple-500 shadow-2xl transform group-hover:-rotate-[15deg] group-hover:scale-110 transition-all duration-500">
-                            2
-                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-purple-500 rounded-full animate-pulse"></div>
-                        </div>
-                    </div>
-                    <div class="space-y-4 px-4">
-                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:text-purple-400 transition-colors duration-500">Choose Game</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed font-medium group-hover:text-gray-300 transition-colors">
-                            Explore our massive library of premium titles and find your lucky match with the <span class="text-purple-500 font-bold drop-shadow-[0_0_10px_rgba(236,72,153,0.3)]">best odds</span>.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="group relative text-center">
-                    <div class="relative mb-12 inline-block">
-                        <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full group-hover:bg-blue-500/40 transition-all duration-700"></div>
-                        <div class="relative w-32 h-32 bg-gray-900 border-2 border-blue-500/30 rounded-[2.5rem] flex items-center justify-center text-5xl font-black text-blue-500 shadow-2xl transform group-hover:rotate-[15deg] group-hover:scale-110 transition-all duration-500">
-                            3
-                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full animate-pulse"></div>
-                        </div>
-                    </div>
-                    <div class="space-y-4 px-4">
-                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:text-blue-400 transition-colors duration-500">Play & Win</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed font-medium group-hover:text-gray-300 transition-colors">
-                            Experience the rush of winning and withdraw your earnings <span class="text-blue-500 font-bold drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">instantly</span> to your account.
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <!-- How It Works - Casino Journey Section -->
+    <section id="how-it-works" class="py-24 md:py-40 relative overflow-hidden bg-gray-950">
+        <!-- Animated Background Effects -->
+        <div class="absolute inset-0">
+            <!-- Gradient Mesh -->
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(234,179,8,0.08)_0%,rgba(0,0,0,0.9)_60%)]"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.06)_0%,transparent_50%)]"></div>
             
-            <!-- Final CTA -->
+            <!-- Floating Casino Chips -->
+            <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                @for($i = 0; $i < 15; $i++)
+                    <div class="absolute text-3xl opacity-10 animate-float-casino"
+                         style="top: {{ rand(10, 90) }}%; left: {{ rand(5, 95) }}%; animation-delay: {{ rand(0, 6000) }}ms; animation-duration: {{ rand(8000, 14000) }}ms;">
+                        @php $icons = ['🎰', '💰', '💎', '🏆', '⭐', '🎯', '💵']; @endphp
+                        {{ $icons[array_rand($icons)] }}
+                    </div>
+                @endfor
+            </div>
+
+            <!-- Glowing Orbs -->
+            <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-yellow-500/8 rounded-full blur-[150px] animate-pulse-slow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-500/8 rounded-full blur-[150px] animate-pulse-slow" style="animation-delay: 3s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header - Casino Jackpot Style -->
+            <div class="text-center mb-24 space-y-8">
+                <!-- Live Badge -->
+                <div class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 backdrop-blur-md border border-yellow-500/30 rounded-full shadow-[0_0_30px_rgba(234,179,8,0.2)] animate-pulse-slow">
+                    <span class="w-3 h-3 bg-yellow-500 rounded-full animate-ping"></span>
+                    <span class="text-sm font-black uppercase tracking-[0.3em] text-transparent bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text">⚡ Start Winning in 60 Seconds</span>
+                </div>
+
+                <!-- Jackpot-Style Title -->
+                <div class="relative inline-block">
+                    <!-- Glow Behind Title -->
+                    <div class="absolute -inset-6 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 opacity-20 blur-3xl rounded-full animate-pulse"></div>
+                    
+                    <h2 class="relative text-6xl md:text-9xl font-black tracking-tighter leading-[0.85]">
+                        <span class="inline-block animate-bounce-slow" style="animation-delay: 0ms;">🚀</span>
+                        <span class="inline-block animate-bounce-slow" style="animation-delay: 200ms;">💎</span>
+                        <span class="inline-block animate-bounce-slow" style="animation-delay: 400ms;">🏆</span>
+                        <br>
+                        <span class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent text-glow-yellow filter drop-shadow-[0_0_40px_rgba(234,179,8,0.6)]">3 STEPS</span>
+                        <br>
+                        <span class="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent text-[0.45em] md:text-[0.35em] tracking-widest font-black">TO JACKPOT</span>
+                    </h2>
+                </div>
+
+                <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-medium leading-relaxed">
+                    Your journey to <span class="text-yellow-500 font-bold text-glow-yellow">massive wins</span> starts here. Three simple steps to unlock your fortune.
+                </p>
+
+                <!-- Decorative Divider with Casino Elements -->
+                <div class="flex items-center justify-center gap-4 pt-4">
+                    <div class="w-32 h-1 bg-gradient-to-r from-transparent to-yellow-500 rounded-full shadow-[0_0_15px_rgba(234,179,8,0.8)]"></div>
+                    <div class="flex gap-2">
+                        <span class="text-2xl animate-bounce-slow" style="animation-delay: 0ms;">🎰</span>
+                        <span class="text-2xl animate-bounce-slow" style="animation-delay: 150ms;">💰</span>
+                        <span class="text-2xl animate-bounce-slow" style="animation-delay: 300ms;">🎲</span>
+                    </div>
+                    <div class="w-32 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full shadow-[0_0_15px_rgba(249,115,22,0.8)]"></div>
+                </div>
+            </div>
+
+            <!-- Steps Journey - Casino Road -->
+            <div class="relative">
+                <!-- Animated Journey Path (Desktop) -->
+                <div class="hidden md:block absolute top-24 left-[10%] right-[10%] h-2 bg-gradient-to-r from-yellow-500/30 via-purple-500/30 to-green-500/30 rounded-full blur-sm">
+                    <!-- Moving Light Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent w-1/3 animate-travel-light"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16 relative">
+                    
+                    <!-- Step 1: Sign Up -->
+                    <div class="group relative animate-fade-in-up" style="animation-delay: 0ms;">
+                        <!-- Outer Glow -->
+                        <div class="absolute -inset-2 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 rounded-[3rem] opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl"></div>
+                        
+                        <!-- Card Container -->
+                        <div class="relative bg-gray-900/80 backdrop-blur-xl rounded-[2.5rem] border-2 border-yellow-500/20 p-10 transition-all duration-700 group-hover:border-yellow-500/50 group-hover:shadow-[0_0_60px_rgba(234,179,8,0.3)] group-hover:-translate-y-3">
+                            
+                            <!-- Step Number Badge - Casino Chip Style -->
+                            <div class="relative mb-8 inline-block">
+                                <!-- Glow Behind Badge -->
+                                <div class="absolute inset-0 bg-yellow-500/30 blur-2xl rounded-full group-hover:bg-yellow-500/50 transition-all duration-700"></div>
+                                
+                                <!-- Casino Chip -->
+                                <div class="relative w-36 h-36 bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-600 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(234,179,8,0.5)] border-4 border-yellow-300 group-hover:scale-110 transition-transform duration-700">
+                                    <!-- Inner Ring -->
+                                    <div class="absolute inset-3 border-2 border-yellow-200/50 rounded-full"></div>
+                                    
+                                    <!-- Step Number -->
+                                    <span class="text-6xl font-black text-black drop-shadow-lg">1</span>
+                                    
+                                    <!-- Sparkle Effect -->
+                                    <div class="absolute -top-2 -right-2 text-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 animate-bounce-slow">
+                                        ✨
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step Icon -->
+                            <div class="text-5xl mb-6 group-hover:scale-125 transition-transform duration-500 drop-shadow-[0_0_20px_rgba(234,179,8,0.6)] animate-float-slow">
+                                🎰
+                            </div>
+
+                            <!-- Step Title -->
+                            <h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:to-orange-500 group-hover:bg-clip-text transition-all duration-500">
+                                Sign Up
+                            </h3>
+
+                            <!-- Step Description -->
+                            <p class="text-gray-400 text-lg leading-relaxed font-medium mb-6">
+                                Create your account in <span class="text-yellow-500 font-bold text-glow-yellow">30 seconds</span> and instantly unlock your exclusive
+                            </p>
+
+                            <!-- Bonus Badge -->
+                            <div class="inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-md rounded-2xl border border-yellow-500/30 shadow-[0_0_20px_rgba(234,179,8,0.2)]">
+                                <span class="text-2xl">💰</span>
+                                <div>
+                                    <div class="text-2xl font-black text-yellow-500 text-glow-yellow">$1000</div>
+                                    <div class="text-xs text-gray-400 font-black uppercase tracking-wider">Welcome Bonus</div>
+                                </div>
+                            </div>
+
+                            <!-- Progress Indicator -->
+                            <div class="mt-6 w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full w-1/3 shadow-[0_0_10px_rgba(234,179,8,0.6)]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Choose Game -->
+                    <div class="group relative animate-fade-in-up" style="animation-delay: 200ms;">
+                        <!-- Outer Glow -->
+                        <div class="absolute -inset-2 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-[3rem] opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl"></div>
+                        
+                        <!-- Card Container -->
+                        <div class="relative bg-gray-900/80 backdrop-blur-xl rounded-[2.5rem] border-2 border-purple-500/20 p-10 transition-all duration-700 group-hover:border-purple-500/50 group-hover:shadow-[0_0_60px_rgba(168,85,247,0.3)] group-hover:-translate-y-3">
+                            
+                            <!-- Step Number Badge - Casino Chip Style -->
+                            <div class="relative mb-8 inline-block">
+                                <!-- Glow Behind Badge -->
+                                <div class="absolute inset-0 bg-purple-500/30 blur-2xl rounded-full group-hover:bg-purple-500/50 transition-all duration-700"></div>
+                                
+                                <!-- Casino Chip -->
+                                <div class="relative w-36 h-36 bg-gradient-to-br from-purple-400 via-purple-500 to-purple-700 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(168,85,247,0.5)] border-4 border-purple-300 group-hover:scale-110 transition-transform duration-700">
+                                    <!-- Inner Ring -->
+                                    <div class="absolute inset-3 border-2 border-purple-200/50 rounded-full"></div>
+                                    
+                                    <!-- Step Number -->
+                                    <span class="text-6xl font-black text-white drop-shadow-lg">2</span>
+                                    
+                                    <!-- Sparkle Effect -->
+                                    <div class="absolute -top-2 -right-2 text-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 animate-bounce-slow">
+                                        ✨
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step Icon -->
+                            <div class="text-5xl mb-6 group-hover:scale-125 transition-transform duration-500 drop-shadow-[0_0_20px_rgba(168,85,247,0.6)] animate-float-slow">
+                                🎲
+                            </div>
+
+                            <!-- Step Title -->
+                            <h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500">
+                                Choose Game
+                            </h3>
+
+                            <!-- Step Description -->
+                            <p class="text-gray-400 text-lg leading-relaxed font-medium mb-6">
+                                Explore our massive library of <span class="text-purple-500 font-bold text-glow-purple">100+ premium titles</span> with the
+                            </p>
+
+                            <!-- Odds Badge -->
+                            <div class="inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-purple-500/20 to-purple-600/20 backdrop-blur-md rounded-2xl border border-purple-500/30 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                                <span class="text-2xl">🎯</span>
+                                <div>
+                                    <div class="text-2xl font-black text-purple-500 text-glow-purple">98.5%</div>
+                                    <div class="text-xs text-gray-400 font-black uppercase tracking-wider">Best Odds</div>
+                                </div>
+                            </div>
+
+                            <!-- Progress Indicator -->
+                            <div class="mt-6 w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-purple-400 to-purple-600 rounded-full w-2/3 shadow-[0_0_10px_rgba(168,85,247,0.6)]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Play & Win -->
+                    <div class="group relative animate-fade-in-up" style="animation-delay: 400ms;">
+                        <!-- Outer Glow -->
+                        <div class="absolute -inset-2 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-[3rem] opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl"></div>
+                        
+                        <!-- Card Container -->
+                        <div class="relative bg-gray-900/80 backdrop-blur-xl rounded-[2.5rem] border-2 border-green-500/20 p-10 transition-all duration-700 group-hover:border-green-500/50 group-hover:shadow-[0_0_60px_rgba(16,185,129,0.3)] group-hover:-translate-y-3">
+                            
+                            <!-- Step Number Badge - Casino Chip Style -->
+                            <div class="relative mb-8 inline-block">
+                                <!-- Glow Behind Badge -->
+                                <div class="absolute inset-0 bg-green-500/30 blur-2xl rounded-full group-hover:bg-green-500/50 transition-all duration-700"></div>
+                                
+                                <!-- Casino Chip -->
+                                <div class="relative w-36 h-36 bg-gradient-to-br from-green-400 via-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(16,185,129,0.5)] border-4 border-green-300 group-hover:scale-110 transition-transform duration-700">
+                                    <!-- Inner Ring -->
+                                    <div class="absolute inset-3 border-2 border-green-200/50 rounded-full"></div>
+                                    
+                                    <!-- Step Number -->
+                                    <span class="text-6xl font-black text-white drop-shadow-lg">3</span>
+                                    
+                                    <!-- Sparkle Effect -->
+                                    <div class="absolute -top-2 -right-2 text-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 animate-bounce-slow">
+                                        ✨
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step Icon -->
+                            <div class="text-5xl mb-6 group-hover:scale-125 transition-transform duration-500 drop-shadow-[0_0_20px_rgba(16,185,129,0.6)] animate-float-slow">
+                                🏆
+                            </div>
+
+                            <!-- Step Title -->
+                            <h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-emerald-500 group-hover:bg-clip-text transition-all duration-500">
+                                Play & Win
+                            </h3>
+
+                            <!-- Step Description -->
+                            <p class="text-gray-400 text-lg leading-relaxed font-medium mb-6">
+                                Experience the thrill of winning and withdraw your earnings <span class="text-green-500 font-bold text-glow-green">instantly</span>
+                            </p>
+
+                            <!-- Payout Badge -->
+                            <div class="inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-md rounded-2xl border border-green-500/30 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                                <span class="text-2xl">💵</span>
+                                <div>
+                                    <div class="text-2xl font-black text-green-500 text-glow-green">Instant</div>
+                                    <div class="text-xs text-gray-400 font-black uppercase tracking-wider">Payouts</div>
+                                </div>
+                            </div>
+
+                            <!-- Progress Indicator -->
+                            <div class="mt-6 w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-green-400 to-emerald-500 rounded-full w-full shadow-[0_0_10px_rgba(16,185,129,0.6)]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final CTA - Jackpot Button -->
             <div class="mt-24 text-center">
-                <a href="#auth-section" class="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-2xl text-xl font-black hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_rgba(255,255,255,0.1)]">
-                    GET STARTED NOW
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-                </a>
+                <div class="inline-block relative group">
+                    <!-- Glow Behind Button -->
+                    <div class="absolute -inset-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 opacity-40 blur-2xl rounded-full group-hover:opacity-60 transition-opacity animate-pulse"></div>
+                    
+                    <a href="#auth-section" class="relative inline-flex items-center justify-center gap-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 text-black px-16 py-8 rounded-[2.5rem] text-2xl md:text-3xl font-black transition-all shadow-[0_0_60px_rgba(234,179,8,0.5)] hover:shadow-[0_0_80px_rgba(234,179,8,0.7)] transform hover:-translate-y-2 animate-shine overflow-hidden">
+                        <span class="relative z-10 uppercase tracking-tighter flex items-center gap-3">
+                            <span class="text-3xl animate-bounce-slow">🚀</span>
+                            START WINNING NOW
+                            <span class="text-3xl animate-bounce-slow" style="animation-delay: 200ms;">💰</span>
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="flex flex-wrap justify-center gap-6 mt-8">
+                    <div class="flex items-center gap-2 bg-yellow-500/10 px-4 py-2 rounded-full border border-yellow-500/20">
+                        <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-yellow-500 text-xs font-black uppercase tracking-wider">30 Second Setup</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-purple-500/10 px-4 py-2 rounded-full border border-purple-500/20">
+                        <svg class="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-purple-500 text-xs font-black uppercase tracking-wider">100% Secure</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-green-500/10 px-4 py-2 rounded-full border border-green-500/20">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-green-500 text-xs font-black uppercase tracking-wider">Instant Payouts</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

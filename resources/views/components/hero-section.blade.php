@@ -12,11 +12,16 @@
     <div class="absolute inset-0">
         @if(($heroSection->background_type ?? 'gradient') === 'gradient')
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
-            
+
             <!-- Dynamic Light Orbs -->
-            <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse"></div>
-            <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 4s;"></div>
+            <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+            <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-[150px] animate-pulse-slow" style="animation-delay: 4s;"></div>
+            
+            <!-- Rotating Neon Rings -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] animate-rotate-very-slow opacity-10 pointer-events-none">
+                <div class="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0deg,rgba(234,179,8,0.4)_15deg,transparent_30deg,rgba(168,85,247,0.4)_45deg,transparent_60deg)]"></div>
+            </div>
         @elseif($heroSection->background_type === 'image' && $heroSection->background_url)
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ $heroSection->background_url }}')"></div>
             <div class="absolute inset-0 bg-black/70 backdrop-blur-[2px]"></div>
@@ -27,19 +32,33 @@
     <div class="absolute inset-0 pointer-events-none" id="animation-container">
         @if(($heroSection->animation_type ?? 'stars') === 'stars')
             <!-- Stars Animation -->
-            @for($i = 0; $i < 80; $i++)
-                <div class="absolute w-[1px] h-[1px] bg-white rounded-full animate-twinkle" 
+            @for($i = 0; $i < 60; $i++)
+                <div class="absolute w-[2px] h-[2px] bg-white rounded-full animate-twinkle"
                      style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(3000, 6000) }}ms;"></div>
             @endfor
-            <!-- Shooting Stars -->
-            <div class="shooting-star"></div>
-            <div class="shooting-star" style="top: 20%; left: 30%; animation-delay: 4s;"></div>
-            <div class="shooting-star" style="top: 40%; left: 60%; animation-delay: 8s;"></div>
+            
+            <!-- Floating Casino Emojis -->
+            @for($i = 0; $i < 25; $i++)
+                <div class="absolute text-4xl md:text-5xl opacity-15 animate-float-casino"
+                     style="top: {{ rand(10, 90) }}%; left: {{ rand(5, 95) }}%; animation-delay: {{ rand(0, 6000) }}ms; animation-duration: {{ rand(8000, 15000) }}ms;">
+                    @php $icons = ['🎰', '💎', '7️⃣', '🎲', '🃏', '👑', '⭐', '🔥', '💰', '🏆', '💵', '🎯']; @endphp
+                    {{ $icons[array_rand($icons)] }}
+                </div>
+            @endfor
         @elseif($heroSection->animation_type === 'particles')
             <!-- Particles Animation -->
             @for($i = 0; $i < 40; $i++)
-                <div class="absolute w-1 h-1 bg-yellow-500/20 rounded-full animate-float" 
+                <div class="absolute w-1 h-1 bg-yellow-500/20 rounded-full animate-float"
                      style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(6000, 12000) }}ms;"></div>
+            @endfor
+            
+            <!-- Floating Casino Emojis -->
+            @for($i = 0; $i < 25; $i++)
+                <div class="absolute text-4xl md:text-5xl opacity-15 animate-float-casino"
+                     style="top: {{ rand(10, 90) }}%; left: {{ rand(5, 95) }}%; animation-delay: {{ rand(0, 6000) }}ms; animation-duration: {{ rand(8000, 15000) }}ms;">
+                    @php $icons = ['🎰', '💎', '7️⃣', '🎲', '🃏', '👑', '⭐', '🔥', '💰', '🏆', '💵', '🎯']; @endphp
+                    {{ $icons[array_rand($icons)] }}
+                </div>
             @endfor
         @endif
     </div>
@@ -154,13 +173,6 @@
         100% { transform: translateY(15px); opacity: 0; }
     }
 
-    @keyframes shooting {
-        0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 0; }
-        10% { opacity: 1; }
-        20% { transform: translateX(-500px) translateY(500px) rotate(-45deg); opacity: 0; }
-        100% { transform: translateX(-500px) translateY(500px) rotate(-45deg); opacity: 0; }
-    }
-
     .animate-twinkle {
         animation: twinkle var(--duration, 4s) ease-in-out infinite;
     }
@@ -181,17 +193,5 @@
 
     .animate-scroll {
         animation: scroll 2s ease-in-out infinite;
-    }
-
-    .shooting-star {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 2px;
-        height: 100px;
-        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
-        opacity: 0;
-        animation: shooting 10s linear infinite;
-        pointer-events: none;
     }
 </style>

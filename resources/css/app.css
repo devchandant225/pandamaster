@@ -109,6 +109,10 @@ html {
     text-shadow: 0 0 10px rgba(168, 85, 247, 0.5), 0 0 20px rgba(168, 85, 247, 0.3);
 }
 
+.text-glow-green {
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5), 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
 /* Casino Animations */
 @keyframes float-casino {
     0% {
@@ -177,6 +181,15 @@ html {
     }
 }
 
+@keyframes travel-light {
+    0% {
+        left: -33%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
 .animate-float-casino {
     animation: float-casino linear infinite;
 }
@@ -196,6 +209,10 @@ html {
 .animate-fade-in-up {
     animation: fade-in-up 0.8s ease-out forwards;
     opacity: 0;
+}
+
+.animate-travel-light {
+    animation: travel-light 3s ease-in-out infinite;
 }
 
 @keyframes bounce-slow {
