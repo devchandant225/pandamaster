@@ -101,80 +101,167 @@
     </section>
     @endif
 
-    <!-- 3. CASINO/GAME CATEGORIES -->
-    <section id="categories" class="py-24 md:py-40 relative overflow-hidden bg-mesh">
-        <div class="absolute inset-0 bg-gray-950/60 backdrop-blur-md"></div>
-        
-        <!-- Rotating Light Rays -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] animate-spin-slow opacity-20 pointer-events-none">
-            <div class="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0deg,rgba(236,72,153,0.3)_10deg,transparent_20deg,rgba(59,130,246,0.3)_30deg,transparent_40deg)]"></div>
+    <!-- 3. CASINO/GAME CATEGORIES - Destiny Awaits Section -->
+    <section id="categories" class="py-24 md:py-40 relative overflow-hidden bg-gray-950">
+        <!-- Animated Background Effects -->
+        <div class="absolute inset-0">
+            <!-- Gradient Mesh -->
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.12)_0%,rgba(0,0,0,0.9)_70%)]"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(234,179,8,0.08)_0%,transparent_50%)]"></div>
+            
+            <!-- Floating Casino Particles -->
+            <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                @for($i = 0; $i < 20; $i++)
+                    <div class="absolute text-4xl opacity-10 animate-float-casino"
+                         style="top: {{ rand(10, 90) }}%; left: {{ rand(5, 95) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(6000, 12000) }}ms;">
+                        @php $icons = ['🎰', '💎', '7️⃣', '🎲', '🃏', '👑', '⭐', '🔥']; @endphp
+                        {{ $icons[array_rand($icons)] }}
+                    </div>
+                @endfor
+            </div>
+
+            <!-- Rotating Neon Rings -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] animate-rotate-very-slow opacity-15 pointer-events-none">
+                <div class="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0deg,rgba(234,179,8,0.4)_15deg,transparent_30deg,rgba(168,85,247,0.4)_45deg,transparent_60deg)]"></div>
+            </div>
+
+            <!-- Neon Glow Lines -->
+            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20 space-y-6">
-                <div class="inline-block px-6 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-4">
-                    <span class="text-xs font-black uppercase tracking-[0.3em] text-purple-500 animate-pulse">Select Your Kingdom</span>
+            <!-- Section Header - Slot Machine Style -->
+            <div class="text-center mb-20 space-y-8">
+                <!-- Animated Badge -->
+                <div class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-yellow-500/10 to-purple-500/10 backdrop-blur-md border border-yellow-500/30 rounded-full shadow-[0_0_30px_rgba(234,179,8,0.2)] animate-pulse-slow">
+                    <span class="w-3 h-3 bg-yellow-500 rounded-full animate-ping"></span>
+                    <span class="text-sm font-black uppercase tracking-[0.3em] text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text">🎰 Choose Your Arena</span>
                 </div>
-                <h2 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-[0.8]">
-                    <span class="bg-gradient-to-r from-purple-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent filter drop-shadow-[0_0_20px_rgba(236,72,153,0.5)]">DESTINY</span>
-                    <br>
-                    <span class="text-white text-[0.6em] md:text-[0.4em] tracking-widest opacity-90">AWAITS YOU</span>
-                </h2>
-                <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-medium opacity-80 pt-4">
-                    Choose from our legendary collection of high-stakes arenas
+
+                <!-- Slot Machine Title -->
+                <div class="relative inline-block">
+                    <!-- Glow Behind Title -->
+                    <div class="absolute -inset-4 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 opacity-30 blur-2xl rounded-full animate-pulse"></div>
+                    
+                    <h2 class="relative text-6xl md:text-9xl font-black tracking-tighter leading-[0.85]">
+                        <span class="inline-block animate-bounce-slow" style="animation-delay: 0ms;">🎰</span>
+                        <span class="inline-block animate-bounce-slow" style="animation-delay: 150ms;">💎</span>
+                        <span class="inline-block animate-bounce-slow" style="animation-delay: 300ms;">7️⃣</span>
+                        <br>
+                        <span class="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent text-glow-yellow filter drop-shadow-[0_0_30px_rgba(234,179,8,0.6)]">DESTINY</span>
+                        <br>
+                        <span class="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-purple filter drop-shadow-[0_0_30px_rgba(168,85,247,0.6)] text-[0.5em] md:text-[0.35em] tracking-widest">AWAITS YOU</span>
+                    </h2>
+                </div>
+
+                <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-medium leading-relaxed">
+                    Step into our legendary collection of <span class="text-yellow-500 font-bold">high-stakes arenas</span> where fortune favors the bold and champions are crowned
                 </p>
+
+                <!-- Decorative Divider -->
+                <div class="flex items-center justify-center gap-4 pt-4">
+                    <div class="w-24 h-1 bg-gradient-to-r from-transparent to-yellow-500 rounded-full shadow-[0_0_10px_rgba(234,179,8,0.8)]"></div>
+                    <div class="text-3xl animate-spin-slow">⭐</div>
+                    <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-transparent rounded-full shadow-[0_0_10px_rgba(168,85,247,0.8)]"></div>
+                </div>
             </div>
 
-            <!-- Mobile: Horizontal Scroll, Desktop: Grid -->
-            <div class="flex md:grid md:grid-cols-3 lg:grid-cols-5 gap-8 overflow-x-auto md:overflow-x-visible pb-12 md:pb-0 snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+            <!-- Game Category Cards - Slot Machine Style -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
                 @php
                     $categories = [
-                        ['type' => 'slots', 'emoji' => '🎰', 'label' => 'Slots', 'color' => 'from-yellow-400 via-orange-500 to-yellow-600', 'glow' => 'rgba(234,179,8,0.4)', 'bg' => 'bg-yellow-500/10'],
-                        ['type' => 'fish', 'emoji' => '🐟', 'label' => 'Ocean', 'color' => 'from-blue-400 via-cyan-500 to-indigo-600', 'glow' => 'rgba(59,130,246,0.4)', 'bg' => 'bg-blue-500/10'],
-                        ['type' => 'keno', 'emoji' => '🎲', 'label' => 'Keno', 'color' => 'from-purple-400 via-rose-500 to-purple-600', 'glow' => 'rgba(236,72,153,0.4)', 'bg' => 'bg-purple-500/10'],
-                        ['type' => 'table', 'emoji' => '🎯', 'label' => 'Elite', 'color' => 'from-green-400 via-emerald-500 to-teal-600', 'glow' => 'rgba(16,185,129,0.4)', 'bg' => 'bg-green-500/10'],
-                        ['type' => 'card', 'emoji' => '🃏', 'label' => 'Decks', 'color' => 'from-purple-400 via-indigo-500 to-blue-600', 'glow' => 'rgba(139,92,246,0.4)', 'bg' => 'bg-purple-500/10'],
+                        ['type' => 'slots', 'emoji' => '🎰', 'label' => 'Slots', 'games' => '100+', 'color' => 'from-yellow-400 via-orange-500 to-yellow-600', 'glow' => 'rgba(234,179,8,0.6)', 'bg' => 'bg-yellow-500/10', 'border' => 'border-yellow-500/30', 'shadow' => 'shadow-[0_0_40px_rgba(234,179,8,0.3)]'],
+                        ['type' => 'fish', 'emoji' => '🐟', 'label' => 'Fish Hunter', 'games' => '50+', 'color' => 'from-blue-400 via-cyan-500 to-blue-600', 'glow' => 'rgba(59,130,246,0.6)', 'bg' => 'bg-blue-500/10', 'border' => 'border-blue-500/30', 'shadow' => 'shadow-[0_0_40px_rgba(59,130,246,0.3)]'],
+                        ['type' => 'keno', 'emoji' => '🎲', 'label' => 'Keno', 'games' => '25+', 'color' => 'from-purple-400 via-purple-500 to-purple-600', 'glow' => 'rgba(168,85,247,0.6)', 'bg' => 'bg-purple-500/10', 'border' => 'border-purple-500/30', 'shadow' => 'shadow-[0_0_40px_rgba(168,85,247,0.3)]'],
+                        ['type' => 'table', 'emoji' => '🎯', 'label' => 'Table Games', 'games' => '30+', 'color' => 'from-green-400 via-emerald-500 to-green-600', 'glow' => 'rgba(16,185,129,0.6)', 'bg' => 'bg-green-500/10', 'border' => 'border-green-500/30', 'shadow' => 'shadow-[0_0_40px_rgba(16,185,129,0.3)]'],
+                        ['type' => 'card', 'emoji' => '🃏', 'label' => 'Card Games', 'games' => '20+', 'color' => 'from-purple-400 via-indigo-500 to-purple-600', 'glow' => 'rgba(139,92,246,0.6)', 'bg' => 'bg-indigo-500/10', 'border' => 'border-indigo-500/30', 'shadow' => 'shadow-[0_0_40px_rgba(139,92,246,0.3)]'],
                     ];
                 @endphp
 
-                @foreach($categories as $cat)
-                <a href="{{ route('games.index', ['type' => $cat['type']]) }}" 
-                   class="group relative flex-none w-[80vw] md:w-auto p-1 rounded-[3rem] transition-all duration-700 hover:scale-105 active:scale-95 snap-center">
+                @foreach($categories as $index => $cat)
+                <a href="{{ route('games.index', ['type' => $cat['type']]) }}"
+                   class="group relative animate-fade-in-up"
+                   style="animation-delay: {{ $index * 100 }}ms;">
                     
-                    <!-- Rainbow Border Animation on Hover -->
-                    <div class="absolute inset-0 bg-gradient-to-r {{ $cat['color'] }} rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-[2px]"></div>
+                    <!-- Outer Glow Ring -->
+                    <div class="absolute -inset-1 bg-gradient-to-r {{ $cat['color'] }} rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-all duration-700 blur-md group-hover:blur-lg"></div>
                     
-                    <div class="relative h-full bg-gray-950/90 backdrop-blur-xl p-10 rounded-[2.9rem] flex flex-col items-center justify-center border border-white/5 overflow-hidden">
-                        <!-- Background glow pulse -->
-                        <div class="absolute inset-0 {{ $cat['bg'] }} opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <!-- Card Container -->
+                    <div class="relative h-full bg-gray-900/90 backdrop-blur-xl rounded-[2.3rem] border-2 {{ $cat['border'] }} overflow-hidden transition-all duration-700 group-hover:{{ $cat['shadow'] }} group-hover:scale-105 group-hover:-translate-y-2">
                         
-                        <!-- Floating Neon Emoji -->
-                        <div class="text-8xl mb-10 relative z-10 transition-all duration-700 transform group-hover:scale-125 group-hover:rotate-6 drop-shadow-[0_0_25px_{{ $cat['glow'] }}] animate-float-slow">
-                            {{ $cat['emoji'] }}
+                        <!-- Animated Background Gradient -->
+                        <div class="absolute inset-0 {{ $cat['bg'] }} opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        
+                        <!-- Rotating Border Effect -->
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-rotate-border">
+                            <div class="absolute inset-0 bg-gradient-to-r {{ $cat['color'] }} rounded-[2.3rem] blur-sm"></div>
                         </div>
 
-                        <!-- Labels -->
-                        <div class="relative z-10 space-y-3">
-                            <h3 class="text-3xl font-black text-white uppercase tracking-tighter group-hover:bg-gradient-to-r group-hover:{{ $cat['color'] }} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500">
+                        <!-- Card Content -->
+                        <div class="relative z-10 p-8 md:p-10 flex flex-col items-center justify-center min-h-[320px]">
+                            
+                            <!-- Floating Neon Emoji with Glow -->
+                            <div class="relative mb-8">
+                                <!-- Emoji Glow Background -->
+                                <div class="absolute inset-0 text-8xl blur-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-700 drop-shadow-[0_0_40px_{{ $cat['glow'] }}]">
+                                    {{ $cat['emoji'] }}
+                                </div>
+                                
+                                <!-- Main Emoji -->
+                                <div class="text-8xl md:text-9xl transition-all duration-700 transform group-hover:scale-125 group-hover:rotate-12 drop-shadow-[0_0_20px_{{ $cat['glow'] }}] animate-float-slow">
+                                    {{ $cat['emoji'] }}
+                                </div>
+                                
+                                <!-- Sparkle Effect -->
+                                <div class="absolute -top-2 -right-2 text-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 animate-bounce-slow">
+                                    ✨
+                                </div>
+                            </div>
+
+                            <!-- Category Label -->
+                            <h3 class="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-3 group-hover:bg-gradient-to-r group-hover:{{ $cat['color'] }} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500 text-center">
                                 {{ $cat['label'] }}
                             </h3>
-                            <div class="h-1 w-8 bg-white/20 mx-auto rounded-full group-hover:w-16 group-hover:bg-gradient-to-r group-hover:{{ $cat['color'] }} transition-all duration-500"></div>
+
+                            <!-- Game Count Badge -->
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 group-hover:{{ $cat['border'] }} transition-all duration-500">
+                                <span class="text-xs font-black text-gray-400 group-hover:text-white uppercase tracking-wider">Games</span>
+                                <span class="text-sm font-black text-transparent bg-gradient-to-r {{ $cat['color'] }} bg-clip-text">{{ $cat['games'] }}</span>
+                            </div>
+
+                            <!-- Animated Progress Bar -->
+                            <div class="w-full h-1 bg-white/10 rounded-full mt-6 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r {{ $cat['color'] }} rounded-full w-0 group-hover:w-full transition-all duration-1000 ease-out shadow-[0_0_10px_{{ $cat['glow'] }}]"></div>
+                            </div>
+
+                            <!-- Hover Arrow -->
+                            <div class="mt-4 flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                                <span class="text-xs font-black uppercase tracking-widest">Play Now</span>
+                                <svg class="w-4 h-4 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                </svg>
+                            </div>
                         </div>
 
-                        <!-- Hover Flare -->
-                        <div class="absolute -top-1/2 -left-1/2 w-full h-full bg-white/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none"></div>
+                        <!-- Corner Decorations -->
+                        <div class="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 {{ $cat['border'] }} rounded-tl-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 {{ $cat['border'] }} rounded-tr-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 {{ $cat['border'] }} rounded-bl-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 {{ $cat['border'] }} rounded-br-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                 </a>
                 @endforeach
             </div>
-            
-            <!-- Custom Navigation Hint -->
-            <div class="md:hidden mt-8 text-center">
-                <div class="inline-flex items-center gap-4 text-gray-500 bg-white/5 px-6 py-3 rounded-2xl border border-white/10">
-                    <div class="w-12 h-1 bg-gradient-to-r from-transparent to-purple-500 rounded-full animate-pulse"></div>
-                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white">Slide to Explore</span>
-                    <div class="w-12 h-1 bg-gradient-to-r from-purple-500 to-transparent rounded-full animate-pulse"></div>
-                </div>
+
+            <!-- Bottom CTA -->
+            <div class="mt-16 text-center">
+                <a href="{{ route('games.index') }}" class="group relative inline-flex items-center justify-center gap-4 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 hover:from-yellow-500 hover:via-purple-600 hover:to-purple-700 text-white px-12 py-6 rounded-2xl text-xl font-black transition-all shadow-[0_0_40px_rgba(234,179,8,0.4)] hover:shadow-[0_0_60px_rgba(168,85,247,0.6)] transform hover:-translate-y-1 animate-shine overflow-hidden">
+                    <span class="relative z-10 uppercase tracking-tighter">🎮 Explore All Games</span>
+                    <svg class="w-6 h-6 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
