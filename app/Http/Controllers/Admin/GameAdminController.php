@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Game;
 use App\Models\GameCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class GameAdminController extends Controller
@@ -57,7 +58,8 @@ class GameAdminController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|unique:games,slug',
             'description' => 'nullable|string',
-            'thumbnail_url' => 'required|url',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'thumbnail_url' => 'nullable|url',
             'game_url' => 'nullable|url',
             'demo_url' => 'nullable|url',
             'rtp' => 'nullable|numeric|between:0,100',
@@ -77,6 +79,14 @@ class GameAdminController extends Controller
         $validated['is_new'] = $request->boolean('is_new');
         $validated['is_featured'] = $request->boolean('is_featured');
         $validated['is_active'] = $request->boolean('is_active');
+
+        // Handle file upload
+        if ($request->hasFile('thumbnail')) {
+            $path = $request->file('thumbnail')->store('games', 'public');
+            $validated['thumbnail_path'] = $path;
+        } elseif (!empty($validated['thumbnail_url'])) {
+            $validated['thumbnail_path'] = null;
+        }
 
         Game::create($validated);
 
@@ -103,7 +113,8 @@ class GameAdminController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|unique:games,slug,' . $game->id,
             'description' => 'nullable|string',
-            'thumbnail_url' => 'required|url',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'thumbnail_url' => 'nullable|url',
             'game_url' => 'nullable|url',
             'demo_url' => 'nullable|url',
             'rtp' => 'nullable|numeric|between:0,100',
@@ -123,6 +134,21 @@ class GameAdminController extends Controller
         $validated['is_new'] = $request->boolean('is_new');
         $validated['is_featured'] = $request->boolean('is_featured');
         $validated['is_active'] = $request->boolean('is_active');
+
+        // Handle file upload
+        if ($request->hasFile('thumbnail')) {
+            // Delete old uploaded file if exists
+            if ($game->thumbnail_path) {
+                Storage::disk('public')->delete($game->thumbnail_path);
+            }
+            
+            $path = $request->file('thumbnail')->store('games', 'public');
+            $validated['thumbnail_path'] = $path;
+            $validated['thumbnail_url'] = null;
+        } elseif (!empty($validated['thumbnail_url'])) {
+            // If using external URL, clear the uploaded path
+            $validated['thumbnail_path'] = null;
+        }
 
         $game->update($validated);
 

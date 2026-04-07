@@ -1,8 +1,8 @@
 <div class="game-card group relative bg-gray-900 rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-yellow-500/50 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(234,179,8,0.15)]">
     <!-- Thumbnail Container -->
     <div class="relative overflow-hidden aspect-[4/5] sm:aspect-video lg:aspect-[4/5]">
-        <img src="{{ $game->thumbnail_url }}" 
-             alt="{{ $game->title }}" 
+        <img src="{{ $game->thumbnail }}"
+             alt="{{ $game->title }}"
              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
         
         <!-- Premium Badges -->

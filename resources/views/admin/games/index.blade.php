@@ -78,7 +78,7 @@
                         <tr class="hover:bg-gray-700/50 transition-colors">
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-3">
-                                    <img src="{{ $game->thumbnail_url }}" alt="{{ $game->title }}" class="w-12 h-12 rounded-lg object-cover">
+                                    <img src="{{ $game->thumbnail }}" alt="{{ $game->title }}" class="w-12 h-12 rounded-lg object-cover">
                                     <div>
                                         <div class="font-bold text-white">{{ $game->title }}</div>
                                         <div class="text-xs text-gray-400">{{ $game->slug }}</div>

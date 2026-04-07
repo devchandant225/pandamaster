@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Game extends Model
@@ -17,6 +18,7 @@ class Game extends Model
         'slug',
         'description',
         'thumbnail_url',
+        'thumbnail_path',
         'game_url',
         'demo_url',
         'rtp',
@@ -38,6 +40,18 @@ class Game extends Model
         'rtp' => 'decimal:2',
         'features' => 'array',
     ];
+
+    /**
+     * Get the full thumbnail URL (either uploaded file or external URL).
+     */
+    public function getThumbnailAttribute(): string
+    {
+        if ($this->thumbnail_path) {
+            return Storage::url($this->thumbnail_path);
+        }
+        
+        return $this->thumbnail_url ?? '';
+    }
 
     /**
      * Get the category that owns the game.

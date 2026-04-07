@@ -3,7 +3,8 @@
     "allow": [
       "Bash(rm *)",
       "Bash(mkdir *)",
-      "Bash(sed *)"
+      "Bash(sed *)",
+      "Bash(php *)"
     ]
   },
   "$version": 3

@@ -14,7 +14,7 @@
         </div>
 
         <!-- Form -->
-        <form action="{{ $game->id ? route('admin.games.update', $game) : route('admin.games.store') }}" method="POST" class="bg-gray-800 rounded-2xl border border-gray-700 p-8 space-y-6">
+        <form action="{{ $game->id ? route('admin.games.update', $game) : route('admin.games.store') }}" method="POST" enctype="multipart/form-data" class="bg-gray-800 rounded-2xl border border-gray-700 p-8 space-y-6">
             @csrf
             @if($game->id) @method('PUT') @endif
 
@@ -59,27 +59,57 @@
                 </div>
             </div>
 
-            <!-- URLs -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-bold text-white mb-2">Thumbnail URL *</label>
-                    <input type="text" name="thumbnail_url" value="{{ old('thumbnail_url', $game->thumbnail_url) }}" required class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="https://example.com/image.jpg">
-                </div>
-                <div>
-                    <label class="block text-sm font-bold text-white mb-2">RTP (%)</label>
-                    <input type="number" name="rtp" value="{{ old('rtp', $game->rtp) }}" step="0.01" min="0" max="100" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="96.50">
+            <!-- Thumbnail Upload -->
+            <div>
+                <label class="block text-sm font-bold text-white mb-2">Thumbnail Image</label>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- File Upload -->
+                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-700">
+                        <label class="block text-sm font-bold text-white mb-2">Upload Image</label>
+                        <input type="file" name="thumbnail" accept="image/jpeg,image/png,image/jpg,image/gif,image/webp" id="thumbnail-upload" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-500 file:text-gray-900 hover:file:bg-yellow-400">
+                        <p class="text-xs text-gray-400 mt-2">Max size: 5MB. Formats: JPG, PNG, GIF, WEBP</p>
+                        
+                        <!-- Preview -->
+                        <div id="upload-preview" class="mt-4 {{ $game->thumbnail_path ? '' : 'hidden' }}">
+                            <p class="text-sm text-gray-400 mb-2">Current uploaded image:</p>
+                            <img id="preview-image" src="{{ $game->thumbnail ? $game->thumbnail : '' }}" alt="Thumbnail preview" class="max-w-full h-auto rounded-lg border border-gray-600">
+                        </div>
+                    </div>
+                    
+                    <!-- External URL -->
+                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-700">
+                        <label class="block text-sm font-bold text-white mb-2">Or Use External URL</label>
+                        <input type="text" name="thumbnail_url" value="{{ old('thumbnail_url', $game->thumbnail_url) }}" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="https://example.com/image.jpg">
+                        <p class="text-xs text-gray-400 mt-2">Leave empty if using uploaded image</p>
+                        
+                        <!-- Preview -->
+                        @if(!$game->thumbnail_path && $game->thumbnail_url)
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-400 mb-2">Current URL image:</p>
+                            <img src="{{ $game->thumbnail_url }}" alt="Thumbnail preview" class="max-w-full h-auto rounded-lg border border-gray-600">
+                        </div>
+                        @endif
+                    </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
+                    <label class="block text-sm font-bold text-white mb-2">RTP (%)</label>
+                    <input type="number" name="rtp" value="{{ old('rtp', $game->rtp) }}" step="0.01" min="0" max="100" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="96.50">
+                </div>
+                <div>
                     <label class="block text-sm font-bold text-white mb-2">Game URL (Real Play)</label>
                     <input type="text" name="game_url" value="{{ old('game_url', $game->game_url) }}" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="https://provider.com/play/game-id">
                 </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="block text-sm font-bold text-white mb-2">Demo URL</label>
                     <input type="text" name="demo_url" value="{{ old('demo_url', $game->demo_url) }}" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="https://provider.com/demo/game-id">
                 </div>
+                <div></div>
             </div>
 
             <!-- Flags -->
@@ -114,4 +144,30 @@
         </form>
     </div>
 </div>
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('thumbnail-upload');
+    const previewDiv = document.getElementById('upload-preview');
+    const previewImage = document.getElementById('preview-image');
+    
+    if (fileInput) {
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewDiv.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewDiv.classList.add('hidden');
+            }
+        });
+    }
+});
+</script>
+@endpush
 @endsection

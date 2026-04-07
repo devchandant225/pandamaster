@@ -34,8 +34,8 @@
             <!-- Game Thumbnail & Visuals -->
             <div class="lg:col-span-5 animate-fade-in-up" style="animation-delay: 0.1s;">
                 <div class="relative rounded-[3rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 group">
-                    <img src="{{ $game->thumbnail_url }}" 
-                         alt="{{ $game->title }}" 
+                    <img src="{{ $game->thumbnail }}"
+                         alt="{{ $game->title }}"
                          class="w-full h-auto transition-transform duration-700 group-hover:scale-110">
                     
                     <!-- Advanced Badges -->
