@@ -109,6 +109,9 @@
     <!-- 6. DOWNLOAD SECTION -->
     <x-download-section />
 
+    <!-- Casino Experience Section -->
+    <x-casino-experience :hotGames="$hotGames" :newGames="$newGames" />
+
     <!-- 7. MOBILE COMPATIBILITY -->
     <x-mobile-compatibility />
 
