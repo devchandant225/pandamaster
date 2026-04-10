@@ -5,7 +5,10 @@
       "Bash(mkdir *)",
       "Bash(sed *)",
       "Bash(php *)",
-      "Bash(find *)"
+      "Bash(find *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(python3 *)"
     ]
   },
   "$version": 3
