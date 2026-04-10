@@ -68,6 +68,9 @@
         </section>
     @endif
 
+    <!-- About Section -->
+    <x-about-section />
+
     <!-- 2. WHAT THE APP/GAME IS - Featured Games Section -->
     @if(isset($featuredGames) && $featuredGames->count() > 0)
     <section id="featured" class="py-20 md:py-32 relative overflow-hidden">
