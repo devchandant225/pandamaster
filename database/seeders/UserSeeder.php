@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         // ADMIN USER
         // ===========================================
         User::firstOrCreate(
-            ['email' => 'admin@orionstar.com'],
+            ['email' => 'admin@pandamaster.vip'],
             [
                 'name' => 'Admin User',
                 'password' => Hash::make('password'),

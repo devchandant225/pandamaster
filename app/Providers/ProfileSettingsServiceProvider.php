@@ -21,10 +21,10 @@ class ProfileSettingsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Share admin profile data with all views
+        // Share admin profile data (site settings) with all views
         View::composer('*', function ($view) {
-            $adminProfile = User::where('role', 'admin')->first();
-            $view->with('adminProfile', $adminProfile);
+            $adminSettings = User::where('role', 'admin')->first();
+            $view->with('adminSettings', $adminSettings);
         });
     }
 }

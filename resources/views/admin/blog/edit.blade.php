@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', ['active' => 'blog'])
 
-@section('title', 'Edit Article - OrionstarBet Admin')
+@section('title', 'Edit Article - Panda Master Admin')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-50 min-h-screen">
@@ -35,7 +35,7 @@
                     <div class="space-y-6">
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Article Title <span class="text-red-500">*</span></label>
-                            <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" placeholder="e.g. 5 Pro Tips for Winning Big at OrionStar" 
+                            <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" placeholder="e.g. 5 Pro Tips for Winning Big at Panda Master" 
                                 class="w-full h-16 px-6 bg-gray-50 border-2 border-gray-200 focus:border-[#D4AF37] focus:bg-white rounded-2xl outline-none transition-all font-black text-xl text-gray-900" 
                                 required onkeyup="generateSlug()">
                             @error('title') <p class="text-red-500 text-[10px] font-bold mt-1 uppercase">{{ $message }}</p> @enderror

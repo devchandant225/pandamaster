@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', ['active' => 'admin-dashboard'])
 
-@section('title', 'Admin Dashboard - Orionstar Gaming')
+@section('title', 'Admin Dashboard - Panda Master VIP')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-900 min-h-screen">

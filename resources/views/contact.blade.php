@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us - Orionstar Gaming')
+@section('title', 'Contact Us - Panda Master VIP')
 
 @section('content')
 <div class="min-h-screen bg-black relative overflow-hidden">
@@ -45,20 +45,25 @@
                             </div>
                             <div>
                                 <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Email Us</p>
-                                <a href="mailto:devchandant225@gmail.com" class="text-xl font-bold text-white hover:text-yellow-500 transition-colors">devchandant225@gmail.com</a>
+                                @if(isset($adminSettings) && $adminSettings->email)
+                                    <a href="mailto:{{ $adminSettings->email }}" class="text-xl font-bold text-white hover:text-yellow-500 transition-colors">{{ $adminSettings->email }}</a>
+                                @else
+                                    <a href="mailto:support@pandamaster.vip" class="text-xl font-bold text-white hover:text-yellow-500 transition-colors">support@pandamaster.vip</a>
+                                @endif
                             </div>
                         </div>
 
                         <div class="flex items-center gap-6 group">
-                            <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center border border-purple-500/20 group-hover:border-purple-500/50 transition-all">
-                                <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
+                            <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center border border-green-500/20 group-hover:border-green-500/50 transition-all">
+                                <span class="text-2xl">💬</span>
                             </div>
                             <div>
-                                <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Our Location</p>
-                                <p class="text-xl font-bold text-white">Digital Nomad, Global Gaming</p>
+                                <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">WhatsApp / Viber</p>
+                                @if(isset($adminSettings) && ($adminSettings->whatsapp || $adminSettings->viber))
+                                    <p class="text-xl font-bold text-white">{{ $adminSettings->whatsapp ?: $adminSettings->viber }}</p>
+                                @else
+                                    <p class="text-xl font-bold text-white">Contact for VIP Support</p>
+                                @endif
                             </div>
                         </div>
 

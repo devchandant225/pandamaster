@@ -40,7 +40,7 @@
                     <div class="flex flex-wrap items-center gap-6 text-gray-400 mb-8 pb-8 border-b-2 border-gray-800">
                         <div class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                            <span>By <span class="font-semibold text-white">{{ $post->author ?? 'OrionstarBet Team' }}</span></span>
+                            <span>By <span class="font-semibold text-white">{{ $post->author ?? 'Panda Master VIP Team' }}</span></span>
                         </div>
                         <div class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>

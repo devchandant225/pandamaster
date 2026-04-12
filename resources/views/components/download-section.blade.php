@@ -25,11 +25,11 @@
                         Anytime.
                     </h2>
                     <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-xl">
-                        Unleash the full power of OrionStar in the palm of your hand. Our native application delivers a seamless, high-performance gaming experience optimized for elite players.
+                        Unleash the full power of Panda Master VIP in the palm of your hand. Our official application delivers a seamless, high-performance fish gaming experience optimized for elite players.
                     </p>
                 </div>
-
-                <!-- Feature Grid -->
+                ...
+                                    <div class="text-sm font-black text-yellow-500 tracking-widest text-glow-yellow uppercase">Panda Master</div>
                 <div class="grid sm:grid-cols-2 gap-6 pb-4">
                     <div class="flex items-center gap-4 p-4 bg-white/5 border border-white/5 rounded-2xl hover:border-white/10 transition-colors group">
                         <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">

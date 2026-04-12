@@ -24,7 +24,7 @@
                         Player <span class="text-yellow-500">Lobby</span>
                     </h3>
                     <p class="text-gray-400 text-lg mb-10 leading-relaxed font-medium">
-                        Secure access to your personal gaming vault. Manage your balance, track your tournament rankings, and claim your daily rewards.
+                        Secure access to your Panda Master VIP account. Manage your balance, track your tournament rankings, and claim your daily rewards.
                     </p>
 
                     <div class="space-y-6">
@@ -40,9 +40,9 @@
                             </a>
                             
                             <div class="text-center">
-                                <span class="text-gray-500 font-bold uppercase tracking-widest text-[10px]">New to the galaxy?</span>
+                                <span class="text-gray-500 font-bold uppercase tracking-widest text-[10px]">New to Panda Master?</span>
                                 <a href="{{ route('register') }}" class="text-yellow-500 hover:text-white font-black ml-3 uppercase tracking-tighter text-sm transition-colors border-b-2 border-yellow-500/30 hover:border-white">
-                                    Join the Elite
+                                    Join the VIPs
                                 </a>
                             </div>
                         @endauth
@@ -80,7 +80,7 @@
                         Elite <span class="text-purple-500">Support</span>
                     </h3>
                     <p class="text-gray-400 text-lg mb-10 leading-relaxed font-medium">
-                        Never play alone. Our dedicated support commanders are standing by 24/7 to ensure your gaming experience remains legendary.
+                        Never play alone. Our dedicated Panda Master support team is standing by 24/7 to ensure your gaming experience remains legendary.
                     </p>
 
                     <div class="space-y-4">

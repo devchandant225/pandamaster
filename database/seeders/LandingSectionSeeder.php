@@ -13,23 +13,23 @@ class LandingSectionSeeder extends Seeder
     public function run(): void
     {
         // Hero Section
-        LandingSection::firstOrCreate(
+        LandingSection::updateOrCreate(
             ['section_key' => 'hero'],
             [
-                'title' => 'Play Win Repeat',
-                'subtitle' => 'Your Premier Online Gaming Destination',
-                'description' => 'Discover 100+ premium games with the best odds and biggest wins. Join thousands of players winning big every day!',
-                'badge_text' => '🎮 Premium Gaming Experience',
-                'cta_primary_text' => '🎰 Start Playing - Get $1000 Bonus',
-                'cta_primary_url' => '/register',
-                'cta_secondary_text' => 'Browse Games',
-                'cta_secondary_url' => '/games',
+                'title' => 'Panda Master VIP',
+                'subtitle' => 'The Ultimate Fish Game & Online Casino Platform',
+                'description' => 'Experience the thrill of Panda Master VIP. Play 30+ premium games, including top fish games, slots, and arcade favorites. Download the app today and start winning real cash!',
+                'badge_text' => '🐼 Panda Master Official VIP',
+                'cta_primary_text' => '🎰 Play Online Now',
+                'cta_primary_url' => '/play-online',
+                'cta_secondary_text' => 'Download APK',
+                'cta_secondary_url' => '/download',
                 'background_type' => 'gradient',
                 'animation_type' => 'stars',
                 'stats' => [
-                    ['value' => '100+', 'label' => 'Premium Games'],
-                    ['value' => '$2M+', 'label' => 'Won This Week'],
-                    ['value' => '50K+', 'label' => 'Active Players'],
+                    ['value' => '30+', 'label' => 'Exclusive Games'],
+                    ['value' => '100%', 'label' => 'Secure Payouts'],
+                    ['value' => '24/7', 'label' => 'VIP Support'],
                 ],
                 'is_active' => true,
                 'sort_order' => 1,

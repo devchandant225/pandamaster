@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Join OrionstarBet - Get $1000 Bonus')
+@section('title', 'Join Panda Master - Get $1000 Bonus')
 
 @section('content')
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">

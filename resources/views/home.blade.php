@@ -26,7 +26,7 @@
 
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                 <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 leading-[0.9] animate-fade-in-up">
-                    <span class="text-yellow-500 text-glow-yellow">ORIONSTAR</span> <span class="text-purple-500 text-glow-purple">GAMING</span>
+                    <span class="text-yellow-500 text-glow-yellow uppercase">Panda</span> <span class="text-white">Master</span>
                 </h1>
                 <p class="text-2xl md:text-3xl text-gray-300 mb-14 font-bold tracking-tight animate-fade-in-up" style="animation-delay: 0.2s;">
                     Your Premier Online Gaming Destination - Play 100+ Games & Win Big

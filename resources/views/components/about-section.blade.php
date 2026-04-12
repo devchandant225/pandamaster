@@ -31,15 +31,15 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                     </span>
-                    The OrionStar Story
+                    The Panda Master Story
                 </div>
 
                 <h2 class="text-5xl md:text-6xl font-black mb-8 leading-[0.9] tracking-tighter text-white uppercase">
-                    Redefining The <span class="bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500 bg-clip-text text-transparent text-glow-yellow">Galaxy</span> of Play
+                    Redefining The <span class="bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500 bg-clip-text text-transparent text-glow-yellow">Experience</span> of Play
                 </h2>
 
                 <p class="text-xl text-gray-400 mb-10 leading-relaxed font-medium">
-                    Born in the digital age, OrionStar was created with one mission: to build the most immersive, rewarding, and fair online gaming ecosystem in the world. We combine cutting-edge technology with world-class game design.
+                    Panda Master VIP is built on the legendary Fire Kirin engine, delivering the world's most immersive, rewarding, and secure online fish gaming platform. With over 30+ exclusive titles, we set the gold standard for social casino entertainment.
                 </p>
 
                 <div class="grid sm:grid-cols-2 gap-6 mb-12">

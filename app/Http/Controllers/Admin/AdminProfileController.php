@@ -32,6 +32,7 @@ class AdminProfileController extends Controller
             'linkedin' => 'nullable|string|max:255',
             'instagram' => 'nullable|string|max:255',
             'tiktok' => 'nullable|string|max:255',
+            'pinterest' => 'nullable|string|max:255',
             'telegram' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'logo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',

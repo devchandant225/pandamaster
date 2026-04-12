@@ -24,7 +24,7 @@
                 </div>
 
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                    <span class="text-yellow-500">Orionstar</span><span class="text-purple-500">Bet</span> <span class="text-white">Blog</span>
+                    <span class="text-yellow-500">Panda</span> <span class="text-purple-500">Master</span> <span class="text-white">Blog</span>
                 </h1>
 
                 <p class="text-xl md:text-2xl text-gray-300 mb-8">
@@ -121,7 +121,7 @@
                             <div class="flex items-center gap-4 text-sm text-gray-500 pb-4 mb-4 border-b border-gray-700">
                                 <div class="flex items-center gap-1">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                                    <span>{{ $post->author ?? 'OrionstarBet Team' }}</span>
+                                    <span>{{ $post->author ?? 'Panda Master VIP Team' }}</span>
                                 </div>
                                 <span>{{ $post->read_time ?? '5 min read' }}</span>
                             </div>

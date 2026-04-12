@@ -17,8 +17,14 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PandaMasterController;
+
 // Public Routes
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [PandaMasterController::class, 'index'])->name('home');
+Route::get('/777', [PandaMasterController::class, 'sevenSevenSeven'])->name('pandamaster.777');
+Route::get('/download', [PandaMasterController::class, 'download'])->name('pandamaster.download');
+Route::get('/play-online', [PandaMasterController::class, 'playOnline'])->name('pandamaster.play-online');
+Route::get('/casino', [PandaMasterController::class, 'casino'])->name('pandamaster.casino');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact', [HomeController::class, 'contactStore'])->name('contact.store');

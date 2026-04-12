@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Login to OrionStar')
+@section('title', 'Panda Master Login — Access Your Account')
 
 @section('content')
 <div class="min-h-screen flex items-center justify-center bg-black relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
     <!-- cinematic Background & Lighting -->
     <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1)_0%,rgba(0,0,0,1)_100%)]"></div>
         <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-yellow-500/5 rounded-full blur-[120px] animate-pulse"></div>
         <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
     </div>
@@ -23,14 +23,14 @@
         <div class="text-center">
             <a href="{{ url('/') }}" class="inline-block mb-8">
                 <div class="text-4xl font-black tracking-tighter">
-                    <span class="text-yellow-500 text-glow-yellow uppercase">Orion</span><span class="text-purple-500 text-glow-purple uppercase">Star</span>
+                    <span class="text-yellow-500 text-glow-yellow uppercase">Panda</span><span class="text-white uppercase">Master</span>
                 </div>
             </a>
             <h2 class="text-3xl font-black text-white uppercase tracking-tighter mb-2">
-                Welcome <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Back</span> 👋
+                Welcome <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">VIP</span> 👋
             </h2>
             <p class="text-gray-400 font-bold text-sm uppercase tracking-widest">
-                Sign in to your premium account
+                Sign in to your Panda Master account
             </p>
         </div>
 
@@ -100,9 +100,9 @@
 
         <div class="text-center pt-8">
             <p class="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">
-                New to the Galaxy?
+                New to Panda Master?
                 <a href="{{ route('register') }}" class="font-black text-yellow-500 hover:text-yellow-400 transition-colors ml-2">
-                    JOIN NOW & GET $1000 BONUS →
+                    GET AN ACCOUNT →
                 </a>
             </p>
         </div>

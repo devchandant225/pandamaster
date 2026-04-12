@@ -15,9 +15,9 @@
     @endif
     <link rel="manifest" href="/site.webmanifest">
     @hasSection('title')
-        <title>@yield('title') | {{ config('app.name', 'Orionstar Gaming') }}</title>
+        <title>@yield('title') | {{ config('app.name', 'Panda Master VIP') }}</title>
     @else
-        <title>{{ config('app.name', 'Orionstar Gaming') }} - Premium Online Gaming Platform</title>
+        <title>{{ config('app.name', 'Panda Master VIP') }} - Ultimate Fish Game & Online Casino</title>
     @endif
 
     @stack('meta')

@@ -1,19 +1,19 @@
 @extends('layouts.dashboard', ['active' => 'profile'])
-
-@section('title', 'Admin Profile & Branding - 888Realty')
+@section('title', 'Admin Profile & Branding - Panda Master')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-50 min-h-screen" x-data="{ activeTab: 'profile' }">
     <div class="max-w-6xl mx-auto">
         <!-- Profile Hero Section -->
         <div class="bg-black rounded-[2.5rem] p-8 md:p-12 mb-10 text-white relative overflow-hidden shadow-2xl shadow-black/20">
-            <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
-            <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
-            
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+
             <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
                 <div class="relative group">
-                    <div class="w-32 h-32 rounded-[2.5rem] bg-gradient-to-br from-[#D4AF37] to-yellow-600 flex items-center justify-center text-black text-5xl font-black border-4 border-white/10 shadow-xl group-hover:scale-105 transition-transform duration-500 overflow-hidden">
-                        @if($user->avatar_url)
+                    <div class="w-32 h-32 rounded-[2.5rem] bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center text-black text-5xl font-black border-4 border-white/10 shadow-xl group-hover:scale-105 transition-transform duration-500 overflow-hidden">
+...
+                    <p class="text-gray-400 font-medium text-lg italic mb-6">Managing Panda Master Digital Assets</p>
                             <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" class="w-full h-full object-cover">
                         @else
                             {{ substr($user->name, 0, 1) }}
@@ -208,6 +208,11 @@
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">TikTok</label>
                                     <input type="text" name="tiktok" value="{{ old('tiktok', $user->tiktok) }}"
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Pinterest</label>
+                                    <input type="text" name="pinterest" value="{{ old('pinterest', $user->pinterest) }}"
                                         class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
                                 </div>
                                 <div class="space-y-2">

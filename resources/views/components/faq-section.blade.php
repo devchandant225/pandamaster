@@ -23,7 +23,7 @@
             </h2>
 
             <p class="text-lg md:text-xl text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
-                Everything you need to know to master the OrionStar ecosystem. Instant answers for elite players.
+                Everything you need to know to master the Panda Master ecosystem. Instant answers for elite players.
             </p>
         </div>
 
@@ -36,7 +36,7 @@
                         'a' => 'Click "Join the Elite" or "Register", fill your basic data, and verify. You\'ll be granted instant access to the lobby and your initial $1000 bonus credits will be staged for activation.'
                     ],
                     [
-                        'q' => 'Is the OrionStar encryption ironclad?',
+                        'q' => 'Is the Panda Master encryption ironclad?',
                         'a' => 'We deploy 256-bit AES military-grade encryption alongside multi-factor authentication (MFA). Your assets and data are protected by the same protocols used by global financial institutions.'
                     ],
                     [
