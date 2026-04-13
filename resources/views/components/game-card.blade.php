@@ -45,12 +45,12 @@
 
             <div class="flex flex-col w-full gap-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
                 @auth
-                    <a href="{{ route('games.play', $game->slug) }}" 
+                    <a href="{{ $adminSettings->external_dashboard_url ?? route('admin.dashboard') }}"
                        class="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-black py-3 rounded-xl text-center shadow-lg animate-shine overflow-hidden uppercase tracking-tighter">
                         Play Now
                     </a>
                 @else
-                    <a href="{{ route('register') }}" 
+                    <a href="{{ $adminSettings->register_url ?? '#' }}"
                        class="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-black py-3 rounded-xl text-center shadow-lg animate-shine overflow-hidden uppercase tracking-tighter">
                         Sign Up to Play
                     </a>

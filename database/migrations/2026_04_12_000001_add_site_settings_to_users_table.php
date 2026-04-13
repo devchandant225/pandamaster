@@ -24,6 +24,11 @@ return new class extends Migration
             if (!Schema::hasColumn('users', 'description')) $table->text('description')->nullable();
             if (!Schema::hasColumn('users', 'logo')) $table->string('logo')->nullable();
             if (!Schema::hasColumn('users', 'favicon')) $table->string('favicon')->nullable();
+            if (!Schema::hasColumn('users', 'login_url')) $table->string('login_url')->nullable();
+            if (!Schema::hasColumn('users', 'register_url')) $table->string('register_url')->nullable();
+            if (!Schema::hasColumn('users', 'youtube_url')) $table->string('youtube_url')->nullable();
+            if (!Schema::hasColumn('users', 'external_dashboard_url')) $table->string('external_dashboard_url')->nullable();
+            if (!Schema::hasColumn('users', 'footer_description')) $table->text('footer_description')->nullable();
         });
     }
 
@@ -34,9 +39,11 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn([
-                'whatsapp', 'viber', 'facebook', 'twitter', 'linkedin', 
-                'instagram', 'tiktok', 'pinterest', 'telegram', 
-                'description', 'logo', 'favicon'
+                'whatsapp', 'viber', 'facebook', 'twitter', 'linkedin',
+                'instagram', 'tiktok', 'pinterest', 'telegram',
+                'description', 'logo', 'favicon',
+                'login_url', 'register_url', 'youtube_url',
+                'external_dashboard_url', 'footer_description'
             ]);
         });
     }

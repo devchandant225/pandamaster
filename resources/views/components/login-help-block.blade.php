@@ -29,7 +29,7 @@
 
                     <div class="space-y-6">
                         @auth
-                            <a href="{{ route('dashboard') }}" class="group/btn w-full inline-flex items-center justify-center gap-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-10 py-6 rounded-2xl text-xl font-black transition-all shadow-[0_15px_30px_rgba(234,179,8,0.2)] hover:shadow-[0_20px_40px_rgba(234,179,8,0.3)] transform hover:-translate-y-1.5 uppercase tracking-tighter">
+                            <a href="{{ route('admin.dashboard') }}" class="group/btn w-full inline-flex items-center justify-center gap-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-10 py-6 rounded-2xl text-xl font-black transition-all shadow-[0_15px_30px_rgba(234,179,8,0.2)] hover:shadow-[0_20px_40px_rgba(234,179,8,0.3)] transform hover:-translate-y-1.5 uppercase tracking-tighter">
                                 Enter Dashboard
                                 <svg class="w-6 h-6 transition-transform group-hover/btn:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </a>
@@ -41,7 +41,7 @@
                             
                             <div class="text-center">
                                 <span class="text-gray-500 font-bold uppercase tracking-widest text-[10px]">New to Panda Master?</span>
-                                <a href="{{ route('register') }}" class="text-yellow-500 hover:text-white font-black ml-3 uppercase tracking-tighter text-sm transition-colors border-b-2 border-yellow-500/30 hover:border-white">
+                                <a href="{{ $adminSettings->register_url ?? '#' }}" class="text-yellow-500 hover:text-white font-black ml-3 uppercase tracking-tighter text-sm transition-colors border-b-2 border-yellow-500/30 hover:border-white">
                                     Join the VIPs
                                 </a>
                             </div>

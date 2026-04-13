@@ -113,14 +113,14 @@
                 <!-- Play Buttons -->
                 <div class="flex flex-col sm:flex-row gap-6 mb-12">
                     @auth
-                        <a href="{{ route('games.play', $game->slug) }}" 
+                        <a href="{{ $adminSettings->external_dashboard_url ?? route('admin.dashboard') }}"
                            class="flex-1 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white font-black py-6 px-12 rounded-[2rem] text-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 text-center animate-shine overflow-hidden group">
                             <span class="relative z-10 flex items-center justify-center gap-3 uppercase tracking-tighter">
-                                🎮 PLAY REAL MONEY
+                                🎮 PLAY NOW
                             </span>
                         </a>
                     @else
-                        <a href="{{ route('register') }}" 
+                        <a href="{{ $adminSettings->register_url ?? '#' }}" 
                            class="flex-1 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white font-black py-6 px-12 rounded-[2rem] text-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 text-center animate-shine overflow-hidden group">
                             <span class="relative z-10 flex items-center justify-center gap-3 uppercase tracking-tighter">
                                 🎰 SIGN UP TO PLAY

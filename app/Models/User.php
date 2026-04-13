@@ -37,9 +37,14 @@ class User extends Authenticatable
         'linkedin',
         'instagram',
         'tiktok',
-        'telegram',
         'pinterest',
+        'telegram',
         'description',
+        'login_url',
+        'register_url',
+        'youtube_url',
+        'external_dashboard_url',
+        'footer_description',
     ];
 
     /**

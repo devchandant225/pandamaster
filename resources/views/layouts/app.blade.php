@@ -14,10 +14,24 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     @endif
     <link rel="manifest" href="/site.webmanifest">
-    @hasSection('title')
-        <title>@yield('title') | {{ config('app.name', 'Panda Master VIP') }}</title>
+
+    <!-- SEO Meta Tags from Admin -->
+    @if(isset($pageMetaTags) && $pageMetaTags)
+        <title>{{ $pageMetaTags->title }}</title>
+        @if($pageMetaTags->desc)<meta name="description" content="{{ $pageMetaTags->desc }}">@endif
+        @if($pageMetaTags->keyword)<meta name="keywords" content="{{ $pageMetaTags->keyword }}">@endif
+        @if($pageMetaTags->image)<meta property="og:image" content="{{ asset('storage/' . $pageMetaTags->image) }}"><meta name="twitter:image" content="{{ asset('storage/' . $pageMetaTags->image) }}">@endif
+        @if($pageMetaTags->schema_head)
+            @foreach(is_array($pageMetaTags->schema_head) ? $pageMetaTags->schema_head : [$pageMetaTags->schema_head] as $schema)
+                @if(!empty($schema))<script type="application/ld+json">{!! $schema !!}</script>@endif
+            @endforeach
+        @endif
     @else
-        <title>{{ config('app.name', 'Panda Master VIP') }} - Ultimate Fish Game & Online Casino</title>
+        @hasSection('title')
+            <title>@yield('title') | {{ config('app.name', 'Panda Master VIP') }}</title>
+        @else
+            <title>{{ config('app.name', 'Panda Master VIP') }} - Ultimate Fish Game & Online Casino</title>
+        @endif
     @endif
 
     @stack('meta')

@@ -4,9 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\GamingDashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\GameAdminController;
@@ -36,10 +34,8 @@ Route::get('/games', [GameController::class, 'index'])->name('games.index');
 Route::get('/games/{slug}', [GameController::class, 'show'])->name('games.show');
 Route::get('/games/{slug}/demo', [GameController::class, 'demo'])->name('games.demo');
 
-// Auth Routes
+// Auth Routes (Login only - admin only)
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('register', [RegisteredUserController::class, 'store']);
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
@@ -52,82 +48,76 @@ Route::middleware('guest')->group(function () {
 
 Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout')->middleware('auth');
 
-// Authenticated Gaming Dashboard Routes
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [GamingDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard/profile', [GamingDashboardController::class, 'profile'])->name('dashboard.profile');
-    Route::put('/dashboard/profile', [GamingDashboardController::class, 'updateProfile'])->name('dashboard.profile.update');
-    Route::get('/games/{slug}/play', [GameController::class, 'play'])->name('games.play');
-});
+// Admin Dashboard Routes (Only admin role)
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/search', [AdminDashboardController::class, 'search'])->name('admin.search');
 
-// Admin Specific Routes (Only admin role)
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/search', [AdminDashboardController::class, 'search'])->name('search');
+    // Admin Profile
+    Route::get('/admin/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'index'])->name('admin.profile');
+    Route::put('/admin/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'update'])->name('admin.profile.update');
+    Route::put('/admin/profile/password', [\App\Http\Controllers\Admin\AdminProfileController::class, 'updatePassword'])->name('admin.profile.password');
+    Route::get('/admin/profile/remove-logo', [\App\Http\Controllers\Admin\AdminProfileController::class, 'removeLogo'])->name('admin.profile.remove-logo');
+    Route::get('/admin/profile/remove-favicon', [\App\Http\Controllers\Admin\AdminProfileController::class, 'removeFavicon'])->name('admin.profile.remove-favicon');
 
     // User Management
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-    Route::post('/users', [UserController::class, 'store'])->name('users.store');
-    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
+    Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
+    Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
+    Route::get('/admin/users/{user}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
+    Route::put('/admin/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
+    Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
     // Game Management
-    Route::get('/games', [GameAdminController::class, 'index'])->name('games.index');
-    Route::get('/games/create', [GameAdminController::class, 'create'])->name('games.create');
-    Route::post('/games', [GameAdminController::class, 'store'])->name('games.store');
-    Route::get('/games/{game}', [GameAdminController::class, 'show'])->name('games.show');
-    Route::get('/games/{game}/edit', [GameAdminController::class, 'edit'])->name('games.edit');
-    Route::put('/games/{game}', [GameAdminController::class, 'update'])->name('games.update');
-    Route::delete('/games/{game}', [GameAdminController::class, 'destroy'])->name('games.destroy');
-    Route::post('/games/{game}/toggle-status', [GameAdminController::class, 'toggleStatus'])->name('games.toggle-status');
+    Route::get('/admin/games', [GameAdminController::class, 'index'])->name('admin.games.index');
+    Route::get('/admin/games/create', [GameAdminController::class, 'create'])->name('admin.games.create');
+    Route::post('/admin/games', [GameAdminController::class, 'store'])->name('admin.games.store');
+    Route::get('/admin/games/{game}', [GameAdminController::class, 'show'])->name('admin.games.show');
+    Route::get('/admin/games/{game}/edit', [GameAdminController::class, 'edit'])->name('admin.games.edit');
+    Route::put('/admin/games/{game}', [GameAdminController::class, 'update'])->name('admin.games.update');
+    Route::delete('/admin/games/{game}', [GameAdminController::class, 'destroy'])->name('admin.games.destroy');
+    Route::post('/admin/games/{game}/toggle-status', [GameAdminController::class, 'toggleStatus'])->name('admin.games.toggle-status');
 
     // Game Category Management
-    Route::get('/game-categories', [GameCategoryAdminController::class, 'index'])->name('game-categories.index');
-    Route::get('/game-categories/create', [GameCategoryAdminController::class, 'create'])->name('game-categories.create');
-    Route::post('/game-categories', [GameCategoryAdminController::class, 'store'])->name('game-categories.store');
-    Route::get('/game-categories/{gameCategory}/edit', [GameCategoryAdminController::class, 'edit'])->name('game-categories.edit');
-    Route::put('/game-categories/{gameCategory}', [GameCategoryAdminController::class, 'update'])->name('game-categories.update');
-    Route::delete('/game-categories/{gameCategory}', [GameCategoryAdminController::class, 'destroy'])->name('game-categories.destroy');
+    Route::get('/admin/game-categories', [GameCategoryAdminController::class, 'index'])->name('admin.game-categories.index');
+    Route::get('/admin/game-categories/create', [GameCategoryAdminController::class, 'create'])->name('admin.game-categories.create');
+    Route::post('/admin/game-categories', [GameCategoryAdminController::class, 'store'])->name('admin.game-categories.store');
+    Route::get('/admin/game-categories/{gameCategory}/edit', [GameCategoryAdminController::class, 'edit'])->name('admin.game-categories.edit');
+    Route::put('/admin/game-categories/{gameCategory}', [GameCategoryAdminController::class, 'update'])->name('admin.game-categories.update');
+    Route::delete('/admin/game-categories/{gameCategory}', [GameCategoryAdminController::class, 'destroy'])->name('admin.game-categories.destroy');
 
     // Meta Tags Management
-    Route::get('/meta-tags', [MetaTagController::class, 'index'])->name('meta-tags.index');
-    Route::get('/meta-tags/create', [MetaTagController::class, 'create'])->name('meta-tags.create');
-    Route::post('/meta-tags', [MetaTagController::class, 'store'])->name('meta-tags.store');
-    Route::get('/meta-tags/{metaTag}', [MetaTagController::class, 'show'])->name('meta-tags.show');
-    Route::get('/meta-tags/{metaTag}/edit', [MetaTagController::class, 'edit'])->name('meta-tags.edit');
-    Route::put('/meta-tags/{metaTag}', [MetaTagController::class, 'update'])->name('meta-tags.update');
-    Route::delete('/meta-tags/{metaTag}', [MetaTagController::class, 'destroy'])->name('meta-tags.destroy');
-    Route::post('/meta-tags/{metaTag}/toggle-status', [MetaTagController::class, 'toggleStatus'])->name('meta-tags.toggle-status');
+    Route::get('/admin/meta-tags', [MetaTagController::class, 'index'])->name('admin.meta-tags.index');
+    Route::get('/admin/meta-tags/create', [MetaTagController::class, 'create'])->name('admin.meta-tags.create');
+    Route::post('/admin/meta-tags', [MetaTagController::class, 'store'])->name('admin.meta-tags.store');
+    Route::get('/admin/meta-tags/{metaTag}', [MetaTagController::class, 'show'])->name('admin.meta-tags.show');
+    Route::get('/admin/meta-tags/{metaTag}/edit', [MetaTagController::class, 'edit'])->name('admin.meta-tags.edit');
+    Route::put('/admin/meta-tags/{metaTag}', [MetaTagController::class, 'update'])->name('admin.meta-tags.update');
+    Route::delete('/admin/meta-tags/{metaTag}', [MetaTagController::class, 'destroy'])->name('admin.meta-tags.destroy');
+    Route::post('/admin/meta-tags/{metaTag}/toggle-status', [MetaTagController::class, 'toggleStatus'])->name('admin.meta-tags.toggle-status');
 
     // Landing Page Management
-    Route::get('/landing-sections', [LandingSectionController::class, 'index'])->name('landing-sections.index');
-    Route::get('/landing-sections/create', [LandingSectionController::class, 'create'])->name('landing-sections.create');
-    Route::post('/landing-sections', [LandingSectionController::class, 'store'])->name('landing-sections.store');
-    Route::get('/landing-sections/{landingSection}/edit', [LandingSectionController::class, 'edit'])->name('landing-sections.edit');
-    Route::put('/landing-sections/{landingSection}', [LandingSectionController::class, 'update'])->name('landing-sections.update');
-    Route::delete('/landing-sections/{landingSection}', [LandingSectionController::class, 'destroy'])->name('landing-sections.destroy');
-    Route::post('/landing-sections/{landingSection}/toggle-status', [LandingSectionController::class, 'toggleStatus'])->name('landing-sections.toggle-status');
+    Route::get('/admin/landing-sections', [LandingSectionController::class, 'index'])->name('admin.landing-sections.index');
+    Route::get('/admin/landing-sections/create', [LandingSectionController::class, 'create'])->name('admin.landing-sections.create');
+    Route::post('/admin/landing-sections', [LandingSectionController::class, 'store'])->name('admin.landing-sections.store');
+    Route::get('/admin/landing-sections/{landingSection}/edit', [LandingSectionController::class, 'edit'])->name('admin.landing-sections.edit');
+    Route::put('/admin/landing-sections/{landingSection}', [LandingSectionController::class, 'update'])->name('admin.landing-sections.update');
+    Route::delete('/admin/landing-sections/{landingSection}', [LandingSectionController::class, 'destroy'])->name('admin.landing-sections.destroy');
+    Route::post('/admin/landing-sections/{landingSection}/toggle-status', [LandingSectionController::class, 'toggleStatus'])->name('admin.landing-sections.toggle-status');
 
     // Blog Management
-    Route::get('/blog', [\App\Http\Controllers\Admin\AdminPostController::class, 'index'])->name('blog.index');
-    Route::get('/blog/create', [\App\Http\Controllers\Admin\AdminPostController::class, 'create'])->name('blog.create');
-    Route::post('/blog', [\App\Http\Controllers\Admin\AdminPostController::class, 'store'])->name('blog.store');
-    Route::get('/blog/{post}/edit', [\App\Http\Controllers\Admin\AdminPostController::class, 'edit'])->name('blog.edit');
-    Route::put('/blog/{post}', [\App\Http\Controllers\Admin\AdminPostController::class, 'update'])->name('blog.update');
-    Route::delete('/blog/{post}', [\App\Http\Controllers\Admin\AdminPostController::class, 'destroy'])->name('blog.destroy');
+    Route::get('/admin/blog', [\App\Http\Controllers\Admin\AdminPostController::class, 'index'])->name('admin.blog.index');
+    Route::get('/admin/blog/create', [\App\Http\Controllers\Admin\AdminPostController::class, 'create'])->name('admin.blog.create');
+    Route::post('/admin/blog', [\App\Http\Controllers\Admin\AdminPostController::class, 'store'])->name('admin.blog.store');
+    Route::get('/admin/blog/{post}/edit', [\App\Http\Controllers\Admin\AdminPostController::class, 'edit'])->name('admin.blog.edit');
+    Route::put('/admin/blog/{post}', [\App\Http\Controllers\Admin\AdminPostController::class, 'update'])->name('admin.blog.update');
+    Route::delete('/admin/blog/{post}', [\App\Http\Controllers\Admin\AdminPostController::class, 'destroy'])->name('admin.blog.destroy');
 
     // Blog Category Management
-    Route::get('/categories', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'index'])->name('categories.index');
-    Route::get('/categories/create', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'create'])->name('categories.create');
-    Route::post('/categories', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'store'])->name('categories.store');
-    Route::get('/categories/{category}/edit', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'edit'])->name('categories.edit');
-    Route::put('/categories/{category}', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'update'])->name('categories.update');
-    Route::delete('/categories/{category}', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'destroy'])->name('categories.destroy');
-
-    // Profile Management
-    Route::get('/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'index'])->name('profile');
-    Route::put('/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'update'])->name('profile.update');
-    Route::put('/profile/password', [\App\Http\Controllers\Admin\AdminProfileController::class, 'updatePassword'])->name('profile.password');
+    Route::get('/admin/categories', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'index'])->name('admin.categories.index');
+    Route::get('/admin/categories/create', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'create'])->name('admin.categories.create');
+    Route::post('/admin/categories', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'store'])->name('admin.categories.store');
+    Route::get('/admin/categories/{category}/edit', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'edit'])->name('admin.categories.edit');
+    Route::put('/admin/categories/{category}', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'update'])->name('admin.categories.update');
+    Route::delete('/admin/categories/{category}', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'destroy'])->name('admin.categories.destroy');
 });

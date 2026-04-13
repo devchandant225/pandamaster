@@ -45,30 +45,12 @@
                 </a>
 
                 @auth
-                    <!-- Balance Display -->
-                    @if(auth()->user()->player)
-                        <div class="flex items-center gap-3 bg-gray-800/80 px-4 py-2 rounded-xl border border-yellow-500/30 shadow-lg shadow-yellow-500/5 transition-all hover:border-yellow-500 hover:shadow-yellow-500/20 group cursor-default">
-                            <div class="text-yellow-500 animate-pulse group-hover:scale-110 transition-transform">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-7.5 4a.5.5 0 010-1 4.5 4.5 0 019 0 .5.5 0 01-1 0 3.5 3.5 0 00-7 0 .5.5 0 01-1 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest">Balance</p>
-                                <p class="text-sm font-black text-yellow-500">${{ number_format(auth()->user()->player->balance, 2) }}</p>
-                            </div>
-                        </div>
-                    @endif
-
-                    <a href="{{ route('dashboard') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
-                        <span class="relative z-10 uppercase tracking-tighter">Dashboard</span>
+                    <a href="{{ $adminSettings->external_dashboard_url ?? route('admin.dashboard') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
+                        <span class="relative z-10 uppercase tracking-tighter">Admin Panel</span>
                     </a>
                 @else
-                    <a href="{{ route('login') }}" class="text-gray-300 hover:text-yellow-500 transition-colors font-bold text-sm tracking-wider uppercase">
-                        Login
-                    </a>
-                    <a href="{{ route('register') }}" class="group relative bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
-                        <span class="relative z-10 uppercase tracking-tighter">Sign Up</span>
+                    <a href="{{ $adminSettings->login_url ?? route('login') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
+                        <span class="relative z-10 uppercase tracking-tighter">Login / Register</span>
                     </a>
                 @endauth
             </nav>
@@ -111,17 +93,10 @@
             <a href="{{ route('contact') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Contact</a>
 
             @auth
-                @if(auth()->user()->player)
-                    <div class="py-4 px-5 bg-gray-800/80 rounded-xl border border-yellow-500/30">
-                        <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest">Balance</p>
-                        <p class="text-xl font-black text-yellow-500">${{ number_format(auth()->user()->player->balance, 2) }}</p>
-                    </div>
-                @endif
-                <a href="{{ route('dashboard') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg">DASHBOARD</a>
+                <a href="{{ $adminSettings->external_dashboard_url ?? route('admin.dashboard') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg">ADMIN PANEL</a>
             @else
                 <div class="pt-4 space-y-4">
-                    <a href="{{ route('login') }}" class="block py-4 text-center text-lg font-bold text-gray-300 border border-gray-700 rounded-xl">LOGIN</a>
-                    <a href="{{ route('register') }}" class="block py-4 text-center bg-gradient-to-r from-purple-600 to-purple-500 text-white font-black rounded-xl shadow-lg">SIGN UP</a>
+                    <a href="{{ $adminSettings->login_url ?? route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg">LOGIN / REGISTER</a>
                 </div>
             @endauth
         </nav>

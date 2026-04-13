@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
-@push('meta')
-    <x-meta-tags page="blog" />
-@endpush
+@section('meta_tags')
+    @if($post->meta_title || $post->meta_description || $post->meta_keywords)
+        @if($post->meta_title)<title>{{ $post->meta_title }}</title>@endif
+        @if($post->meta_description)<meta name="description" content="{{ $post->meta_description }}">@endif
+        @if($post->meta_keywords)<meta name="keywords" content="{{ $post->meta_keywords }}">@endif
+        @if($post->image_url)<meta property="og:image" content="{{ $post->image_url }}"><meta name="twitter:image" content="{{ $post->image_url }}">@endif
+    @endif
+@endsection
 
 @section('content')
 <div class="min-h-screen bg-gray-900">
@@ -137,7 +142,7 @@
                         <p class="text-white/90 mb-6">
                             Get $1000 bonus when you sign up and start playing today!
                         </p>
-                        <a href="{{ route('register') }}" class="block w-full bg-white text-gray-900 hover:bg-gray-100 py-3 text-center font-bold rounded-xl transition-all">
+                        <a href="{{ $adminSettings->register_url ?? '#' }}" class="block w-full bg-white text-gray-900 hover:bg-gray-100 py-3 text-center font-bold rounded-xl transition-all">
                             🎰 Join Now →
                         </a>
                     </div>
@@ -199,7 +204,7 @@
                 Join thousands of players and start your winning journey today
             </p>
 
-            <a href="{{ route('register') }}" class="inline-block bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-10 py-5 text-xl font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <a href="{{ $adminSettings->register_url ?? '#' }}" class="inline-block bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-10 py-5 text-xl font-bold rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 🎰 Get $1000 Bonus →
             </a>
         </div>

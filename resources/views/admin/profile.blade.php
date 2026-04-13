@@ -165,60 +165,88 @@
                         <div x-show="activeTab === 'social'" x-cloak class="p-8 md:p-12 animate-fade-in space-y-8">
                             <div>
                                 <h3 class="text-2xl font-black text-gray-900 tracking-tight">Connectivity & Content</h3>
-                                <p class="text-gray-500 text-sm mt-1">Manage social networks and platform description.</p>
+                                <p class="text-gray-500 text-sm mt-1">Manage social networks, external URLs and platform description.</p>
                             </div>
 
                             <div class="space-y-2">
                                 <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Platform Description</label>
-                                <textarea name="description" rows="4" 
+                                <textarea name="description" rows="4"
                                     class="w-full p-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-2xl outline-none transition-all font-medium text-gray-900">{{ old('description', $user->description) }}</textarea>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Footer Description</label>
+                                <textarea name="footer_description" rows="2"
+                                    class="w-full p-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-2xl outline-none transition-all font-medium text-gray-900">{{ old('footer_description', $user->footer_description) }}</textarea>
                             </div>
 
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">WhatsApp</label>
                                     <input type="text" name="whatsapp" value="{{ old('whatsapp', $user->whatsapp) }}" placeholder="https://wa.me/..."
-                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Viber</label>
                                     <input type="text" name="viber" value="{{ old('viber', $user->viber) }}"
-                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Facebook</label>
                                     <input type="text" name="facebook" value="{{ old('facebook', $user->facebook) }}"
-                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Twitter (X)</label>
                                     <input type="text" name="twitter" value="{{ old('twitter', $user->twitter) }}"
-                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">LinkedIn</label>
                                     <input type="text" name="linkedin" value="{{ old('linkedin', $user->linkedin) }}"
-                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Instagram</label>
                                     <input type="text" name="instagram" value="{{ old('instagram', $user->instagram) }}"
-                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">TikTok</label>
                                     <input type="text" name="tiktok" value="{{ old('tiktok', $user->tiktok) }}"
-                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
-                                </div>
-                                <div class="space-y-2">
-                                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Pinterest</label>
-                                    <input type="text" name="pinterest" value="{{ old('pinterest', $user->pinterest) }}"
-                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Telegram</label>
                                     <input type="text" name="telegram" value="{{ old('telegram', $user->telegram) }}"
-                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm">
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
+                                </div>
+                            </div>
+
+                            <!-- External Auth URLs -->
+                            <div class="mt-8 pt-8 border-t border-gray-200">
+                                <h4 class="text-sm font-black text-gray-900 mb-6 uppercase tracking-wide">External Authentication Links</h4>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Login URL</label>
+                                        <input type="text" name="login_url" value="{{ old('login_url', $user->login_url) }}" placeholder="https://external-login-url.com/login"
+                                            class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Register URL</label>
+                                        <input type="text" name="register_url" value="{{ old('register_url', $user->register_url) }}" placeholder="https://external-register-url.com/register"
+                                            class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">YouTube URL</label>
+                                        <input type="text" name="youtube_url" value="{{ old('youtube_url', $user->youtube_url) }}" placeholder="https://youtube.com/@pandamaster"
+                                            class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">External Dashboard URL</label>
+                                        <input type="text" name="external_dashboard_url" value="{{ old('external_dashboard_url', $user->external_dashboard_url) }}" placeholder="https://dashboard.example.com"
+                                            class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
+                                    </div>
                                 </div>
                             </div>
                         </div>

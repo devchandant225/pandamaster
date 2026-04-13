@@ -28,7 +28,7 @@
             </div>
         @endif
 
-        <form class="mt-8 space-y-6" action="{{ route('register') }}" method="POST">
+        <form class="mt-8 space-y-6" action="{{ $adminSettings->register_url ?? '#' }}" method="POST">
             @csrf
 
             <div class="space-y-4">

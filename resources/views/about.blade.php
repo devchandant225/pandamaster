@@ -183,11 +183,11 @@
 
             <div class="flex flex-wrap justify-center gap-10">
                 @auth
-                    <a href="{{ route('dashboard') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                    <a href="{{ route('admin.dashboard') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
                         <span class="relative z-10 uppercase tracking-tighter">🚀 START PLAYING NOW</span>
                     </a>
                 @else
-                    <a href="{{ route('register') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                    <a href="{{ $adminSettings->register_url ?? '#' }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
                         <span class="relative z-10 uppercase tracking-tighter">🎰 CREATE ACCOUNT & WIN</span>
                     </a>
                 @endauth

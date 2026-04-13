@@ -35,8 +35,13 @@ class AdminProfileController extends Controller
             'pinterest' => 'nullable|string|max:255',
             'telegram' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'logo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
-            'favicon' => 'nullable|image|mimes:png,ico,svg|max:1024',
+            'login_url' => 'nullable|url|max:255',
+            'register_url' => 'nullable|url|max:255',
+            'youtube_url' => 'nullable|url|max:255',
+            'external_dashboard_url' => 'nullable|url|max:255',
+            'footer_description' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:png,jpg,jpeg,svg,webp|max:2048',
+            'favicon' => 'nullable|mimes:png,jpg,jpeg,svg,webp,ico|max:1024',
         ]);
 
         if ($request->hasFile('logo')) {
@@ -76,5 +81,25 @@ class AdminProfileController extends Controller
         ]);
 
         return back()->with('success', 'Password updated successfully!');
+    }
+
+    public function removeLogo()
+    {
+        $user = Auth::user();
+        if ($user->logo) {
+            Storage::disk('public')->delete($user->logo);
+            $user->update(['logo' => null]);
+        }
+        return back()->with('success', 'Logo removed successfully!');
+    }
+
+    public function removeFavicon()
+    {
+        $user = Auth::user();
+        if ($user->favicon) {
+            Storage::disk('public')->delete($user->favicon);
+            $user->update(['favicon' => null]);
+        }
+        return back()->with('success', 'Favicon removed successfully!');
     }
 }

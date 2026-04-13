@@ -56,37 +56,18 @@
 @endif
 
             @if($role === 'agent')
-                <a href="{{ route('dashboard') }}"
+                <a href="{{ route('admin.dashboard') }}"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all {{ $active === 'dashboard' ? 'bg-[#D4AF37] text-black font-bold' : 'text-gray-400 hover:bg-gray-900 hover:text-white' }}">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                     Dashboard
-                </a>
-                <a href="{{ route('agent.listings') }}"
-                   class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all {{ $active === 'listings' ? 'bg-[#D4AF37] text-black font-bold' : 'text-gray-400 hover:bg-gray-900 hover:text-white' }}">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    My Listings
-                </a>
-                <a href="{{ route('agent.submit') }}"
-                   class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all {{ $active === 'submit-listing' ? 'bg-[#D4AF37] text-black font-bold' : 'text-gray-400 hover:bg-gray-900 hover:text-white' }}">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Submit Listing
-                </a>
-                <a href="{{ route('agent.leads') }}"
-                   class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all {{ $active === 'leads' ? 'bg-[#D4AF37] text-black font-bold' : 'text-gray-400 hover:bg-gray-900 hover:text-white' }}">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    Leads Received
                 </a>
             @endif
 
             @if($role === 'user')
-                <a href="{{ route('dashboard') }}"
+                <a href="{{ route('admin.dashboard') }}"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all {{ $active === 'dashboard' ? 'bg-[#D4AF37] text-black font-bold' : 'text-gray-400 hover:bg-gray-900 hover:text-white' }}">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                     Dashboard
-                </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-900 hover:text-white transition-all">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                    My Favorites
                 </a>
             @endif
 
@@ -94,8 +75,8 @@
             @php
                 $profileRoute = match($role) {
                     'admin' => route('admin.profile'),
-                    'agent' => route('agent.profile'),
-                    default => route('dashboard'), // Or a user profile if implemented
+                    'agent' => route('admin.profile'),
+                    default => route('admin.dashboard'),
                 };
             @endphp
             <a href="{{ $profileRoute }}"

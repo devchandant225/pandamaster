@@ -64,7 +64,7 @@
         <div class="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 p-20 rounded-[5rem] border border-yellow-500/30 text-center space-y-10">
             <h2 class="text-6xl font-black text-white italic uppercase tracking-tighter">Real Rewards. Real Fun.</h2>
             <p class="text-2xl text-gray-300 max-w-3xl mx-auto font-bold uppercase tracking-widest">Safe Deposits • Instant Payouts • 24/7 Security</p>
-            <a href="{{ route('register') }}" class="inline-block px-16 py-8 bg-white text-black text-3xl font-black rounded-3xl hover:bg-gray-200 transition-all shadow-2xl uppercase italic tracking-tighter">Claim Your Welcome Bonus</a>
+            <a href="{{ $adminSettings->register_url ?? '#' }}" class="inline-block px-16 py-8 bg-white text-black text-3xl font-black rounded-3xl hover:bg-gray-200 transition-all shadow-2xl uppercase italic tracking-tighter">Claim Your Welcome Bonus</a>
         </div>
     </div>
 

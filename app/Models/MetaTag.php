@@ -73,7 +73,12 @@ class MetaTag extends Model
             'login' => 'Login Page',
             'privacy' => 'Privacy Policy',
             'terms' => 'Terms & Conditions',
-            'responsible-gaming' => 'Responsible Gaming'
+            'responsible-gaming' => 'Responsible Gaming',
+            'play-online' => 'Play Online Page',
+            'download' => 'Download Page',
+            'casino' => 'Casino Page',
+            'contact' => 'Contact Page',
+            '777' => '777 Page',
         ];
     }
 

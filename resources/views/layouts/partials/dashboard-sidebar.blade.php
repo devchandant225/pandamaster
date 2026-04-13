@@ -6,7 +6,7 @@
         <div class="absolute -top-10 -left-10 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl"></div>
         <a href="{{ url('/') }}" class="relative z-10 flex items-center gap-2 group">
             <div class="text-2xl font-black">
-                <span class="text-yellow-500">Orion</span><span class="text-purple-500">Star</span>
+                <span class="text-green-500">Panda</span><span class="text-white">Master</span>
             </div>
         </a>
     </div>
@@ -33,7 +33,6 @@
                 Content & Pages
             </h3>
             <div class="space-y-1.5">
-                <x-sidebar-link :href="route('admin.landing-sections.index')" :active="$active === 'landing-sections'" icon="star" label="Landing Page" />
                 <x-sidebar-link :href="route('admin.blog.index')" :active="$active === 'blog'" icon="edit" label="Blog Articles" />
                 <x-sidebar-link :href="route('admin.categories.index')" :active="$active === 'categories'" icon="tag" label="Blog Categories" />
             </div>

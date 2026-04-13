@@ -101,7 +101,7 @@
         <div class="text-center pt-8">
             <p class="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">
                 New to Panda Master?
-                <a href="{{ route('register') }}" class="font-black text-yellow-500 hover:text-yellow-400 transition-colors ml-2">
+                <a href="{{ $adminSettings->register_url ?? '#' }}" class="font-black text-yellow-500 hover:text-yellow-400 transition-colors ml-2">
                     GET AN ACCOUNT →
                 </a>
             </p>
