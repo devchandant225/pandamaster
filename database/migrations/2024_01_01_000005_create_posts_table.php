@@ -15,7 +15,7 @@ return new class extends Migration
             $table->longText('content');
             $table->string('image_url')->nullable();
             $table->text('excerpt')->nullable();
-            $table->string('author')->default('Panda Master VIP Team');
+            $table->string('author')->default('Orion Star VIP Team');
             $table->timestamps();
         });
     }

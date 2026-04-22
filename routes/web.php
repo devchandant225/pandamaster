@@ -22,8 +22,21 @@ Route::get('/', [OrionStarController::class, 'index'])->name('home');
 Route::get('/777', [OrionStarController::class, 'sevenSeven'])->name('orionstar.777');
 Route::get('/download', [OrionStarController::class, 'download'])->name('orionstar.download');
 Route::get('/play-online', [OrionStarController::class, 'playOnline'])->name('orionstar.play-online');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/investors', [\App\Http\Controllers\InvestorController::class, 'index'])->name('investors');
+Route::get('/tools', [\App\Http\Controllers\ToolsController::class, 'index'])->name('tools');
 Route::get('/contact', [OrionStarController::class, 'contact'])->name('contact');
 Route::post('/contact', [OrionStarController::class, 'contactStore'])->name('contact.store');
+
+// Blog Routes
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
+// Game Routes
+Route::get('/games', [GameController::class, 'index'])->name('games.index');
+Route::get('/games/{slug}', [GameController::class, 'show'])->name('games.show');
+Route::get('/games/{slug}/play', [GameController::class, 'play'])->name('games.play');
+Route::get('/games/{slug}/demo', [GameController::class, 'demo'])->name('games.demo');
 
 // Auth Routes
 Route::get('/login', [OrionStarController::class, 'login'])->name('login');

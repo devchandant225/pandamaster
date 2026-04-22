@@ -79,7 +79,7 @@
         </p>
     </div>
 
-    <form action="{{ $expertCity ? route('city-lead.submit') : ($propertyType ? route('property-lead.submit') : route('contact.submit')) }}" method="POST">
+    <form action="{{ route('contact.store') }}" method="POST">
         @csrf
         
         @if($propertyType)

@@ -16,10 +16,10 @@ class LandingSectionSeeder extends Seeder
         LandingSection::updateOrCreate(
             ['section_key' => 'hero'],
             [
-                'title' => 'Panda Master VIP',
+                'title' => 'Orion Star VIP',
                 'subtitle' => 'The Ultimate Fish Game & Online Casino Platform',
-                'description' => 'Experience the thrill of Panda Master VIP. Play 30+ premium games, including top fish games, slots, and arcade favorites. Download the app today and start winning real cash!',
-                'badge_text' => '🐼 Panda Master Official VIP',
+                'description' => 'Experience the thrill of Orion Star VIP. Play 30+ premium games, including top fish games, slots, and arcade favorites. Download the app today and start winning real cash!',
+                'badge_text' => '🌟 Orion Star Official VIP',
                 'cta_primary_text' => '🎰 Play Online Now',
                 'cta_primary_url' => '/play-online',
                 'cta_secondary_text' => 'Download APK',

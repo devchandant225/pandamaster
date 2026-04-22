@@ -2,7 +2,7 @@
     'title' => 'Get Exclusive Access',
     'subtitle' => 'Connect with Vancouver\'s top realtors and unlock off-market listings',
     'triggerText' => 'Get Free Consultation',
-    'route' => route('contact.submit')
+    'route' => route('contact.store')
 ])
 
 <div x-data="{ 

@@ -235,7 +235,7 @@
             </div>
 
             <div class="bg-white border-2 border-gray-200 p-10 md:p-12 rounded-2xl shadow-2xl">
-                <form action="{{ route('contact.submit') }}" method="POST" class="space-y-6">
+                <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
                     @csrf
                     <input type="hidden" name="intent" value="investor">
 
