@@ -156,13 +156,9 @@
                                             <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">Recommended: Transparent PNG, 400x120px</p>
                                         </div>
                                         @if($user->logo)
-                                            <form action="{{ route('admin.profile.remove-logo') }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="text-red-500 hover:text-red-700 text-[10px] font-bold uppercase tracking-widest ml-4">
-                                                    Remove Logo
-                                                </button>
-                                            </form>
+                                            <button type="button" @click="if(confirm('Remove logo?')) $refs.removeLogoForm.submit()" class="text-red-500 hover:text-red-700 text-[10px] font-bold uppercase tracking-widest ml-4">
+                                                Remove Logo
+                                            </button>
                                         @endif
                                     </div>
                                     @error('logo') <p class="text-red-500 text-[10px] font-bold mt-1">{{ $message }}</p> @enderror
@@ -204,13 +200,9 @@
                                             <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">Recommended: 32x32px .ico or .png</p>
                                         </div>
                                         @if($user->favicon)
-                                            <form action="{{ route('admin.profile.remove-favicon') }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="text-red-500 hover:text-red-700 text-[10px] font-bold uppercase tracking-widest ml-4">
-                                                    Remove Favicon
-                                                </button>
-                                            </form>
+                                            <button type="button" @click="if(confirm('Remove favicon?')) $refs.removeFaviconForm.submit()" class="text-red-500 hover:text-red-700 text-[10px] font-bold uppercase tracking-widest ml-4">
+                                                Remove Favicon
+                                            </button>
                                         @endif
                                     </div>
                                     @error('favicon') <p class="text-red-500 text-[10px] font-bold mt-1">{{ $message }}</p> @enderror
@@ -326,6 +318,16 @@
                                 Save Platform Changes
                             </button>
                         </div>
+                    </form>
+
+                    <!-- Hidden forms for removal -->
+                    <form x-ref="removeLogoForm" action="{{ route('admin.profile.remove-logo') }}" method="POST" class="hidden">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                    <form x-ref="removeFaviconForm" action="{{ route('admin.profile.remove-favicon') }}" method="POST" class="hidden">
+                        @csrf
+                        @method('DELETE')
                     </form>
 
                     <!-- Password Tab -->

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Password;
 
@@ -22,10 +21,11 @@ class AdminProfileController extends Controller
     {
         $user = Auth::user();
 
+        // Lenient validation: everything is nullable and simple strings
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'phone' => 'nullable|string|max:20',
+            'name' => 'nullable|string|max:255',
+            'email' => 'nullable|string|email|max:255|unique:users,email,' . $user->id,
+            'phone' => 'nullable|string|max:255',
             'whatsapp' => 'nullable|string|max:255',
             'viber' => 'nullable|string|max:255',
             'facebook' => 'nullable|string|max:255',
@@ -35,16 +35,14 @@ class AdminProfileController extends Controller
             'tiktok' => 'nullable|string|max:255',
             'telegram' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'login_url' => 'nullable|url|max:255',
-            'register_url' => 'nullable|url|max:255',
-            'youtube_url' => 'nullable|url|max:255',
-            'external_dashboard_url' => 'nullable|url|max:255',
+            'login_url' => 'nullable|string|max:255',
+            'register_url' => 'nullable|string|max:255',
+            'youtube_url' => 'nullable|string|max:255',
+            'external_dashboard_url' => 'nullable|string|max:255',
             'footer_description' => 'nullable|string',
-            'logo' => 'nullable|image|mimes:png,jpg,jpeg,svg,webp|max:2048',
-            'favicon' => 'nullable|mimes:png,jpg,jpeg,svg,webp,ico|max:1024',
+            'logo' => 'nullable|image|mimes:png,jpg,jpeg,svg,webp|max:4096',
+            'favicon' => 'nullable|mimes:png,jpg,jpeg,svg,webp,ico|max:2048',
         ]);
-
-        Log::info('AdminProfileController@update: Validation passed.', ['validated_data' => $validated]);
 
         if ($request->hasFile('logo')) {
             if ($user->logo) {
@@ -61,8 +59,6 @@ class AdminProfileController extends Controller
         }
 
         $user->update($validated);
-
-        Log::info('AdminProfileController@update: User updated successfully.', ['user_id' => $user->id]);
 
         return back()->with('success', 'Admin profile and branding updated successfully!');
     }
