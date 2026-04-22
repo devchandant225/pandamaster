@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             GameSeeder::class,
             LandingSectionSeeder::class,
-            PandaMasterSeeder::class,
+            OrionStarSeeder::class,
         ]);
     }
 }

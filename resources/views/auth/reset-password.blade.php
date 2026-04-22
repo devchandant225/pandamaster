@@ -76,7 +76,7 @@
         </form>
 
         <div class="text-center mt-6">
-            <a href="{{ route('login') }}" class="font-bold text-yellow-500 hover:text-yellow-400 transition-colors text-sm">
+            <a href="{{ route('admin.login') }}" class="font-bold text-yellow-500 hover:text-yellow-400 transition-colors text-sm">
                 ← Back to login
             </a>
         </div>

@@ -39,6 +39,10 @@
                     Contact
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
+                <a href="{{ route('blog.index') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
+                    Blog
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
 
                 @auth
                     <a href="{{ $adminSettings->external_dashboard_url ?? route('admin.dashboard') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
@@ -83,7 +87,7 @@
             <a href="{{ route('orionstar.download') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Download</a>
             <a href="{{ route('orionstar.play-online') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Play Online</a>
             <a href="{{ route('contact') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Contact</a>
-            <a href="{{ route('login') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Login</a>
+            <a href="{{ route('blog.index') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Blog</a>
 
             @auth
                 <a href="{{ $adminSettings->external_dashboard_url ?? route('admin.dashboard') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg">ADMIN PANEL</a>

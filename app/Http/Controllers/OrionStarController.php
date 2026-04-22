@@ -28,6 +28,11 @@ class OrionStarController extends Controller
         return view('orionstar.play-online');
     }
 
+    public function login()
+    {
+        return view('orionstar.login');
+    }
+
     public function contact()
     {
         return view('contact');

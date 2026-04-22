@@ -25,9 +25,11 @@ Route::get('/play-online', [OrionStarController::class, 'playOnline'])->name('or
 Route::get('/contact', [OrionStarController::class, 'contact'])->name('contact');
 Route::post('/contact', [OrionStarController::class, 'contactStore'])->name('contact.store');
 
-// Auth Routes (Login only - admin only)
+// Auth Routes
+Route::get('/login', [OrionStarController::class, 'login'])->name('login');
+
 Route::middleware('guest')->group(function () {
-    Route::get('admin-login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::get('admin-login', [AuthenticatedSessionController::class, 'create'])->name('admin.login');
     Route::post('admin-login', [AuthenticatedSessionController::class, 'store']);
 
     // Password Reset Routes
