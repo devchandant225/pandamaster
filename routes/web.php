@@ -15,20 +15,20 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\PandaMasterController;
+use App\Http\Controllers\OrionStarController;
 
 // Public Routes
-Route::get('/', [PandaMasterController::class, 'index'])->name('home');
-Route::get('/777', [PandaMasterController::class, 'sevenSevenSeven'])->name('pandamaster.777');
-Route::get('/download', [PandaMasterController::class, 'download'])->name('pandamaster.download');
-Route::get('/play-online', [PandaMasterController::class, 'playOnline'])->name('pandamaster.play-online');
-Route::get('/contact', [PandaMasterController::class, 'contact'])->name('contact');
-Route::post('/contact', [PandaMasterController::class, 'contactStore'])->name('contact.store');
+Route::get('/', [OrionStarController::class, 'index'])->name('home');
+Route::get('/777', [OrionStarController::class, 'sevenSeven'])->name('orionstar.777');
+Route::get('/download', [OrionStarController::class, 'download'])->name('orionstar.download');
+Route::get('/play-online', [OrionStarController::class, 'playOnline'])->name('orionstar.play-online');
+Route::get('/contact', [OrionStarController::class, 'contact'])->name('contact');
+Route::post('/contact', [OrionStarController::class, 'contactStore'])->name('contact.store');
 
 // Auth Routes (Login only - admin only)
 Route::middleware('guest')->group(function () {
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::get('admin-login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('admin-login', [AuthenticatedSessionController::class, 'store']);
 
     // Password Reset Routes
     Route::get('forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
