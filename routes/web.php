@@ -59,6 +59,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/search', [AdminDashboardController::class, 'search'])->name('admin.search');
 
+    // Temporary diagnostic route to catch DELETE /admin/profile
+    Route::delete('/admin/profile', function (\Illuminate\Http\Request $request) {
+        \Illuminate\Support\Facades\Log::warning('Unexpected DELETE request to /admin/profile', $request->all());
+        return response()->noContent(204);
+    })->name('admin.profile.delete.unexpected');
+
     // Admin Profile
     Route::get('/admin/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'index'])->name('admin.profile');
     Route::put('/admin/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'update'])->name('admin.profile.update');
