@@ -12,8 +12,7 @@
             <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
                 <div class="relative group">
                     <div class="w-32 h-32 rounded-[2.5rem] bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center text-black text-5xl font-black border-4 border-white/10 shadow-xl group-hover:scale-105 transition-transform duration-500 overflow-hidden">
-...
-                    <p class="text-gray-400 font-medium text-lg italic mb-6">Managing Orion Star Digital Assets</p>
+                        @if($user->avatar_url)
                             <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" class="w-full h-full object-cover">
                         @else
                             {{ substr($user->name, 0, 1) }}
@@ -29,7 +28,7 @@
                             SYSTEM ADMINISTRATOR
                         </span>
                     </div>
-                    <p class="text-gray-400 font-medium text-lg italic mb-6">Managing 888Realty Digital Assets</p>
+                    <p class="text-gray-400 font-medium text-lg italic mb-6">Managing Orion Star Digital Assets</p>
                     
                     <div class="flex flex-wrap justify-center md:justify-start gap-4">
                         <div class="px-5 py-2 bg-white/5 border border-white/5 rounded-2xl flex items-center gap-3">
