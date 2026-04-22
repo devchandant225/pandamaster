@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Password;
 
@@ -43,6 +44,8 @@ class AdminProfileController extends Controller
             'favicon' => 'nullable|mimes:png,jpg,jpeg,svg,webp,ico|max:1024',
         ]);
 
+        Log::info('AdminProfileController@update: Validation passed.', ['validated_data' => $validated]);
+
         if ($request->hasFile('logo')) {
             if ($user->logo) {
                 Storage::disk('public')->delete($user->logo);
@@ -58,6 +61,8 @@ class AdminProfileController extends Controller
         }
 
         $user->update($validated);
+
+        Log::info('AdminProfileController@update: User updated successfully.', ['user_id' => $user->id]);
 
         return back()->with('success', 'Admin profile and branding updated successfully!');
     }
