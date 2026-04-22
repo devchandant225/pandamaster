@@ -1,159 +1,131 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us - Panda Master VIP')
+@section('title', 'Contact Orion Stars - Get in Touch with Us')
 
 @section('content')
-<div class="min-h-screen bg-black relative overflow-hidden">
-    <!-- Sophisticated Background Lighting -->
-    <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
-        <div class="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[150px] animate-pulse"></div>
-        <div class="absolute bottom-1/4 -right-20 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
-    </div>
-
-    <!-- Stars Animation -->
-    <div class="absolute inset-0 pointer-events-none">
-        @for($i = 0; $i < 40; $i++)
-            <div class="absolute w-[1px] h-[1px] bg-white rounded-full animate-twinkle" 
-                 style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(3000, 6000) }}ms;"></div>
-        @endfor
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-32">
-        <div class="text-center mb-16 animate-fade-in-up">
-            <h1 class="text-6xl sm:text-7xl md:text-8xl font-black mb-6 leading-[0.9] tracking-tighter">
-                GET IN <span class="bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow">TOUCH</span>
+<div class="min-h-screen bg-gray-950 text-white">
+    <!-- Hero Section -->
+    <section class="relative py-24 overflow-hidden bg-gray-950 border-b border-white/5">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1)_0%,rgba(0,0,0,1)_100%)]"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-black mb-8 leading-tight animate-fade-in-up uppercase tracking-tighter">
+                Get in Touch with <span class="text-yellow-500">Orion Stars</span>
             </h1>
-            <p class="text-2xl text-gray-400 font-bold tracking-tight">Have questions? We're here to help you win big!</p>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto font-medium leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                Have questions about our games, bonuses, or VIP program? Our team is here to help you 24/7. Reach out to us using the form below or through our social channels.
+            </p>
         </div>
+    </section>
 
-        <div class="grid lg:grid-cols-2 gap-16 items-start">
-            <!-- Contact Info -->
-            <div class="space-y-8 animate-fade-in-up" style="animation-delay: 0.1s;">
-                <div class="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] backdrop-blur-xl">
-                    <h2 class="text-3xl font-black text-white mb-8 uppercase tracking-tighter flex items-center gap-3">
-                        <span class="w-8 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full"></span>
-                        Contact Info
-                    </h2>
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="bg-gray-900 border border-white/5 p-8 md:p-12 rounded-[3rem] shadow-2xl">
+                    <h2 class="text-3xl font-black mb-8 uppercase tracking-tighter">Send us a Message</h2>
                     
-                    <div class="space-y-10">
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-16 h-16 bg-yellow-500/10 rounded-2xl flex items-center justify-center border border-yellow-500/20 group-hover:border-yellow-500/50 transition-all">
-                                <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
+                    <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
+                        @csrf
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2 ml-4">Full Name</label>
+                                <input type="text" name="name" required class="w-full px-6 py-4 bg-gray-950 border border-white/10 rounded-2xl focus:outline-none focus:border-yellow-500 transition-all text-white font-bold" placeholder="John Doe">
                             </div>
                             <div>
-                                <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Email Us</p>
-                                @if(isset($adminSettings) && $adminSettings->email)
-                                    <a href="mailto:{{ $adminSettings->email }}" class="text-xl font-bold text-white hover:text-yellow-500 transition-colors">{{ $adminSettings->email }}</a>
-                                @else
-                                    <a href="mailto:support@pandamaster.vip" class="text-xl font-bold text-white hover:text-yellow-500 transition-colors">support@pandamaster.vip</a>
-                                @endif
+                                <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2 ml-4">Email Address</label>
+                                <input type="email" name="email" required class="w-full px-6 py-4 bg-gray-950 border border-white/10 rounded-2xl focus:outline-none focus:border-yellow-500 transition-all text-white font-bold" placeholder="john@example.com">
                             </div>
                         </div>
-
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center border border-green-500/20 group-hover:border-green-500/50 transition-all">
-                                @if(isset($adminSettings) && $adminSettings->whatsapp)
-                                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $adminSettings->whatsapp) }}" target="_blank">
-                                        <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                                    </a>
-                                @else
-                                    <span class="text-2xl">💬</span>
-                                @endif
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">WhatsApp</p>
-                                @if(isset($adminSettings) && $adminSettings->whatsapp)
-                                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $adminSettings->whatsapp) }}" target="_blank" class="text-xl font-bold text-white hover:text-green-500 transition-colors">{{ $adminSettings->whatsapp }}</a>
-                                @else
-                                    <p class="text-xl font-bold text-white">Contact for VIP Support</p>
-                                @endif
-                            </div>
+                        <div>
+                            <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2 ml-4">Subject</label>
+                            <input type="text" name="subject" required class="w-full px-6 py-4 bg-gray-950 border border-white/10 rounded-2xl focus:outline-none focus:border-yellow-500 transition-all text-white font-bold" placeholder="How can we help?">
                         </div>
-
-                        @if(isset($adminSettings) && $adminSettings->telegram)
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition-all">
-                                <a href="https://t.me/{{ Str::afterLast($adminSettings->telegram, '/') }}" target="_blank">
-                                    <svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16l-1.68 8.28c-.12.56-.44.7-.89.44l-2.44-1.8-1.18 1.14c-.13.13-.24.24-.49.24l.18-2.52 4.56-4.12c.2-.18-.04-.27-.3-.1l-5.64 3.56-2.42-.76c-.52-.16-.53-.52.11-.77l9.46-3.64c.44-.16.82.1.68.77z"/></svg>
-                                </a>
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Telegram</p>
-                                <a href="https://t.me/{{ Str::afterLast($adminSettings->telegram, '/') }}" target="_blank" class="text-xl font-bold text-white hover:text-blue-500 transition-colors">{{ $adminSettings->telegram }}</a>
-                            </div>
+                        <div>
+                            <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2 ml-4">Message</label>
+                            <textarea name="message" rows="5" required class="w-full px-6 py-4 bg-gray-950 border border-white/10 rounded-2xl focus:outline-none focus:border-yellow-500 transition-all text-white font-bold" placeholder="Write your message here..."></textarea>
                         </div>
-                        @endif
+                        <button type="submit" class="w-full py-6 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1 shadow-lg uppercase tracking-tighter">
+                            Send Message →
+                        </button>
+                    </form>
+                </div>
 
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20 group-hover:border-blue-500/50 transition-all">
-                                <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
+                <!-- Contact Info -->
+                <div class="space-y-12">
+                    <div>
+                        <h2 class="text-3xl font-black mb-8 uppercase tracking-tighter">Contact Information</h2>
+                        <p class="text-gray-400 text-lg mb-8">Feel free to reach out to us through any of the following channels. We're always ready to assist our players.</p>
+                        
+                        <div class="space-y-6">
+                            @if($adminSettings->email)
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 bg-yellow-500/10 border border-yellow-500/20 rounded-xl flex items-center justify-center text-yellow-500">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-black uppercase tracking-widest text-sm">Email Us</h3>
+                                    <p class="text-gray-400 font-bold">{{ $adminSettings->email }}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Working Hours</p>
-                                <p class="text-xl font-bold text-white">24/7 Premium Support</p>
+                            @endif
+
+                            @if($adminSettings->phone)
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 bg-purple-500/10 border border-purple-500/20 rounded-xl flex items-center justify-center text-purple-500">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-black uppercase tracking-widest text-sm">Call Us</h3>
+                                    <p class="text-gray-400 font-bold">{{ $adminSettings->phone }}</p>
+                                </div>
                             </div>
+                            @endif
+
+                            @if($adminSettings->whatsapp)
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center text-green-500">
+                                    <span class="text-xl font-black">W</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-black uppercase tracking-widest text-sm">WhatsApp</h3>
+                                    <p class="text-gray-400 font-bold">{{ $adminSettings->whatsapp }}</p>
+                                </div>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-black mb-6 uppercase tracking-tighter">Follow Our Community</h3>
+                        <div class="flex flex-wrap gap-4">
+                            @if($adminSettings->facebook)
+                            <a href="{{ $adminSettings->facebook }}" target="_blank" class="w-12 h-12 bg-gray-900 border border-white/10 rounded-xl flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 transition-all group">
+                                <svg class="w-6 h-6 text-gray-400 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            @endif
+                            @if($adminSettings->twitter)
+                            <a href="{{ $adminSettings->twitter }}" target="_blank" class="w-12 h-12 bg-gray-900 border border-white/10 rounded-xl flex items-center justify-center hover:bg-black hover:border-gray-700 transition-all group">
+                                <svg class="w-6 h-6 text-gray-400 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                            </a>
+                            @endif
+                            @if($adminSettings->instagram)
+                            <a href="{{ $adminSettings->instagram }}" target="_blank" class="w-12 h-12 bg-gray-900 border border-white/10 rounded-xl flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all group">
+                                <svg class="w-6 h-6 text-gray-400 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                            </a>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Contact Form -->
-            <div class="bg-gray-900/50 p-10 rounded-[3rem] border border-white/5 backdrop-blur-xl animate-fade-in-up" style="animation-delay: 0.2s;">
-                <form action="{{ route('contact.store') }}" method="POST" class="space-y-8">
-                    @csrf
-                    <div class="grid sm:grid-cols-2 gap-8">
-                        <div class="space-y-3">
-                            <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-4">Full Name</label>
-                            <input type="text" name="name" required class="w-full px-6 py-4 bg-black/40 border-2 border-white/5 rounded-2xl text-white font-bold focus:outline-none focus:border-yellow-500/50 transition-all" placeholder="John Doe">
-                        </div>
-                        <div class="space-y-3">
-                            <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-4">Email Address</label>
-                            <input type="email" name="email" required class="w-full px-6 py-4 bg-black/40 border-2 border-white/5 rounded-2xl text-white font-bold focus:outline-none focus:border-purple-500/50 transition-all" placeholder="john@example.com">
-                        </div>
-                    </div>
-
-                    <div class="space-y-3">
-                        <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-4">Subject</label>
-                        <input type="text" name="subject" required class="w-full px-6 py-4 bg-black/40 border-2 border-white/5 rounded-2xl text-white font-bold focus:outline-none focus:border-purple-500/50 transition-all" placeholder="How can we help?">
-                    </div>
-
-                    <div class="space-y-3">
-                        <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-4">Your Message</label>
-                        <textarea name="message" required rows="5" class="w-full px-6 py-4 bg-black/40 border-2 border-white/5 rounded-2xl text-white font-bold focus:outline-none focus:border-yellow-500/50 transition-all" placeholder="Tell us everything..."></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white font-black py-6 rounded-2xl text-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1.5 animate-shine overflow-hidden uppercase tracking-tighter">
-                        🚀 Send Message Now
-                    </button>
-                </form>
-            </div>
         </div>
-    </div>
+    </section>
 </div>
 
 <style>
-    @keyframes twinkle {
-        0%, 100% { opacity: 0.3; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.3); }
-    }
-
     @keyframes fade-in-up {
-        0% { opacity: 0; transform: translateY(40px); }
-        100% { opacity: 1; transform: translateY(0); }
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-
-    .animate-twinkle {
-        animation: twinkle 4s ease-in-out infinite;
-    }
-
-    .animate-fade-in-up {
-        animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        opacity: 0;
-    }
+    .animate-fade-in-up { opacity: 0; animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 </style>
 @endsection

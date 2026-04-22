@@ -28,9 +28,9 @@
         @endif
     @else
         @hasSection('title')
-            <title>@yield('title') | {{ config('app.name', 'Panda Master VIP') }}</title>
+            <title>@yield('title') | {{ config('app.name', 'Orion Stars') }}</title>
         @else
-            <title>{{ config('app.name', 'Panda Master VIP') }} - Ultimate Fish Game & Online Casino</title>
+            <title>{{ config('app.name', 'Orion Stars') }} - Ultimate Fish Game & Online Casino</title>
         @endif
     @endif
 

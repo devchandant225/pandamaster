@@ -35,12 +35,8 @@
                     Play Online
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="{{ route('pandamaster.casino') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Casino
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('games.index') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Games
+                <a href="{{ route('contact') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
+                    Contact
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
 
@@ -49,8 +45,8 @@
                         <span class="relative z-10 uppercase tracking-tighter">Admin Panel</span>
                     </a>
                 @else
-                    <a href="{{ $adminSettings->login_url ?? route('login') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
-                        <span class="relative z-10 uppercase tracking-tighter">Login / Register</span>
+                    <a href="{{ route('login') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
+                        <span class="relative z-10 uppercase tracking-tighter">Login</span>
                     </a>
                 @endauth
             </nav>
@@ -86,18 +82,11 @@
             <a href="{{ route('pandamaster.777') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">777</a>
             <a href="{{ route('pandamaster.download') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Download</a>
             <a href="{{ route('pandamaster.play-online') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Play Online</a>
-            <a href="{{ route('pandamaster.casino') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Casino</a>
-            <a href="{{ route('games.index') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Games</a>
-            <a href="{{ route('blog.index') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Blog</a>
-            <a href="{{ route('about') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">About</a>
             <a href="{{ route('contact') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Contact</a>
+            <a href="{{ route('login') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Login</a>
 
             @auth
                 <a href="{{ $adminSettings->external_dashboard_url ?? route('admin.dashboard') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg">ADMIN PANEL</a>
-            @else
-                <div class="pt-4 space-y-4">
-                    <a href="{{ $adminSettings->login_url ?? route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg">LOGIN / REGISTER</a>
-                </div>
             @endauth
         </nav>
     </div>

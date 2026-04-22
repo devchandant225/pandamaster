@@ -10,22 +10,12 @@ class PandaMasterController extends Controller
 {
     public function index()
     {
-        $heroSection = LandingSection::getByKey('hero');
-        $featuredGames = Game::active()->featured()->limit(4)->get();
-        $hotGames = Game::active()->hot()->limit(4)->get();
-        $newGames = Game::active()->new()->limit(4)->get();
-
-        return view('home', compact('heroSection', 'featuredGames', 'hotGames', 'newGames'));
+        return view('home');
     }
 
     public function sevenSevenSeven()
     {
         return view('pandamaster.777');
-    }
-
-    public function login()
-    {
-        return view('auth.login');
     }
 
     public function download()
@@ -38,8 +28,23 @@ class PandaMasterController extends Controller
         return view('pandamaster.play-online');
     }
 
-    public function casino()
+    public function contact()
     {
-        return view('pandamaster.casino');
+        return view('contact');
+    }
+
+    public function contactStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        // Here you would typically send an email or save to DB
+        // For now, we just redirect back with success message
+
+        return back()->with('success', 'Thank you for contacting Orion Stars! We will get back to you soon.');
     }
 }

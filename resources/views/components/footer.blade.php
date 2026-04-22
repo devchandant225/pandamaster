@@ -39,10 +39,10 @@
             <div class="inline-block relative group">
                 <div class="absolute -inset-4 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 opacity-30 blur-xl rounded-full group-hover:opacity-50 transition-opacity animate-pulse"></div>
                 @if(isset($adminSettings) && $adminSettings->logo)
-                    <img src="{{ Storage::url($adminSettings->logo) }}" alt="Panda Master" class="relative h-20 w-auto mx-auto mb-4">
+                    <img src="{{ Storage::url($adminSettings->logo) }}" alt="Orion Stars" class="relative h-20 w-auto mx-auto mb-4">
                 @else
                     <h2 class="relative text-5xl md:text-7xl font-black tracking-tighter">
-                        <span class="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent text-glow-yellow uppercase">PANDA</span><span class="text-white uppercase">MASTER</span>
+                        <span class="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent text-glow-yellow uppercase">ORION</span><span class="text-white uppercase">STARS</span>
                     </h2>
                 @endif
             </div>
@@ -50,7 +50,7 @@
                 @if(isset($adminSettings) && $adminSettings->description)
                     {{ $adminSettings->description }}
                 @else
-                    The Ultimate Fish Game & Online Casino Platform 🐼
+                    Your Go-To Platform for Fish Games, Slots & Online Casino Fun 🎰
                 @endif
             </p>
         </div>
@@ -143,46 +143,37 @@
                         <li>
                             <a href="{{ route('home') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
                                 <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-yellow-500 group-hover/link:scale-125 transition-all"></span>
-                                <span class="relative overflow-hidden">
-                                    Home
-                                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover/link:w-full transition-all duration-300"></span>
-                                </span>
+                                Home
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('games.index') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
+                            <a href="{{ route('pandamaster.777') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
                                 <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-yellow-500 group-hover/link:scale-125 transition-all"></span>
-                                <span class="relative overflow-hidden">
-                                    All Games
-                                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover/link:w-full transition-all duration-300"></span>
-                                </span>
+                                Orion Stars 777
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('blog.index') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
+                            <a href="{{ route('pandamaster.download') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
                                 <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-yellow-500 group-hover/link:scale-125 transition-all"></span>
-                                <span class="relative overflow-hidden">
-                                    Blog & News
-                                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover/link:w-full transition-all duration-300"></span>
-                                </span>
+                                Download App
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('about') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
+                            <a href="{{ route('pandamaster.play-online') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
                                 <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-yellow-500 group-hover/link:scale-125 transition-all"></span>
-                                <span class="relative overflow-hidden">
-                                    About Us
-                                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover/link:w-full transition-all duration-300"></span>
-                                </span>
+                                Play Online
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('login') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
+                                <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-yellow-500 group-hover/link:scale-125 transition-all"></span>
+                                Login
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('contact') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
                                 <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-yellow-500 group-hover/link:scale-125 transition-all"></span>
-                                <span class="relative overflow-hidden">
-                                    Contact Us
-                                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover/link:w-full transition-all duration-300"></span>
-                                </span>
+                                Contact
                             </a>
                         </li>
                     </ul>
@@ -199,40 +190,25 @@
                         <h3 class="text-lg font-black text-white uppercase tracking-wider">Games</h3>
                     </div>
                     <ul class="space-y-4">
-                        <li>
-                            <a href="{{ route('games.index', ['type' => 'slots']) }}" class="group/cat flex items-center gap-3 text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-yellow-400 hover:to-orange-500 hover:bg-clip-text transition-all font-bold">
-                                <span class="text-2xl group-hover/cat:scale-125 group-hover/cat:rotate-12 transition-transform">🎰</span>
-                                <span>Slots</span>
-                                <span class="ml-auto text-[10px] bg-yellow-500/20 text-yellow-500 px-2 py-0.5 rounded-full font-black">100+</span>
-                            </a>
+                        <li class="flex items-center gap-3 text-gray-400 font-bold">
+                            <span class="text-2xl">🐟</span>
+                            <span>Fish Games</span>
                         </li>
-                        <li>
-                            <a href="{{ route('games.index', ['type' => 'fish']) }}" class="group/cat flex items-center gap-3 text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-500 hover:bg-clip-text transition-all font-bold">
-                                <span class="text-2xl group-hover/cat:scale-125 group-hover/cat:rotate-12 transition-transform">🐟</span>
-                                <span>Fish Games</span>
-                                <span class="ml-auto text-[10px] bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded-full font-black">50+</span>
-                            </a>
+                        <li class="flex items-center gap-3 text-gray-400 font-bold">
+                            <span class="text-2xl">🎰</span>
+                            <span>Slot Games</span>
                         </li>
-                        <li>
-                            <a href="{{ route('games.index', ['type' => 'keno']) }}" class="group/cat flex items-center gap-3 text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-purple-600 hover:bg-clip-text transition-all font-bold">
-                                <span class="text-2xl group-hover/cat:scale-125 group-hover/cat:rotate-12 transition-transform">🎲</span>
-                                <span>Keno</span>
-                                <span class="ml-auto text-[10px] bg-purple-500/20 text-purple-500 px-2 py-0.5 rounded-full font-black">25+</span>
-                            </a>
+                        <li class="flex items-center gap-3 text-gray-400 font-bold">
+                            <span class="text-2xl">🏆</span>
+                            <span>Sweepstakes</span>
                         </li>
-                        <li>
-                            <a href="{{ route('games.index', ['type' => 'table']) }}" class="group/cat flex items-center gap-3 text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-green-400 hover:to-emerald-500 hover:bg-clip-text transition-all font-bold">
-                                <span class="text-2xl group-hover/cat:scale-125 group-hover/cat:rotate-12 transition-transform">🎯</span>
-                                <span>Table Games</span>
-                                <span class="ml-auto text-[10px] bg-green-500/20 text-green-500 px-2 py-0.5 rounded-full font-black">30+</span>
-                            </a>
+                        <li class="flex items-center gap-3 text-gray-400 font-bold">
+                            <span class="text-2xl">🎯</span>
+                            <span>Arcade Games</span>
                         </li>
-                        <li>
-                            <a href="{{ route('games.index', ['type' => 'card']) }}" class="group/cat flex items-center gap-3 text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-indigo-500 hover:bg-clip-text transition-all font-bold">
-                                <span class="text-2xl group-hover/cat:scale-125 group-hover/cat:rotate-12 transition-transform">🃏</span>
-                                <span>Card Games</span>
-                                <span class="ml-auto text-[10px] bg-indigo-500/20 text-indigo-500 px-2 py-0.5 rounded-full font-black">20+</span>
-                            </a>
+                        <li class="flex items-center gap-3 text-gray-400 font-bold">
+                            <span class="text-2xl">💎</span>
+                            <span>Skill Games</span>
                         </li>
                     </ul>
                 </div>
@@ -250,35 +226,17 @@
                         <h3 class="text-lg font-black text-white uppercase tracking-wider">Support</h3>
                     </div>
                     <ul class="space-y-4">
-                        <li>
-                            <a href="{{ route('contact') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-purple-500 transition-all font-bold">
-                                <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-purple-500 group-hover/link:scale-125 transition-all"></span>
-                                Contact Us
-                            </a>
+                        <li class="flex items-center gap-3 text-gray-400 font-bold">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                            Help Center
                         </li>
-                        <li>
-                            <a href="#" class="group/link flex items-center gap-3 text-gray-400 hover:text-purple-500 transition-all font-bold">
-                                <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-purple-500 group-hover/link:scale-125 transition-all"></span>
-                                Help Center
-                            </a>
+                        <li class="flex items-center gap-3 text-gray-400 font-bold">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                            Live Chat
                         </li>
-                        <li>
-                            <a href="#" class="group/link flex items-center gap-3 text-gray-400 hover:text-purple-500 transition-all font-bold">
-                                <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-purple-500 group-hover/link:scale-125 transition-all"></span>
-                                Live Chat
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="group/link flex items-center gap-3 text-gray-400 hover:text-purple-500 transition-all font-bold">
-                                <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-purple-500 group-hover/link:scale-125 transition-all"></span>
-                                Responsible Gaming
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="group/link flex items-center gap-3 text-gray-400 hover:text-purple-500 transition-all font-bold">
-                                <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-purple-500 group-hover/link:scale-125 transition-all"></span>
-                                VIP Program
-                            </a>
+                        <li class="flex items-center gap-3 text-gray-400 font-bold">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                            Responsible Gaming
                         </li>
                     </ul>
                 </div>
@@ -335,9 +293,9 @@
                 <!-- Copyright -->
                 <div class="text-center lg:text-left">
                     <p class="text-sm text-gray-500 font-bold">
-                        &copy; {{ date('Y') }} <span class="text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text">Panda Master VIP</span>. All Rights Reserved.
+                        &copy; {{ date('Y') }} <span class="text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text">Orion Stars Official</span>. All Rights Reserved.
                     </p>
-                    <p class="text-xs text-gray-600 mt-1">Built for Winners. Play Responsibly.</p>
+                    <p class="text-xs text-gray-600 mt-1">Built for Players. Play Responsibly.</p>
                 </div>
 
                 <!-- Legal Links -->

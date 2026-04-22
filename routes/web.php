@@ -22,17 +22,8 @@ Route::get('/', [PandaMasterController::class, 'index'])->name('home');
 Route::get('/777', [PandaMasterController::class, 'sevenSevenSeven'])->name('pandamaster.777');
 Route::get('/download', [PandaMasterController::class, 'download'])->name('pandamaster.download');
 Route::get('/play-online', [PandaMasterController::class, 'playOnline'])->name('pandamaster.play-online');
-Route::get('/casino', [PandaMasterController::class, 'casino'])->name('pandamaster.casino');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::post('/contact', [HomeController::class, 'contactStore'])->name('contact.store');
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
-
-// Game Routes (Public browsing)
-Route::get('/games', [GameController::class, 'index'])->name('games.index');
-Route::get('/games/{slug}', [GameController::class, 'show'])->name('games.show');
-Route::get('/games/{slug}/demo', [GameController::class, 'demo'])->name('games.demo');
+Route::get('/contact', [PandaMasterController::class, 'contact'])->name('contact');
+Route::post('/contact', [PandaMasterController::class, 'contactStore'])->name('contact.store');
 
 // Auth Routes (Login only - admin only)
 Route::middleware('guest')->group(function () {

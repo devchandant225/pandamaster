@@ -1,196 +1,182 @@
 @extends('layouts.app')
 
-@section('title', 'Panda Master Login — Access Your Account')
+@section('title', 'Orion Stars Login - Access Your Player Account')
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center bg-black relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
-    <!-- cinematic Background & Lighting -->
-    <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1)_0%,rgba(0,0,0,1)_100%)]"></div>
-        <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-yellow-500/5 rounded-full blur-[120px] animate-pulse"></div>
-        <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
-    </div>
-
-    <!-- Stars Animation -->
-    <div class="absolute inset-0 pointer-events-none">
-        @for($i = 0; $i < 50; $i++)
-            <div class="absolute w-[1px] h-[1px] bg-white rounded-full animate-twinkle" 
-                 style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(3000, 6000) }}ms;"></div>
-        @endfor
-    </div>
-
-    <div class="max-w-md w-full space-y-8 bg-gray-900/40 backdrop-blur-2xl p-10 md:p-12 rounded-[3rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/5 relative z-10 animate-fade-in-up">
-        <div class="text-center">
-            <a href="{{ url('/') }}" class="inline-block mb-8">
-                <div class="text-4xl font-black tracking-tighter">
-                    <span class="text-yellow-500 text-glow-yellow uppercase">Panda</span><span class="text-white uppercase">Master</span>
-                </div>
-            </a>
-            <h2 class="text-3xl font-black text-white uppercase tracking-tighter mb-2">
-                Welcome <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">VIP</span> 👋
-            </h2>
-            <p class="text-gray-400 font-bold text-sm uppercase tracking-widest">
-                Sign in to your Panda Master account
+<div class="min-h-screen bg-gray-950 text-white">
+    <!-- Hero Section -->
+    <section class="relative py-24 overflow-hidden bg-gray-950 border-b border-white/5">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.1)_0%,rgba(0,0,0,1)_100%)]"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-black mb-8 leading-tight animate-fade-in-up uppercase tracking-tighter">
+                Fast & Easy Orion Stars Login to Your Account
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto font-medium leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                Need to get into your account? This is the right page. Your orion stars login is straightforward, just enter your username and password and you're in. Whether you're a regular player coming back for another session or a new player setting up your account for the first time, we've got everything you need right here.
             </p>
+            <div class="flex flex-wrap justify-center gap-6 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <a href="#login-form" class="px-10 py-5 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1.5 shadow-lg">Login to Orion Stars</a>
+                <a href="#sign-up" class="px-10 py-5 bg-purple-600 text-white text-xl font-black rounded-2xl hover:bg-purple-500 transition-all transform hover:-translate-y-1.5 shadow-lg">Register New Account</a>
+                <a href="{{ route('pandamaster.play-online') }}" class="px-10 py-5 bg-white/10 text-white text-xl font-black rounded-2xl hover:bg-white/20 transition-all transform hover:-translate-y-1.5 border border-white/20 backdrop-blur-sm">Play Without Downloading</a>
+            </div>
         </div>
+    </section>
 
-        @if(session('success'))
-            <div class="p-4 bg-green-500/10 border border-green-500/20 rounded-2xl animate-fade-in-down">
-                <p class="text-green-400 text-xs font-bold text-center uppercase tracking-widest">{{ session('success') }}</p>
-            </div>
-        @endif
-
-        @if(session('error'))
-            <div class="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl animate-fade-in-down">
-                <p class="text-red-400 text-xs font-bold text-center uppercase tracking-widest">{{ session('error') }}</p>
-            </div>
-        @endif
-
-        <form class="mt-10 space-y-8" action="{{ route('login') }}" method="POST">
-            @csrf
-            <div class="space-y-6">
-                <div class="space-y-2">
-                    <label for="email" class="block text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] ml-4">Email Address</label>
-                    <input id="email" name="email" type="email" autocomplete="email" required value="{{ old('email') }}"
-                        class="appearance-none block w-full px-6 py-4 bg-black/40 border-2 border-white/5 placeholder-gray-700 text-white font-bold rounded-2xl focus:outline-none focus:border-yellow-500/50 focus:bg-black/60 transition-all @error('email') border-red-500/50 @enderror"
-                        placeholder="john@example.com">
-                    @error('email') <p class="text-red-500 text-[10px] font-bold uppercase tracking-widest mt-2 ml-4">{{ $message }}</p> @enderror
-                </div>
-                
-                <div class="space-y-2">
-                    <label for="password" class="block text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] ml-4">Secret Password</label>
-                    <div class="relative group">
-                        <input id="password" name="password" type="password" autocomplete="current-password" required
-                            class="appearance-none block w-full px-6 py-4 bg-black/40 border-2 border-white/5 placeholder-gray-700 text-white font-bold rounded-2xl focus:outline-none focus:border-purple-500/50 focus:bg-black/60 transition-all @error('password') border-red-500/50 @enderror"
-                            placeholder="••••••••">
-                        <button type="button" onclick="togglePassword('password')" class="absolute inset-y-0 right-0 pr-6 flex items-center text-gray-500 hover:text-purple-500 transition-colors">
-                            <svg class="h-6 w-6" id="password-eye" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                        </button>
+    <!-- Login Form Section -->
+    <section id="login-form" class="py-24 bg-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h2 class="text-4xl font-black mb-8 uppercase tracking-tighter">Fast Player Login to the Game</h2>
+                    <div class="space-y-6 text-gray-400 text-lg">
+                        <p>Your orion stars online login works the same way on any device. Open the app or visit the web version in your browser, enter your credentials, and you're straight into the game lobby. The whole process takes less than 30 seconds once your account is set up.</p>
+                        <p>A lot of returning players ask about fast orion stars login options. The quickest way is to save your login credentials on your device so the app fills them in automatically. For easy orion stars login on browser, you can also bookmark the login page so you don't have to go searching for it.</p>
+                        <p>If you're logging in through the web version, your orion stars web login works on any browser whether it’s Chrome, Safari, Firefox, or whatever you normally use.</p>
                     </div>
-                    @error('password') <p class="text-red-500 text-[10px] font-bold uppercase tracking-widest mt-2 ml-4">{{ $message }}</p> @enderror
-                </div>
-            </div>
-
-            <div class="flex items-center justify-between px-2">
-                <div class="flex items-center">
-                    <input id="remember_me" name="remember" type="checkbox"
-                        class="h-5 w-5 text-yellow-500 focus:ring-yellow-500/50 border-white/10 rounded-lg bg-black/40 cursor-pointer">
-                    <label for="remember_me" class="ml-3 block text-xs font-bold text-gray-400 uppercase tracking-widest cursor-pointer hover:text-gray-300 transition-colors">
-                        Remember me
-                    </label>
+                    
+                    <div class="mt-12 p-8 bg-purple-900/20 border border-purple-500/30 rounded-[2rem]">
+                        <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">VIP Premium Login</h3>
+                        <p class="text-gray-300">If you're a VIP player, your orion stars vip login takes you directly to your premium dashboard. VIP accounts have access to exclusive bonuses, higher game limits, and priority support.</p>
+                    </div>
                 </div>
 
-                <div class="text-xs">
-                    <a href="{{ route('password.request') }}" class="font-black text-purple-500 hover:text-purple-400 transition-colors uppercase tracking-widest">
-                        Lost Access?
-                    </a>
+                <div class="bg-gray-800 border border-white/10 p-10 rounded-[3rem] shadow-2xl relative">
+                    <div class="absolute -top-6 -right-6 w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center text-4xl shadow-lg">🎰</div>
+                    <h2 class="text-3xl font-black mb-8 text-center uppercase tracking-tighter">Sign In</h2>
+                    
+                    @if(session('error'))
+                        <div class="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm font-bold text-center">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    <form action="{{ route('login') }}" method="POST" class="space-y-6">
+                        @csrf
+                        <div>
+                            <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2 ml-4">Email Address</label>
+                            <input type="email" name="email" required class="w-full px-6 py-4 bg-gray-950 border border-white/10 rounded-2xl focus:outline-none focus:border-yellow-500 transition-all text-white font-bold" placeholder="your@email.com">
+                            @error('email') <p class="text-red-500 text-xs mt-2 ml-4">{{ $message }}</p> @enderror
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2 ml-4">Password</label>
+                            <input type="password" name="password" required class="w-full px-6 py-4 bg-gray-950 border border-white/10 rounded-2xl focus:outline-none focus:border-yellow-500 transition-all text-white font-bold" placeholder="••••••••">
+                            @error('password') <p class="text-red-500 text-xs mt-2 ml-4">{{ $message }}</p> @enderror
+                        </div>
+                        <div class="flex items-center justify-between px-4">
+                            <label class="flex items-center text-xs font-bold text-gray-400 uppercase tracking-widest cursor-pointer">
+                                <input type="checkbox" name="remember" class="mr-2"> Remember Me
+                            </label>
+                            <a href="{{ route('password.request') }}" class="text-xs font-bold text-purple-500 uppercase tracking-widest">Forgot?</a>
+                        </div>
+                        <button type="submit" class="w-full py-6 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1 shadow-lg uppercase tracking-tighter">
+                            Login Now →
+                        </button>
+                    </form>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="pt-4">
-                <button type="submit"
-                    class="group relative w-full flex justify-center py-6 px-4 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white text-xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] transform hover:-translate-y-1.5 animate-shine overflow-hidden uppercase tracking-tighter">
-                    <span class="relative z-10">🎰 SIGN IN & WIN BIG</span>
-                </button>
+    <!-- Sign Up Section -->
+    <section id="sign-up" class="py-24 bg-gray-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4 uppercase tracking-tighter">New to Orion Stars? Here's How to Sign Up</h2>
+                <p class="text-xl text-gray-400">Orion Stars accounts aren't created through a traditional sign-up form.</p>
             </div>
-        </form>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="bg-gray-900 p-10 rounded-[3rem] border border-white/5">
+                    <ul class="space-y-8">
+                        <li class="flex gap-6">
+                            <span class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center font-black text-xl">1</span>
+                            <p class="text-gray-400 text-lg">Search for Orion Stars distributors on Facebook — look for pages with good reviews and active posts</p>
+                        </li>
+                        <li class="flex gap-6">
+                            <span class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center font-black text-xl">2</span>
+                            <p class="text-gray-400 text-lg">You can find our trusted and reliable distributor on Facebook and connect with them directly</p>
+                        </li>
+                        <li class="flex gap-6">
+                            <span class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center font-black text-xl">3</span>
+                            <p class="text-gray-400 text-lg">Message a distributor and tell them you want to set up a new player account</p>
+                        </li>
+                        <li class="flex gap-6">
+                            <span class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center font-black text-xl">4</span>
+                            <p class="text-gray-400 text-lg">They'll ask for your name and a preferred password, then send you your login credentials</p>
+                        </li>
+                        <li class="flex gap-6">
+                            <span class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center font-black text-xl">5</span>
+                            <p class="text-gray-400 text-lg">Use those credentials to log in through the app or web version</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="space-y-8 text-gray-400 text-lg">
+                        <p>The orion stars register process through a distributor might seem a little different to what you're used to, but it's actually fast and easy. Most distributors respond within a few hours, and some are online 24/7.</p>
+                        <p>Once your orion stars online account is set up, you can use it to play on the app, the browser version, or both. Your game history, credits, and bonuses are all tied to the account and not the device.</p>
+                        <div class="p-8 bg-yellow-500/10 border border-yellow-500/20 rounded-3xl">
+                            <h3 class="text-white font-black uppercase mb-4 tracking-tighter text-xl">Play Without Downloading</h3>
+                            <p>Don't have the app installed? You can still access your account and play. The orion stars login online play without downloading option lets you play fish games and slots directly in your browser.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <div class="text-center pt-8">
-            <p class="text-xs font-bold text-gray-500 uppercase tracking-[0.2em]">
-                New to Panda Master?
-                <a href="{{ $adminSettings->register_url ?? '#' }}" class="font-black text-yellow-500 hover:text-yellow-400 transition-colors ml-2">
-                    GET AN ACCOUNT →
-                </a>
+    <!-- Support Section -->
+    <section class="py-24 bg-gray-900 border-y border-white/5 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-black mb-8 uppercase tracking-tighter">Forgot Your Password or Can't Log In?</h2>
+            <p class="text-xl text-gray-400 mb-12 leading-relaxed">
+                If you're having trouble with your orion stars account login, the easiest solution is to reach out to the distributor who set up your account. They can reset your password and get you back in quickly. The Orion Stars support team is also available 24/7 through the platform's official social media channels.
             </p>
+            <a href="#" class="inline-block px-12 py-5 bg-white text-black text-xl font-black rounded-2xl hover:bg-yellow-500 transition-colors uppercase tracking-tighter">Contact Support Now</a>
         </div>
+    </section>
 
-        <!-- Quick Stats -->
-        <div class="pt-10 border-t border-white/5">
-            <div class="grid grid-cols-3 gap-6">
-                <div class="text-center group">
-                    <div class="text-xl font-black text-yellow-500 group-hover:scale-110 transition-transform tracking-tighter">100+</div>
-                    <div class="text-[8px] font-black text-gray-600 uppercase tracking-[0.2em]">Games</div>
+    <!-- FAQ Section -->
+    <section class="py-24 bg-gray-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-black mb-16 text-center uppercase tracking-tighter">Frequently Asked Questions</h2>
+            <div class="space-y-6" x-data="{ active: null }">
+                <div class="bg-gray-900 border border-white/5 rounded-2xl overflow-hidden">
+                    <button @click="active = active === 1 ? null : 1" class="w-full p-6 text-left flex justify-between items-center">
+                        <span class="text-lg font-black text-white uppercase">How do I login to Orion Stars?</span>
+                        <span class="text-yellow-500 text-2xl" x-text="active === 1 ? '−' : '+'"></span>
+                    </button>
+                    <div x-show="active === 1" class="p-6 pt-0 text-gray-400 border-t border-white/5">
+                        Open the Orion Stars app or visit the web version in your browser. Enter the username and password provided by your distributor and tap Login.
+                    </div>
                 </div>
-                <div class="text-center group">
-                    <div class="text-xl font-black text-purple-500 group-hover:scale-110 transition-transform tracking-tighter">$2M+</div>
-                    <div class="text-[8px] font-black text-gray-600 uppercase tracking-[0.2em]">Wins</div>
+                <div class="bg-gray-900 border border-white/5 rounded-2xl overflow-hidden">
+                    <button @click="active = active === 2 ? null : 2" class="w-full p-6 text-left flex justify-between items-center">
+                        <span class="text-lg font-black text-white uppercase">What is the Orion Stars VIP login?</span>
+                        <span class="text-yellow-500 text-2xl" x-text="active === 2 ? '−' : '+'"></span>
+                    </button>
+                    <div x-show="active === 2" class="p-6 pt-0 text-gray-400 border-t border-white/5">
+                        The orion stars vip login is the same login portal as a regular player account. Once you log in, your VIP status and all associated bonuses will be visible.
+                    </div>
                 </div>
-                <div class="text-center group">
-                    <div class="text-xl font-black text-yellow-500 group-hover:scale-110 transition-transform tracking-tighter">50K+</div>
-                    <div class="text-[8px] font-black text-gray-600 uppercase tracking-[0.2em]">Legends</div>
+                <div class="bg-gray-900 border border-white/5 rounded-2xl overflow-hidden">
+                    <button @click="active = active === 3 ? null : 3" class="w-full p-6 text-left flex justify-between items-center">
+                        <span class="text-lg font-black text-white uppercase">How do I create an account?</span>
+                        <span class="text-yellow-500 text-2xl" x-text="active === 3 ? '−' : '+'"></span>
+                    </button>
+                    <div x-show="active === 3" class="p-6 pt-0 text-gray-400 border-t border-white/5">
+                        Find an authorised distributor on Facebook, message them with your name and preferred password, and they'll send you your login credentials.
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
 
 <style>
-    @keyframes twinkle {
-        0%, 100% { opacity: 0.3; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.3); }
-    }
-
     @keyframes fade-in-up {
-        0% { opacity: 0; transform: translateY(40px); }
-        100% { opacity: 1; transform: translateY(0); }
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-
-    .animate-twinkle {
-        animation: twinkle 4s ease-in-out infinite;
-    }
-
-    .animate-fade-in-up {
-        animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        opacity: 0;
-    }
+    .animate-fade-in-up { opacity: 0; animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 </style>
 @endsection
-
-@push('scripts')
-<script>
-function togglePassword(inputId) {
-    const input = document.getElementById(inputId);
-    const eyeIcon = document.getElementById(inputId + '-eye');
-
-    if (input.type === 'password') {
-        input.type = 'text';
-        eyeIcon.innerHTML = `
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 1.274-4.057 5.064-7 9.542-7 1.053 0 2.062.18 3 .512M7.943 7.943L16.057 16.057M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18" />
-        `;
-    } else {
-        input.type = 'password';
-        eyeIcon.innerHTML = `
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        `;
-    }
-}
-</script>
-@endpush
-
-@push('scripts')
-<script>
-function togglePassword(inputId) {
-    const input = document.getElementById(inputId);
-    const eyeIcon = document.getElementById(inputId + '-eye');
-
-    if (input.type === 'password') {
-        input.type = 'text';
-        eyeIcon.innerHTML = `
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 1.274-4.057 5.064-7 9.542-7 1.053 0 2.062.18 3 .512M7.943 7.943L16.057 16.057M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18" />
-        `;
-    } else {
-        input.type = 'password';
-        eyeIcon.innerHTML = `
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        `;
-    }
-}
-</script>
-@endpush
