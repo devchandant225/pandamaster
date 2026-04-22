@@ -63,8 +63,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'index'])->name('admin.profile');
     Route::put('/admin/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'update'])->name('admin.profile.update');
     Route::put('/admin/profile/password', [\App\Http\Controllers\Admin\AdminProfileController::class, 'updatePassword'])->name('admin.profile.password');
-    Route::get('/admin/profile/remove-logo', [\App\Http\Controllers\Admin\AdminProfileController::class, 'removeLogo'])->name('admin.profile.remove-logo');
-    Route::get('/admin/profile/remove-favicon', [\App\Http\Controllers\Admin\AdminProfileController::class, 'removeFavicon'])->name('admin.profile.remove-favicon');
+    Route::delete('/admin/profile/remove-logo', [\App\Http\Controllers\Admin\AdminProfileController::class, 'removeLogo'])->name('admin.profile.remove-logo');
+    Route::delete('/admin/profile/remove-favicon', [\App\Http\Controllers\Admin\AdminProfileController::class, 'removeFavicon'])->name('admin.profile.remove-favicon');
 
     // User Management
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');

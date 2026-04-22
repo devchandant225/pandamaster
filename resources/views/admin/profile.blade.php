@@ -120,42 +120,100 @@
                             </div>
 
                             <div class="grid md:grid-cols-2 gap-12">
-                                <div class="space-y-4">
+                                <div class="space-y-4" x-data="{ logoPreview: '{{ $user->logo ? Storage::url($user->logo) : '' }}', logoName: '' }">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Platform Logo</label>
-                                    <div class="relative group h-48 bg-gray-50 rounded-[2rem] border-2 border-dashed border-gray-200 flex items-center justify-center overflow-hidden">
-                                        @if($user->logo)
-                                            <img src="{{ Storage::url($user->logo) }}" alt="Logo" class="max-h-32 object-contain">
-                                        @else
-                                            <div class="text-center">
-                                                <svg class="w-10 h-10 text-gray-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                                <span class="text-xs font-bold text-gray-400">NO LOGO UPLOADED</span>
-                                            </div>
-                                        @endif
-                                        <input type="file" name="logo" class="absolute inset-0 opacity-0 cursor-pointer">
-                                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <span class="text-white text-[10px] font-black uppercase tracking-widest">Change Logo</span>
+                                    <div class="flex items-center space-x-4">
+                                        <div class="relative w-32 h-32 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 flex items-center justify-center overflow-hidden"
+                                            :class="{ 'p-2': logoPreview }"
+                                        >
+                                            <template x-if="logoPreview">
+                                                <img :src="logoPreview" alt="Logo Preview" class="max-w-full max-h-full object-contain">
+                                            </template>
+                                            <template x-if="!logoPreview">
+                                                <div class="text-center">
+                                                    <svg class="w-8 h-8 text-gray-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                </div>
+                                            </template>
+                                            <input type="file" name="logo" class="absolute inset-0 opacity-0 cursor-pointer"
+                                                @change="
+                                                    const file = $event.target.files[0];
+                                                    if (file) {
+                                                        const reader = new FileReader();
+                                                        reader.onload = (e) => {
+                                                            logoPreview = e.target.result;
+                                                            logoName = file.name;
+                                                        };
+                                                        reader.readAsDataURL(file);
+                                                    } else {
+                                                        logoPreview = '';
+                                                        logoName = '';
+                                                    }
+                                                "
+                                            >
                                         </div>
+                                        <div class="flex flex-col flex-1">
+                                            <span class="text-sm font-medium text-gray-700" x-text="logoName ? logoName : 'No file chosen'">No file chosen</span>
+                                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">Recommended: Transparent PNG, 400x120px</p>
+                                        </div>
+                                        @if($user->logo)
+                                            <form action="{{ route('admin.profile.remove-logo') }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="text-red-500 hover:text-red-700 text-[10px] font-bold uppercase tracking-widest ml-4">
+                                                    Remove Logo
+                                                </button>
+                                            </form>
+                                        @endif
                                     </div>
-                                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">Recommended: Transparent PNG, 400x120px</p>
+                                    @error('logo') <p class="text-red-500 text-[10px] font-bold mt-1">{{ $message }}</p> @enderror
                                 </div>
 
-                                <div class="space-y-4">
+                                <div class="space-y-4" x-data="{ faviconPreview: '{{ $user->favicon ? Storage::url($user->favicon) : '' }}', faviconName: '' }">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Site Favicon</label>
-                                    <div class="relative group h-48 bg-gray-50 rounded-[2rem] border-2 border-dashed border-gray-200 flex items-center justify-center overflow-hidden">
-                                        @if($user->favicon)
-                                            <img src="{{ Storage::url($user->favicon) }}" alt="Favicon" class="w-16 h-16 object-contain">
-                                        @else
-                                            <div class="text-center">
-                                                <svg class="w-10 h-10 text-gray-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
-                                                <span class="text-xs font-bold text-gray-400">NO FAVICON</span>
-                                            </div>
-                                        @endif
-                                        <input type="file" name="favicon" class="absolute inset-0 opacity-0 cursor-pointer">
-                                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <span class="text-white text-[10px] font-black uppercase tracking-widest">Change Favicon</span>
+                                    <div class="flex items-center space-x-4">
+                                        <div class="relative w-32 h-32 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 flex items-center justify-center overflow-hidden"
+                                            :class="{ 'p-2': faviconPreview }"
+                                        >
+                                            <template x-if="faviconPreview">
+                                                <img :src="faviconPreview" alt="Favicon Preview" class="max-w-full max-h-full object-contain">
+                                            </template>
+                                            <template x-if="!faviconPreview">
+                                                <div class="text-center">
+                                                    <svg class="w-8 h-8 text-gray-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+                                                </div>
+                                            </template>
+                                            <input type="file" name="favicon" class="absolute inset-0 opacity-0 cursor-pointer"
+                                                @change="
+                                                    const file = $event.target.files[0];
+                                                    if (file) {
+                                                        const reader = new FileReader();
+                                                        reader.onload = (e) => {
+                                                            faviconPreview = e.target.result;
+                                                            faviconName = file.name;
+                                                        };
+                                                        reader.readAsDataURL(file);
+                                                    } else {
+                                                        faviconPreview = '';
+                                                        faviconName = '';
+                                                    }
+                                                "
+                                            >
                                         </div>
+                                        <div class="flex flex-col flex-1">
+                                            <span class="text-sm font-medium text-gray-700" x-text="faviconName ? faviconName : 'No file chosen'">No file chosen</span>
+                                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">Recommended: 32x32px .ico or .png</p>
+                                        </div>
+                                        @if($user->favicon)
+                                            <form action="{{ route('admin.profile.remove-favicon') }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="text-red-500 hover:text-red-700 text-[10px] font-bold uppercase tracking-widest ml-4">
+                                                    Remove Favicon
+                                                </button>
+                                            </form>
+                                        @endif
                                     </div>
-                                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">Recommended: 32x32px .ico or .png</p>
+                                    @error('favicon') <p class="text-red-500 text-[10px] font-bold mt-1">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                         </div>
