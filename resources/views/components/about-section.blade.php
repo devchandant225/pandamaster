@@ -31,7 +31,7 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                     </span>
-                    The Panda Master Story
+                    The Orion Star Story
                 </div>
 
                 <h2 class="text-5xl md:text-6xl font-black mb-8 leading-[0.9] tracking-tighter text-white uppercase">
@@ -39,7 +39,7 @@
                 </h2>
 
                 <p class="text-xl text-gray-400 mb-10 leading-relaxed font-medium">
-                    Panda Master VIP is built on the legendary Fire Kirin engine, delivering the world's most immersive, rewarding, and secure online fish gaming platform. With over 30+ exclusive titles, we set the gold standard for social casino entertainment.
+                    Orion Star VIP is built on the legendary Fire Kirin engine, delivering the world's most immersive, rewarding, and secure online fish gaming platform. With over 30+ exclusive titles, we set the gold standard for social casino entertainment.
                 </p>
 
                 <div class="grid sm:grid-cols-2 gap-6 mb-12">

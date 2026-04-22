@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $game->title . ' - Panda Master VIP')
+@section('title', $game->title . ' - Orion Star VIP')
 
 @section('content')
 <div class="min-h-screen bg-black relative overflow-hidden">

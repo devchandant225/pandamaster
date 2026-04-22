@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Panda Master Casino — Fish Games, Slots & Real Money Gaming')
+@section('title', 'Orion Star Casino — Fish Games, Slots & Real Money Gaming')
 
 @section('content')
 <div class="min-h-screen bg-gray-950">
@@ -10,7 +10,7 @@
         <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
             <h1 class="text-7xl md:text-9xl font-black mb-6 text-yellow-500 text-glow-yellow uppercase italic tracking-tighter">CASINO HUB</h1>
             <p class="text-2xl md:text-3xl text-gray-400 mb-12 font-bold uppercase tracking-widest">Premium Sweepstakes & Social Gaming</p>
-            <a href="{{ route('pandamaster.play-online') }}" class="inline-block px-14 py-7 bg-yellow-500 text-black text-2xl font-black rounded-2xl hover:bg-yellow-400 transition-all shadow-[0_0_50px_rgba(234,179,8,0.3)]">🎰 ENTER THE CASINO</a>
+            <a href="{{ route('orionstar.play-online') }}" class="inline-block px-14 py-7 bg-yellow-500 text-black text-2xl font-black rounded-2xl hover:bg-yellow-400 transition-all shadow-[0_0_50px_rgba(234,179,8,0.3)]">🎰 ENTER THE CASINO</a>
         </div>
     </section>
 
@@ -19,7 +19,7 @@
         <section class="grid md:grid-cols-2 gap-20 items-center">
             <div class="space-y-8">
                 <h2 class="text-6xl font-black text-white italic tracking-tighter">Fish Games</h2>
-                <p class="text-xl text-gray-400 leading-relaxed">Panda Master is the world leader in multiplayer fish gaming. Our flagship titles feature high-definition graphics, smooth mechanics, and massive boss multipliers. From Ocean King to Thunder Dragon, we have it all.</p>
+                <p class="text-xl text-gray-400 leading-relaxed">Orion Star is the world leader in multiplayer fish gaming. Our flagship titles feature high-definition graphics, smooth mechanics, and massive boss multipliers. From Ocean King to Thunder Dragon, we have it all.</p>
                 <div class="grid grid-cols-2 gap-6">
                     <div class="bg-gray-900 p-6 rounded-2xl border border-white/5">
                         <div class="text-3xl mb-2">🐟</div>
@@ -36,13 +36,13 @@
             </div>
         </section>
 
-        <!-- Panda Slots Section -->
+        <!-- Orion Slots Section -->
         <section class="grid md:grid-cols-2 gap-20 items-center">
             <div class="order-2 md:order-1 aspect-square bg-gradient-to-br from-purple-500/10 to-transparent p-12 rounded-[4rem] border border-white/5 flex items-center justify-center">
                 <div class="text-[200px] animate-pulse">🎰</div>
             </div>
             <div class="order-1 md:order-2 space-y-8">
-                <h2 class="text-6xl font-black text-white italic tracking-tighter">Panda Slots</h2>
+                <h2 class="text-6xl font-black text-white italic tracking-tighter">Orion Slots</h2>
                 <p class="text-xl text-gray-400 leading-relaxed">Our exclusive slot collection is designed for high-payout excitement. Experience hundreds of themes with free spins, bonus rounds, and progressive jackpots that drop daily.</p>
                 <a href="{{ route('games.index') }}" class="inline-block px-10 py-5 bg-purple-600 text-white font-black rounded-xl hover:bg-purple-500 transition-all">BROWSE ALL SLOTS →</a>
             </div>
@@ -51,7 +51,7 @@
         <!-- Table & Board Games -->
         <section class="bg-gray-900/50 p-20 rounded-[4rem] border border-white/5 text-center space-y-12">
             <h2 class="text-5xl font-black text-white italic uppercase tracking-tighter">Table & Board Games</h2>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto">Beyond fish and slots, Panda Master offers a wide array of strategic board games and classic casino tables optimized for mobile play.</p>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">Beyond fish and slots, Orion Star offers a wide array of strategic board games and classic casino tables optimized for mobile play.</p>
             <div class="grid sm:grid-cols-4 gap-8">
                 <div class="p-8 bg-black/40 rounded-3xl border border-white/5">🃏 Cards</div>
                 <div class="p-8 bg-black/40 rounded-3xl border border-white/5">🎲 Dice</div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'All Games - Panda Master VIP')
+@section('title', 'All Games - Orion Star VIP')
 
 @section('content')
 <div class="min-h-screen bg-black">

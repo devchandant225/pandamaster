@@ -92,7 +92,7 @@
                             @if(isset($adminSettings) && $adminSettings->description)
                                 {{ \Illuminate\Support\Str::limit($adminSettings->description, 150) }}
                             @else
-                                Experience the thrill of Panda Master VIP. From high-stakes slots to immersive fish games, we are your ultimate destination for big wins and endless entertainment.
+                                Experience the thrill of Orion Star VIP. From high-stakes slots to immersive fish games, we are your ultimate destination for big wins and endless entertainment.
                             @endif
                         </p>
                         
@@ -147,19 +147,19 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('pandamaster.777') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
+                            <a href="{{ route('orionstar.777') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
                                 <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-yellow-500 group-hover/link:scale-125 transition-all"></span>
                                 Orion Stars 777
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('pandamaster.download') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
+                            <a href="{{ route('orionstar.download') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
                                 <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-yellow-500 group-hover/link:scale-125 transition-all"></span>
                                 Download App
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('pandamaster.play-online') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
+                            <a href="{{ route('orionstar.play-online') }}" class="group/link flex items-center gap-3 text-gray-400 hover:text-yellow-500 transition-all font-bold">
                                 <span class="w-2 h-2 bg-gray-700 rounded-full group-hover/link:bg-yellow-500 group-hover/link:scale-125 transition-all"></span>
                                 Play Online
                             </a>

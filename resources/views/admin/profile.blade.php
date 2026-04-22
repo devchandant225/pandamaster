@@ -1,5 +1,5 @@
 @extends('layouts.dashboard', ['active' => 'profile'])
-@section('title', 'Admin Profile & Branding - Panda Master')
+@section('title', 'Admin Profile & Branding - Orion Star')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-50 min-h-screen" x-data="{ activeTab: 'profile' }">
@@ -13,7 +13,7 @@
                 <div class="relative group">
                     <div class="w-32 h-32 rounded-[2.5rem] bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center text-black text-5xl font-black border-4 border-white/10 shadow-xl group-hover:scale-105 transition-transform duration-500 overflow-hidden">
 ...
-                    <p class="text-gray-400 font-medium text-lg italic mb-6">Managing Panda Master Digital Assets</p>
+                    <p class="text-gray-400 font-medium text-lg italic mb-6">Managing Orion Star Digital Assets</p>
                             <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" class="w-full h-full object-cover">
                         @else
                             {{ substr($user->name, 0, 1) }}
@@ -239,7 +239,7 @@
                                     </div>
                                     <div class="space-y-2">
                                         <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">YouTube URL</label>
-                                        <input type="text" name="youtube_url" value="{{ old('youtube_url', $user->youtube_url) }}" placeholder="https://youtube.com/@pandamaster"
+                                        <input type="text" name="youtube_url" value="{{ old('youtube_url', $user->youtube_url) }}" placeholder="https://youtube.com/@orionstar"
                                             class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
                                     </div>
                                     <div class="space-y-2">

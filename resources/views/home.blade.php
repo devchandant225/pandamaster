@@ -31,10 +31,10 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="{{ route('pandamaster.play-online') }}" class="group relative px-10 py-5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black text-xl font-black rounded-2xl transition-all shadow-lg hover:shadow-yellow-500/50 transform hover:-translate-y-1.5 overflow-hidden">
+                <a href="{{ route('orionstar.play-online') }}" class="group relative px-10 py-5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black text-xl font-black rounded-2xl transition-all shadow-lg hover:shadow-yellow-500/50 transform hover:-translate-y-1.5 overflow-hidden">
                     <span class="relative z-10 uppercase tracking-tighter">Play Online Now</span>
                 </a>
-                <a href="{{ route('pandamaster.download') }}" class="group relative px-10 py-5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xl font-black rounded-2xl transition-all shadow-lg hover:shadow-purple-500/50 transform hover:-translate-y-1.5 overflow-hidden">
+                <a href="{{ route('orionstar.download') }}" class="group relative px-10 py-5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xl font-black rounded-2xl transition-all shadow-lg hover:shadow-purple-500/50 transform hover:-translate-y-1.5 overflow-hidden">
                     <span class="relative z-10 uppercase tracking-tighter">Download the App</span>
                 </a>
                 <a href="{{ route('login') }}" class="group relative px-10 py-5 bg-white/10 hover:bg-white/20 text-white text-xl font-black rounded-2xl transition-all border border-white/20 shadow-lg transform hover:-translate-y-1.5 backdrop-blur-sm">
@@ -84,7 +84,7 @@
             <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
                 Don't want to download anything? That's completely fine. Orion Stars has a full web version that runs in your browser without needing an app. You can play orion stars online on your Android, your iPhone, your laptop, or your desktop PC.
             </p>
-            <a href="{{ route('pandamaster.play-online') }}" class="inline-flex items-center gap-4 bg-white text-black px-12 py-5 rounded-2xl text-xl font-black hover:bg-yellow-500 transition-colors uppercase tracking-tighter">
+            <a href="{{ route('orionstar.play-online') }}" class="inline-flex items-center gap-4 bg-white text-black px-12 py-5 rounded-2xl text-xl font-black hover:bg-yellow-500 transition-colors uppercase tracking-tighter">
                 Play Orion Stars Online Now →
             </a>
         </div>
@@ -118,7 +118,7 @@
                     <p class="text-lg text-gray-400 mb-8 leading-relaxed">
                         If you want the full app experience, downloading Orion Stars takes just a few minutes. The app is available for Android (as an APK file), iPhone and iPad (through the App Store or browser install), and Windows PC (as a desktop download). It's lightweight, it runs smoothly, and it keeps all your game progress and account info in one place.
                     </p>
-                    <a href="{{ route('pandamaster.download') }}" class="inline-flex items-center gap-4 bg-purple-600 text-white px-12 py-5 rounded-2xl text-xl font-black hover:bg-purple-500 transition-colors uppercase tracking-tighter">
+                    <a href="{{ route('orionstar.download') }}" class="inline-flex items-center gap-4 bg-purple-600 text-white px-12 py-5 rounded-2xl text-xl font-black hover:bg-purple-500 transition-colors uppercase tracking-tighter">
                         Download the App →
                     </a>
                 </div>

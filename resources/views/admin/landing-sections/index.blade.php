@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', ['active' => 'landing-sections'])
 
-@section('title', 'Landing Page Manager - Panda Master VIP')
+@section('title', 'Landing Page Manager - Orion Star VIP')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-900 min-h-screen">

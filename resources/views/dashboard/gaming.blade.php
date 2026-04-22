@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard - Panda Master VIP')
+@section('title', 'Dashboard - Orion Star VIP')
 
 @section('content')
 <div class="min-h-screen bg-gradient-to-b from-gray-900 via-navy-900 to-gray-900 py-12">

@@ -29,7 +29,7 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
                 </span>
-                The Panda Master VIP Experience
+                The Orion Star VIP Experience
             </div>
 
             <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-10 leading-[0.85] tracking-tighter animate-fade-in-up">
@@ -85,7 +85,7 @@
                     </h2>
                     <div class="space-y-6 text-gray-400 leading-relaxed text-xl font-medium">
                         <p>
-                            Born from the passion for high-octane gaming, <span class="text-white font-black tracking-widest uppercase">Panda Master VIP</span> was created with one mission: to build the most immersive, rewarding, and secure online fish gaming ecosystem in the world.
+                            Born from the passion for high-octane gaming, <span class="text-white font-black tracking-widest uppercase">Orion Star VIP</span> was created with one mission: to build the most immersive, rewarding, and secure online fish gaming ecosystem in the world.
                         </p>
                         <p>
                             Built on the legendary Fire Kirin engine, we've combined industry-leading graphics with fair-play mechanics to deliver an experience that traditional platforms simply can't match. Every spin, every catch, and every bet is built on a foundation of transparency and VIP-level service.

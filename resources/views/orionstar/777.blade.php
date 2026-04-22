@@ -15,8 +15,8 @@
                 If you've been searching for Orion Stars 777, you're in the right place. This page covers everything about the 777 version of the platform — what it is, how to download it, how to log in, and what games you can play.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="{{ route('pandamaster.download') }}" class="px-10 py-5 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1.5 shadow-lg">Download 777 APK</a>
-                <a href="{{ route('pandamaster.play-online') }}" class="px-10 py-5 bg-purple-600 text-white text-xl font-black rounded-2xl hover:bg-purple-500 transition-all transform hover:-translate-y-1.5 shadow-lg">Play Online</a>
+                <a href="{{ route('orionstar.download') }}" class="px-10 py-5 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1.5 shadow-lg">Download 777 APK</a>
+                <a href="{{ route('orionstar.play-online') }}" class="px-10 py-5 bg-purple-600 text-white text-xl font-black rounded-2xl hover:bg-purple-500 transition-all transform hover:-translate-y-1.5 shadow-lg">Play Online</a>
                 <a href="{{ route('login') }}" class="px-10 py-5 bg-white/10 text-white text-xl font-black rounded-2xl hover:bg-white/20 transition-all transform hover:-translate-y-1.5 border border-white/20 backdrop-blur-sm">Login to 777</a>
             </div>
         </div>
@@ -66,7 +66,7 @@
                     </ul>
                 </div>
                 <div class="flex flex-col justify-center items-center gap-8">
-                    <a href="{{ route('pandamaster.download') }}" class="w-full bg-yellow-500 text-black text-center py-6 rounded-2xl text-2xl font-black hover:bg-yellow-400 transition-colors uppercase tracking-tighter">
+                    <a href="{{ route('orionstar.download') }}" class="w-full bg-yellow-500 text-black text-center py-6 rounded-2xl text-2xl font-black hover:bg-yellow-400 transition-colors uppercase tracking-tighter">
                         Download 777 APK Now →
                     </a>
                     <p class="text-gray-500 text-sm italic text-center">The APK is verified and safe to install. No verification variants refer to the direct installation method without the Play Store.</p>
