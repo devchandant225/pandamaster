@@ -27,21 +27,21 @@
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $image }}">
 
-@if($post->faqs && $post->faqs->count() > 0)
+@if(isset($post->faqs) && $post->faqs->count() > 0)
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
+  "@@context": "https://schema.org",
+  "@@type": "FAQPage",
   "mainEntity": [
     @foreach($post->faqs as $faq)
     {
-      "@type": "Question",
+      "@@type": "Question",
       "name": "{{ str_replace('"', '\"', $faq->question) }}",
       "acceptedAnswer": {
-        "@type": "Answer",
+        "@@type": "Answer",
         "text": "{{ str_replace('"', '\"', $faq->answer) }}"
       }
-    }@if(!$loop->last),@endif
+    }{{ $loop->last ? '' : ',' }}
     @endforeach
   ]
 }

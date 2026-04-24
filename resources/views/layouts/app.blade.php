@@ -19,6 +19,7 @@
     @if(request()->routeIs('blog.show') && isset($post))
         <x-blog-meta-tags :post="$post" />
     @else
+        <x-meta-tags />
     @endif
 
     @stack('meta')
