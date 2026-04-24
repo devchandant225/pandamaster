@@ -66,6 +66,10 @@
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                             <span class="text-[10px] uppercase tracking-widest font-bold">Social & Links</span>
                         </button>
+                        <button @click="activeTab = 'seo'" :class="activeTab === 'seo' ? 'bg-[#D4AF37] text-black font-black shadow-lg shadow-[#D4AF37]/20' : 'text-gray-500 hover:bg-gray-50 hover:text-black'" class="w-full flex items-center gap-3 px-6 py-4 rounded-2xl transition-all duration-300 group">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            <span class="text-[10px] uppercase tracking-widest font-bold">SEO & Scripts</span>
+                        </button>
                         <button @click="activeTab = 'password'" :class="activeTab === 'password' ? 'bg-black text-white font-black shadow-lg shadow-black/10' : 'text-gray-500 hover:bg-gray-50 hover:text-black'" class="w-full flex items-center gap-3 px-6 py-4 rounded-2xl transition-all duration-300 group">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                             <span class="text-[10px] uppercase tracking-widest font-bold">Security</span>
@@ -312,6 +316,36 @@
                                     </div>
                                 </div>
                             </div>                        </div>
+
+                        <!-- SEO & Scripts Tab -->
+                        <div x-show="activeTab === 'seo'" x-cloak class="p-8 md:p-12 animate-fade-in space-y-8">
+                            <div>
+                                <h3 class="text-2xl font-black text-gray-900 tracking-tight">SEO & Tracking Scripts</h3>
+                                <p class="text-gray-500 text-sm mt-1">Manage platform-wide search engine configuration and external scripts.</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Robots.txt Content</label>
+                                <textarea name="robots_txt" rows="6" placeholder="User-agent: *
+Allow: /"
+                                    class="w-full p-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-2xl outline-none transition-all font-mono text-sm text-gray-900">{{ old('robots_txt', $user->robots_txt) }}</textarea>
+                                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter mt-1">Leave empty to use default "Allow: /"</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Header Scripts (Inside &lt;head&gt;)</label>
+                                <textarea name="header_scripts" rows="6" placeholder="<!-- Google Tag Manager -->"
+                                    class="w-full p-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-2xl outline-none transition-all font-mono text-sm text-gray-900">{{ old('header_scripts', $user->header_scripts) }}</textarea>
+                                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter mt-1">Raw HTML/Javascript for analytics, verification, etc.</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Footer Scripts (Before &lt;/body&gt;)</label>
+                                <textarea name="footer_scripts" rows="6" placeholder="<!-- Chatbot script -->"
+                                    class="w-full p-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-2xl outline-none transition-all font-mono text-sm text-gray-900">{{ old('footer_scripts', $user->footer_scripts) }}</textarea>
+                                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter mt-1">Raw HTML/Javascript for tracking or widgets.</p>
+                            </div>
+                        </div>
 
                         <div x-show="activeTab !== 'password'" class="p-8 md:p-12 pt-0">
                             <button type="submit" class="px-10 py-4 bg-black text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-gray-800 transition-all shadow-xl shadow-black/10 active:scale-95">

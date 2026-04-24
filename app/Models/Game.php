@@ -29,6 +29,10 @@ class Game extends Model
         'is_active',
         'play_count',
         'features',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'meta_schema',
     ];
 
     protected $casts = [
@@ -39,6 +43,7 @@ class Game extends Model
         'play_count' => 'integer',
         'rtp' => 'decimal:2',
         'features' => 'array',
+        'meta_schema' => 'array',
     ];
 
     /**

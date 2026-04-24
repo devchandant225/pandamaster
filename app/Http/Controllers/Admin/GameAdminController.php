@@ -69,7 +69,13 @@ class GameAdminController extends Controller
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
             'features' => 'nullable|array',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
+            'meta_schema' => 'nullable|array',
         ]);
+
+        $validated['meta_schema'] = isset($validated['meta_schema']) ? array_filter($validated['meta_schema']) : null;
 
         if (empty($validated['slug'])) {
             $validated['slug'] = Str::slug($validated['title']);
@@ -124,7 +130,13 @@ class GameAdminController extends Controller
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
             'features' => 'nullable|array',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
+            'meta_schema' => 'nullable|array',
         ]);
+
+        $validated['meta_schema'] = isset($validated['meta_schema']) ? array_filter($validated['meta_schema']) : null;
 
         if (empty($validated['slug'])) {
             $validated['slug'] = Str::slug($validated['title']);

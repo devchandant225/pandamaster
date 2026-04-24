@@ -30,8 +30,23 @@
 <!-- Schema JSON-LD (Head) -->
 @if($meta && !empty($meta->schema_head))
     @foreach($meta->schema_head_json as $schema)
-        <script type="application/ld+json">
-            {!! is_string($schema) ? $schema : json_encode($schema) !!}
-        </script>
+        @if(!empty($schema))
+            <script type="application/ld+json">
+                {!! is_string($schema) ? $schema : json_encode($schema) !!}
+            </script>
+        @endif
     @endforeach
+@endif
+
+<!-- Schema JSON-LD (Body) -->
+@if($meta && !empty($meta->schema_body))
+    @push('scripts')
+        @foreach($meta->schema_body_json as $schema)
+            @if(!empty($schema))
+                <script type="application/ld+json">
+                    {!! is_string($schema) ? $schema : json_encode($schema) !!}
+                </script>
+            @endif
+        @endforeach
+    @endpush
 @endif

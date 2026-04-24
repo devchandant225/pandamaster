@@ -40,6 +40,9 @@ class AdminProfileController extends Controller
             'youtube_url' => 'nullable|string|max:255',
             'external_dashboard_url' => 'nullable|string|max:255',
             'footer_description' => 'nullable|string',
+            'robots_txt' => 'nullable|string',
+            'header_scripts' => 'nullable|string',
+            'footer_scripts' => 'nullable|string',
             'logo' => 'nullable|image|mimes:png,jpg,jpeg,svg,webp|max:4096',
             'favicon' => 'nullable|mimes:png,jpg,jpeg,svg,webp,ico|max:2048',
         ]);

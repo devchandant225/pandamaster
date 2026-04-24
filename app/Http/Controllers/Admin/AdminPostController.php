@@ -76,6 +76,7 @@ class AdminPostController extends Controller
             'meta_title' => $validated['meta_title'],
             'meta_description' => $validated['meta_description'],
             'meta_keywords' => $validated['meta_keywords'],
+            'meta_schema' => isset($validated['meta_schema']) ? array_filter($validated['meta_schema']) : null,
         ]);
 
         // Save FAQs
@@ -143,6 +144,7 @@ class AdminPostController extends Controller
             'meta_title' => $validated['meta_title'],
             'meta_description' => $validated['meta_description'],
             'meta_keywords' => $validated['meta_keywords'],
+            'meta_schema' => isset($validated['meta_schema']) ? array_filter($validated['meta_schema']) : null,
         ]);
 
         // Update FAQs - delete existing and create new ones

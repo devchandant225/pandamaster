@@ -18,6 +18,8 @@
     <!-- SEO Meta Tags -->
     @if(request()->routeIs('blog.show') && isset($post))
         <x-blog-meta-tags :post="$post" />
+    @elseif(request()->routeIs('games.show') && isset($game))
+        <x-game-meta-tags :game="$game" />
     @else
         <x-meta-tags />
     @endif
@@ -90,6 +92,10 @@
                 }
             }, 5000);
         </script>
+    @endif
+    <!-- Global Footer Scripts -->
+    @if(isset($adminSettings->footer_scripts))
+        {!! $adminSettings->footer_scripts !!}
     @endif
     @stack('scripts')
 </body>

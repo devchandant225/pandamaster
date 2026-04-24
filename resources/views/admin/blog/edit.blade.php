@@ -167,6 +167,10 @@
                             <textarea name="meta_description" rows="4" placeholder="Brief SEO description..." 
                                 class="w-full p-4 bg-gray-50 border border-gray-100 focus:border-[#D4AF37] rounded-xl outline-none transition-all text-xs font-medium text-gray-900 resize-none">{{ old('meta_description', $post->meta_description) }}</textarea>
                         </div>
+
+                        <div class="space-y-1 pt-2">
+                            <x-schema-repeater name="meta_schema" label="JSON-LD Schema" :data="$post->meta_schema" />
+                        </div>
                     </div>
                 </div>
             </div>

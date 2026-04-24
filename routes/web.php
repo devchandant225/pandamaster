@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\OrionStarController;
 
+Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
+Route::get('/robots.txt', [\App\Http\Controllers\RobotsController::class, 'index'])->name('robots');
+Route::get('/generate-sitemap', [\App\Http\Controllers\SitemapController::class, 'index']); // Alias as requested
+
 // Public Routes
 Route::get('/', [OrionStarController::class, 'index'])->name('home');
 Route::get('/777', [OrionStarController::class, 'sevenSeven'])->name('orionstar.777');

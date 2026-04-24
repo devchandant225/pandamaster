@@ -2,10 +2,10 @@
     $siteName = config('app.name', 'Orion Stars');
     $currentUrl = request()->url();
     
-    $title = $post->meta_title ?: $post->title . ' | ' . $siteName;
-    $description = $post->meta_description ?: $post->excerpt;
-    $keywords = $post->meta_keywords ?: 'Orion Stars blog, fish games news';
-    $image = $post->image_url ?: asset('logo.png');
+    $title = $game->meta_title ?: $game->title . ' | ' . $siteName;
+    $description = $game->meta_description ?: Str::limit($game->description, 160);
+    $keywords = $game->meta_keywords ?: 'Orion Stars game, ' . $game->game_type . ', ' . $game->gameCategory->name;
+    $image = $game->thumbnail ?: asset('logo.png');
 @endphp
 
 <title>{{ $title }}</title>
@@ -14,7 +14,7 @@
 <link rel="canonical" href="{{ $currentUrl }}">
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:url" content="{{ $currentUrl }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">
@@ -27,33 +27,12 @@
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $image }}">
 
-@if(isset($post->meta_schema) && is_array($post->meta_schema))
-    @foreach($post->meta_schema as $schema)
+@if(isset($game->meta_schema) && is_array($game->meta_schema))
+    @foreach($game->meta_schema as $schema)
         @if(!empty($schema))
             <script type="application/ld+json">
                 {!! is_string($schema) ? $schema : json_encode($schema) !!}
             </script>
         @endif
     @endforeach
-@endif
-
-@if(isset($post->faqs) && $post->faqs->count() > 0)
-<script type="application/ld+json">
-{
-  "@@context": "https://schema.org",
-  "@@type": "FAQPage",
-  "mainEntity": [
-    @foreach($post->faqs as $faq)
-    {
-      "@@type": "Question",
-      "name": "{{ str_replace('"', '\"', $faq->question) }}",
-      "acceptedAnswer": {
-        "@@type": "Answer",
-        "text": "{{ str_replace('"', '\"', $faq->answer) }}"
-      }
-    }{{ $loop->last ? '' : ',' }}
-    @endforeach
-  ]
-}
-</script>
 @endif

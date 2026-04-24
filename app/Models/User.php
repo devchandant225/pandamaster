@@ -45,6 +45,9 @@ class User extends Authenticatable
         'youtube_url',
         'external_dashboard_url',
         'footer_description',
+        'robots_txt',
+        'header_scripts',
+        'footer_scripts',
     ];
 
     /**

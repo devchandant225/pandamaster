@@ -132,6 +132,34 @@
                 </label>
             </div>
 
+            <!-- SEO & Meta -->
+            <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 space-y-6">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    SEO & Meta Information
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-400 mb-2">Meta Title</label>
+                        <input type="text" name="meta_title" value="{{ old('meta_title', $game->meta_title) }}" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="SEO optimized title">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-400 mb-2">Meta Keywords</label>
+                        <input type="text" name="meta_keywords" value="{{ old('meta_keywords', $game->meta_keywords) }}" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="keyword1, keyword2">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-400 mb-2">Meta Description</label>
+                    <textarea name="meta_description" rows="3" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="SEO optimized description...">{{ old('meta_description', $game->meta_description) }}</textarea>
+                </div>
+
+                <div class="pt-4">
+                    <x-schema-repeater name="meta_schema" label="JSON-LD Schema" :data="$game->meta_schema" />
+                </div>
+            </div>
+
             <!-- Submit -->
             <div class="flex gap-4 pt-4">
                 <button type="submit" class="flex-1 bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg">

@@ -20,7 +20,12 @@ class Post extends Model
         'status',
         'meta_title',
         'meta_description',
-        'meta_keywords'
+        'meta_keywords',
+        'meta_schema'
+    ];
+
+    protected $casts = [
+        'meta_schema' => 'array',
     ];
 
     public function category()
