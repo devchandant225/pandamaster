@@ -35,6 +35,11 @@
 
     <!-- Styles & Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Global Header Scripts -->
+    @if(isset($adminSettings) && $adminSettings->header_scripts)
+        {!! $adminSettings->header_scripts !!}
+    @endif
 </head>
 
 <body class="font-sans antialiased bg-gray-900 text-white">
@@ -94,7 +99,7 @@
         </script>
     @endif
     <!-- Global Footer Scripts -->
-    @if(isset($adminSettings->footer_scripts))
+    @if(isset($adminSettings) && $adminSettings->footer_scripts)
         {!! $adminSettings->footer_scripts !!}
     @endif
     @stack('scripts')
