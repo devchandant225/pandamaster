@@ -79,6 +79,8 @@ class MetaTag extends Model
             'casino' => 'Casino Page',
             'contact' => 'Contact Page',
             '777' => '777 Page',
+            'investors' => 'Investors Page',
+            'tools' => 'Tools Page',
         ];
     }
 

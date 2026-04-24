@@ -38,10 +38,16 @@ class MetaTags extends Component
         if (request()->routeIs('contact')) return 'contact';
         if (request()->routeIs('investors')) return 'investors';
         if (request()->routeIs('tools')) return 'tools';
-        if (request()->routeIs('city.show')) return 'city';
-        if (request()->routeIs('property.show')) return 'property';
+        if (request()->routeIs('orionstar.777')) return '777';
+        if (request()->routeIs('orionstar.download')) return 'download';
+        if (request()->routeIs('orionstar.play-online')) return 'play-online';
+        if (request()->routeIs('games.index')) return 'games';
+        if (request()->routeIs('games.show')) return 'game';
         if (request()->routeIs('blog.index')) return 'blog';
         if (request()->routeIs('blog.show')) return 'post';
+        if (request()->routeIs('login')) return 'login';
+        if (request()->routeIs('register')) return 'register';
+        if (request()->routeIs('dashboard')) return 'dashboard';
 
         return 'home'; // Default
     }

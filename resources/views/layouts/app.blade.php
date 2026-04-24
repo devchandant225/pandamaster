@@ -15,23 +15,10 @@
     @endif
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- SEO Meta Tags from Admin -->
-    @if(isset($pageMetaTags) && $pageMetaTags)
-        <title>{{ $pageMetaTags->title }}</title>
-        @if($pageMetaTags->desc)<meta name="description" content="{{ $pageMetaTags->desc }}">@endif
-        @if($pageMetaTags->keyword)<meta name="keywords" content="{{ $pageMetaTags->keyword }}">@endif
-        @if($pageMetaTags->image)<meta property="og:image" content="{{ asset('storage/' . $pageMetaTags->image) }}"><meta name="twitter:image" content="{{ asset('storage/' . $pageMetaTags->image) }}">@endif
-        @if($pageMetaTags->schema_head)
-            @foreach(is_array($pageMetaTags->schema_head) ? $pageMetaTags->schema_head : [$pageMetaTags->schema_head] as $schema)
-                @if(!empty($schema))<script type="application/ld+json">{!! $schema !!}</script>@endif
-            @endforeach
-        @endif
+    <!-- SEO Meta Tags -->
+    @if(request()->routeIs('blog.show') && isset($post))
+        <x-blog-meta-tags :post="$post" />
     @else
-        @hasSection('title')
-            <title>@yield('title') | {{ config('app.name', 'Orion Stars') }}</title>
-        @else
-            <title>{{ config('app.name', 'Orion Stars') }} - Ultimate Fish Game & Online Casino</title>
-        @endif
     @endif
 
     @stack('meta')

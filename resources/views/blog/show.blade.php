@@ -1,14 +1,5 @@
 @extends('layouts.app')
 
-@section('meta_tags')
-    @if($post->meta_title || $post->meta_description || $post->meta_keywords)
-        @if($post->meta_title)<title>{{ $post->meta_title }}</title>@endif
-        @if($post->meta_description)<meta name="description" content="{{ $post->meta_description }}">@endif
-        @if($post->meta_keywords)<meta name="keywords" content="{{ $post->meta_keywords }}">@endif
-        @if($post->image_url)<meta property="og:image" content="{{ $post->image_url }}"><meta name="twitter:image" content="{{ $post->image_url }}">@endif
-    @endif
-@endsection
-
 @section('content')
 <div class="min-h-screen bg-gray-900">
     <!-- Main Content Section -->

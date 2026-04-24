@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@push('meta')
-    <x-meta-tags page="about" />
-@endpush
 
 @section('content')
 <div class="min-h-screen bg-black relative overflow-hidden">

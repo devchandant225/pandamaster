@@ -1,11 +1,11 @@
 @php
-    $siteName = config('app.name', '888Realty');
+    $siteName = config('app.name', 'Orion Stars');
     $currentUrl = request()->url();
     
     $finalTitle = $title ?: $siteName;
-    $finalDescription = $description ?: 'Premium Real Estate Services in Vancouver';
-    $finalKeywords = $keywords ?: 'Vancouver real estate';
-    $finalImage = $image ? asset($image) : asset('logo.png');
+    $finalDescription = $description ?: 'Official Orion Stars Platform - Fish Games, Slots & Online Casino';
+    $finalKeywords = $keywords ?: 'Orion Stars, fish games, online slots, casino games';
+    $finalImage = $image ? asset('storage/' . $image) : asset('logo.png');
 @endphp
 
 <title>{{ $finalTitle }}</title>

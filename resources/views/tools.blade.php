@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@push('meta')
-    <x-meta-tags page="tools" />
-@endpush
 
 @section('content')
 <div class="min-h-screen bg-white">
