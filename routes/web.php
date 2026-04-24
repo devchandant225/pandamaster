@@ -22,6 +22,8 @@ Route::get('/', [OrionStarController::class, 'index'])->name('home');
 Route::get('/777', [OrionStarController::class, 'sevenSeven'])->name('orionstar.777');
 Route::get('/download', [OrionStarController::class, 'download'])->name('orionstar.download');
 Route::get('/play-online', [OrionStarController::class, 'playOnline'])->name('orionstar.play-online');
+Route::get('/privacy-policy', [OrionStarController::class, 'privacy'])->name('privacy');
+Route::get('/terms-conditions', [OrionStarController::class, 'terms'])->name('terms');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/investors', [\App\Http\Controllers\InvestorController::class, 'index'])->name('investors');
 Route::get('/tools', [\App\Http\Controllers\ToolsController::class, 'index'])->name('tools');

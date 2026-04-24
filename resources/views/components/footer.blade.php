@@ -71,8 +71,8 @@
         <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em]">
             <p>&copy; {{ date('Y') }} Orion Star Official. All Rights Reserved.</p>
             <div class="flex gap-8">
-                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="{{ route('privacy') }}" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="{{ route('terms') }}" class="hover:text-white transition-colors">Terms of Service</a>
             </div>
         </div>
     </div>
