@@ -104,7 +104,7 @@
                     
                     <div class="mt-8 p-6 bg-yellow-500 rounded-2xl text-center">
                         <p class="text-black font-black text-xl italic mb-4">READY TO SPIN?</p>
-                        <a href="{{ route('orionstar.login') }}" class="block w-full py-4 bg-black text-white font-black rounded-xl uppercase tracking-widest hover:bg-gray-800 transition-colors">LOGIN NOW</a>
+                        <a href="{{ $adminSettings->facebook ?? '#' }}" target="_blank" class="block w-full py-4 bg-black text-white font-black rounded-xl uppercase tracking-widest hover:bg-gray-800 transition-colors">LOGIN NOW</a>
                     </div>
                 </div>
 
