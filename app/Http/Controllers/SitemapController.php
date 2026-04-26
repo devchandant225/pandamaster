@@ -11,7 +11,6 @@ class SitemapController extends Controller
     public function index()
     {
         $posts = Post::where('status', 'published')->latest()->get();
-        $games = Game::where('is_active', true)->latest()->get();
 
         $staticUrls = [
             route('home'),
@@ -22,13 +21,17 @@ class SitemapController extends Controller
             route('orionstar.777'),
             route('orionstar.download'),
             route('orionstar.play-online'),
+            route('orionstar.fish-games'),
+            route('orionstar.slot-games'),
+            route('orionstar.table-games'),
+            route('orionstar.keno'),
             route('privacy'),
             route('terms'),
             route('investors'),
             route('tools'),
         ];
 
-        return response()->view('sitemap', compact('posts', 'games', 'staticUrls'))
+        return response()->view('sitemap', compact('posts', 'staticUrls'))
             ->header('Content-Type', 'text/xml');
     }
 }

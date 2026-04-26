@@ -39,9 +39,10 @@
                 <h3 class="text-white font-black uppercase tracking-widest text-xs mb-6">Experience</h3>
                 <ul class="space-y-4 text-sm font-bold">
                     <li><a href="{{ route('home') }}" class="hover:text-yellow-500 transition-colors uppercase">Home</a></li>
-                    <li><a href="{{ route('orionstar.777') }}" class="hover:text-yellow-500 transition-colors uppercase">Orion Star 777</a></li>
-                    <li><a href="{{ route('orionstar.download') }}" class="hover:text-yellow-500 transition-colors uppercase">Download</a></li>
-                    <li><a href="{{ route('orionstar.play-online') }}" class="hover:text-yellow-500 transition-colors uppercase">Play Online</a></li>
+                    <li><a href="{{ route('orionstar.fish-games') }}" class="hover:text-yellow-500 transition-colors uppercase italic">🐟 Fish Games</a></li>
+                    <li><a href="{{ route('orionstar.slot-games') }}" class="hover:text-yellow-500 transition-colors uppercase italic">🎰 Slot Games</a></li>
+                    <li><a href="{{ route('orionstar.table-games') }}" class="hover:text-yellow-500 transition-colors uppercase italic">🎯 Table Games</a></li>
+                    <li><a href="{{ route('orionstar.keno') }}" class="hover:text-yellow-500 transition-colors uppercase italic">🎲 Online Keno</a></li>
                 </ul>
             </div>
 
@@ -51,7 +52,7 @@
                 <ul class="space-y-4 text-sm font-bold">
                     <li><a href="{{ route('contact') }}" class="hover:text-yellow-500 transition-colors uppercase">Contact Us</a></li>
                     <li><a href="{{ route('blog.index') }}" class="hover:text-yellow-500 transition-colors uppercase">Latest News</a></li>
-                    <li><a href="{{ route('login') }}" class="hover:text-yellow-500 transition-colors uppercase">Login</a></li>
+                    <li><a href="{{ route('admin.login') }}" class="hover:text-yellow-500 transition-colors uppercase">Login</a></li>
                 </ul>
             </div>
 

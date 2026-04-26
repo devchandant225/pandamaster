@@ -41,6 +41,10 @@ class MetaTags extends Component
         if (request()->routeIs('orionstar.777')) return '777';
         if (request()->routeIs('orionstar.download')) return 'download';
         if (request()->routeIs('orionstar.play-online')) return 'play-online';
+        if (request()->routeIs('orionstar.fish-games')) return 'fish-games';
+        if (request()->routeIs('orionstar.slot-games')) return 'slot-games';
+        if (request()->routeIs('orionstar.table-games')) return 'table-games';
+        if (request()->routeIs('orionstar.keno')) return 'keno';
         if (request()->routeIs('games.index')) return 'games';
         if (request()->routeIs('games.show')) return 'game';
         if (request()->routeIs('blog.index')) return 'blog';

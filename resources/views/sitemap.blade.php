@@ -9,15 +9,6 @@
         </url>
     @endforeach
 
-    @foreach($games as $game)
-        <url>
-            <loc>{{ route('games.show', $game->slug) }}</loc>
-            <lastmod>{{ $game->updated_at->format('Y-m-d') }}</lastmod>
-            <changefreq>weekly</changefreq>
-            <priority>0.7</priority>
-        </url>
-    @endforeach
-
     @foreach($posts as $post)
         <url>
             <loc>{{ route('blog.show', $post->slug) }}</loc>

@@ -28,6 +28,26 @@ class OrionStarController extends Controller
         return view('orionstar.play-online');
     }
 
+    public function fishGames()
+    {
+        return view('orionstar.fish-games');
+    }
+
+    public function slotGames()
+    {
+        return view('orionstar.slot-games');
+    }
+
+    public function tableGames()
+    {
+        return view('orionstar.table-games');
+    }
+
+    public function keno()
+    {
+        return view('orionstar.keno');
+    }
+
     public function privacy()
     {
         return view('privacy');
