@@ -88,16 +88,6 @@
                             </select>
                         </div>
 
-                        <div class="space-y-2">
-                            <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest">Category</label>
-                            <select name="category_id" class="w-full h-12 px-4 bg-white border-2 border-gray-200 focus:border-[#D4AF37] rounded-xl outline-none transition-all font-bold text-sm text-gray-900">
-                                <option value="" class="text-black text-gray-400">Select Category</option>
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }} class="text-black">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
                         <div class="space-y-2 text-left">
                             <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest">Author Display</label>
                             <input type="text" name="author" value="{{ old('author', 'Orion Star VIP Team') }}"
@@ -116,8 +106,13 @@
                 </div>
 
                 <!-- Featured Image -->
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                    <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4">Featured Media</h3>
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm" x-data="{ imageUrl: '' }" @media-selected.window="if($event.detail.field === 'featured_image') { imageUrl = $event.detail.url; $refs.imagePreview.src = $event.detail.url; $refs.previewContainer.classList.remove('hidden'); }">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Featured Media</h3>
+                        <button type="button" @click="$dispatch('open-media-drawer', { targetField: 'featured_image' })" class="text-[9px] font-black text-[#D4AF37] uppercase tracking-widest hover:underline">
+                            Choose from Library
+                        </button>
+                    </div>
                     <div class="relative group">
                         <div class="aspect-video bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center overflow-hidden transition-all group-hover:border-[#D4AF37]/50">
                             <svg class="w-10 h-10 text-gray-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,12 +121,13 @@
                             <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Article Cover</span>
                             <input type="file" name="image" class="absolute inset-0 opacity-0 cursor-pointer" onchange="previewImage(this)">
                         </div>
-                        <div id="image-preview-container" class="absolute inset-0 hidden">
-                            <img id="image-preview" src="#" alt="Preview" class="w-full h-full object-cover rounded-2xl">
-                            <button type="button" onclick="removeImage()" class="absolute top-2 right-2 bg-black/50 backdrop-blur-md text-gray-900 p-1.5 rounded-full hover:bg-red-500 transition-colors">
+                        <div x-ref="previewContainer" class="absolute inset-0 hidden">
+                            <img x-ref="imagePreview" id="image-preview" src="#" alt="Preview" class="w-full h-full object-cover rounded-2xl">
+                            <button type="button" onclick="removeImage()" class="absolute top-2 right-2 bg-black/50 backdrop-blur-md text-white p-1.5 rounded-full hover:bg-red-500 transition-colors">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
                             </button>
                         </div>
+                        <input type="hidden" name="image_url" x-model="imageUrl">
                     </div>
                     @error('image') <p class="text-red-500 text-[10px] font-bold mt-2 uppercase text-center">{{ $message }}</p> @enderror
                 </div>

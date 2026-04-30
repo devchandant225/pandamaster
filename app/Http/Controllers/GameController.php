@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
-use App\Models\GameCategory;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -13,14 +12,7 @@ class GameController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Game::active()->with('gameCategory');
-
-        // Filter by category
-        if ($request->has('category')) {
-            $query->whereHas('gameCategory', function($q) use ($request) {
-                $q->where('slug', $request->category);
-            });
-        }
+        $query = Game::active();
 
         // Filter by game type
         if ($request->has('type')) {
@@ -42,9 +34,8 @@ class GameController extends Controller
         };
 
         $games = $query->paginate(24);
-        $categories = GameCategory::where('is_active', true)->orderBy('sort_order')->get();
 
-        return view('games.index', compact('games', 'categories'));
+        return view('games.index', compact('games'));
     }
 
     /**
@@ -54,15 +45,14 @@ class GameController extends Controller
     {
         $game = Game::active()
             ->where('slug', $slug)
-            ->with('gameCategory')
             ->firstOrFail();
 
         // Increment play count
         $game->incrementPlayCount();
 
-        // Get related games
+        // Get related games based on type
         $relatedGames = Game::active()
-            ->where('game_category_id', $game->game_category_id)
+            ->where('game_type', $game->game_type)
             ->where('id', '!=', $game->id)
             ->inRandomOrder()
             ->limit(6)

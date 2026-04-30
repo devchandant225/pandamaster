@@ -94,13 +94,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/admin/games/{game}', [GameAdminController::class, 'destroy'])->name('admin.games.destroy');
     Route::post('/admin/games/{game}/toggle-status', [GameAdminController::class, 'toggleStatus'])->name('admin.games.toggle-status');
 
-    // Game Category Management
-    Route::get('/admin/game-categories', [GameCategoryAdminController::class, 'index'])->name('admin.game-categories.index');
-    Route::get('/admin/game-categories/create', [GameCategoryAdminController::class, 'create'])->name('admin.game-categories.create');
-    Route::post('/admin/game-categories', [GameCategoryAdminController::class, 'store'])->name('admin.game-categories.store');
-    Route::get('/admin/game-categories/{gameCategory}/edit', [GameCategoryAdminController::class, 'edit'])->name('admin.game-categories.edit');
-    Route::put('/admin/game-categories/{gameCategory}', [GameCategoryAdminController::class, 'update'])->name('admin.game-categories.update');
-    Route::delete('/admin/game-categories/{gameCategory}', [GameCategoryAdminController::class, 'destroy'])->name('admin.game-categories.destroy');
+    // Media Management
+    Route::get('/admin/media', [\App\Http\Controllers\Admin\MediaController::class, 'index'])->name('admin.media.index');
+    Route::post('/admin/media', [\App\Http\Controllers\Admin\MediaController::class, 'store'])->name('admin.media.store');
+    Route::delete('/admin/media/{media}', [\App\Http\Controllers\Admin\MediaController::class, 'destroy'])->name('admin.media.destroy');
 
     // Meta Tags Management
     Route::get('/admin/meta-tags', [MetaTagController::class, 'index'])->name('admin.meta-tags.index');
@@ -128,12 +125,4 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/blog/{post}/edit', [\App\Http\Controllers\Admin\AdminPostController::class, 'edit'])->name('admin.blog.edit');
     Route::put('/admin/blog/{post}', [\App\Http\Controllers\Admin\AdminPostController::class, 'update'])->name('admin.blog.update');
     Route::delete('/admin/blog/{post}', [\App\Http\Controllers\Admin\AdminPostController::class, 'destroy'])->name('admin.blog.destroy');
-
-    // Blog Category Management
-    Route::get('/admin/categories', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'index'])->name('admin.categories.index');
-    Route::get('/admin/categories/create', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'create'])->name('admin.categories.create');
-    Route::post('/admin/categories', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'store'])->name('admin.categories.store');
-    Route::get('/admin/categories/{category}/edit', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'edit'])->name('admin.categories.edit');
-    Route::put('/admin/categories/{category}', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'update'])->name('admin.categories.update');
-    Route::delete('/admin/categories/{category}', [\App\Http\Controllers\Admin\AdminCategoryController::class, 'destroy'])->name('admin.categories.destroy');
 });

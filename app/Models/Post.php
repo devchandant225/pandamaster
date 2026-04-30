@@ -16,7 +16,6 @@ class Post extends Model
         'image_url',
         'excerpt',
         'author',
-        'category_id',
         'status',
         'meta_title',
         'meta_description',
@@ -27,11 +26,6 @@ class Post extends Model
     protected $casts = [
         'meta_schema' => 'array',
     ];
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 
     public function faqs()
     {

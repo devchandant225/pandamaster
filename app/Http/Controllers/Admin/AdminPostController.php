@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use App\Models\Category;
 use App\Models\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +13,7 @@ class AdminPostController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Post::with('category')->latest();
+        $query = Post::latest();
 
         if ($request->filled('search')) {
             $query->where('title', 'like', '%' . $request->search . '%')
@@ -28,8 +27,7 @@ class AdminPostController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.blog.create', compact('categories'));
+        return view('admin.blog.create');
     }
 
     public function store(Request $request)
@@ -40,12 +38,12 @@ class AdminPostController extends Controller
             'content' => 'required|string',
             'excerpt' => 'nullable|string|max:500',
             'author' => 'nullable|string|max:255',
-            'category_id' => 'nullable|exists:categories,id',
             'status' => 'nullable|in:draft,published,archived',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'meta_keywords' => 'nullable|string|max:255',
+            'meta_schema' => 'nullable|array',
             'faqs' => 'nullable|array',
             'faqs.*.question' => 'nullable|string|max:500',
             'faqs.*.answer' => 'nullable|string|max:2000',
@@ -58,10 +56,10 @@ class AdminPostController extends Controller
             $slug = $originalSlug . '-' . $counter++;
         }
 
-        $imageUrl = null;
+        $imageUrl = $request->image_url;
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('blog', 'public');
-            $imageUrl = Storage::url($path);
+            $imageUrl = Storage::disk('public')->url($path);
         }
 
         $post = Post::create([
@@ -70,13 +68,12 @@ class AdminPostController extends Controller
             'content' => $validated['content'],
             'excerpt' => $validated['excerpt'],
             'author' => $validated['author'] ?? 'Orion Star VIP Team',
-            'category_id' => $validated['category_id'],
             'status' => $validated['status'] ?? 'draft',
             'image_url' => $imageUrl,
             'meta_title' => $validated['meta_title'],
             'meta_description' => $validated['meta_description'],
             'meta_keywords' => $validated['meta_keywords'],
-            'meta_schema' => isset($validated['meta_schema']) ? array_filter($validated['meta_schema']) : null,
+            'meta_schema' => isset($validated['meta_schema']) ? array_values(array_filter($validated['meta_schema'])) : null,
         ]);
 
         // Save FAQs
@@ -98,9 +95,8 @@ class AdminPostController extends Controller
 
     public function edit(Post $post)
     {
-        $categories = Category::all();
         $post->load('faqs');
-        return view('admin.blog.edit', compact('post', 'categories'));
+        return view('admin.blog.edit', compact('post'));
     }
 
     public function update(Request $request, Post $post)
@@ -111,25 +107,27 @@ class AdminPostController extends Controller
             'content' => 'required|string',
             'excerpt' => 'nullable|string|max:500',
             'author' => 'nullable|string|max:255',
-            'category_id' => 'nullable|exists:categories,id',
             'status' => 'nullable|in:draft,published,archived',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'meta_keywords' => 'nullable|string|max:255',
+            'meta_schema' => 'nullable|array',
             'faqs' => 'nullable|array',
             'faqs.*.question' => 'nullable|string|max:500',
             'faqs.*.answer' => 'nullable|string|max:2000',
         ]);
 
-        $imageUrl = $post->image_url;
+        $imageUrl = $request->input('image_url', $post->image_url);
         if ($request->hasFile('image')) {
-            if ($post->image_url) {
-                $oldPath = str_replace('/storage/', '', $post->image_url);
+            if ($post->image_url && !str_contains($post->image_url, 'http')) { // Only delete if it's a local storage path, not an external URL (though our library also uses URLs)
+                // Actually, if it's from our library, it's a full URL.
+                // We should probably check if it starts with our app URL.
+                $oldPath = str_replace(Storage::disk('public')->url(''), '', $post->image_url);
                 Storage::disk('public')->delete($oldPath);
             }
             $path = $request->file('image')->store('blog', 'public');
-            $imageUrl = Storage::url($path);
+            $imageUrl = Storage::disk('public')->url($path);
         }
 
         $post->update([
@@ -138,13 +136,12 @@ class AdminPostController extends Controller
             'content' => $validated['content'],
             'excerpt' => $validated['excerpt'],
             'author' => $validated['author'] ?? 'Orion Star VIP Team',
-            'category_id' => $validated['category_id'],
             'status' => $validated['status'] ?? 'draft',
             'image_url' => $imageUrl,
             'meta_title' => $validated['meta_title'],
             'meta_description' => $validated['meta_description'],
             'meta_keywords' => $validated['meta_keywords'],
-            'meta_schema' => isset($validated['meta_schema']) ? array_filter($validated['meta_schema']) : null,
+            'meta_schema' => isset($validated['meta_schema']) ? array_values(array_filter($validated['meta_schema'])) : null,
         ]);
 
         // Update FAQs - delete existing and create new ones

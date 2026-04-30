@@ -72,6 +72,9 @@
                 @yield('content')
             </main>
         </div>
+
+        <!-- Global Media Drawer -->
+        <x-media-drawer />
     </div>
 
     @stack('scripts')

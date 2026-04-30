@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -13,7 +12,6 @@ class Game extends Model
     use HasFactory;
 
     protected $fillable = [
-        'game_category_id',
         'title',
         'slug',
         'description',
@@ -29,6 +27,22 @@ class Game extends Model
         'is_active',
         'play_count',
         'features',
+        
+        // Dynamic Page Sections
+        'hero_title',
+        'hero_subtitle',
+        'hero_ctas',
+        'sections',
+        'how_to',
+        'card_section_title',
+        'card_section_content',
+        'card_section_cards',
+        'testimonials',
+        'faqs',
+        'special_title',
+        'special_items',
+
+        // SEO
         'meta_title',
         'meta_description',
         'meta_keywords',
@@ -42,7 +56,16 @@ class Game extends Model
         'is_active' => 'boolean',
         'play_count' => 'integer',
         'rtp' => 'decimal:2',
+        
+        // JSON Casts
         'features' => 'array',
+        'hero_ctas' => 'array',
+        'sections' => 'array',
+        'how_to' => 'array',
+        'card_section_cards' => 'array',
+        'testimonials' => 'array',
+        'faqs' => 'array',
+        'special_items' => 'array',
         'meta_schema' => 'array',
     ];
 
@@ -52,18 +75,10 @@ class Game extends Model
     public function getThumbnailAttribute(): string
     {
         if ($this->thumbnail_path) {
-            return Storage::url($this->thumbnail_path);
+            return Storage::disk('public')->url($this->thumbnail_path);
         }
         
         return $this->thumbnail_url ?? '';
-    }
-
-    /**
-     * Get the category that owns the game.
-     */
-    public function gameCategory(): BelongsTo
-    {
-        return $this->belongsTo(GameCategory::class);
     }
 
     /**

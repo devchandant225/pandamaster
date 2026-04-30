@@ -95,16 +95,6 @@
                         </div>
 
                         <div class="space-y-2">
-                            <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest">Category</label>
-                            <select name="category_id" class="w-full h-12 px-4 bg-white border-2 border-gray-200 focus:border-[#D4AF37] rounded-xl outline-none transition-all font-bold text-sm text-gray-900">
-                                <option value="" class="text-black text-gray-400">Select Category</option>
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}" {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }} class="text-black">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="space-y-2">
                             <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest">Author Display</label>
                             <input type="text" name="author" value="{{ old('author', $post->author) }}" 
                                 class="w-full h-12 px-4 bg-white border-2 border-gray-200 focus:border-[#D4AF37] rounded-xl outline-none transition-all font-bold text-sm text-gray-900">

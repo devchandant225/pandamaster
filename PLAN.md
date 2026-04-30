@@ -1,116 +1,106 @@
-Privacy Policy
-Last Updated: April 2026
+# Development Log & Architectural Summary
 
-1. Introduction
-This Privacy Policy explains how juwa-login.com (“we”, “our”, “us”) collects, uses, and protects your personal information when you use our website and services. By accessing or using this website, you agree to the terms of this Privacy Policy, along with our Terms & Conditions and any other applicable policies.
+This document summarizes the core changes and architectural decisions made during the recent development phase. It serves as a guide for subsequent updates to ensure consistency across the project.
 
-2. Information We Collect
-We may collect the following types of information:
+## 1. Game System Overhaul
+*   **Decoupling**: Removed all relationships between `Games` and `GameCategories`. Games now operate as independent entities.
+*   **Dynamic Design**: Implemented a fully dynamic layout for `games.show` based on wireframe specifications.
+*   **Dynamic Card Section**: Added a new modular section for secondary CTAs.
+    *   **Structure**: Features a 2-column grid of cards (with images and custom buttons) positioned **above** a full-width centered paragraph and title.
+*   **New Sections**: 
+    *   **Key Features**: Added a dedicated grid for game highlights (e.g. "Free Spins", "Progressive Jackpot").
+    *   **Why Play**: Moved the special highlights section to follow "Key Features" for better narrative flow.
+*   **Seeding**: Created `JuwaGameSeeder` (adapted for FireKirin) which populates the platform with high-quality content.
 
-Personal Information: Name, Email address, Payment or billing details, Account information, and any information you provide while using the platform.
-Usage Information: Pages visited and time spent on the website, Device and browser information, IP address and general location data, and activity on the platform (games played, interactions, etc.).
-Cookies & Tracking Technologies: We use cookies, web beacons, and similar technologies to improve user experience, analyze website performance, and understand user behavior. You can control or disable cookies through your browser settings.
-3. How We Use Your Information
-We use your information to:
+## 2. Blog System Simplification
+*   **Decoupling**: Removed all relationships between `Posts` and `Categories`. 
+*   **CRUD Updates**: Simplified `AdminPostController` and public `BlogController` to remove category filtering and data passing.
 
-Provide and improve our services
-Process transactions and manage accounts
-Communicate with users
-Ensure security and prevent fraud
-Comply with legal obligations
-4. Data Security
-We take reasonable technical and organizational measures to protect your personal information, including secure data storage systems, encryption and safe transmission methods, and restricted access to sensitive data. However, no system is completely secure, and we cannot guarantee absolute security.
+## 3. Media Management System
+*   **Media Library**: Created a full Media CRUD (`Media` model, migration, and `MediaController`).
+*   **Media Drawer**: Implemented a global AJAX-powered drawer for quick asset access with Clipboard support (`Ctrl+V`).
 
-5. Sharing of Information
-We may share your information in the following cases:
+## 4. SEO & Security
+*   **Schema Visibility**: Updated the `schema-repeater` component to use a monospaced font and larger textareas.
+*   **Enforced HTTPS**: Updated `AppServiceProvider` to call `URL::forceScheme('https')` in production.
 
-With service providers (payment processors, analytics tools)
-To comply with legal requirements or law enforcement
-To protect our rights, users, or platform
-In case of business transfer, merger, or acquisition
-We do not sell your personal information to third parties.
+---
 
-6. Data Retention
-We retain your personal information only as long as necessary to provide services, comply with legal obligations, and resolve disputes and enforce agreements.
+## Technical Reference
 
-7. Your Rights
-Depending on your location, you may have the right to:
+### Migration: Dynamic Sections (Including Card Section)
+```php
+Schema::table('games', function (Blueprint $table) {
+    // Hero Section
+    $table->string('hero_title')->nullable();
+    $table->string('hero_subtitle')->nullable();
+    $table->json('hero_ctas')->nullable();
 
-Access your personal data
-Request correction or deletion
-Withdraw consent where applicable
-Restrict or object to data processing
-To exercise these rights, contact us through the website.
+    // Alternating Content Sections
+    $table->json('sections')->nullable();
 
-8. Third-Party Links
-Our website may contain links to third-party websites. We are not responsible for the privacy practices of those sites.
+    // How To Section
+    $table->json('how_to')->nullable();
 
-9. Children’s Privacy
-This website is not intended for users under the age of 21. We do not knowingly collect personal information from minors.
+    // Dynamic Card Grid Section
+    $table->string('card_section_title')->nullable();
+    $table->text('card_section_content')->nullable();
+    $table->json('card_section_cards')->nullable(); // {image_url, content, button_label, button_url}
 
-10. Changes to This Policy
-We may update this Privacy Policy from time to time. Continued use of the website means you accept any updates.
+    // Testimonials, FAQs, and Special Notes
+    $table->json('testimonials')->nullable();
+    $table->json('faqs')->nullable();
+    $table->string('special_title')->nullable();
+    $table->json('special_items')->nullable();
+});
+```
 
-11. Contact Us
-If you have any questions about this Privacy Policy, please contact us through juwa-login.com.
+### Migration: Category Removal
+```php
+Schema::table('games', function (Blueprint $table) {
+    $table->dropForeign(['game_category_id']);
+    $table->dropColumn('game_category_id');
+});
 
+Schema::table('posts', function (Blueprint $table) {
+    $table->dropForeign(['category_id']);
+    $table->dropColumn('category_id');
+});
+```
 
-Terms & Conditions
-1. Introduction
-Welcome to juwa-login.com. These Terms & Conditions govern your access to and use of this website and its services. By using this website, you agree to comply with these terms. If you do not agree, please do not use the website.
+### Admin Controller: Game Management
+The `GameAdminController@update` handles the expanded list of JSON dynamic fields:
+```php
+$validated['hero_ctas'] = isset($validated['hero_ctas']) ? array_values(array_filter($validated['hero_ctas'])) : null;
+$validated['sections'] = isset($validated['sections']) ? array_values(array_filter($validated['sections'])) : null;
+$validated['how_to'] = isset($validated['how_to']) ? array_values(array_filter($validated['how_to'])) : null;
+$validated['card_section_cards'] = isset($validated['card_section_cards']) ? array_values(array_filter($validated['card_section_cards'])) : null;
+$validated['testimonials'] = isset($validated['testimonials']) ? array_values(array_filter($validated['testimonials'])) : null;
+$validated['faqs'] = isset($validated['faqs']) ? array_values(array_filter($validated['faqs'])) : null;
+$validated['special_items'] = isset($validated['special_items']) ? array_values(array_filter($validated['special_items'])) : null;
+```
 
-2. Eligibility
-This website is intended only for users aged 21 years or older.
-By using this site, you confirm that you meet this requirement.
-Users must follow all applicable laws in their country or region.
-We reserve the right to verify age and suspend accounts if necessary.
-3. Games & Services
-The website provides access to various games, including casino slots, fish games, and table games. All users are responsible for ensuring their participation complies with local laws. We do not take responsibility for any misuse of the platform.
+### Game Page Design (Blade Reference)
+The public game page (`resources/views/games/show.blade.php`) uses these dynamic sections to build the layout:
+*   **Hero**: Uses `hero_title` and `hero_ctas`.
+*   **Alternating Blocks**: Loops through `sections` with alternating flex directions.
+*   **How To Play**: Displays `how_to` array as a numbered list.
+*   **Key Features**: Renders `features` array in a 3-column grid with gold icons.
+*   **Why Play**: Premium "Special highlights" grid using `special_items`.
+*   **Dynamic Card Grid**: Renders `card_section_cards` in a 2-col grid followed by `card_section_title/content`.
+*   **Testimonials/FAQs**: Premium grid and accordion components.
 
-4. Account & Security
-You are responsible for maintaining the confidentiality of your login details. Any activity under your account is your responsibility. If you suspect unauthorized access, you must notify us immediately. We reserve the right to suspend or terminate accounts if misuse is detected.
-
-5. Virtual Credits & Payments
-Some features may involve purchasing virtual credits using real money. All purchases are non-refundable. Users must provide accurate payment information. Any fraudulent activity may lead to legal action.
-
-6. User Conduct
-By using this website, you agree to:
-
-Follow all applicable laws and regulations
-Respect other users and the platform
-Avoid harassment, abuse, or harmful behavior
-Not engage in illegal or fraudulent activities
-7. User Responsibilities
-Provide accurate and complete information when creating an account
-Keep your profile updated
-Avoid using the platform for commercial or unauthorized purposes
-Take full responsibility for your actions on the site
-8. Use of Content & Information
-Any information or content submitted to the website may be used by us without compensation. By submitting content, you grant us a non-exclusive, unlimited right to use it.
-
-9. Limited License
-You are allowed to access and use the website for personal, non-commercial use only. You may not copy, modify, distribute, or reuse content without permission. We reserve the right to revoke access at any time.
-
-10. Indemnification
-You agree to protect and hold harmless juwa-login.com, its team, and affiliates from any claims, damages, or losses arising from:
-
-Your use of the website
-Violation of these terms
-Any unlawful activity
-11. Access & Availability
-We grant you a limited, non-exclusive, and revocable right to use the website. Access may be restricted or terminated at any time without notice.
-
-12. Disclaimer of Warranties
-All content and services are provided “as is” without any guarantees. We do not guarantee accuracy, reliability, or availability. Users are responsible for ensuring their devices are secure and free from harmful software.
-
-13. Prohibited Use
-You must not:
-
-Use the website for illegal purposes
-Attempt to hack, disrupt, or damage the platform
-Misuse services or exploit system vulnerabilities
-14. Changes to Terms
-We may update these Terms & Conditions at any time. Continued use of the website means you accept any changes.
-
-15. Contact
-For any questions regarding these Terms, please contact us through the website.
+### Media Drawer Clipboard Upload (JS Reference)
+```javascript
+async handlePaste(e) {
+    if (!window.mediaDrawerOpen) return;
+    const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+    for (let index in items) {
+        const item = items[index];
+        if (item.kind === 'file') {
+            const blob = item.getAsFile();
+            await this.uploadFile(blob);
+        }
+    }
+}
+```

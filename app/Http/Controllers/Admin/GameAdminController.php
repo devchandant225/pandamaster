@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Game;
-use App\Models\GameCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -16,16 +15,11 @@ class GameAdminController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Game::with('gameCategory');
+        $query = Game::query();
 
         // Search
         if ($request->has('search')) {
             $query->where('title', 'like', '%' . $request->search . '%');
-        }
-
-        // Filter by category
-        if ($request->has('category')) {
-            $query->where('game_category_id', $request->category);
         }
 
         // Filter by status
@@ -34,9 +28,8 @@ class GameAdminController extends Controller
         }
 
         $games = $query->orderBy('created_at', 'desc')->paginate(20);
-        $categories = GameCategory::all();
 
-        return view('admin.games.index', compact('games', 'categories'));
+        return view('admin.games.index', compact('games'));
     }
 
     /**
@@ -44,8 +37,7 @@ class GameAdminController extends Controller
      */
     public function create()
     {
-        $categories = GameCategory::all();
-        return view('admin.games.create', compact('categories'));
+        return view('admin.games.create');
     }
 
     /**
@@ -53,29 +45,7 @@ class GameAdminController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'game_category_id' => 'required|exists:game_categories,id',
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|unique:games,slug',
-            'description' => 'nullable|string',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
-            'thumbnail_url' => 'nullable|url',
-            'game_url' => 'nullable|url',
-            'demo_url' => 'nullable|url',
-            'rtp' => 'nullable|numeric|between:0,100',
-            'game_type' => 'required|in:slots,fish,keno,table,card,other',
-            'is_hot' => 'boolean',
-            'is_new' => 'boolean',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean',
-            'features' => 'nullable|array',
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string',
-            'meta_keywords' => 'nullable|string',
-            'meta_schema' => 'nullable|array',
-        ]);
-
-        $validated['meta_schema'] = isset($validated['meta_schema']) ? array_filter($validated['meta_schema']) : null;
+        $validated = $this->validateGame($request);
 
         if (empty($validated['slug'])) {
             $validated['slug'] = Str::slug($validated['title']);
@@ -84,14 +54,12 @@ class GameAdminController extends Controller
         $validated['is_hot'] = $request->boolean('is_hot');
         $validated['is_new'] = $request->boolean('is_new');
         $validated['is_featured'] = $request->boolean('is_featured');
-        $validated['is_active'] = $request->boolean('is_active');
+        $validated['is_active'] = $request->boolean('is_active', true);
 
         // Handle file upload
         if ($request->hasFile('thumbnail')) {
             $path = $request->file('thumbnail')->store('games', 'public');
             $validated['thumbnail_path'] = $path;
-        } elseif (!empty($validated['thumbnail_url'])) {
-            $validated['thumbnail_path'] = null;
         }
 
         Game::create($validated);
@@ -105,8 +73,7 @@ class GameAdminController extends Controller
      */
     public function edit(Game $game)
     {
-        $categories = GameCategory::all();
-        return view('admin.games.edit', compact('game', 'categories'));
+        return view('admin.games.edit', compact('game'));
     }
 
     /**
@@ -114,29 +81,7 @@ class GameAdminController extends Controller
      */
     public function update(Request $request, Game $game)
     {
-        $validated = $request->validate([
-            'game_category_id' => 'required|exists:game_categories,id',
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|unique:games,slug,' . $game->id,
-            'description' => 'nullable|string',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
-            'thumbnail_url' => 'nullable|url',
-            'game_url' => 'nullable|url',
-            'demo_url' => 'nullable|url',
-            'rtp' => 'nullable|numeric|between:0,100',
-            'game_type' => 'required|in:slots,fish,keno,table,card,other',
-            'is_hot' => 'boolean',
-            'is_new' => 'boolean',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean',
-            'features' => 'nullable|array',
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string',
-            'meta_keywords' => 'nullable|string',
-            'meta_schema' => 'nullable|array',
-        ]);
-
-        $validated['meta_schema'] = isset($validated['meta_schema']) ? array_filter($validated['meta_schema']) : null;
+        $validated = $this->validateGame($request, $game->id);
 
         if (empty($validated['slug'])) {
             $validated['slug'] = Str::slug($validated['title']);
@@ -149,16 +94,13 @@ class GameAdminController extends Controller
 
         // Handle file upload
         if ($request->hasFile('thumbnail')) {
-            // Delete old uploaded file if exists
             if ($game->thumbnail_path) {
                 Storage::disk('public')->delete($game->thumbnail_path);
             }
-            
             $path = $request->file('thumbnail')->store('games', 'public');
             $validated['thumbnail_path'] = $path;
             $validated['thumbnail_url'] = null;
         } elseif (!empty($validated['thumbnail_url'])) {
-            // If using external URL, clear the uploaded path
             $validated['thumbnail_path'] = null;
         }
 
@@ -173,6 +115,9 @@ class GameAdminController extends Controller
      */
     public function destroy(Game $game)
     {
+        if ($game->thumbnail_path) {
+            Storage::disk('public')->delete($game->thumbnail_path);
+        }
         $game->delete();
 
         return redirect()->route('admin.games.index')
@@ -187,5 +132,62 @@ class GameAdminController extends Controller
         $game->update(['is_active' => !$game->is_active]);
 
         return back()->with('success', 'Game status updated.');
+    }
+
+    /**
+     * Validate the game request.
+     */
+    protected function validateGame(Request $request, $id = null)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'slug' => 'nullable|string|unique:games,slug,' . $id,
+            'description' => 'nullable|string',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'thumbnail_url' => 'nullable|url',
+            'game_url' => 'nullable|url',
+            'demo_url' => 'nullable|url',
+            'rtp' => 'nullable|numeric|between:0,100',
+            'game_type' => 'required|in:slots,fish,keno,table,card,other',
+            'is_hot' => 'boolean',
+            'is_new' => 'boolean',
+            'is_featured' => 'boolean',
+            'is_active' => 'boolean',
+            
+            // JSON fields
+            'hero_title' => 'nullable|string|max:255',
+            'hero_subtitle' => 'nullable|string|max:255',
+            'hero_ctas' => 'nullable|array',
+            'sections' => 'nullable|array',
+            'how_to' => 'nullable|array',
+            'card_section_title' => 'nullable|string|max:255',
+            'card_section_content' => 'nullable|string',
+            'card_section_cards' => 'nullable|array',
+            'testimonials' => 'nullable|array',
+            'faqs' => 'nullable|array',
+            'special_title' => 'nullable|string|max:255',
+            'special_items' => 'nullable|array',
+            'features' => 'nullable|array',
+
+            // SEO
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
+            'meta_schema' => 'nullable|array',
+        ]);
+
+        // Clean up empty JSON fields
+        $jsonFields = [
+            'hero_ctas', 'sections', 'how_to', 'card_section_cards', 
+            'testimonials', 'faqs', 'special_items', 'features', 'meta_schema'
+        ];
+
+        foreach ($jsonFields as $field) {
+            if (isset($validated[$field])) {
+                $validated[$field] = array_values(array_filter($validated[$field]));
+            }
+        }
+
+        return $validated;
     }
 }
