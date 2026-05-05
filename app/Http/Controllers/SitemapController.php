@@ -31,7 +31,11 @@ class SitemapController extends Controller
             route('tools'),
         ];
 
-        return response()->view('sitemap', compact('posts', 'staticUrls'))
-            ->header('Content-Type', 'text/xml');
+        $content = view('sitemap', compact('posts', 'staticUrls'))->render();
+        
+        // Generate the physical sitemap.xml file in the public directory
+        file_put_contents(public_path('sitemap.xml'), $content);
+
+        return response($content)->header('Content-Type', 'text/xml');
     }
 }
