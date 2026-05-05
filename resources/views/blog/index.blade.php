@@ -45,29 +45,6 @@
         </div>
     </section>
 
-    <!-- Category Filter -->
-    <section class="py-8 bg-gray-800 border-b border-gray-700 sticky top-20 z-40 overflow-hidden text-left">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
-                <a
-                    href="{{ url('/blog') }}"
-                    class="px-6 py-2.5 rounded-xl font-semibold transition-all whitespace-nowrap {{ !request('category') ? 'bg-yellow-500 text-black shadow-lg' : 'bg-gray-700 text-gray-300 hover:bg-gray-600 border border-gray-600' }}"
-                >
-                    All
-                </a>
-                @foreach($categories as $category)
-                <a
-                    href="{{ url('/blog?category=' . $category->slug) }}"
-                    class="px-6 py-2.5 rounded-xl font-semibold transition-all whitespace-nowrap {{ (request('category') == $category->slug) ? 'bg-yellow-500 text-black shadow-lg' : 'bg-gray-700 text-gray-300 hover:bg-gray-600 border border-gray-600' }}"
-                >
-                    {{ $category->name }} ({{ $category->posts_count }})
-                </a>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
     <!-- Blog Grid -->
     <section class="py-12 bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,7 +59,7 @@
                 <div class="text-center py-20">
                     <div class="text-6xl mb-4">📝</div>
                     <p class="text-xl text-gray-400">
-                        No articles found. Try adjusting your search or category filter.
+                        No articles found. Try adjusting your search.
                     </p>
                 </div>
             @else
@@ -99,11 +76,6 @@
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                             />
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                            <div class="absolute top-4 left-4">
-                                <span class="px-3 py-1 bg-yellow-500 text-black rounded-full text-[10px] uppercase font-bold tracking-wider">
-                                    {{ $post->category->name ?? 'Gaming' }}
-                                </span>
-                            </div>
                         </div>
 
                         <div class="p-6">

@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Post;
-use App\Models\Category;
 use App\Models\MetaTag;
 use App\Models\GameCategory;
 use Illuminate\Database\Seeder;
@@ -19,7 +18,6 @@ class OrionStarSeeder extends Seeder
         $this->seedAdminProfile();
         $this->seedGameCategories();
         $this->seedMetaTags();
-        $this->seedBlogCategories();
         $this->seedBlogPosts();
 
         $this->command->info('✅ Orion Star Official platform seeded successfully!');
@@ -102,30 +100,9 @@ class OrionStarSeeder extends Seeder
         }
     }
 
-    protected function seedBlogCategories(): void
-    {
-        $this->command->info('📁 Seeding Blog Categories...');
-
-        $categories = [
-            ['name' => 'Game Guides', 'slug' => 'game-guides'],
-            ['name' => 'Fish Games', 'slug' => 'fish-games-blog'],
-            ['name' => 'Slots Strategy', 'slug' => 'slots-strategy'],
-            ['name' => 'Orion Star Updates', 'slug' => 'orion-star-updates'],
-            ['name' => 'Tips & Tricks', 'slug' => 'tips-tricks'],
-        ];
-
-        foreach ($categories as $cat) {
-            Category::updateOrCreate(['slug' => $cat['slug']], $cat);
-            $this->command->info('   ✓ Blog Category: ' . $cat['name']);
-        }
-    }
-
     protected function seedBlogPosts(): void
     {
         $this->command->info('📝 Seeding Blog Posts...');
-
-        $gameGuides = Category::where('slug', 'game-guides')->first();
-        $pandaUpdates = Category::where('slug', 'orion-star-updates')->first();
 
         $posts = [
             [
@@ -134,7 +111,6 @@ class OrionStarSeeder extends Seeder
                 'content' => "Orion Star is the ultimate online fish game and casino platform. Built for winners, it offers 30+ games including fish hunting, slots, and arcade games.\n\n## Why Choose Orion Star?\n\nOrion Star stands out with its extensive game library, user-friendly interface, and high-octane thrills. Available on Android, iOS, and PC.\n\n## Key Features\n- **30+ Games**: Fish games, slots, and arcade titles\n- **Play Online or Download**: Instant browser play or native apps\n- **Elite Support**: 24/7 assistance through official channels\n- **Secure Platform**: Encrypted and fair gameplay\n\n## Getting Started\nConnect with our distributor on Facebook, get your login, and start playing instantly in your browser or download the app.",
                 'excerpt' => 'Discover everything about Orion Star — the ultimate fish game and online casino platform with 30+ games.',
                 'author' => 'Orion Star Team',
-                'category_id' => $gameGuides?->id,
                 'status' => 'published',
                 'meta_title' => 'What is Orion Star? Complete Fish Game & Casino Platform Guide',
                 'meta_description' => 'Learn what Orion Star is and why it\'s the top choice for fish games and online casino gaming.',
@@ -146,7 +122,6 @@ class OrionStarSeeder extends Seeder
                 'content' => "Playing Orion Star online is simple and fast. With instant browser play, you can access your favorite games without installing anything.\n\n## Steps to Play Online\n1. **Visit the Portal**: Click the Play Online button on our site\n2. **Login**: Enter your account credentials\n3. **Select Game**: Pick any fish game or slot\n4. **Start Winning**: Play instantly on any device\n\n## Benefits of Online Play\n- Zero installation required\n- Works perfectly on Android/iOS browsers\n- Saves device storage\n- Automatic updates",
                 'excerpt' => 'Learn how to play Orion Star online instantly without downloading. Quick guide to browser-based gaming.',
                 'author' => 'Orion Star Team',
-                'category_id' => $gameGuides?->id,
                 'status' => 'published',
                 'meta_title' => 'How to Play Orion Star Online — Instant Browser Play Guide',
                 'meta_description' => 'Play Orion Star online without downloading. Step-by-step guide to instant browser fish games.',

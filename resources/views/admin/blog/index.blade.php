@@ -59,7 +59,6 @@
                 <thead>
                     <tr class="bg-gray-50/50 border-b border-gray-100">
                         <th class="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Article Details</th>
-                        <th class="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Category</th>
                         <th class="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Status</th>
                         <th class="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Publish Date</th>
                         <th class="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] text-right">Actions</th>
@@ -84,11 +83,6 @@
                                         <div class="text-xs font-bold text-gray-400 uppercase tracking-tighter mt-0.5">By {{ $post->author }}</div>
                                     </div>
                                 </div>
-                            </td>
-                            <td class="px-8 py-6">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-[10px] font-black uppercase tracking-wider border border-gray-200">
-                                    {{ $post->category?->name ?? 'Uncategorized' }}
-                                </span>
                             </td>
                             <td class="px-8 py-6">
                                 @php

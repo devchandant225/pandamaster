@@ -20,10 +20,6 @@
 
                     <!-- Category & Meta -->
                     <div class="flex flex-wrap items-center gap-4 mb-6">
-                        <span class="px-3 py-1 bg-yellow-500/10 text-yellow-500 rounded-full text-sm font-semibold">
-                            {{ $post->category->name ?? 'Gaming' }}
-                        </span>
-                        <span class="text-gray-600">•</span>
                         <span class="text-gray-400">{{ $post->read_time ?? '8 min read' }}</span>
                     </div>
 
@@ -151,31 +147,6 @@
                                     {{ $recent->title }}
                                 </h4>
                                 <p class="text-sm text-gray-500">{{ $recent->created_at->format('M d, Y') }}</p>
-                            </a>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <!-- Categories -->
-                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 text-left">
-                        <h3 class="text-xl font-bold mb-6 text-white">Categories</h3>
-                        <div class="space-y-3">
-                            @foreach($categories as $category)
-                            <a
-                                href="{{ url('/blog?category=' . $category->slug) }}"
-                                class="flex items-center justify-between group py-2"
-                            >
-                                <span class="text-gray-300 group-hover:text-yellow-500 transition-colors font-medium">
-                                    {{ $category->name }}
-                                </span>
-                                <div class="flex items-center gap-3">
-                                    <span class="text-xs font-bold bg-gray-700 text-gray-400 px-2 py-0.5 rounded-full border border-gray-600 group-hover:border-yellow-500/30 group-hover:text-yellow-500 transition-all">
-                                        {{ $category->posts_count }}
-                                    </span>
-                                    <svg class="w-4 h-4 text-gray-500 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </div>
                             </a>
                             @endforeach
                         </div>
