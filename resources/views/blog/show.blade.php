@@ -174,6 +174,11 @@
 </div>
 
 <style>
+    /* Hardcoded p tag color */
+    p {
+        color: white !important;
+    }
+
     /* FAQ Animation Styles */
     .faq-answer {
         max-height: 0;
