@@ -18,68 +18,21 @@
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-6">
-                <a href="{{ route('home') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
+            <nav class="hidden md:flex items-center gap-4">
+                <a href="{{ route('home') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-[10px] tracking-widest uppercase">
                     Home
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                
-                <!-- Games Dropdown -->
-                <div class="relative group py-2" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <button class="flex items-center gap-1 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase focus:outline-none">
-                        Games
-                        <svg class="w-3 h-3 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div 
-                        x-show="open" 
-                        x-transition:enter="transition ease-out duration-200" 
-                        x-transition:enter-start="opacity-0 translate-y-2" 
-                        x-transition:enter-end="opacity-100 translate-y-0" 
-                        class="absolute left-0 mt-2 w-56 bg-gray-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-[60]"
-                    >
-                        <div class="p-2 space-y-1">
-                            <a href="{{ route('games.index', ['type' => 'fish']) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
-                                <span>🐟</span> Fish Games
-                            </a>
-                            <a href="{{ route('games.index', ['type' => 'slots']) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
-                                <span>🎰</span> Slot Games
-                            </a>
-                            <a href="{{ route('games.index', ['type' => 'table']) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
-                                <span>🎯</span> Table Games
-                            </a>
-                            <a href="{{ route('games.index', ['type' => 'keno']) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
-                                <span>🎲</span> Online Keno
-                            </a>
-                            <a href="{{ route('games.index') }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-yellow-500 hover:bg-white/5 rounded-xl transition-all border-t border-white/5 mt-1">
-                                View All Games
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
-                <a href="{{ route('orionstar.777') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    777
+                @foreach($gameTypes as $type)
+                <a href="{{ route('games.index', ['type' => $type['slug']]) }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-[10px] tracking-widest uppercase">
+                    {{ $type['label'] }}
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="{{ route('orionstar.download') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Download
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('orionstar.play-online') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Play Online
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('contact') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Contact
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('blog.index') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Blog
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                @endforeach
 
-                <a href="{{ route('login') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
-                    <span class="relative z-10 uppercase tracking-tighter text-xs">Login</span>
+                <a href="{{ route('login') }}" class="ml-4 group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-6 py-2.5 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden">
+                    <span class="relative z-10 uppercase tracking-tighter text-[10px]">Login</span>
                 </a>
             </nav>
 
@@ -110,30 +63,15 @@
             class="md:hidden glass rounded-2xl p-6 space-y-4 mb-4 border border-yellow-500/20"
             style="display: none;"
         >
-            <a href="{{ route('home') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Home</a>
+            <a href="{{ route('home') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Home</a>
             
-            <!-- Mobile Games Accordion -->
-            <div x-data="{ open: false }">
-                <button @click="open = !open" class="flex items-center justify-between w-full text-lg font-bold text-gray-300 hover:text-yellow-500">
-                    Games
-                    <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div x-show="open" class="mt-4 ml-4 space-y-3 border-l-2 border-yellow-500/20 pl-4">
-                    <a href="{{ route('games.index', ['type' => 'fish']) }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🐟 Fish Games</a>
-                    <a href="{{ route('games.index', ['type' => 'slots']) }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🎰 Slot Games</a>
-                    <a href="{{ route('games.index', ['type' => 'table']) }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🎯 Table Games</a>
-                    <a href="{{ route('games.index', ['type' => 'keno']) }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🎲 Online Keno</a>
-                    <a href="{{ route('games.index') }}" class="block text-sm font-bold text-yellow-500 italic uppercase">View All Games</a>
-                </div>
-            </div>
+            @foreach($gameTypes as $type)
+                <a href="{{ route('games.index', ['type' => $type['slug']]) }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">
+                    {{ $type['icon'] }} {{ $type['label'] }}
+                </a>
+            @endforeach
 
-            <a href="{{ route('orionstar.777') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">777</a>
-            <a href="{{ route('orionstar.download') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Download</a>
-            <a href="{{ route('orionstar.play-online') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Play Online</a>
-            <a href="{{ route('contact') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Contact</a>
-            <a href="{{ route('blog.index') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Blog</a>
-
-            <a href="{{ route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg">LOGIN</a>
+            <a href="{{ route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg uppercase tracking-widest">LOGIN</a>
         </nav>
     </div>
 </header>

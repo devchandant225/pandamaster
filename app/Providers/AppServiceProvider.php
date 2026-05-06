@@ -31,5 +31,13 @@ class AppServiceProvider extends ServiceProvider
             $admin = User::where('role', 'admin')->first();
             View::share('adminSettings', $admin);
         }
+
+        View::share('gameTypes', [
+            ['slug' => 'slots', 'label' => 'Slots', 'icon' => '🎰'],
+            ['slug' => 'fish', 'label' => 'Fish Games', 'icon' => '🐟'],
+            ['slug' => 'table', 'label' => 'Table Games', 'icon' => '🎯'],
+            ['slug' => 'keno', 'label' => 'Online Keno', 'icon' => '🎲'],
+            ['slug' => 'card', 'label' => 'Card Games', 'icon' => '🃏'],
+        ]);
     }
 }
