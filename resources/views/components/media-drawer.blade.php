@@ -206,18 +206,20 @@
 
             async uploadFileDirectly(file) {
                 this.uploading = true;
-                this.uploadProgress = 'Uploading ' + file.name;
+                this.uploadProgress = 'Preparing ' + file.name + '...';
 
                 const formData = new FormData();
                 formData.append('file', file);
 
                 try {
+                    this.uploadProgress = 'Uploading ' + file.name + '...';
                     const response = await fetch('{{ route("admin.media.store") }}', {
                         method: 'POST',
                         body: formData,
                         headers: {
                             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                            'Accept': 'application/json'
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
                         }
                     });
 
@@ -225,14 +227,19 @@
                         this.uploadProgress = 'Upload Complete!';
                         const newMedia = await response.json();
                         this.media.unshift(newMedia);
-                        setTimeout(() => this.uploading = false, 1000);
+                        setTimeout(() => {
+                            this.uploading = false;
+                            this.fetchMedia(); // Refresh list to be sure
+                        }, 1000);
                     } else {
-                        alert('Upload failed');
+                        const errorData = await response.json().catch(() => ({}));
+                        console.error('Upload failed:', errorData);
+                        alert('Upload failed: ' + (errorData.message || 'Server error (' + response.status + ')'));
                         this.uploading = false;
                     }
                 } catch (error) {
                     console.error('Error:', error);
-                    alert('An error occurred during upload');
+                    alert('An error occurred during upload: ' + error.message);
                     this.uploading = false;
                 }
             }
