@@ -108,7 +108,7 @@
                         <div class="mt-12 text-center">
                             <div class="inline-flex items-center gap-2 px-6 py-3 bg-gray-50 rounded-2xl border border-gray-200">
                                 <span class="text-gray-500">Still have questions?</span>
-                                <a href="{{ route('about') }}" class="text-yellow-600 font-bold hover:text-yellow-500 transition-colors">
+                                <a href="{{ route('contact') }}" class="text-yellow-600 font-bold hover:text-yellow-500 transition-colors">
                                     Contact our support team
                                     <svg class="inline-block w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
