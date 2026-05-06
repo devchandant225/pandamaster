@@ -3,42 +3,57 @@
 @section('content')
 <div class="min-h-screen bg-[#1a1a1a] text-white">
     <!-- Hero Section -->
-    <div class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <!-- Hero Background Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="{{ $game->thumbnail }}" alt="{{ $game->title }}" class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#1a1a1a]"></div>
-        </div>
+    <div class="relative py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center justify-center gap-3 mb-12 text-[10px] font-black uppercase tracking-[0.3em]">
+                <a href="{{ route('home') }}" class="text-gray-500 hover:text-white transition-colors">Home</a>
+                <span class="text-gray-800">/</span>
+                <a href="{{ route('games.index') }}" class="text-gray-500 hover:text-white transition-colors">Games</a>
+                <span class="text-gray-800">/</span>
+                <span class="text-[#D4AF37]">{{ $game->title }}</span>
+            </nav>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter uppercase">
-                {{ $game->hero_title ?? $game->title }}
-            </h1>
-            <h4 class="text-xl md:text-2xl font-bold text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                {{ $game->hero_subtitle ?? $game->description }}
-            </h4>
+            <!-- Featured Image -->
+            <div class="relative max-w-5xl mx-auto mb-16 group">
+                <div class="absolute -inset-4 bg-gradient-to-r from-[#D4AF37]/20 to-purple-500/20 rounded-[3rem] blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-700"></div>
+                <img src="{{ $game->thumbnail }}" alt="{{ $game->title }}" class="relative w-full h-auto rounded-[3rem] shadow-2xl border border-white/10 transform transition-transform duration-700 group-hover:scale-[1.02]">
+            </div>
 
-            <div class="flex flex-wrap justify-center gap-6">
-                @if($game->hero_ctas && count($game->hero_ctas) > 0)
-                    @foreach($game->hero_ctas as $cta)
-                        <a href="{{ $cta['url'] }}" 
-                           class="px-10 py-4 rounded-full font-black uppercase tracking-widest transition-all transform hover:-translate-y-1 
-                           {{ ($cta['type'] ?? 'primary') === 'primary' ? 'bg-[#D4AF37] text-black shadow-[0_0_30px_rgba(212,175,55,0.4)]' : '' }}
-                           {{ ($cta['type'] ?? 'primary') === 'secondary' ? 'bg-white text-black' : '' }}
-                           {{ ($cta['type'] ?? 'primary') === 'outline' ? 'border-2 border-white text-white hover:bg-white hover:text-black' : '' }}">
-                            {{ $cta['label'] }}
+            <!-- Title & Description -->
+            <div class="max-w-4xl mx-auto space-y-8">
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85]">
+                    {{ $game->hero_title ?? $game->title }}
+                </h1>
+                
+                <div class="h-1.5 w-32 bg-[#D4AF37] mx-auto"></div>
+
+                <p class="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed">
+                    {{ $game->hero_subtitle ?? $game->description }}
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-6 pt-8">
+                    @if($game->hero_ctas && count($game->hero_ctas) > 0)
+                        @foreach($game->hero_ctas as $cta)
+                            <a href="{{ $cta['url'] }}" 
+                               class="px-12 py-5 rounded-2xl font-black uppercase tracking-widest transition-all transform hover:-translate-y-1 
+                               {{ ($cta['type'] ?? 'primary') === 'primary' ? 'bg-[#D4AF37] text-black shadow-[0_0_30px_rgba(212,175,55,0.4)]' : '' }}
+                               {{ ($cta['type'] ?? 'primary') === 'secondary' ? 'bg-white text-black' : '' }}
+                               {{ ($cta['type'] ?? 'primary') === 'outline' ? 'border-2 border-white text-white hover:bg-white hover:text-black' : '' }}">
+                                {{ $cta['label'] }}
+                            </a>
+                        @endforeach
+                    @else
+                        <a href="{{ route('games.play', $game->slug) }}" class="px-12 py-5 rounded-2xl bg-[#D4AF37] text-black font-black uppercase tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.4)] transform hover:-translate-y-1 transition-all">
+                            Play Now
                         </a>
-                    @endforeach
-                @else
-                    <a href="{{ route('games.play', $game->slug) }}" class="px-10 py-4 rounded-full bg-[#D4AF37] text-black font-black uppercase tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.4)] transform hover:-translate-y-1 transition-all">
-                        Play Now
-                    </a>
-                    @if($game->demo_url)
-                        <a href="{{ route('games.demo', $game->slug) }}" class="px-10 py-4 rounded-full border-2 border-white text-white font-black uppercase tracking-widest hover:bg-white hover:text-black transform hover:-translate-y-1 transition-all">
-                            Try Demo
-                        </a>
+                        @if($game->demo_url)
+                            <a href="{{ route('games.demo', $game->slug) }}" class="px-12 py-5 rounded-2xl border-2 border-white text-white font-black uppercase tracking-widest hover:bg-white hover:text-black transform hover:-translate-y-1 transition-all">
+                                Try Demo
+                            </a>
+                        @endif
                     @endif
-                @endif
+                </div>
             </div>
         </div>
     </div>
