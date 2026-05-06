@@ -32,12 +32,8 @@ class AppServiceProvider extends ServiceProvider
             View::share('adminSettings', $admin);
         }
 
-        View::share('gameTypes', [
-            ['slug' => 'slots', 'label' => 'Slots', 'icon' => '🎰'],
-            ['slug' => 'fish', 'label' => 'Fish Games', 'icon' => '🐟'],
-            ['slug' => 'table', 'label' => 'Table Games', 'icon' => '🎯'],
-            ['slug' => 'keno', 'label' => 'Online Keno', 'icon' => '🎲'],
-            ['slug' => 'card', 'label' => 'Card Games', 'icon' => '🃏'],
-        ]);
+        if (Schema::hasTable('games')) {
+            View::share('headerGames', \App\Models\Game::where('is_active', true)->limit(10)->get());
+        }
     }
 }
