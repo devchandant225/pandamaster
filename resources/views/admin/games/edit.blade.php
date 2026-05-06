@@ -35,7 +35,7 @@
                 <textarea name="description" rows="3" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="A magical slot game...">{{ old('description', $game->description) }}</textarea>
             </div>
 
-            <!-- Category & Type -->
+            <!-- Game Type -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="block text-sm font-bold text-white mb-2">Game Type *</label>
@@ -48,7 +48,6 @@
                         <option value="other" {{ old('game_type', $game->game_type) == 'other' ? 'selected' : '' }}>🎮 Other</option>
                     </select>
                 </div>
-                <div></div>
             </div>
 
             <!-- Thumbnail Upload -->

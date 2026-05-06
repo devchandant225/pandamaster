@@ -34,15 +34,6 @@
                 <input type="text" name="search" value="{{ request('search') }}" placeholder="Search games..." class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none">
             </div>
             <div>
-                <label class="block text-sm font-bold text-gray-400 mb-2">Category</label>
-                <select name="category" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none">
-                    <option value="">All Categories</option>
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div>
                 <label class="block text-sm font-bold text-gray-400 mb-2">Status</label>
                 <select name="status" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none">
                     <option value="">All</option>
@@ -65,7 +56,6 @@
                 <thead>
                     <tr class="border-b border-gray-700 bg-gray-900/50">
                         <th class="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Game</th>
-                        <th class="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Category</th>
                         <th class="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Type</th>
                         <th class="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">RTP</th>
                         <th class="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Status</th>
@@ -90,9 +80,6 @@
                                         <span class="px-2 py-0.5 bg-green-500/20 text-green-400 text-xs font-bold rounded">NEW</span>
                                     @endif
                                 </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class="text-gray-300">{{ $game->gameCategory->name }}</span>
                             </td>
                             <td class="px-6 py-4">
                                 <span class="capitalize text-gray-300">{{ $game->game_type }}</span>
