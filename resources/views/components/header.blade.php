@@ -122,6 +122,12 @@
                 </div>
             </div>
 
+            <a href="{{ route('orionstar.777') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">777</a>
+            <a href="{{ route('orionstar.download') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Download</a>
+            <a href="{{ route('orionstar.play-online') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Play Online</a>
+            <a href="{{ route('contact') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Contact</a>
+            <a href="{{ route('blog.index') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Blog</a>
+
             <a href="{{ route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg uppercase tracking-widest">LOGIN</a>
         </nav>
     </div>
