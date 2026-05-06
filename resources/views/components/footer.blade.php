@@ -39,10 +39,10 @@
                 <h3 class="text-white font-black uppercase tracking-widest text-xs mb-6">Experience</h3>
                 <ul class="space-y-4 text-sm font-bold">
                     <li><a href="{{ route('home') }}" class="hover:text-yellow-500 transition-colors uppercase">Home</a></li>
-                    <li><a href="{{ route('orionstar.fish-games') }}" class="hover:text-yellow-500 transition-colors uppercase italic">🐟 Fish Games</a></li>
-                    <li><a href="{{ route('orionstar.slot-games') }}" class="hover:text-yellow-500 transition-colors uppercase italic">🎰 Slot Games</a></li>
-                    <li><a href="{{ route('orionstar.table-games') }}" class="hover:text-yellow-500 transition-colors uppercase italic">🎯 Table Games</a></li>
-                    <li><a href="{{ route('orionstar.keno') }}" class="hover:text-yellow-500 transition-colors uppercase italic">🎲 Online Keno</a></li>
+                    <li><a href="{{ route('games.index', ['type' => 'fish']) }}" class="hover:text-yellow-500 transition-colors uppercase italic">🐟 Fish Games</a></li>
+                    <li><a href="{{ route('games.index', ['type' => 'slots']) }}" class="hover:text-yellow-500 transition-colors uppercase italic">🎰 Slot Games</a></li>
+                    <li><a href="{{ route('games.index', ['type' => 'table']) }}" class="hover:text-yellow-500 transition-colors uppercase italic">🎯 Table Games</a></li>
+                    <li><a href="{{ route('games.index', ['type' => 'keno']) }}" class="hover:text-yellow-500 transition-colors uppercase italic">🎲 Online Keno</a></li>
                 </ul>
             </div>
 

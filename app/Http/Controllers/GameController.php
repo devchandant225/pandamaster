@@ -34,8 +34,9 @@ class GameController extends Controller
         };
 
         $games = $query->paginate(24);
+        $types = ['slots', 'fish', 'keno', 'table', 'card', 'other'];
 
-        return view('games.index', compact('games'));
+        return view('games.index', compact('games', 'types'));
     }
 
     /**

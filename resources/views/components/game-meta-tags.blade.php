@@ -4,7 +4,7 @@
     
     $title = $game->meta_title ?: $game->title . ' | ' . $siteName;
     $description = $game->meta_description ?: Str::limit($game->description, 160);
-    $keywords = $game->meta_keywords ?: 'Orion Stars game, ' . $game->game_type . ', ' . $game->gameCategory->name;
+    $keywords = $game->meta_keywords ?: 'Orion Stars game, ' . $game->game_type . ', ' . $game->title;
     $image = $game->thumbnail ?: asset('logo.png');
 @endphp
 

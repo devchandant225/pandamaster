@@ -27,16 +27,16 @@ class GamingDashboardController extends Controller
         }
 
         // Get featured games
-        $featuredGames = Game::active()->featured()->with('gameCategory')->limit(8)->get();
+        $featuredGames = Game::active()->featured()->limit(8)->get();
         
         // Get hot games
-        $hotGames = Game::active()->hot()->with('gameCategory')->limit(8)->get();
+        $hotGames = Game::active()->hot()->limit(8)->get();
         
         // Get new games
-        $newGames = Game::active()->new()->with('gameCategory')->limit(8)->get();
+        $newGames = Game::active()->new()->limit(8)->get();
         
         // Get recent games (by play count)
-        $popularGames = Game::active()->orderBy('play_count', 'desc')->with('gameCategory')->limit(8)->get();
+        $popularGames = Game::active()->orderBy('play_count', 'desc')->limit(8)->get();
 
         // Get recent transactions
         $recentTransactions = Transaction::where('user_id', $user->id)

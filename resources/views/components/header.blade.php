@@ -38,17 +38,20 @@
                         class="absolute left-0 mt-2 w-56 bg-gray-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-[60]"
                     >
                         <div class="p-2 space-y-1">
-                            <a href="{{ route('orionstar.fish-games') }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
+                            <a href="{{ route('games.index', ['type' => 'fish']) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
                                 <span>🐟</span> Fish Games
                             </a>
-                            <a href="{{ route('orionstar.slot-games') }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
+                            <a href="{{ route('games.index', ['type' => 'slots']) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
                                 <span>🎰</span> Slot Games
                             </a>
-                            <a href="{{ route('orionstar.table-games') }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
+                            <a href="{{ route('games.index', ['type' => 'table']) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
                                 <span>🎯</span> Table Games
                             </a>
-                            <a href="{{ route('orionstar.keno') }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
+                            <a href="{{ route('games.index', ['type' => 'keno']) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
                                 <span>🎲</span> Online Keno
+                            </a>
+                            <a href="{{ route('games.index') }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-yellow-500 hover:bg-white/5 rounded-xl transition-all border-t border-white/5 mt-1">
+                                View All Games
                             </a>
                         </div>
                     </div>
@@ -116,10 +119,11 @@
                     <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 <div x-show="open" class="mt-4 ml-4 space-y-3 border-l-2 border-yellow-500/20 pl-4">
-                    <a href="{{ route('orionstar.fish-games') }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🐟 Fish Games</a>
-                    <a href="{{ route('orionstar.slot-games') }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🎰 Slot Games</a>
-                    <a href="{{ route('orionstar.table-games') }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🎯 Table Games</a>
-                    <a href="{{ route('orionstar.keno') }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🎲 Online Keno</a>
+                    <a href="{{ route('games.index', ['type' => 'fish']) }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🐟 Fish Games</a>
+                    <a href="{{ route('games.index', ['type' => 'slots']) }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🎰 Slot Games</a>
+                    <a href="{{ route('games.index', ['type' => 'table']) }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🎯 Table Games</a>
+                    <a href="{{ route('games.index', ['type' => 'keno']) }}" class="block text-sm font-bold text-gray-400 hover:text-yellow-500 italic uppercase">🎲 Online Keno</a>
+                    <a href="{{ route('games.index') }}" class="block text-sm font-bold text-yellow-500 italic uppercase">View All Games</a>
                 </div>
             </div>
 

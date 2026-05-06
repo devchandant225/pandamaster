@@ -36,14 +36,14 @@
         <div class="max-w-7xl mx-auto px-4 py-6">
             <div class="flex items-center gap-4 overflow-x-auto no-scrollbar pb-2">
                 <a href="{{ route('games.index') }}" 
-                   class="flex-shrink-0 px-8 py-3 rounded-2xl font-black uppercase tracking-tighter transition-all {{ !request('category') ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-black shadow-lg shadow-yellow-500/20' : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10' }}">
+                   class="flex-shrink-0 px-8 py-3 rounded-2xl font-black uppercase tracking-tighter transition-all {{ !request('type') ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-black shadow-lg shadow-yellow-500/20' : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10' }}">
                     All Games
                 </a>
                 
-                @foreach($categories as $category)
-                    <a href="{{ route('games.index', ['category' => $category->slug]) }}" 
-                       class="flex-shrink-0 px-8 py-3 rounded-2xl font-black uppercase tracking-tighter transition-all {{ request('category') == $category->slug ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-lg shadow-purple-500/20' : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10' }}">
-                        {{ $category->name }}
+                @foreach($types as $type)
+                    <a href="{{ route('games.index', ['type' => $type]) }}" 
+                       class="flex-shrink-0 px-8 py-3 rounded-2xl font-black uppercase tracking-tighter transition-all {{ request('type') == $type ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-lg shadow-purple-500/20' : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10' }}">
+                        {{ ucfirst($type) }}
                     </a>
                 @endforeach
             </div>
@@ -119,7 +119,7 @@
                     Showing <span class="text-white">{{ $games->total() }}</span> Premium Games
                 </p>
             </div>
-            @if(request()->anyFilled(['search', 'type', 'category', 'sort']))
+            @if(request()->anyFilled(['search', 'type', 'sort']))
                 <a href="{{ route('games.index') }}" class="text-purple-500 text-xs font-black uppercase tracking-widest hover:text-purple-400 transition-colors">
                     Clear All Filters
                 </a>

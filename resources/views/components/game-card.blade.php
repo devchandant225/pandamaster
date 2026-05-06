@@ -83,7 +83,7 @@
         
         <div class="flex items-center justify-between text-[11px] font-bold">
             <span class="text-purple-500 uppercase tracking-widest">
-                {{ $game->gameCategory->name }}
+                {{ ucfirst($game->game_type) }} Edition
             </span>
             
             <div class="flex items-center gap-1 text-gray-500">

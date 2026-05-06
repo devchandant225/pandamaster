@@ -8,7 +8,6 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\GameAdminController;
-use App\Http\Controllers\Admin\GameCategoryAdminController;
 use App\Http\Controllers\Admin\MetaTagController;
 use App\Http\Controllers\Admin\LandingSectionController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
