@@ -75,7 +75,7 @@
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
 
-                <a href="{{ route('admin.login') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
+                <a href="{{ route('login') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
                     <span class="relative z-10 uppercase tracking-tighter text-xs">Login</span>
                 </a>
             </nav>
@@ -129,7 +129,7 @@
             <a href="{{ route('contact') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Contact</a>
             <a href="{{ route('blog.index') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500">Blog</a>
 
-            <a href="{{ route('admin.login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg">LOGIN</a>
+            <a href="{{ route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg">LOGIN</a>
         </nav>
     </div>
 </header>

@@ -52,7 +52,7 @@
                 <ul class="space-y-4 text-sm font-bold">
                     <li><a href="{{ route('contact') }}" class="hover:text-yellow-500 transition-colors uppercase">Contact Us</a></li>
                     <li><a href="{{ route('blog.index') }}" class="hover:text-yellow-500 transition-colors uppercase">Latest News</a></li>
-                    <li><a href="{{ route('admin.login') }}" class="hover:text-yellow-500 transition-colors uppercase">Login</a></li>
+                    <li><a href="{{ route('login') }}" class="hover:text-yellow-500 transition-colors uppercase">Login</a></li>
                 </ul>
             </div>
 

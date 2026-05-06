@@ -197,12 +197,6 @@
             <p class="text-gray-400 text-sm">Expand your game library</p>
         </a>
 
-        <a href="{{ route('admin.game-categories.create') }}" class="bg-gradient-to-br from-purple-500/10 to-purple-600/10 border-2 border-purple-500/30 p-8 rounded-2xl hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/20 transition-all group">
-            <div class="text-4xl mb-4">📂</div>
-            <h3 class="text-xl font-black text-purple-500 mb-2">Add Category</h3>
-            <p class="text-gray-400 text-sm">Organize your games</p>
-        </a>
-
         <a href="{{ route('admin.users.create') }}" class="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-2 border-blue-500/30 p-8 rounded-2xl hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20 transition-all group">
             <div class="text-4xl mb-4">👤</div>
             <h3 class="text-xl font-black text-blue-500 mb-2">Add User</h3>

@@ -22,7 +22,6 @@
             <div class="space-y-1.5">
                 <x-sidebar-link :href="route('admin.dashboard')" :active="$active === 'admin-dashboard'" icon="grid" label="Dashboard" />
                 <x-sidebar-link :href="route('admin.games.index')" :active="$active === 'games'" icon="gamepad" label="Games" />
-                <x-sidebar-link :href="route('admin.game-categories.index')" :active="$active === 'game-categories'" icon="folder" label="Categories" />
             </div>
         </div>
 
@@ -34,7 +33,6 @@
             </h3>
             <div class="space-y-1.5">
                 <x-sidebar-link :href="route('admin.blog.index')" :active="$active === 'blog'" icon="edit" label="Blog Articles" />
-                <x-sidebar-link :href="route('admin.categories.index')" :active="$active === 'categories'" icon="tag" label="Blog Categories" />
             </div>
         </div>
 
