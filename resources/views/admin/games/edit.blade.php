@@ -32,7 +32,7 @@
 
             <div>
                 <label class="block text-sm font-bold text-white mb-2">Description</label>
-                <textarea name="description" rows="3" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="A magical slot game...">{{ old('description', $game->description) }}</textarea>
+                <textarea name="description" id="description" rows="3" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="A magical slot game...">{{ old('description', $game->description) }}</textarea>
             </div>
 
             <!-- Game Type -->
@@ -465,6 +465,15 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize CKEditor
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('description', {
+            height: 300,
+            removeButtons: 'PasteFromWord',
+            skin: 'moono-lisa', // Use default or specific skin if available
+        });
+    }
+
     const fileInput = document.getElementById('thumbnail-upload');
     const previewDiv = document.getElementById('upload-preview');
     const previewImage = document.getElementById('preview-image');
