@@ -20,34 +20,96 @@
             @endfor
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight animate-fade-in-up">
-                <span class="text-yellow-500 text-glow-yellow uppercase">Orion Stars,</span><br>
-                <span class="text-white">Your Go-To Platform for Fish Games, Slots & Online Casino Fun</span>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center min-h-[80vh]">
+
+        <!-- LEFT CONTENT -->
+        <div class="text-center lg:text-left max-w-2xl">
+
+            <!-- Heading -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight animate-fade-in-up">
+                <span class="text-yellow-500 uppercase">
+                    Orion Stars,
+                </span>
+                <br>
+
+                <span class="text-white">
+                    Fish Games, Slots & Casino Fun
+                </span>
             </h1>
-            
-            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-medium leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
-                Welcome to Orion Stars. One of the most popular online gaming platforms around right now. Whether you're here for the fish games, the slots, or the sweepstakes, you've landed in the right place. Orionstars gives you access to a full library of casino-style games, a simple login, easy downloads, and the option to play right in your browser without installing anything.
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-8 leading-relaxed animate-fade-in-up"
+               style="animation-delay: 0.2s;">
+                Play fish games, slot machines, and sweepstakes online with Orion Stars.
+                Easy login, smooth gameplay, mobile-friendly access, and instant play
+                directly from your browser.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="{{ route('orionstar.play-online') }}" class="group relative px-10 py-5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black text-xl font-black rounded-2xl transition-all shadow-lg hover:shadow-yellow-500/50 transform hover:-translate-y-1.5 overflow-hidden">
-                    <span class="relative z-10 uppercase tracking-tighter">Play Online Now</span>
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center animate-fade-in-up"
+                 style="animation-delay: 0.4s;">
+
+                <a href="{{ route('orionstar.play-online') }}"
+                   class="px-7 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black text-sm md:text-base font-bold rounded-xl transition-all shadow-lg hover:shadow-yellow-500/50 hover:-translate-y-1">
+                    PLAY ONLINE
                 </a>
-                <a href="{{ route('orionstar.download') }}" class="group relative px-10 py-5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xl font-black rounded-2xl transition-all shadow-lg hover:shadow-purple-500/50 transform hover:-translate-y-1.5 overflow-hidden">
-                    <span class="relative z-10 uppercase tracking-tighter">Download the App</span>
+
+                <a href="{{ route('orionstar.download') }}"
+                   class="px-7 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm md:text-base font-bold rounded-xl transition-all shadow-lg hover:shadow-purple-500/50 hover:-translate-y-1">
+                    DOWNLOAD APP
                 </a>
-                <a href="{{ route('login') }}" class="group relative px-10 py-5 bg-white/10 hover:bg-white/20 text-white text-xl font-black rounded-2xl transition-all border border-white/20 shadow-lg transform hover:-translate-y-1.5 backdrop-blur-sm">
-                    <span class="relative z-10 uppercase tracking-tighter">Login to Your Account</span>
+
+                <a href="{{ route('login') }}"
+                   class="px-7 py-3 bg-white/10 hover:bg-white/20 text-white text-sm md:text-base font-bold rounded-xl transition-all border border-white/20 shadow-lg hover:-translate-y-1 backdrop-blur-sm">
+                    LOGIN
                 </a>
+
             </div>
 
-            <div class="mt-16 text-gray-400 font-medium animate-fade-in-up" style="animation-delay: 0.6s;">
-                <p>You can find the platform at <span class="text-yellow-500 font-bold">orionstars.vip</span>, and it works on your phone, your tablet, and your PC. One login, one account, all your games in one place.</p>
+            <!-- Bottom Text -->
+            <div class="mt-10 text-gray-400 text-sm md:text-base animate-fade-in-up"
+                 style="animation-delay: 0.6s;">
+                <p>
+                    Available on mobile, tablet, and desktop with one account for all your games.
+                </p>
             </div>
+
         </div>
-    </section>
 
+        <!-- RIGHT IMAGE -->
+        <div class="relative flex justify-center lg:justify-end animate-fade-in-up"
+             style="animation-delay: 0.3s;">
+
+            <!-- Glow -->
+            <div class="absolute w-[300px] h-[300px] bg-yellow-500/20 blur-3xl rounded-full"></div>
+
+            <!-- Image -->
+            <img src="{{ asset('images/orionstar-hero.jpeg') }}"
+                 alt="Orion Stars"
+                 class="relative z-10 w-full max-w-md lg:max-w-lg object-contain animate-float">
+
+        </div>
+
+    </div>
+
+</div>
+    </section>
+<style>
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+    </style>
     <!-- What is Orion Stars Section -->
     <section class="py-24 bg-gray-900 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -76,7 +138,6 @@
             </div>
         </div>
     </section>
-
     <!-- Play Online Section -->
     <section class="py-24 bg-gray-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -133,7 +194,7 @@
                 <h2 class="text-4xl md:text-5xl font-black mb-4 text-white uppercase tracking-tighter">Fish Games, Slots & More</h2>
                 <p class="text-xl text-gray-400">Orion Stars has a game library that keeps growing.</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="p-10 bg-gray-900 rounded-[2.5rem] border border-white/5 hover:border-yellow-500/30 transition-all group">
                     <div class="flex items-start gap-6">
