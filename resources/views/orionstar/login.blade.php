@@ -121,7 +121,7 @@
             <p class="text-xl text-gray-400 mb-12 leading-relaxed">
                 If you're having trouble with your orion stars account login, the easiest solution is to reach out to the distributor who set up your account. They can reset your password and get you back in quickly. The Orion Stars support team is also available 24/7 through the platform's official social media channels.
             </p>
-            <a href="#" class="inline-block px-12 py-5 bg-white text-black text-xl font-black rounded-2xl hover:bg-yellow-500 transition-colors uppercase tracking-tighter">Contact Support Now</a>
+            <a href="{{ route('contact') }}" class="inline-block px-12 py-5 bg-white text-black text-xl font-black rounded-2xl hover:bg-yellow-500 transition-colors uppercase tracking-tighter">Contact Support Now</a>
         </div>
     </section>
 

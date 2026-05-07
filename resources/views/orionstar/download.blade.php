@@ -14,16 +14,21 @@
             <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto font-medium leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
                 Ready to get the app? The orion stars download is available for all major devices, including Android phones and tablets, iPhone and iPad, and Windows PC. Pick your device below and follow the steps.
             </p>
-            <div class="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="#android" class="group bg-gray-900 border border-white/5 p-8 rounded-[2.5rem] hover:border-yellow-500 transition-all transform hover:-translate-y-2">
+            <div class="mb-12 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block bg-yellow-500 text-black px-12 py-5 rounded-2xl text-2xl font-black hover:bg-yellow-400 transition-all uppercase tracking-tighter shadow-2xl transform hover:-translate-y-1">
+                    Download Orion Stars Now
+                </a>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.6s;">
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="group bg-gray-900 border border-white/5 p-8 rounded-[2.5rem] hover:border-yellow-500 transition-all transform hover:-translate-y-2">
                     <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🤖</div>
                     <div class="text-xl font-black uppercase tracking-tighter">Android</div>
                 </a>
-                <a href="#ios" class="group bg-gray-900 border border-white/5 p-8 rounded-[2.5rem] hover:border-purple-500 transition-all transform hover:-translate-y-2">
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="group bg-gray-900 border border-white/5 p-8 rounded-[2.5rem] hover:border-purple-500 transition-all transform hover:-translate-y-2">
                     <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🍎</div>
                     <div class="text-xl font-black uppercase tracking-tighter">iPhone</div>
                 </a>
-                <a href="#pc" class="group bg-gray-900 border border-white/5 p-8 rounded-[2.5rem] hover:border-yellow-500 transition-all transform hover:-translate-y-2">
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="group bg-gray-900 border border-white/5 p-8 rounded-[2.5rem] hover:border-yellow-500 transition-all transform hover:-translate-y-2">
                     <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">💻</div>
                     <div class="text-xl font-black uppercase tracking-tighter">PC</div>
                 </a>
