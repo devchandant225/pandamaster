@@ -15,7 +15,7 @@
                 Want to play orion stars online without downloading anything? You're in the right place. Orion Stars has a full browser-based version that lets you play fish games, slots, and sweepstakes games directly from your phone, tablet, or computer.
             </p>
             <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="{{ route('login') }}" class="inline-block px-14 py-6 bg-green-500 text-black text-2xl font-black rounded-2xl hover:bg-green-400 transition-all transform hover:-translate-y-1.5 shadow-[0_0_50px_rgba(34,197,94,0.4)] uppercase tracking-tighter">
+                <a href="{{ $adminSettings->external_dashboard_url ?? route('login') }}" class="inline-block px-14 py-6 bg-green-500 text-black text-2xl font-black rounded-2xl hover:bg-green-400 transition-all transform hover:-translate-y-1.5 shadow-[0_0_50px_rgba(34,197,94,0.4)] uppercase tracking-tighter">
                     Play Now in Browser →
                 </a>
             </div>

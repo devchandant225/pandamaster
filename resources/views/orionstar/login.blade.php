@@ -15,9 +15,9 @@
                 Need to get into your account? This is the right page. Your orion stars login is straightforward, just enter your username and password and you're in. Whether you're a regular player coming back for another session or a new player setting up your account for the first time, we've got everything you need right here.
             </p>
             <div class="flex flex-wrap justify-center gap-6 animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="#login-form" class="px-10 py-5 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1.5 shadow-lg">Login to Orion Stars</a>
-                <a href="#sign-up" class="px-10 py-5 bg-purple-600 text-white text-xl font-black rounded-2xl hover:bg-purple-500 transition-all transform hover:-translate-y-1.5 shadow-lg">Register New Account</a>
-                <a href="{{ route('orionstar.play-online') }}" class="px-10 py-5 bg-white/10 text-white text-xl font-black rounded-2xl hover:bg-white/20 transition-all transform hover:-translate-y-1.5 border border-white/20 backdrop-blur-sm">Play Without Downloading</a>
+                <a href="{{ $adminSettings->login_url ?? '#login-form' }}" class="px-10 py-5 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1.5 shadow-lg">Login to Orion Stars</a>
+                <a href="{{ $adminSettings->register_url ?? '#sign-up' }}" class="px-10 py-5 bg-purple-600 text-white text-xl font-black rounded-2xl hover:bg-purple-500 transition-all transform hover:-translate-y-1.5 shadow-lg">Register New Account</a>
+                <a href="{{ $adminSettings->external_dashboard_url ?? route('orionstar.play-online') }}" class="px-10 py-5 bg-white/10 text-white text-xl font-black rounded-2xl hover:bg-white/20 transition-all transform hover:-translate-y-1.5 border border-white/20 backdrop-blur-sm">Play Without Downloading</a>
             </div>
         </div>
     </section>
@@ -52,12 +52,12 @@
                             <p class="text-sm text-gray-400">Instant access to all fish games and slots without any downloads. Works on Android, iPhone, and PC.</p>
                         </div>
 
-                        <a href="{{ route('orionstar.play-online') }}" class="block w-full py-6 bg-yellow-500 text-black text-center text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1 shadow-lg uppercase tracking-tighter">
+                        <a href="{{ $adminSettings->external_dashboard_url ?? route('orionstar.play-online') }}" class="block w-full py-6 bg-yellow-500 text-black text-center text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1 shadow-lg uppercase tracking-tighter">
                             Play Online Now →
                         </a>
                         
                         <div class="text-center">
-                            <a href="{{ route('orionstar.download') }}" class="text-purple-500 font-black uppercase tracking-widest text-sm hover:text-purple-400">
+                            <a href="{{ $adminSettings->login_url ?? route('orionstar.download') }}" class="text-purple-500 font-black uppercase tracking-widest text-sm hover:text-purple-400">
                                 Download Mobile App
                             </a>
                         </div>

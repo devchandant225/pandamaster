@@ -15,9 +15,9 @@
                 If you've been searching for Orion Stars 777, you're in the right place. This page covers everything about the 777 version of the platform — what it is, how to download it, how to log in, and what games you can play.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="{{ route('orionstar.download') }}" class="px-10 py-5 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1.5 shadow-lg">Download 777 APK</a>
-                <a href="{{ route('orionstar.play-online') }}" class="px-10 py-5 bg-purple-600 text-white text-xl font-black rounded-2xl hover:bg-purple-500 transition-all transform hover:-translate-y-1.5 shadow-lg">Play Online</a>
-                <a href="{{ route('login') }}" class="px-10 py-5 bg-white/10 text-white text-xl font-black rounded-2xl hover:bg-white/20 transition-all transform hover:-translate-y-1.5 border border-white/20 backdrop-blur-sm">Login to 777</a>
+                <a href="{{ $adminSettings->login_url ?? route('orionstar.download') }}" class="px-10 py-5 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1.5 shadow-lg">Download 777 APK</a>
+                <a href="{{ $adminSettings->external_dashboard_url ?? route('orionstar.play-online') }}" class="px-10 py-5 bg-purple-600 text-white text-xl font-black rounded-2xl hover:bg-purple-500 transition-all transform hover:-translate-y-1.5 shadow-lg">Play Online</a>
+                <a href="{{ $adminSettings->login_url ?? route('login') }}" class="px-10 py-5 bg-white/10 text-white text-xl font-black rounded-2xl hover:bg-white/20 transition-all transform hover:-translate-y-1.5 border border-white/20 backdrop-blur-sm">Login to 777</a>
             </div>
         </div>
     </section>
@@ -66,7 +66,7 @@
                     </ul>
                 </div>
                 <div class="flex flex-col justify-center items-center gap-8">
-                    <a href="{{ route('orionstar.download') }}" class="w-full bg-yellow-500 text-black text-center py-6 rounded-2xl text-2xl font-black hover:bg-yellow-400 transition-colors uppercase tracking-tighter">
+                    <a href="{{ $adminSettings->login_url ?? route('orionstar.download') }}" class="w-full bg-yellow-500 text-black text-center py-6 rounded-2xl text-2xl font-black hover:bg-yellow-400 transition-colors uppercase tracking-tighter">
                         Download 777 APK Now →
                     </a>
                     <p class="text-gray-500 text-sm italic text-center">The APK is verified and safe to install. No verification variants refer to the direct installation method without the Play Store.</p>
@@ -79,7 +79,7 @@
             <div class="p-10 bg-gray-900 border border-white/5 rounded-3xl">
                 <h2 class="text-3xl font-black mb-6 uppercase tracking-tighter">Orion Stars 777 Online Login</h2>
                 <p class="text-gray-400 mb-8 leading-relaxed">Once the app is installed, your orion stars 777 online login works just like the main platform. Open the app, enter your username and password, and you're in. You can also log in through the web version if you don't want to use the app.</p>
-                <a href="{{ route('login') }}" class="inline-block px-10 py-4 bg-purple-600 text-white font-black rounded-xl hover:bg-purple-500 transition-colors uppercase tracking-tighter">Login to Orion Stars 777</a>
+                <a href="{{ $adminSettings->login_url ?? route('login') }}" class="inline-block px-10 py-4 bg-purple-600 text-white font-black rounded-xl hover:bg-purple-500 transition-colors uppercase tracking-tighter">Login to Orion Stars 777</a>
             </div>
             <div class="p-10 bg-gray-900 border border-white/5 rounded-3xl">
                 <h2 class="text-3xl font-black mb-6 uppercase tracking-tighter">What Games Are on Orion Stars 777?</h2>
@@ -175,5 +175,8 @@
     }
     .animate-fade-in-up { opacity: 0; animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     .text-glow-yellow { text-shadow: 0 0 20px rgba(234, 179, 8, 0.5); }
+</style>
+@endsection
+234, 179, 8, 0.5); }
 </style>
 @endsection

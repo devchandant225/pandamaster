@@ -58,7 +58,7 @@
                         </li>
                     </ul>
                 </div>
-                <a href="#" class="inline-block bg-yellow-500 text-black px-12 py-5 rounded-2xl text-xl font-black hover:bg-yellow-400 transition-colors uppercase tracking-tighter shadow-lg">Download Orion Stars APK</a>
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block bg-yellow-500 text-black px-12 py-5 rounded-2xl text-xl font-black hover:bg-yellow-400 transition-colors uppercase tracking-tighter shadow-lg">Download Orion Stars APK</a>
             </div>
             <div class="bg-gray-900 border border-white/5 p-12 rounded-[3rem] text-center">
                 <div class="text-[180px]">🤖</div>
@@ -75,7 +75,7 @@
                 <div class="order-1 lg:order-2 space-y-6">
                     <h2 class="text-3xl font-black uppercase tracking-tighter">Download Orion Stars VIP 8580 APK</h2>
                     <p class="text-gray-400 text-lg">Looking for the orion stars vip 8580 apk? This is the VIP version of the platform, accessible at port 8580. It gives you direct access to the VIP login portal and game lobby. The download process is the same as the standard APK.</p>
-                    <a href="#" class="inline-block bg-white text-black px-8 py-3 rounded-xl font-black uppercase tracking-tighter hover:bg-yellow-500 transition-colors">Download VIP APK →</a>
+                    <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block bg-white text-black px-8 py-3 rounded-xl font-black uppercase tracking-tighter hover:bg-yellow-500 transition-colors">Download VIP APK →</a>
                 </div>
             </div>
         </section>
@@ -91,7 +91,7 @@
                     <p>The orion stars download ios is available through the App Store or as a direct browser install. iPhone and iPad users can install the app by following the on-screen prompts after tapping the iOS download button.</p>
                     <p>Once installed, your login and game experience are identical to the Android version — same games, same account, same bonuses.</p>
                 </div>
-                <a href="#" class="inline-block bg-purple-600 text-white px-12 py-5 rounded-2xl text-xl font-black hover:bg-purple-500 transition-colors uppercase tracking-tighter shadow-lg">Download for iPhone</a>
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block bg-purple-600 text-white px-12 py-5 rounded-2xl text-xl font-black hover:bg-purple-500 transition-colors uppercase tracking-tighter shadow-lg">Download for iPhone</a>
             </div>
         </section>
 
@@ -100,7 +100,7 @@
             <div class="text-center max-w-4xl mx-auto">
                 <h2 class="text-4xl font-black mb-8 uppercase tracking-tighter">Download Orion Stars 777 APK</h2>
                 <p class="text-xl text-gray-400 mb-12 leading-relaxed">If you're specifically after the orion stars 777 download, this is the 777-branded version of the platform. It installs the same way as the standard APK and covers the full game library including fish games, slots, and sweepstakes.</p>
-                <a href="#" class="inline-block bg-yellow-500 text-black px-12 py-6 rounded-2xl text-2xl font-black hover:bg-yellow-400 transition-all uppercase tracking-tighter shadow-2xl">Download Orion Stars 777 APK</a>
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block bg-yellow-500 text-black px-12 py-6 rounded-2xl text-2xl font-black hover:bg-yellow-400 transition-all uppercase tracking-tighter shadow-2xl">Download Orion Stars 777 APK</a>
             </div>
         </section>
 
