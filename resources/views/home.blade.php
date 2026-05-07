@@ -96,20 +96,7 @@
 
 </div>
     </section>
-<style>
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-12px);
-    }
-}
 
-.animate-float {
-    animation: float 4s ease-in-out infinite;
-}
-    </style>
     <!-- What is Orion Stars Section -->
     <section class="py-24 bg-gray-900 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
