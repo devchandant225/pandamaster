@@ -177,6 +177,3 @@
     .text-glow-yellow { text-shadow: 0 0 20px rgba(234, 179, 8, 0.5); }
 </style>
 @endsection
-234, 179, 8, 0.5); }
-</style>
-@endsection

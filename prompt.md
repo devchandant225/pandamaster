@@ -1,30 +1,27 @@
+InvalidArgumentException
+vendor/laravel/framework/src/Illuminate/View/Concerns/ManagesLayouts.php:94
+Cannot end a section without first starting one.
 
-   INFO  Running migrations.
+LARAVEL
+12.56.0
+PHP
+8.3.30
+UNHANDLED
+CODE 0
+500
+GET
+https://orionstarsbet.com/777
 
-  2026_04_30_100001_update_games_and_posts_tables ..................................................................................... 12.90ms FAIL
+Exception trace
+1 vendor frame
 
-   Illuminate\Database\QueryException
+Illuminate\View\Factory->stopSection()
+resources/views/orionstar/777.blade.php:182
 
-  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'hero_title' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: orionstars, SQL: alter table `games` add `hero_title` varchar(255) null after `title`)
-
-  at vendor/laravel/framework/src/Illuminate/Database/Connection.php:838
-    834▕             $exceptionType = $this->isUniqueConstraintError($e)
-    835▕                 ? UniqueConstraintViolationException::class
-    836▕                 : QueryException::class;
-    837▕
-  ➜ 838▕             throw new $exceptionType(
-    839▕                 $this->getNameWithReadWriteType(),
-    840▕                 $query,
-    841▕                 $this->prepareBindings($bindings),
-    842▕                 $e,
-
-      +9 vendor frames
-
-  10  database/migrations/2026_04_30_100001_update_games_and_posts_tables.php:15
-      Illuminate\Support\Facades\Facade::__callStatic()
-      +26 vendor frames
-
-  37  artisan:16
-      Illuminate\Foundation\Application::handleCommand()
-
-root@yopretty:/var/www/orionstars#
+177    .text-glow-yellow { text-shadow: 0 0 20px rgba(234, 179, 8, 0.5); }
+178</style>
+179@endsection
+180234, 179, 8, 0.5); }
+181</style>
+182@endsection
+183
