@@ -31,15 +31,15 @@
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $image }}">
 
-<?php if(isset($post->meta_schema) && is_array($post->meta_schema)): ?>
-    <?php foreach($post->meta_schema as $schema): ?>
-        <?php if(!empty($schema)): ?>
+@if(isset($post->meta_schema) && is_array($post->meta_schema))
+    @foreach($post->meta_schema as $schema)
+        @if(!empty($schema))
             <script type="application/ld+json">
-                <?php echo is_string($schema) ? $schema : json_encode($schema); ?>
+                {!! is_string($schema) ? $schema : json_encode($schema) !!}
             </script>
-        <?php endif; ?>
-    <?php endforeach; ?>
-<?php endif; ?>
+        @endif
+    @endforeach
+@endif
 
 <script type="application/ld+json">
 {
@@ -96,13 +96,13 @@
 }
 </script>
 
-<?php if(isset($post->faqs) && $post->faqs->count() > 0): ?>
+@if(isset($post->faqs) && $post->faqs->count() > 0)
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    <?php foreach($post->faqs as $faq): ?>
+    @foreach($post->faqs as $faq)
     {
       "@type": "Question",
       "name": "{{ str_replace('"', '\"', $faq->question) }}",
@@ -110,9 +110,9 @@
         "@type": "Answer",
         "text": "{{ str_replace('"', '\"', $faq->answer) }}"
       }
-    }<?php echo $loop->last ? '' : ','; ?>
-    <?php endforeach; ?>
+    }{{ $loop->last ? '' : ',' }}
+    @endforeach
   ]
 }
 </script>
-<?php endif; ?>
+@endif
