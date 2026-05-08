@@ -27,15 +27,15 @@
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $image }}">
 
-@if(isset($game->meta_schema) && is_array($game->meta_schema))
-    @foreach($game->meta_schema as $schema)
-        @if(!empty($schema))
+<?php if(isset($game->meta_schema) && is_array($game->meta_schema)): ?>
+    <?php foreach($game->meta_schema as $schema): ?>
+        <?php if(!empty($schema)): ?>
             <script type="application/ld+json">
-                {!! is_string($schema) ? $schema : json_encode($schema) !!}
+                <?php echo is_string($schema) ? $schema : json_encode($schema); ?>
             </script>
-        @endif
-    @endforeach
-@endif
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
 
 <script type="application/ld+json">
 {

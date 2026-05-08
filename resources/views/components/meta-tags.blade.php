@@ -28,28 +28,28 @@
 <meta name="twitter:image" content="{{ $finalImage }}">
 
 <!-- Schema JSON-LD (Head) -->
-@if($meta && !empty($meta->schema_head))
-    @foreach($meta->schema_head_json as $schema)
-        @if(!empty($schema))
+<?php if($meta && !empty($meta->schema_head)): ?>
+    <?php foreach($meta->schema_head_json as $schema): ?>
+        <?php if(!empty($schema)): ?>
             <script type="application/ld+json">
-                {!! is_string($schema) ? $schema : json_encode($schema) !!}
+                <?php echo is_string($schema) ? $schema : json_encode($schema); ?>
             </script>
-        @endif
-    @endforeach
-@endif
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
 
 <!-- Schema JSON-LD (Body) -->
-@if($meta && !empty($meta->schema_body))
+<?php if($meta && !empty($meta->schema_body)): ?>
     @push('scripts')
-        @foreach($meta->schema_body_json as $schema)
-            @if(!empty($schema))
+        <?php foreach($meta->schema_body_json as $schema): ?>
+            <?php if(!empty($schema)): ?>
                 <script type="application/ld+json">
-                    {!! is_string($schema) ? $schema : json_encode($schema) !!}
+                    <?php echo is_string($schema) ? $schema : json_encode($schema); ?>
                 </script>
-            @endif
-        @endforeach
+            <?php endif; ?>
+        <?php endforeach; ?>
     @endpush
-@endif
+<?php endif; ?>
 
 @php
     $segments = request()->segments();
@@ -80,7 +80,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": {!! json_encode($breadcrumbItems, JSON_UNESCAPED_SLASHES) !!}
+  "itemListElement": <?php echo json_encode($breadcrumbItems, JSON_UNESCAPED_SLASHES); ?>
 }
 </script>
 <?php endif; ?>
