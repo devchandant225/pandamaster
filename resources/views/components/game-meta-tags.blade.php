@@ -36,3 +36,30 @@
         @endif
     @endforeach
 @endif
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ url('/') }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Games",
+      "item": "{{ url('/games') }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ str_replace('"', '\"', $game->title) }}",
+      "item": "{{ $currentUrl }}"
+    }
+  ]
+}
+</script>

@@ -50,3 +50,34 @@
         @endforeach
     @endpush
 @endif
+
+@php
+    $segments = request()->segments();
+@endphp
+
+@if(count($segments) > 0)
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ url('/') }}"
+    }
+    @php $url = url('/'); @endphp
+    @foreach($segments as $index => $segment)
+    @php $url .= '/' . $segment; @endphp
+    ,{
+      "@type": "ListItem",
+      "position": {{ $index + 2 }},
+      "name": "{{ Str::headline($segment) }}",
+      "item": "{{ $url }}"
+    }
+    @endforeach
+  ]
+}
+</script>
+@endif

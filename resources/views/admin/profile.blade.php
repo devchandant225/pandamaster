@@ -93,6 +93,42 @@
                             </div>
 
                             <div class="grid md:grid-cols-2 gap-8">
+                                <div class="space-y-4" x-data="{ avatarPreview: '{{ $user->avatar_url ?: '' }}', avatarName: '' }">
+                                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Profile Photo</label>
+                                    <div class="flex items-center space-x-4">
+                                        <div class="relative w-20 h-20 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 flex items-center justify-center overflow-hidden"
+                                            :class="{ 'p-1': avatarPreview }"
+                                        >
+                                            <template x-if="avatarPreview">
+                                                <img :src="avatarPreview" alt="Avatar Preview" class="w-full h-full object-cover rounded-xl">
+                                            </template>
+                                            <template x-if="!avatarPreview">
+                                                <div class="text-center">
+                                                    <svg class="w-6 h-6 text-gray-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                                </div>
+                                            </template>
+                                            <input type="file" name="avatar_url" class="absolute inset-0 opacity-0 cursor-pointer"
+                                                @change="
+                                                    const file = $event.target.files[0];
+                                                    if (file) {
+                                                        const reader = new FileReader();
+                                                        reader.onload = (e) => {
+                                                            avatarPreview = e.target.result;
+                                                            avatarName = file.name;
+                                                        };
+                                                        reader.readAsDataURL(file);
+                                                    }
+                                                "
+                                            >
+                                        </div>
+                                        <div class="flex flex-col flex-1">
+                                            <span class="text-xs font-medium text-gray-700" x-text="avatarName ? avatarName : 'Change Photo'">Change Photo</span>
+                                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">Square PNG/JPG</p>
+                                        </div>
+                                    </div>
+                                    @error('avatar_url') <p class="text-red-500 text-[10px] font-bold mt-1">{{ $message }}</p> @enderror
+                                </div>
+
                                 <div class="space-y-2">
                                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Admin Name</label>
                                     <input type="text" name="name" value="{{ old('name', $user->name) }}" required
@@ -112,6 +148,13 @@
                                     <input type="tel" name="phone" value="{{ old('phone', $user->phone) }}"
                                         class="w-full h-14 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-2xl outline-none transition-all font-bold text-gray-900">
                                     @error('phone') <p class="text-red-500 text-[10px] font-bold mt-1">{{ $message }}</p> @enderror
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">City / Region</label>
+                                    <input type="text" name="city" value="{{ old('city', $user->city) }}"
+                                        class="w-full h-14 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-2xl outline-none transition-all font-bold text-gray-900">
+                                    @error('city') <p class="text-red-500 text-[10px] font-bold mt-1">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                         </div>
@@ -283,6 +326,12 @@
                                     <input type="text" name="telegram" value="{{ old('telegram', $user->telegram) }}"
                                         class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
                                     @error('telegram') <p class="text-red-500 text-[10px] font-bold mt-1">{{ $message }}</p> @enderror
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Pinterest</label>
+                                    <input type="text" name="pinterest" value="{{ old('pinterest', $user->pinterest) }}"
+                                        class="w-full h-12 px-5 bg-gray-50 border-2 border-gray-300 focus:border-[#D4AF37] focus:bg-white rounded-xl outline-none transition-all font-bold text-sm text-gray-900 placeholder-gray-400">
+                                    @error('pinterest') <p class="text-red-500 text-[10px] font-bold mt-1">{{ $message }}</p> @enderror
                                 </div>
                             </div>
 

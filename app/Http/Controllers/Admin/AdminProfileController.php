@@ -26,6 +26,7 @@ class AdminProfileController extends Controller
             'name' => 'nullable|string|max:255',
             'email' => 'nullable|string|email|max:255|unique:users,email,' . $user->id,
             'phone' => 'nullable|string|max:255',
+            'city' => 'nullable|string|max:255',
             'whatsapp' => 'nullable|string|max:255',
             'viber' => 'nullable|string|max:255',
             'facebook' => 'nullable|string|max:255',
@@ -33,6 +34,7 @@ class AdminProfileController extends Controller
             'linkedin' => 'nullable|string|max:255',
             'instagram' => 'nullable|string|max:255',
             'tiktok' => 'nullable|string|max:255',
+            'pinterest' => 'nullable|string|max:255',
             'telegram' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'login_url' => 'nullable|string|max:255',
@@ -45,6 +47,7 @@ class AdminProfileController extends Controller
             'footer_scripts' => 'nullable|string',
             'logo' => 'nullable|image|mimes:png,jpg,jpeg,svg,webp|max:4096',
             'favicon' => 'nullable|mimes:png,jpg,jpeg,svg,webp,ico|max:2048',
+            'avatar_url' => 'nullable|image|mimes:png,jpg,jpeg,svg,webp|max:2048',
         ]);
 
         if ($request->hasFile('logo')) {
@@ -59,6 +62,14 @@ class AdminProfileController extends Controller
                 Storage::disk('public')->delete($user->favicon);
             }
             $validated['favicon'] = $request->file('favicon')->store('branding', 'public');
+        }
+
+        if ($request->hasFile('avatar_url')) {
+            if ($user->avatar_url && !str_starts_with($user->avatar_url, 'http')) {
+                Storage::disk('public')->delete($user->avatar_url);
+            }
+            $path = $request->file('avatar_url')->store('avatars', 'public');
+            $validated['avatar_url'] = Storage::url($path);
         }
 
         $user->update($validated);
