@@ -67,16 +67,16 @@
       "name": "Home",
       "item": "{{ url('/') }}"
     }
-    @php $url = url('/'); @endphp
-    @foreach($segments as $index => $segment)
-    @php $url .= '/' . $segment; @endphp
+<?php $url = url('/'); ?>
+@foreach($segments as $index => $segment)
+<?php $url .= '/' . $segment; ?>
     ,{
       "@type": "ListItem",
       "position": {{ $index + 2 }},
       "name": "{{ Str::headline($segment) }}",
       "item": "{{ $url }}"
     }
-    @endforeach
+@endforeach
   ]
 }
 </script>
