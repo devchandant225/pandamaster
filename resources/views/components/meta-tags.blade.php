@@ -9,28 +9,6 @@
 
     $headSchemas = ($meta && !empty($meta->schema_head_json)) ? $meta->schema_head_json : [];
     $bodySchemas = ($meta && !empty($meta->schema_body_json)) ? $meta->schema_body_json : [];
-
-    $segments = request()->segments();
-    $breadcrumbItems = [];
-    if (count($segments) > 0) {
-        $breadcrumbItems[] = [
-            '@type' => 'ListItem',
-            'position' => 1,
-            'name' => 'Home',
-            'item' => url('/')
-        ];
-        
-        $url = url('/');
-        foreach ($segments as $index => $segment) {
-            $url .= '/' . $segment;
-            $breadcrumbItems[] = [
-                '@type' => 'ListItem',
-                'position' => $index + 2,
-                'name' => Str::headline($segment),
-                'item' => $url
-            ];
-        }
-    }
 @endphp
 
 <title>{{ $finalTitle }}</title>
@@ -72,14 +50,4 @@
             @endif
         @endforeach
     @endpush
-@endif
-
-@if(count($breadcrumbItems) > 0)
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": {!! json_encode($breadcrumbItems, JSON_UNESCAPED_SLASHES) !!}
-}
-</script>
 @endif

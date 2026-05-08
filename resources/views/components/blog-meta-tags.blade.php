@@ -69,33 +69,6 @@
 }
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "{{ url('/') }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "{{ url('/blog') }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "{{ str_replace('"', '\"', $post->title) }}",
-      "item": "{{ $currentUrl }}"
-    }
-  ]
-}
-</script>
-
 @if(isset($post->faqs) && $post->faqs->count() > 0)
 <script type="application/ld+json">
 {
