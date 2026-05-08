@@ -75,7 +75,7 @@
     }
 @endphp
 
-@if(count($segments) > 0)
+<?php if(count($segments) > 0): ?>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -83,4 +83,5 @@
   "itemListElement": {!! json_encode($breadcrumbItems, JSON_UNESCAPED_SLASHES) !!}
 }
 </script>
-@endif
+<?php endif; ?>
+
