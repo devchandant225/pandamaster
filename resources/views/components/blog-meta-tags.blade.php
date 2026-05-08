@@ -10,6 +10,22 @@
     $logoUrl = (isset($adminSettings) && $adminSettings->logo) 
         ? (str_starts_with($adminSettings->logo, 'http') ? $adminSettings->logo : Storage::url($adminSettings->logo))
         : asset('logo.png');
+
+    $metaSchemas = (isset($post->meta_schema) && is_array($post->meta_schema)) ? $post->meta_schema : [];
+    
+    $faqItems = [];
+    if (isset($post->faqs) && $post->faqs->count() > 0) {
+        foreach ($post->faqs as $faq) {
+            $faqItems[] = [
+                '@type' => 'Question',
+                'name' => $faq->question,
+                'acceptedAnswer' => [
+                    '@type' => 'Answer',
+                    'text' => $faq->answer
+                ]
+            ];
+        }
+    }
 @endphp
 
 <title>{{ $title }}</title>
@@ -31,15 +47,13 @@
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $image }}">
 
-@if(isset($post->meta_schema) && is_array($post->meta_schema))
-    @foreach($post->meta_schema as $schema)
-        @if(!empty($schema))
-            <script type="application/ld+json">
-                {!! is_string($schema) ? $schema : json_encode($schema) !!}
-            </script>
-        @endif
-    @endforeach
-@endif
+@foreach($metaSchemas as $schema)
+    @if(!empty($schema))
+        <script type="application/ld+json">
+            {!! is_string($schema) ? $schema : json_encode($schema) !!}
+        </script>
+    @endif
+@endforeach
 
 <script type="application/ld+json">
 {
@@ -69,23 +83,12 @@
 }
 </script>
 
-@if(isset($post->faqs) && $post->faqs->count() > 0)
+@if(count($faqItems) > 0)
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    @foreach($post->faqs as $faq)
-    {
-      "@type": "Question",
-      "name": "{{ str_replace('"', '\"', $faq->question) }}",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "{{ str_replace('"', '\"', $faq->answer) }}"
-      }
-    }{{ $loop->last ? '' : ',' }}
-    @endforeach
-  ]
+  "mainEntity": {!! json_encode($faqItems, JSON_UNESCAPED_SLASHES) !!}
 }
 </script>
 @endif

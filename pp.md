@@ -1,5 +1,5 @@
 ParseError
-resources/views/components/meta-tags.blade.php:82
+resources/views/components/blog-meta-tags.blade.php:91
 syntax error, unexpected end of file, expecting "elseif" or "else" or "endif"
 
 LARAVEL
@@ -10,20 +10,13 @@ UNHANDLED
 CODE 0
 500
 GET
-https://orionstarsbet.com
-
+https://orionstarsbet.com/blog/how-to-play-orion-stars-slot-games
 Exception trace
 Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
-resources/views/components/meta-tags.blade.php:82
-
-77
-78<?php if(count($segments) > 0): ?>
-79<script type="application/ld+json">
-80{
-81  "@context": "https://schema.org",
-82  "@type": "BreadcrumbList",
-83  "itemListElement": <?php echo json_encode($breadcrumbItems, JSON_UNESCAPED_SLASHES); ?>
-84}
-85</script>
-86<?php endif; ?>
-87
+resources/views/components/blog-meta-tags.blade.php:91
+86    }{{ $loop->last ? '' : ',' }}
+87    @endforeach
+88  ]
+89}
+90</script>
+91@endif

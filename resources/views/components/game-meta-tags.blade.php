@@ -6,6 +6,8 @@
     $description = $game->meta_description ?: Str::limit($game->description, 160);
     $keywords = $game->meta_keywords ?: 'Orion Stars game, ' . $game->game_type . ', ' . $game->title;
     $image = $game->thumbnail ?: asset('logo.png');
+
+    $metaSchemas = (isset($game->meta_schema) && is_array($game->meta_schema)) ? $game->meta_schema : [];
 @endphp
 
 <title>{{ $title }}</title>
@@ -27,12 +29,10 @@
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $image }}">
 
-@if(isset($game->meta_schema) && is_array($game->meta_schema))
-    @foreach($game->meta_schema as $schema)
-        @if(!empty($schema))
-            <script type="application/ld+json">
-                {!! is_string($schema) ? $schema : json_encode($schema) !!}
-            </script>
-        @endif
-    @endforeach
-@endif
+@foreach($metaSchemas as $schema)
+    @if(!empty($schema))
+        <script type="application/ld+json">
+            {!! is_string($schema) ? $schema : json_encode($schema) !!}
+        </script>
+    @endif
+@endforeach
