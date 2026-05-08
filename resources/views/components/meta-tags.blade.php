@@ -53,6 +53,26 @@
 
 @php
     $segments = request()->segments();
+    $breadcrumbItems = [];
+    if (count($segments) > 0) {
+        $breadcrumbItems[] = [
+            '@type' => 'ListItem',
+            'position' => 1,
+            'name' => 'Home',
+            'item' => url('/')
+        ];
+        
+        $url = url('/');
+        foreach ($segments as $index => $segment) {
+            $url .= '/' . $segment;
+            $breadcrumbItems[] = [
+                '@type' => 'ListItem',
+                'position' => $index + 2,
+                'name' => Str::headline($segment),
+                'item' => $url
+            ];
+        }
+    }
 @endphp
 
 @if(count($segments) > 0)
@@ -60,24 +80,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "{{ url('/') }}"
-    }
-<?php $url = url('/'); ?>
-@foreach($segments as $index => $segment)
-<?php $url .= '/' . $segment; ?>
-    ,{
-      "@type": "ListItem",
-      "position": {{ $index + 2 }},
-      "name": "{{ Str::headline($segment) }}",
-      "item": "{{ $url }}"
-    }
-@endforeach
-  ]
+  "itemListElement": {!! json_encode($breadcrumbItems, JSON_UNESCAPED_SLASHES) !!}
 }
 </script>
 @endif

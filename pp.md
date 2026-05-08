@@ -17,7 +17,7 @@ Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
 resources/views/components/meta-tags.blade.php:83
 
 78    }
-79    @endforeach
+79@endforeach
 80  ]
 81}
 82</script>
