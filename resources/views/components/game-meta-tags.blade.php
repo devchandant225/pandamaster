@@ -29,10 +29,12 @@
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $image }}">
 
-@foreach($metaSchemas as $schema)
-    @if(!empty($schema))
-        <script type="application/ld+json">
-            {!! is_string($schema) ? $schema : json_encode($schema) !!}
-        </script>
-    @endif
-@endforeach
+<?php if (count($metaSchemas) > 0): ?>
+    <?php foreach ($metaSchemas as $schema): ?>
+        <?php if (!empty($schema)): ?>
+            <script type="application/ld+json">
+                <?php echo is_string($schema) ? $schema : json_encode($schema); ?>
+            </script>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

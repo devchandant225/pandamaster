@@ -31,23 +31,25 @@
 <meta name="twitter:image" content="{{ $finalImage }}">
 
 <!-- Schema JSON-LD (Head) -->
-@foreach($headSchemas as $schema)
-    @if(!empty($schema))
-        <script type="application/ld+json">
-            {!! is_string($schema) ? $schema : json_encode($schema) !!}
-        </script>
-    @endif
-@endforeach
+<?php if (count($headSchemas) > 0): ?>
+    <?php foreach ($headSchemas as $schema): ?>
+        <?php if (!empty($schema)): ?>
+            <script type="application/ld+json">
+                <?php echo is_string($schema) ? $schema : json_encode($schema); ?>
+            </script>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
 
 <!-- Schema JSON-LD (Body) -->
-@if(count($bodySchemas) > 0)
+<?php if (count($bodySchemas) > 0): ?>
     @push('scripts')
-        @foreach($bodySchemas as $schema)
-            @if(!empty($schema))
+        <?php foreach ($bodySchemas as $schema): ?>
+            <?php if (!empty($schema)): ?>
                 <script type="application/ld+json">
-                    {!! is_string($schema) ? $schema : json_encode($schema) !!}
+                    <?php echo is_string($schema) ? $schema : json_encode($schema); ?>
                 </script>
-            @endif
-        @endforeach
+            <?php endif; ?>
+        <?php endforeach; ?>
     @endpush
-@endif
+<?php endif; ?>
