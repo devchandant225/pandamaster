@@ -3,7 +3,7 @@
 @section('content')
 <div class="min-h-screen bg-gray-950 text-white">
     <!-- Hero Section -->
-    <div class="relative py-24 md:py-32 lg:py-40 overflow-hidden border-b border-white/5">
+    <section id="hero" class="relative overflow-hidden min-h-screen flex items-center justify-center bg-gray-950 py-20">
         <!-- Animated Background & Lighting -->
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
@@ -12,18 +12,18 @@
         </div>
 
         <div class="absolute inset-0 pointer-events-none">
-            @for($i = 0; $i < 30; $i++)
+            @for($i = 0; $i < 60; $i++)
                 <div class="absolute w-[1px] h-[1px] bg-white rounded-full animate-twinkle"
                      style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 5000) }}ms; animation-duration: {{ rand(3000, 6000) }}ms;"></div>
             @endfor
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center min-h-[80vh]">
                 <!-- Left: Content -->
-                <div class="space-y-8 text-left">
+                <div class="text-center lg:text-left max-w-2xl">
                     <!-- Breadcrumbs -->
-                    <nav class="flex items-center gap-3 mb-8 text-[10px] font-black uppercase tracking-[0.3em]">
+                    <nav class="flex items-center justify-center lg:justify-start gap-3 mb-8 text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in-up">
                         <a href="{{ route('home') }}" class="text-gray-500 hover:text-white transition-colors">Home</a>
                         <span class="text-gray-800">/</span>
                         <a href="{{ route('games.index') }}" class="text-gray-500 hover:text-white transition-colors">Games</a>
@@ -31,27 +31,27 @@
                         <span class="text-yellow-500">{{ $game->title }}</span>
                     </nav>
 
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.9] text-white">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight animate-fade-in-up uppercase tracking-tighter text-white">
                         {{ $game->hero_title ?? $game->title }}
                     </h1>
 
-                    <div class="h-1.5 w-32 bg-yellow-500 rounded-full"></div>
+                    <div class="h-1.5 w-32 bg-yellow-500 rounded-full mb-8 mx-auto lg:mx-0 animate-fade-in-up"></div>
 
-                    <div class="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed rich-text-content">
+                    <div class="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed rich-text-content mb-8 animate-fade-in-up" style="animation-delay: 0.1s;">
                         {!! $game->description !!}
                     </div>
 
                     @if($game->hero_subtitle)
-                        <p class="text-lg text-gray-400 font-medium leading-relaxed border-l-4 border-yellow-500/30 pl-6">
+                        <p class="text-lg text-gray-400 font-medium leading-relaxed border-l-4 border-yellow-500/30 pl-6 mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
                             {{ $game->hero_subtitle }}
                         </p>
                     @endif
 
-                    <div class="flex flex-wrap gap-6 pt-8">
+                    <div class="flex flex-wrap gap-6 pt-4 justify-center lg:justify-start animate-fade-in-up" style="animation-delay: 0.3s;">
                         @if($game->hero_ctas && count($game->hero_ctas) > 0)
                             @foreach($game->hero_ctas as $cta)
                                 <a href="{{ $cta['url'] }}" 
-                                   class="px-12 py-5 rounded-2xl font-black uppercase tracking-widest transition-all transform hover:-translate-y-1 shadow-lg
+                                   class="px-10 py-4 rounded-xl font-black uppercase tracking-widest transition-all transform hover:-translate-y-1 shadow-lg
                                    {{ ($cta['style'] ?? 'primary') === 'primary' ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-black hover:shadow-yellow-500/50' : '' }}
                                    {{ ($cta['style'] ?? 'primary') === 'secondary' ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:shadow-purple-500/50' : '' }}
                                    {{ ($cta['style'] ?? 'primary') === 'outline' ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm' : '' }}">
@@ -59,11 +59,11 @@
                                 </a>
                             @endforeach
                         @else
-                            <a href="{{ route('games.play', $game->slug) }}" class="px-12 py-5 rounded-2xl bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-black uppercase tracking-widest shadow-lg hover:shadow-yellow-500/50 transform hover:-translate-y-1 transition-all">
+                            <a href="{{ route('games.play', $game->slug) }}" class="px-10 py-4 rounded-xl bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-black uppercase tracking-widest shadow-lg hover:shadow-yellow-500/50 transform hover:-translate-y-1 transition-all">
                                 Play Now
                             </a>
                             @if($game->demo_url)
-                                <a href="{{ route('games.demo', $game->slug) }}" class="px-12 py-5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-black uppercase tracking-widest transform hover:-translate-y-1 transition-all backdrop-blur-sm">
+                                <a href="{{ route('games.demo', $game->slug) }}" class="px-10 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-black uppercase tracking-widest transform hover:-translate-y-1 transition-all backdrop-blur-sm">
                                     Try Demo
                                 </a>
                             @endif
@@ -72,12 +72,12 @@
                 </div>
 
                 <!-- Right: Image -->
-                <div class="relative group">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-yellow-500/20 to-purple-500/20 rounded-[3rem] blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
-                    <div class="relative aspect-[4/3] lg:aspect-square overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl shadow-yellow-500/10 transform transition-transform duration-700 group-hover:scale-[1.02]">
+                <div class="relative flex justify-center lg:justify-end animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-yellow-500/20 to-purple-500/20 rounded-[3rem] blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-700"></div>
+                    <div class="relative aspect-square w-full max-w-md lg:max-w-lg overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl shadow-yellow-500/10 transform transition-transform duration-700 hover:scale-[1.02]">
                         <img src="{{ $game->thumbnail }}" alt="{{ $game->title }}" class="w-full h-full object-cover">
                         <!-- Overlay Shine -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 to-transparent opacity-0 hover:opacity-100 transition-opacity"></div>
                     </div>
                     
                     <!-- Floating Badge -->
@@ -95,90 +95,116 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Special Note / Why Play Section -->
     @if($game->special_items && count($game->special_items) > 0)
-        <div class="max-w-7xl mx-auto px-4 py-32">
-            <div class="bg-gradient-to-br from-yellow-500/5 to-purple-500/5 rounded-[3rem] p-12 md:p-20 border border-white/5 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/5 blur-[100px] rounded-full"></div>
-                
-                <div class="max-w-4xl mx-auto relative z-10">
-                    <h2 class="text-4xl md:text-5xl font-black uppercase mb-16 text-center tracking-tighter text-white">
-                        {{ $game->special_title ?? 'Important Note' }}
-                    </h2>
-                    
-                    <div class="space-y-6">
-                        @foreach($game->special_items as $item)
-                            <div class="flex items-start gap-6 group bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-white/5 hover:border-yellow-500/30 transition-all">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
-                                    {{ $loop->iteration }}
-                                </div>
-                                <div class="flex-1">
-                                    @if(!empty($item['subtitle']))
-                                        <h3 class="text-xl font-black text-yellow-500 uppercase mb-2 tracking-widest group-hover:text-white transition-colors">
-                                            {{ $item['subtitle'] }}
-                                        </h3>
-                                    @endif
-                                    <div class="text-lg text-gray-300 leading-relaxed rich-text-content">
-                                        {{ $item['content'] ?? '' }}
+        <section class="py-24 bg-gray-900 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-black mb-8 text-white uppercase tracking-tighter">
+                            {{ $game->special_title ?? 'Why Play ' . $game->title . '?' }}
+                        </h2>
+                        <div class="space-y-6">
+                            @foreach($game->special_items as $item)
+                                <div class="flex items-start gap-6 group">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
+                                        {{ $loop->iteration }}
+                                    </div>
+                                    <div class="flex-1">
+                                        @if(!empty($item['subtitle']))
+                                            <h3 class="text-xl font-black text-white uppercase mb-2 tracking-widest">
+                                                {{ $item['subtitle'] }}
+                                            </h3>
+                                        @endif
+                                        <div class="text-lg text-gray-400 leading-relaxed rich-text-content font-medium">
+                                            {{ $item['content'] ?? '' }}
+                                        </div>
                                     </div>
                                 </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-purple-500/20 blur-3xl rounded-full animate-pulse"></div>
+                        <div class="relative bg-gray-800 border border-white/10 p-8 rounded-[3rem] shadow-2xl">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="aspect-square bg-gray-950 rounded-2xl flex items-center justify-center text-5xl shadow-inner">
+                                    {{ $game->category === 'fish' ? '🐟' : ($game->category === 'slots' ? '🎰' : '🏆') }}
+                                </div>
+                                <div class="aspect-square bg-gray-950 rounded-2xl flex items-center justify-center text-5xl shadow-inner">💎</div>
+                                <div class="aspect-square bg-gray-950 rounded-2xl flex items-center justify-center text-5xl shadow-inner">⚡</div>
+                                <div class="aspect-square bg-gray-950 rounded-2xl flex items-center justify-center text-5xl shadow-inner">💰</div>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     @endif
 
     <!-- Alternating Content Sections -->
     @if($game->sections && count($game->sections) > 0)
-        <div class="max-w-7xl mx-auto px-4 py-24 space-y-32">
-            @foreach($game->sections as $index => $section)
-                <div class="flex flex-col {{ ($section['image_side'] ?? 'right') === 'left' ? 'md:flex-row-reverse' : 'md:flex-row' }} items-center gap-12 lg:gap-24">
-                    <div class="flex-1 space-y-6">
-                        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight">{{ $section['title'] ?? '' }}</h2>
-                        <div class="h-1.5 w-24 bg-yellow-500 rounded-full"></div>
-                        <div class="text-gray-300 text-lg leading-relaxed rich-text-content">
-                            {!! nl2br(e($section['content'] ?? $section['text'] ?? '')) !!}
+        @foreach($game->sections as $index => $section)
+            <section class="py-24 {{ $index % 2 === 0 ? 'bg-gray-950' : 'bg-gray-900' }} border-y border-white/5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col {{ ($section['image_side'] ?? 'right') === 'left' ? 'lg:flex-row-reverse' : 'lg:flex-row' }} items-center gap-16 lg:gap-24">
+                        <div class="lg:w-1/2 space-y-8">
+                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight">
+                                {{ $section['title'] ?? '' }}
+                            </h2>
+                            <div class="h-1.5 w-24 bg-yellow-500 rounded-full"></div>
+                            <div class="text-gray-400 text-lg leading-relaxed rich-text-content font-medium">
+                                {!! nl2br(e($section['content'] ?? $section['text'] ?? '')) !!}
+                            </div>
+                            @if(!empty($section['cta_label']))
+                                <a href="{{ $section['cta_url'] ?? '#' }}" class="inline-flex items-center gap-4 bg-yellow-500 text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-yellow-400 transition-colors shadow-lg">
+                                    {{ $section['cta_label'] }}
+                                </a>
+                            @endif
                         </div>
-                        @if(!empty($section['cta_label']))
-                            <a href="{{ $section['cta_url'] ?? '#' }}" class="inline-block px-10 py-4 bg-yellow-500 text-black font-black uppercase tracking-widest rounded-xl hover:bg-yellow-400 transition-colors shadow-lg">
-                                {{ $section['cta_label'] }}
-                            </a>
-                        @endif
-                    </div>
-                    <div class="flex-1 w-full">
-                        <div class="relative group">
-                            <div class="absolute -inset-4 bg-yellow-500/5 rounded-[2rem] blur-2xl group-hover:bg-yellow-500/10 transition-all"></div>
-                            <img src="{{ $section['image_url'] ?? $section['image'] ?? $game->thumbnail }}" alt="{{ $section['image_alt'] ?? $section['title'] ?? 'Section Image' }}" class="relative rounded-[2rem] shadow-2xl border border-white/5 w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.01]">
+                        <div class="lg:w-1/2 w-full">
+                            <div class="relative group">
+                                <div class="absolute -inset-4 bg-yellow-500/10 rounded-[2.5rem] blur-2xl group-hover:bg-yellow-500/20 transition-all duration-700"></div>
+                                <img src="{{ $section['image_url'] ?? $section['image'] ?? $game->thumbnail }}" 
+                                     alt="{{ $section['image_alt'] ?? $section['title'] ?? 'Section Image' }}" 
+                                     class="relative rounded-[2.5rem] shadow-2xl border border-white/10 w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.01]">
+                            </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </section>
+        @endforeach
     @endif
 
     <!-- How To Section -->
     @if($game->how_to && count($game->how_to) > 0)
-        <div class="bg-gray-900 py-32 border-y border-white/5">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-4xl md:text-5xl font-black uppercase mb-16 tracking-tighter text-white">
-                    How To <span class="text-yellow-500">Play</span>
-                </h2>
-                <div class="space-y-6 text-left">
+        <section class="py-24 bg-gray-950 border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black mb-4 text-white uppercase tracking-tighter">
+                        How To <span class="text-yellow-500">Play</span>
+                    </h2>
+                    <p class="text-xl text-gray-400">Follow these simple steps to start winning in {{ $game->title }}.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($game->how_to as $step)
-                        <div class="flex items-start gap-6 group bg-gray-950 p-6 rounded-2xl border border-white/5 hover:border-yellow-500/30 transition-all">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
-                                {{ $loop->iteration }}
+                        <div class="p-10 bg-gray-900 rounded-[2.5rem] border border-white/5 hover:border-yellow-500/30 transition-all group">
+                            <div class="flex items-start gap-6">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
+                                    {{ $loop->iteration }}
+                                </div>
+                                <p class="text-lg text-gray-300 font-bold leading-relaxed pt-2">
+                                    {{ is_array($step) ? ($step['step'] ?? '') : $step }}
+                                </p>
                             </div>
-                            <p class="text-xl text-gray-300 font-medium py-2">{{ is_array($step) ? ($step['step'] ?? '') : $step }}</p>
                         </div>
                     @endforeach
                 </div>
             </div>
-        </div>
+        </section>
     @endif
 
     <!-- Dynamic Card Section -->
