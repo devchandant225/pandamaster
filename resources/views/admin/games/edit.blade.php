@@ -172,6 +172,24 @@
                 </div>
             </div>
 
+            <!-- Extra Banner Section -->
+            <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 space-y-6">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>
+                    Extra Banner Section
+                </h3>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-400 mb-2">Banner Title</label>
+                    <input type="text" name="extra_banner_title" value="{{ old('extra_banner_title', $game->extra_banner_title) }}" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="Special Offer or Feature">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-400 mb-2">Banner Description</label>
+                    <textarea name="extra_banner_description" id="extra_banner_description" rows="3" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="Detailed banner information...">{{ old('extra_banner_description', $game->extra_banner_description) }}</textarea>
+                </div>
+            </div>
+
             <!-- Why Play Section -->
             <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 space-y-6">
                 <h3 class="text-xl font-bold text-white flex items-center gap-2">
@@ -469,49 +487,6 @@ document.addEventListener('DOMContentLoaded', function() {
             height: 200,
             removeButtons: 'PasteFromWord',
             skin: 'moono-lisa',
-        });
-    }
-
-    const fileInput = document.getElementById('thumbnail-upload');
-    const previewDiv = document.getElementById('upload-preview');
-    const previewImage = document.getElementById('preview-image');
-    
-    if (fileInput) {
-        fileInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    previewDiv.classList.remove('hidden');
-                };
-                reader.readAsDataURL(file);
-            } else {
-                previewDiv.classList.add('hidden');
-            }
-        });
-    }
-});
-</script>
-@endpush
-@endsection
-dex') }}" class="px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-bold transition-colors">
-                    Cancel
-                </a>
-            </div>
-        </form>
-    </div>
-</div>
-
-@push('scripts')
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize CKEditor
-    if (typeof CKEDITOR !== 'undefined') {
-        CKEDITOR.replace('description', {
-            height: 300,
-            removeButtons: 'PasteFromWord',
-            skin: 'moono-lisa', // Use default or specific skin if available
         });
     }
 
