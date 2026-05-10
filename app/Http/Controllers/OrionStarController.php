@@ -79,6 +79,6 @@ class OrionStarController extends Controller
 
         \App\Models\ContactMessage::create($validated);
 
-        return back()->with('success', 'Thank you for contacting Orion Star! We will get back to you soon.');
+        return redirect()->route('thanks')->with('lead_name', $validated['name']);
     }
 }

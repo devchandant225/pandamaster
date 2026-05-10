@@ -33,6 +33,19 @@
             </h3>
             <div class="space-y-1.5">
                 <x-sidebar-link :href="route('admin.blog.index')" :active="$active === 'blog'" icon="edit" label="Blog Articles" />
+                <x-sidebar-link :href="route('admin.about.edit')" :active="$active === 'about'" icon="info" label="About Page" />
+            </div>
+        </div>
+
+        <!-- Communications Section -->
+        <div>
+            <h3 class="px-4 text-[10px] font-black text-gray-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span class="w-1 h-1 bg-blue-500 rounded-full"></span>
+                Communications
+            </h3>
+            <div class="space-y-1.5">
+                <x-sidebar-link :href="route('admin.contacts.index')" :active="$active === 'contacts'" icon="mail" label="Contact Messages" />
+                <x-sidebar-link :href="route('admin.subscribers.index')" :active="$active === 'subscribers'" icon="user-group" label="Subscribers" />
             </div>
         </div>
 

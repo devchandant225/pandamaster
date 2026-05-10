@@ -1,4 +1,4 @@
-@extends('layouts.dashboard', ['active' => 'about-page'])
+@extends('layouts.dashboard', ['active' => 'about'])
 
 @section('title', 'Manage About Page')
 

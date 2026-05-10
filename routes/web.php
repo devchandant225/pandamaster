@@ -31,6 +31,9 @@ Route::get('/orion-stars-sweepstakes-table-games', [OrionStarController::class, 
 Route::get('/orion-stars-keno', [OrionStarController::class, 'keno'])->name('orionstar.keno');
 Route::get('/privacy-policy', [OrionStarController::class, 'privacy'])->name('privacy');
 Route::get('/terms-conditions', [OrionStarController::class, 'terms'])->name('terms');
+Route::get('/thanks', function () {
+    return view('thanks');
+})->name('thanks');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [OrionStarController::class, 'contact'])->name('contact');
 Route::post('/contact', [OrionStarController::class, 'contactStore'])->name('contact.store');

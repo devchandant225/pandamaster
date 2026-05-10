@@ -115,32 +115,34 @@
 
     <!-- Features Section -->
     @if($game->features && count($game->features) > 0)
-        <div class="max-w-7xl mx-auto px-4 py-32">
-            <h2 class="text-5xl font-black uppercase text-center mb-20 tracking-tighter text-gray-900">Key <span class="text-[#D4AF37]">Features</span></h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach($game->features as $feature)
-                    <div class="bg-gray-50 border border-gray-100 p-8 rounded-[2rem] hover:border-[#D4AF37]/50 transition-all group flex items-start gap-5 shadow-sm">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#D4AF37]/10 flex items-center justify-center text-2xl">
-                            @if(is_array($feature) && !empty($feature['icon']))
-                                {{ $feature['icon'] }}
-                            @else
-                                <svg class="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            @endif
+        <div class="bg-gray-50 py-32 border-y border-gray-100">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-5xl font-black uppercase text-center mb-20 tracking-tighter text-gray-900">Key <span class="text-[#D4AF37]">Features</span></h2>
+                <div class="space-y-12">
+                    @foreach($game->features as $feature)
+                        <div class="flex items-start gap-8 group">
+                            <div class="flex-shrink-0 w-16 h-16 rounded-[2rem] bg-gray-50 border border-gray-100 flex items-center justify-center text-3xl group-hover:border-[#D4AF37]/50 transition-all shadow-sm">
+                                @if(is_array($feature) && !empty($feature['icon']))
+                                    {{ $feature['icon'] }}
+                                @else
+                                    <svg class="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                @endif
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight text-gray-900 mb-2">
+                                    {{ is_array($feature) ? ($feature['title'] ?? $feature['feature'] ?? 'Feature') : $feature }}
+                                </h3>
+                                @if(is_array($feature) && !empty($feature['content']))
+                                    <p class="text-xl text-gray-600 leading-relaxed font-medium">
+                                        {{ $feature['content'] }}
+                                    </p>
+                                @endif
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">
-                                {{ is_array($feature) ? ($feature['title'] ?? $feature['feature'] ?? 'Feature') : $feature }}
-                            </h3>
-                            @if(is_array($feature) && !empty($feature['content']))
-                                <p class="text-gray-600 leading-relaxed">
-                                    {{ $feature['content'] }}
-                                </p>
-                            @endif
-                        </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
     @endif
