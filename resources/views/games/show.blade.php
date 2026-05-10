@@ -3,7 +3,7 @@
 @section('content')
 <div class="min-h-screen bg-gray-950 text-white">
     <!-- Hero Section -->
-    <div class="relative py-24 md:py-32 overflow-hidden border-b border-white/5">
+    <div class="relative py-24 md:py-32 lg:py-40 overflow-hidden border-b border-white/5">
         <!-- Animated Background & Lighting -->
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
@@ -18,65 +18,119 @@
             @endfor
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
-            <!-- Breadcrumbs -->
-            <nav class="flex items-center justify-center gap-3 mb-12 text-[10px] font-black uppercase tracking-[0.3em]">
-                <a href="{{ route('home') }}" class="text-gray-500 hover:text-white transition-colors">Home</a>
-                <span class="text-gray-800">/</span>
-                <a href="{{ route('games.index') }}" class="text-gray-500 hover:text-white transition-colors">Games</a>
-                <span class="text-gray-800">/</span>
-                <span class="text-yellow-500">{{ $game->title }}</span>
-            </nav>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <!-- Left: Content -->
+                <div class="space-y-8 text-left">
+                    <!-- Breadcrumbs -->
+                    <nav class="flex items-center gap-3 mb-8 text-[10px] font-black uppercase tracking-[0.3em]">
+                        <a href="{{ route('home') }}" class="text-gray-500 hover:text-white transition-colors">Home</a>
+                        <span class="text-gray-800">/</span>
+                        <a href="{{ route('games.index') }}" class="text-gray-500 hover:text-white transition-colors">Games</a>
+                        <span class="text-gray-800">/</span>
+                        <span class="text-yellow-500">{{ $game->title }}</span>
+                    </nav>
 
-            <!-- Featured Image -->
-            <div class="relative max-w-5xl mx-auto mb-16 group">
-                <div class="absolute -inset-4 bg-gradient-to-r from-yellow-500/20 to-purple-500/20 rounded-[3rem] blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-700"></div>
-                <img src="{{ $game->thumbnail }}" alt="{{ $game->title }}" class="relative w-full h-auto rounded-[3rem] shadow-2xl border border-white/10 transform transition-transform duration-700 group-hover:scale-[1.02]">
-            </div>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.9] text-white">
+                        {{ $game->hero_title ?? $game->title }}
+                    </h1>
 
-            <!-- Title & Description -->
-            <div class="max-w-4xl mx-auto space-y-8">
-                <h1 class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase leading-tight text-white">
-                    {{ $game->hero_title ?? $game->title }}
-                </h1>
+                    <div class="h-1.5 w-32 bg-yellow-500 rounded-full"></div>
 
-                <div class="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed">
-                    {!! $game->description !!}
-                </div>
-                
-                <div class="h-1.5 w-32 bg-yellow-500 mx-auto rounded-full"></div>
+                    <div class="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed rich-text-content">
+                        {!! $game->description !!}
+                    </div>
 
-                @if($game->hero_subtitle)
-                    <p class="text-lg text-gray-400 font-medium leading-relaxed">
-                        {{ $game->hero_subtitle }}
-                    </p>
-                @endif
-
-                <div class="flex flex-wrap justify-center gap-6 pt-8">
-                    @if($game->hero_ctas && count($game->hero_ctas) > 0)
-                        @foreach($game->hero_ctas as $cta)
-                            <a href="{{ $cta['url'] }}" 
-                               class="px-12 py-5 rounded-2xl font-black uppercase tracking-widest transition-all transform hover:-translate-y-1 shadow-lg
-                               {{ ($cta['style'] ?? 'primary') === 'primary' ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-black hover:shadow-yellow-500/50' : '' }}
-                               {{ ($cta['style'] ?? 'primary') === 'secondary' ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:shadow-purple-500/50' : '' }}
-                               {{ ($cta['style'] ?? 'primary') === 'outline' ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm' : '' }}">
-                                {{ $cta['label'] }}
-                            </a>
-                        @endforeach
-                    @else
-                        <a href="{{ route('games.play', $game->slug) }}" class="px-12 py-5 rounded-2xl bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-black uppercase tracking-widest shadow-lg hover:shadow-yellow-500/50 transform hover:-translate-y-1 transition-all">
-                            Play Now
-                        </a>
-                        @if($game->demo_url)
-                            <a href="{{ route('games.demo', $game->slug) }}" class="px-12 py-5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-black uppercase tracking-widest transform hover:-translate-y-1 transition-all backdrop-blur-sm">
-                                Try Demo
-                            </a>
-                        @endif
+                    @if($game->hero_subtitle)
+                        <p class="text-lg text-gray-400 font-medium leading-relaxed border-l-4 border-yellow-500/30 pl-6">
+                            {{ $game->hero_subtitle }}
+                        </p>
                     @endif
+
+                    <div class="flex flex-wrap gap-6 pt-8">
+                        @if($game->hero_ctas && count($game->hero_ctas) > 0)
+                            @foreach($game->hero_ctas as $cta)
+                                <a href="{{ $cta['url'] }}" 
+                                   class="px-12 py-5 rounded-2xl font-black uppercase tracking-widest transition-all transform hover:-translate-y-1 shadow-lg
+                                   {{ ($cta['style'] ?? 'primary') === 'primary' ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-black hover:shadow-yellow-500/50' : '' }}
+                                   {{ ($cta['style'] ?? 'primary') === 'secondary' ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:shadow-purple-500/50' : '' }}
+                                   {{ ($cta['style'] ?? 'primary') === 'outline' ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm' : '' }}">
+                                    {{ $cta['label'] }}
+                                </a>
+                            @endforeach
+                        @else
+                            <a href="{{ route('games.play', $game->slug) }}" class="px-12 py-5 rounded-2xl bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-black uppercase tracking-widest shadow-lg hover:shadow-yellow-500/50 transform hover:-translate-y-1 transition-all">
+                                Play Now
+                            </a>
+                            @if($game->demo_url)
+                                <a href="{{ route('games.demo', $game->slug) }}" class="px-12 py-5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-black uppercase tracking-widest transform hover:-translate-y-1 transition-all backdrop-blur-sm">
+                                    Try Demo
+                                </a>
+                            @endif
+                        @endif
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-yellow-500/20 to-purple-500/20 rounded-[3rem] blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
+                    <div class="relative aspect-[4/3] lg:aspect-square overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl shadow-yellow-500/10 transform transition-transform duration-700 group-hover:scale-[1.02]">
+                        <img src="{{ $game->thumbnail }}" alt="{{ $game->title }}" class="w-full h-full object-cover">
+                        <!-- Overlay Shine -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-gray-900 border border-yellow-500/30 p-6 rounded-3xl backdrop-blur-xl shadow-2xl hidden md:block animate-float-slow">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-yellow-500 rounded-2xl flex items-center justify-center text-black">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest text-yellow-500">Top Rated</p>
+                                <p class="text-white font-black uppercase tracking-tight">Game of the Week</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Special Note / Why Play Section -->
+    @if($game->special_items && count($game->special_items) > 0)
+        <div class="max-w-7xl mx-auto px-4 py-32">
+            <div class="bg-gradient-to-br from-yellow-500/5 to-purple-500/5 rounded-[3rem] p-12 md:p-20 border border-white/5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/5 blur-[100px] rounded-full"></div>
+                
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <h2 class="text-4xl md:text-5xl font-black uppercase mb-16 text-center tracking-tighter text-white">
+                        {{ $game->special_title ?? 'Important Note' }}
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        @foreach($game->special_items as $item)
+                            <div class="flex items-start gap-6 group bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-white/5 hover:border-yellow-500/30 transition-all">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
+                                    {{ $loop->iteration }}
+                                </div>
+                                <div class="flex-1">
+                                    @if(!empty($item['subtitle']))
+                                        <h3 class="text-xl font-black text-yellow-500 uppercase mb-2 tracking-widest group-hover:text-white transition-colors">
+                                            {{ $item['subtitle'] }}
+                                        </h3>
+                                    @endif
+                                    <div class="text-lg text-gray-300 leading-relaxed rich-text-content">
+                                        {{ $item['content'] ?? '' }}
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 
     <!-- Alternating Content Sections -->
     @if($game->sections && count($game->sections) > 0)
@@ -86,7 +140,7 @@
                     <div class="flex-1 space-y-6">
                         <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight">{{ $section['title'] ?? '' }}</h2>
                         <div class="h-1.5 w-24 bg-yellow-500 rounded-full"></div>
-                        <div class="text-gray-400 text-lg leading-relaxed">
+                        <div class="text-gray-300 text-lg leading-relaxed rich-text-content">
                             {!! nl2br(e($section['content'] ?? $section['text'] ?? '')) !!}
                         </div>
                         @if(!empty($section['cta_label']))
@@ -127,30 +181,6 @@
         </div>
     @endif
 
-    <!-- Special Note / Why Play Section -->
-    @if($game->special_items && count($game->special_items) > 0)
-        <div class="max-w-7xl mx-auto px-4 py-32">
-            <div class="bg-gradient-to-br from-yellow-500/5 to-purple-500/5 rounded-[3rem] p-12 md:p-20 border border-white/5 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/5 blur-[100px] rounded-full"></div>
-                
-                <h2 class="text-4xl md:text-5xl font-black uppercase mb-16 text-center tracking-tighter text-white">{{ $game->special_title ?? 'Important Note' }}</h2>
-                
-                <div class="grid md:grid-cols-3 gap-12 relative z-10">
-                    @foreach($game->special_items as $item)
-                        <div class="bg-gray-900/50 backdrop-blur-xl p-10 rounded-[2.5rem] border border-white/5 shadow-2xl hover:border-yellow-500/30 transition-all group">
-                            <h3 class="text-xl font-black text-yellow-500 uppercase mb-6 tracking-widest border-b border-white/5 pb-4 group-hover:text-white transition-colors">
-                                {{ $item['subtitle'] ?? '' }}
-                            </h3>
-                            <p class="text-gray-400 leading-relaxed text-lg">
-                                {{ $item['content'] ?? '' }}
-                            </p>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    @endif
-
     <!-- Dynamic Card Section -->
     @if($game->card_section_cards && count($game->card_section_cards) > 0)
         <div class="max-w-7xl mx-auto px-4 py-32 border-t border-white/5">
@@ -177,7 +207,7 @@
                                 <img src="{{ $card['image_url'] }}" alt="{{ $card['image_alt'] ?? $game->title }}" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform">
                             </div>
                         @endif
-                        <div class="mb-8 text-gray-400 text-lg leading-relaxed font-medium flex-1">
+                        <div class="mb-8 text-gray-300 text-lg leading-relaxed font-medium flex-1 rich-text-content">
                             {!! nl2br(e($card['content'] ?? '')) !!}
                         </div>
                         @if(!empty($card['button_label']))
@@ -229,7 +259,7 @@
                                 <span class="text-yellow-500 text-2xl" x-text="active === {{ $index }} ? '−' : '+'"></span>
                             </button>
                             <div x-show="active === {{ $index }}" x-collapse x-cloak>
-                                <div class="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5 prose prose-invert prose-sm max-w-none">
+                                <div class="p-6 pt-0 text-gray-300 leading-relaxed border-t border-white/5 prose prose-invert prose-sm max-w-none rich-text-content">
                                     {!! $faq['answer'] ?? '' !!}
                                 </div>
                             </div>
@@ -248,5 +278,7 @@
         50% { opacity: 1; transform: scale(1.3); }
     }
     .animate-twinkle { animation: twinkle 4s ease-in-out infinite; }
+    .rich-text-content { color: #d1d5db !important; }
+    .rich-text-content * { color: inherit !important; }
 </style>
 @endsection
