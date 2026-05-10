@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="min-h-screen bg-gray-950 text-white">
-    <!-- Hero Section -->
+    <!-- Hero Section (Banner) -->
     <section id="hero" class="relative overflow-hidden min-h-screen flex items-center justify-center bg-gray-950 py-20">
         <!-- Animated Background & Lighting -->
         <div class="absolute inset-0">
@@ -99,20 +99,91 @@
 
     <!-- Extra Banner Section -->
     @if($game->extra_banner_title || $game->extra_banner_description)
-        <section class="py-16 bg-gray-950 border-b border-white/5">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section class="py-24 bg-gray-950 border-y border-white/5 relative overflow-hidden">
+            <!-- Background Glows -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl aspect-square bg-yellow-500/5 rounded-full blur-[120px]"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 @if($game->extra_banner_title)
-                    <h2 class="text-3xl md:text-5xl font-black mb-6 text-white uppercase tracking-tighter">
+                    <h2 class="text-4xl md:text-6xl font-black mb-8 text-white uppercase tracking-tighter">
                         {{ $game->extra_banner_title }}
                     </h2>
+                    <div class="h-1.5 w-32 bg-yellow-500 rounded-full mb-10 mx-auto"></div>
                 @endif
                 @if($game->extra_banner_description)
-                    <div class="text-xl text-gray-400 font-medium leading-relaxed rich-text-content max-w-4xl mx-auto">
+                    <div class="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed rich-text-content max-w-4xl mx-auto">
                         {!! $game->extra_banner_description !!}
                     </div>
                 @endif
             </div>
         </section>
+    @endif
+
+    <!-- How To Section -->
+    @if($game->how_to && count($game->how_to) > 0)
+        <section class="py-24 bg-gray-900 border-y border-white/5 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black mb-4 text-white uppercase tracking-tighter">
+                        How To <span class="text-yellow-500">Play</span>
+                    </h2>
+                    <p class="text-xl text-gray-400">Follow these simple steps to start winning in {{ $game->title }}.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    @foreach($game->how_to as $step)
+                        <div class="p-8 md:p-10 bg-gray-950 border border-white/5 rounded-[2.5rem] hover:border-yellow-500/30 transition-all group backdrop-blur-sm">
+                            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 text-center md:text-left">
+                                <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-2xl text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
+                                    {{ $loop->iteration }}
+                                </div>
+                                <div class="pt-2">
+                                    <p class="text-xl md:text-2xl text-gray-300 font-bold leading-relaxed">
+                                        {{ is_array($step) ? ($step['step'] ?? '') : $step }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    <!-- Alternating Content Sections -->
+    @if($game->sections && count($game->sections) > 0)
+        @foreach($game->sections as $index => $section)
+            <section class="py-24 {{ $index % 2 === 0 ? 'bg-gray-950' : 'bg-gray-900' }} border-y border-white/5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col {{ ($section['image_side'] ?? 'right') === 'left' ? 'lg:flex-row-reverse' : 'lg:flex-row' }} items-center gap-16 lg:gap-24">
+                        <div class="lg:w-1/2 space-y-8">
+                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight">
+                                {{ $section['title'] ?? '' }}
+                            </h2>
+                            <div class="h-1.5 w-24 bg-yellow-500 rounded-full"></div>
+                            <div class="text-gray-400 text-lg leading-relaxed rich-text-content font-medium">
+                                {!! nl2br(e($section['content'] ?? $section['text'] ?? '')) !!}
+                            </div>
+                            @if(!empty($section['cta_label']))
+                                <a href="{{ $section['cta_url'] ?? '#' }}" class="inline-flex items-center gap-4 bg-yellow-500 text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-yellow-400 transition-colors shadow-lg">
+                                    {{ $section['cta_label'] }}
+                                </a>
+                            @endif
+                        </div>
+                        <div class="lg:w-1/2 w-full">
+                            <div class="relative group">
+                                <div class="absolute -inset-4 bg-yellow-500/10 rounded-[2.5rem] blur-2xl group-hover:bg-yellow-500/20 transition-all duration-700"></div>
+                                <img src="{{ $section['image_url'] ?? $section['image'] ?? $game->thumbnail }}" 
+                                     alt="{{ $section['image_alt'] ?? $section['title'] ?? 'Section Image' }}" 
+                                     class="relative rounded-[2.5rem] shadow-2xl border border-white/10 w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.01]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endforeach
     @endif
 
     <!-- Special Note / Why Play Section -->
@@ -157,95 +228,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    <!-- Alternating Content Sections -->
-    @if($game->sections && count($game->sections) > 0)
-        @foreach($game->sections as $index => $section)
-            <section class="py-24 {{ $index % 2 === 0 ? 'bg-gray-950' : 'bg-gray-900' }} border-y border-white/5">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col {{ ($section['image_side'] ?? 'right') === 'left' ? 'lg:flex-row-reverse' : 'lg:flex-row' }} items-center gap-16 lg:gap-24">
-                        <div class="lg:w-1/2 space-y-8">
-                            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight">
-                                {{ $section['title'] ?? '' }}
-                            </h2>
-                            <div class="h-1.5 w-24 bg-yellow-500 rounded-full"></div>
-                            <div class="text-gray-400 text-lg leading-relaxed rich-text-content font-medium">
-                                {!! nl2br(e($section['content'] ?? $section['text'] ?? '')) !!}
-                            </div>
-                            @if(!empty($section['cta_label']))
-                                <a href="{{ $section['cta_url'] ?? '#' }}" class="inline-flex items-center gap-4 bg-yellow-500 text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-yellow-400 transition-colors shadow-lg">
-                                    {{ $section['cta_label'] }}
-                                </a>
-                            @endif
-                        </div>
-                        <div class="lg:w-1/2 w-full">
-                            <div class="relative group">
-                                <div class="absolute -inset-4 bg-yellow-500/10 rounded-[2.5rem] blur-2xl group-hover:bg-yellow-500/20 transition-all duration-700"></div>
-                                <img src="{{ $section['image_url'] ?? $section['image'] ?? $game->thumbnail }}" 
-                                     alt="{{ $section['image_alt'] ?? $section['title'] ?? 'Section Image' }}" 
-                                     class="relative rounded-[2.5rem] shadow-2xl border border-white/10 w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.01]">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        @endforeach
-    @endif
-
-    <!-- Extra Banner Section -->
-    @if($game->extra_banner_title || $game->extra_banner_description)
-        <section class="py-24 bg-gray-950 border-y border-white/5 relative overflow-hidden">
-            <!-- Background Glows -->
-            <div class="absolute inset-0 pointer-events-none">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl aspect-square bg-yellow-500/5 rounded-full blur-[120px]"></div>
-            </div>
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                @if($game->extra_banner_title)
-                    <h2 class="text-4xl md:text-6xl font-black mb-8 text-white uppercase tracking-tighter">
-                        {{ $game->extra_banner_title }}
-                    </h2>
-                    <div class="h-1.5 w-32 bg-yellow-500 rounded-full mb-10 mx-auto"></div>
-                @endif
-                @if($game->extra_banner_description)
-                    <div class="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed rich-text-content max-w-4xl mx-auto">
-                        {!! $game->extra_banner_description !!}
-                    </div>
-                @endif
-            </div>
-        </section>
-    @endif
-
-    <!-- How To Section -->
-    @if($game->how_to && count($game->how_to) > 0)
-        <section class="py-24 bg-gray-950 border-y border-white/5 relative overflow-hidden">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-black mb-4 text-white uppercase tracking-tighter">
-                        How To <span class="text-yellow-500">Play</span>
-                    </h2>
-                    <p class="text-xl text-gray-400">Follow these simple steps to start winning in {{ $game->title }}.</p>
-                </div>
-                
-                <div class="space-y-6">
-                    @foreach($game->how_to as $step)
-                        <div class="p-8 md:p-10 bg-gray-900/50 border border-white/5 rounded-[2.5rem] hover:border-yellow-500/30 transition-all group backdrop-blur-sm">
-                            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 text-center md:text-left">
-                                <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-2xl text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
-                                    {{ $loop->iteration }}
-                                </div>
-                                <div class="pt-2">
-                                    <p class="text-xl md:text-2xl text-gray-300 font-bold leading-relaxed">
-                                        {{ is_array($step) ? ($step['step'] ?? '') : $step }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
                 </div>
             </div>
         </section>

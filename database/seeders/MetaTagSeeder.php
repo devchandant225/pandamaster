@@ -35,20 +35,6 @@ class MetaTagSeeder extends Seeder
                 'is_active' => true,
             ],
             [
-                'page_type' => 'investors',
-                'title' => 'Investor Deals - Exclusive Real Estate Investment Opportunities | 888Realty',
-                'desc' => 'Access exclusive investor deals and off-market properties in Vancouver. Maximize your ROI with 888Realty\'s investment opportunities.',
-                'keyword' => 'Vancouver investment properties, real estate investment, off-market deals, investor opportunities, rental properties Vancouver',
-                'is_active' => true,
-            ],
-            [
-                'page_type' => 'tools',
-                'title' => 'Real Estate Tools & Resources | 888Realty',
-                'desc' => 'Use our free real estate tools including mortgage calculators, market reports, and property valuation resources for Vancouver homes.',
-                'keyword' => 'real estate tools, mortgage calculator, property valuation, Vancouver market reports, home buying tools',
-                'is_active' => true,
-            ],
-            [
                 'page_type' => 'city',
                 'title' => 'Vancouver Neighborhoods - Find Your Perfect Community | 888Realty',
                 'desc' => 'Explore Vancouver\'s diverse neighborhoods. Find the perfect community with 888Realty\'s comprehensive city and neighborhood guides.',
