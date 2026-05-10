@@ -132,7 +132,7 @@
                     <p class="text-xl text-gray-400">Follow these simple steps to start winning in {{ $game->title }}.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="max-w-4xl mx-auto space-y-6">
                     @foreach($game->how_to as $step)
                         <div class="p-8 md:p-10 bg-gray-950 border border-white/5 rounded-[2.5rem] hover:border-yellow-500/30 transition-all group backdrop-blur-sm">
                             <div class="flex flex-col md:flex-row items-center md:items-start gap-8 text-center md:text-left">
@@ -188,46 +188,35 @@
 
     <!-- Special Note / Why Play Section -->
     @if($game->special_items && count($game->special_items) > 0)
-        <section class="py-24 bg-gray-900 relative overflow-hidden">
+        <section class="py-24 bg-gray-950 border-y border-white/5 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h2 class="text-4xl md:text-5xl font-black mb-8 text-white uppercase tracking-tighter">
-                            {{ $game->special_title ?? 'Why Play ' . $game->title . '?' }}
-                        </h2>
-                        <div class="space-y-6">
-                            @foreach($game->special_items as $item)
-                                <div class="flex items-start gap-6 group">
-                                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
-                                        {{ $loop->iteration }}
-                                    </div>
-                                    <div class="flex-1">
-                                        @if(!empty($item['subtitle']))
-                                            <h3 class="text-xl font-black text-white uppercase mb-2 tracking-widest">
-                                                {{ $item['subtitle'] }}
-                                            </h3>
-                                        @endif
-                                        <div class="text-lg text-gray-400 leading-relaxed rich-text-content font-medium">
-                                            {{ $item['content'] ?? '' }}
-                                        </div>
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black mb-4 text-white uppercase tracking-tighter">
+                        {{ $game->special_title ?? 'Why Play ' . $game->title . '?' }}
+                    </h2>
+                    <div class="h-1.5 w-32 bg-yellow-500 rounded-full mx-auto"></div>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-6">
+                    @foreach($game->special_items as $item)
+                        <div class="p-8 md:p-10 bg-gray-900 border border-white/5 rounded-[2.5rem] hover:border-yellow-500/30 transition-all group backdrop-blur-sm">
+                            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 text-center md:text-left">
+                                <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-2xl text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
+                                    {{ $loop->iteration }}
+                                </div>
+                                <div class="flex-1 pt-2">
+                                    @if(!empty($item['subtitle']))
+                                        <h3 class="text-xl md:text-2xl font-black text-white uppercase mb-3 tracking-widest">
+                                            {{ $item['subtitle'] }}
+                                        </h3>
+                                    @endif
+                                    <div class="text-lg text-gray-400 leading-relaxed rich-text-content font-medium">
+                                        {{ $item['content'] ?? '' }}
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="absolute -inset-4 bg-purple-500/20 blur-3xl rounded-full animate-pulse"></div>
-                        <div class="relative bg-gray-800 border border-white/10 p-8 rounded-[3rem] shadow-2xl">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="aspect-square bg-gray-950 rounded-2xl flex items-center justify-center text-5xl shadow-inner">
-                                    {{ $game->category === 'fish' ? '🐟' : ($game->category === 'slots' ? '🎰' : '🏆') }}
-                                </div>
-                                <div class="aspect-square bg-gray-950 rounded-2xl flex items-center justify-center text-5xl shadow-inner">💎</div>
-                                <div class="aspect-square bg-gray-950 rounded-2xl flex items-center justify-center text-5xl shadow-inner">⚡</div>
-                                <div class="aspect-square bg-gray-950 rounded-2xl flex items-center justify-center text-5xl shadow-inner">💰</div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
