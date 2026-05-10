@@ -129,6 +129,14 @@
                         <div id="new-image-indicator" class="absolute -top-2 -right-2 bg-[#D4AF37] text-black text-[9px] font-black px-2 py-1 rounded-full shadow-lg hidden uppercase tracking-tighter">New Image Selected</div>
                     </div>
                     <p class="text-[9px] text-gray-400 mt-4 leading-relaxed uppercase font-bold text-center italic text-left">Keep empty to retain current image. Recommended: 1200x800px.</p>
+                    
+                    <div class="mt-6 space-y-2">
+                        <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest">Image Alt Text (SEO)</label>
+                        <input type="text" name="image_alt" value="{{ old('image_alt', $post->image_alt) }}" placeholder="Describe the image..." 
+                            class="w-full h-12 px-4 bg-gray-50 border-2 border-gray-200 focus:border-[#D4AF37] rounded-xl outline-none transition-all font-bold text-sm text-gray-900">
+                        @error('image_alt') <p class="text-red-500 text-[10px] font-bold mt-1 uppercase">{{ $message }}</p> @enderror
+                    </div>
+
                     @error('image') <p class="text-red-500 text-[10px] font-bold mt-2 uppercase text-center">{{ $message }}</p> @enderror
                 </div>
 

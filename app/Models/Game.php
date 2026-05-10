@@ -17,6 +17,7 @@ class Game extends Model
         'description',
         'thumbnail_url',
         'thumbnail_path',
+        'thumbnail_alt',
         'game_url',
         'demo_url',
         'rtp',

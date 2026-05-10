@@ -32,8 +32,6 @@ Route::get('/orion-stars-keno', [OrionStarController::class, 'keno'])->name('ori
 Route::get('/privacy-policy', [OrionStarController::class, 'privacy'])->name('privacy');
 Route::get('/terms-conditions', [OrionStarController::class, 'terms'])->name('terms');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/investors', [\App\Http\Controllers\InvestorController::class, 'index'])->name('investors');
-Route::get('/tools', [\App\Http\Controllers\ToolsController::class, 'index'])->name('tools');
 Route::get('/contact', [OrionStarController::class, 'contact'])->name('contact');
 Route::post('/contact', [OrionStarController::class, 'contactStore'])->name('contact.store');
 
@@ -124,4 +122,22 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/blog/{post}/edit', [\App\Http\Controllers\Admin\AdminPostController::class, 'edit'])->name('admin.blog.edit');
     Route::put('/admin/blog/{post}', [\App\Http\Controllers\Admin\AdminPostController::class, 'update'])->name('admin.blog.update');
     Route::delete('/admin/blog/{post}', [\App\Http\Controllers\Admin\AdminPostController::class, 'destroy'])->name('admin.blog.destroy');
+
+    // Subscriber Management
+    Route::get('/admin/subscribers', [\App\Http\Controllers\Admin\AdminSubscriberController::class, 'index'])->name('admin.subscribers.index');
+    Route::get('/admin/subscribers/create', [\App\Http\Controllers\Admin\AdminSubscriberController::class, 'create'])->name('admin.subscribers.create');
+    Route::post('/admin/subscribers', [\App\Http\Controllers\Admin\AdminSubscriberController::class, 'store'])->name('admin.subscribers.store');
+    Route::get('/admin/subscribers/{subscriber}/edit', [\App\Http\Controllers\Admin\AdminSubscriberController::class, 'edit'])->name('admin.subscribers.edit');
+    Route::put('/admin/subscribers/{subscriber}', [\App\Http\Controllers\Admin\AdminSubscriberController::class, 'update'])->name('admin.subscribers.update');
+    Route::delete('/admin/subscribers/{subscriber}', [\App\Http\Controllers\Admin\AdminSubscriberController::class, 'destroy'])->name('admin.subscribers.destroy');
+    Route::post('/admin/subscribers/{subscriber}/toggle', [\App\Http\Controllers\Admin\AdminSubscriberController::class, 'toggleStatus'])->name('admin.subscribers.toggle');
+
+    // Contact Message Management
+    Route::get('/admin/contacts', [\App\Http\Controllers\Admin\AdminContactController::class, 'index'])->name('admin.contacts.index');
+    Route::get('/admin/contacts/{contact}', [\App\Http\Controllers\Admin\AdminContactController::class, 'show'])->name('admin.contacts.show');
+    Route::delete('/admin/contacts/{contact}', [\App\Http\Controllers\Admin\AdminContactController::class, 'destroy'])->name('admin.contacts.destroy');
+
+    // About Page Management
+    Route::get('/admin/about', [\App\Http\Controllers\Admin\AdminAboutController::class, 'edit'])->name('admin.about.edit');
+    Route::put('/admin/about', [\App\Http\Controllers\Admin\AdminAboutController::class, 'update'])->name('admin.about.update');
 });

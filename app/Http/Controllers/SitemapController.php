@@ -27,8 +27,6 @@ class SitemapController extends Controller
             route('orionstar.keno'),
             route('privacy'),
             route('terms'),
-            route('investors'),
-            route('tools'),
         ];
 
         $content = view('sitemap', compact('posts', 'staticUrls'))->render();

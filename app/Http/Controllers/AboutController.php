@@ -11,6 +11,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('about');
+        $about = \App\Models\AboutPage::first();
+        return view('about', compact('about'));
     }
 }

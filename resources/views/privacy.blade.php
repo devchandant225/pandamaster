@@ -18,7 +18,7 @@
             <div class="bg-gray-900 border border-white/5 p-8 md:p-12 rounded-[3rem] shadow-2xl">
                 <div class="prose prose-invert prose-yellow max-w-none text-gray-300 leading-relaxed">
                     <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-6">1. Introduction</h2>
-                    <p class="mb-8">This Privacy Policy explains how orionstars.vip (“we”, “our”, “us”) collects, uses, and protects your personal information when you use our website and services. By accessing or using this website, you agree to the terms of this Privacy Policy, along with our Terms & Conditions and any other applicable policies.</p>
+                    <p class="mb-8">This Privacy Policy explains how orionstarsbet.com (“we”, “our”, “us”) collects, uses, and protects your personal information when you use our website and services. By accessing or using this website, you agree to the terms of this Privacy Policy, along with our Terms & Conditions and any other applicable policies.</p>
 
                     <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-6">2. Information We Collect</h2>
                     <p class="mb-4">We may collect the following types of information:</p>
@@ -74,7 +74,7 @@
                     <p class="mb-8">We may update this Privacy Policy from time to time. Continued use of the website means you accept any updates.</p>
 
                     <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-6">11. Contact Us</h2>
-                    <p class="mb-8">If you have any questions about this Privacy Policy, please contact us through orionstars.vip.</p>
+                    <p class="mb-8">If you have any questions about this Privacy Policy, please contact us through orionstarsbet.com.</p>
                 </div>
             </div>
         </div>

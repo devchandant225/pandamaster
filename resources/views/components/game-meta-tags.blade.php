@@ -2,10 +2,14 @@
     $siteName = config('app.name', 'Orion Stars');
     $currentUrl = request()->url();
     
+    $logoUrl = (isset($adminSettings) && $adminSettings->logo) 
+        ? (str_starts_with($adminSettings->logo, 'http') ? $adminSettings->logo : Storage::url($adminSettings->logo))
+        : asset('logo.png');
+
     $title = $game->meta_title ?: $game->title . ' | ' . $siteName;
-    $description = $game->meta_description ?: Str::limit($game->description, 160);
+    $description = $game->meta_description ?: Str::limit(strip_tags($game->description), 160);
     $keywords = $game->meta_keywords ?: 'Orion Stars game, ' . $game->game_type . ', ' . $game->title;
-    $image = $game->thumbnail ?: asset('logo.png');
+    $image = $game->thumbnail ?: $logoUrl;
 
     $metaSchemas = (isset($game->meta_schema) && is_array($game->meta_schema)) ? $game->meta_schema : [];
 @endphp

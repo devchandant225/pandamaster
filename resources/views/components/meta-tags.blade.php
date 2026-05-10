@@ -2,10 +2,14 @@
     $siteName = config('app.name', 'Orion Stars');
     $currentUrl = request()->url();
     
+    $logoUrl = (isset($adminSettings) && $adminSettings->logo) 
+        ? (str_starts_with($adminSettings->logo, 'http') ? $adminSettings->logo : Storage::url($adminSettings->logo))
+        : asset('logo.png');
+
     $finalTitle = $title ?: $siteName;
     $finalDescription = $description ?: 'Official Orion Stars Platform - Fish Games, Slots & Online Casino';
     $finalKeywords = $keywords ?: 'Orion Stars, fish games, online slots, casino games';
-    $finalImage = $image ? asset('storage/' . $image) : asset('logo.png');
+    $finalImage = $image ? (str_starts_with($image, 'http') ? $image : asset('storage/' . $image)) : $logoUrl;
 
     $headSchemas = ($meta && !empty($meta->schema_head_json)) ? $meta->schema_head_json : [];
     $bodySchemas = ($meta && !empty($meta->schema_body_json)) ? $meta->schema_body_json : [];

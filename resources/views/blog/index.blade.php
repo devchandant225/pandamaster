@@ -72,7 +72,7 @@
                         <div class="relative h-64 overflow-hidden">
                             <img
                                 src="{{ $post->image_url }}"
-                                alt="{{ $post->title }}"
+                                alt="{{ $post->image_alt ?? $post->title }}"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                             />
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -130,13 +130,21 @@
                 directly in your inbox.
             </p>
 
-            <form class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
-                <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    class="flex-1 h-14 px-6 rounded-xl border-2 border-gray-700 bg-gray-800 text-white placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none transition-colors"
-                />
-                <button class="bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white h-14 px-8 font-bold rounded-xl whitespace-nowrap transition-all shadow-lg">
+            <form action="{{ route('subscribe') }}" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                @csrf
+                <div class="flex-1">
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="Enter your email address"
+                        class="w-full h-14 px-6 rounded-xl border-2 border-gray-700 bg-gray-800 text-white placeholder:text-gray-500 focus:border-yellow-500 focus:outline-none transition-colors @error('email') border-red-500 @enderror"
+                    />
+                    @error('email')
+                        <p class="text-red-500 text-xs mt-2 text-left">{{ $message }}</p>
+                    @enderror
+                </div>
+                <button type="submit" class="bg-gradient-to-r from-yellow-500 to-purple-500 hover:from-yellow-400 hover:to-purple-400 text-white h-14 px-8 font-bold rounded-xl whitespace-nowrap transition-all shadow-lg">
                     Subscribe Now
                 </button>
             </form>

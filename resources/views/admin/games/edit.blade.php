@@ -84,6 +84,11 @@
                 </div>
             </div>
 
+            <div>
+                <label class="block text-sm font-bold text-white mb-2">Image Alt Text (SEO)</label>
+                <input type="text" name="thumbnail_alt" value="{{ old('thumbnail_alt', $game->thumbnail_alt) }}" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="Description of the thumbnail for screen readers and SEO">
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="block text-sm font-bold text-white mb-2">RTP (%)</label>
@@ -266,6 +271,20 @@
                                             <option value="left">Image on Left</option>
                                         </select>
                                     </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-400 mb-1">CTA Label</label>
+                                            <input type="text" x-model="section.cta_label" :name="'sections['+index+'][cta_label]'" placeholder="Button Label" class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-sm text-white focus:border-yellow-500 outline-none">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-400 mb-1">CTA URL</label>
+                                            <input type="text" x-model="section.cta_url" :name="'sections['+index+'][cta_url]'" placeholder="Button URL" class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-sm text-white focus:border-yellow-500 outline-none">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-400 mb-1">Image Alt Text (SEO)</label>
+                                        <input type="text" x-model="section.image_alt" :name="'sections['+index+'][image_alt]'" placeholder="Description of the section image" class="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-sm text-white focus:border-yellow-500 outline-none">
+                                    </div>
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-gray-400 mb-1">Section Image</label>
@@ -339,6 +358,7 @@
                                         </div>
                                         <input type="hidden" :name="'card_section_cards['+index+'][image_url]'" x-model="card.image_url">
                                     </div>
+                                    <input type="text" x-model="card.image_alt" :name="'card_section_cards['+index+'][image_alt]'" placeholder="Image Alt Text" class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded-lg text-xs text-white focus:border-yellow-500 outline-none">
                                     <textarea x-model="card.content" :name="'card_section_cards['+index+'][content]'" placeholder="Card Content" rows="2" class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded-lg text-xs text-white focus:border-yellow-500 outline-none"></textarea>
                                     <div class="grid grid-cols-2 gap-2">
                                         <input type="text" x-model="card.button_label" :name="'card_section_cards['+index+'][button_label]'" placeholder="Button Label" class="px-3 py-2 bg-gray-900 border border-gray-700 rounded-lg text-xs text-white focus:border-yellow-500 outline-none">

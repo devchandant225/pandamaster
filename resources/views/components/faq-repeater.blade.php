@@ -18,6 +18,7 @@
             @php
                 $question = is_array($item) ? ($item['question'] ?? '') : '';
                 $answer = is_array($item) ? ($item['answer'] ?? '') : '';
+                $id = 'faq_answer_' . $name . '_' . $index;
             @endphp
             <div class="faq-item group relative bg-gray-50 border-2 border-gray-200 rounded-xl p-5 hover:border-[#D4AF37]/50 transition-all">
                 <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -47,9 +48,10 @@
                             <i class="fas fa-comment-dots text-[#D4AF37]"></i> Answer
                         </label>
                         <textarea 
+                            id="{{ $id }}"
                             name="{{ $name }}[{{ $index }}][answer]" 
                             rows="3"
-                            class="w-full px-4 py-2.5 text-gray-800 bg-white border-2 border-gray-300 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder-gray-400 resize-none faq-answer"
+                            class="faq-editor w-full px-4 py-2.5 text-gray-800 bg-white border-2 border-gray-300 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder-gray-400 faq-answer"
                             placeholder="Enter your answer...">{{ $answer }}</textarea>
                     </div>
                 </div>
@@ -73,31 +75,81 @@
 @once
 @push('scripts')
 <script>
+    function initFaqEditors() {
+        if (typeof CKEDITOR === 'undefined') return;
+        
+        document.querySelectorAll('.faq-editor').forEach(textarea => {
+            if (!CKEDITOR.instances[textarea.id]) {
+                CKEDITOR.replace(textarea.id, {
+                    height: 200,
+                    removeButtons: 'Image,Flash,Iframe,About',
+                    toolbarGroups: [
+                        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+                        { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+                        { name: 'links' },
+                        { name: 'styles' },
+                        { name: 'colors' },
+                        { name: 'tools' },
+                    ]
+                });
+            }
+        });
+    }
+
+    function destroyFaqEditor(textarea) {
+        if (typeof CKEDITOR !== 'undefined' && CKEDITOR.instances[textarea.id]) {
+            CKEDITOR.instances[textarea.id].destroy();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', initFaqEditors);
+
     function updateFaqNumbers(repeater) {
         const items = repeater.querySelectorAll('.faq-item');
+        const name = repeater.dataset.name;
+        
         items.forEach((item, index) => {
             const numberBadge = item.querySelector('.bg-\\[\\#D4AF37\\]');
             const questionInput = item.querySelector('.faq-question');
-            const answerInput = item.querySelector('.faq-answer');
+            const textarea = item.querySelector('.faq-editor');
             
             if (numberBadge) {
                 numberBadge.textContent = index + 1;
             }
             if (questionInput) {
-                questionInput.name = `${repeater.dataset.name}[${index}][question]`;
+                questionInput.name = `${name}[${index}][question]`;
             }
-            if (answerInput) {
-                answerInput.name = `${repeater.dataset.name}[${index}][answer]`;
+            if (textarea) {
+                const oldId = textarea.id;
+                const newId = `faq_answer_${name}_${index}`;
+                
+                if (oldId !== newId) {
+                    if (typeof CKEDITOR !== 'undefined' && CKEDITOR.instances[oldId]) {
+                        const data = CKEDITOR.instances[oldId].getData();
+                        CKEDITOR.instances[oldId].destroy();
+                        textarea.id = newId;
+                        textarea.name = `${name}[${index}][answer]`;
+                        CKEDITOR.replace(newId, {
+                            height: 200,
+                            removeButtons: 'Image,Flash,Iframe,About'
+                        }).setData(data);
+                    } else {
+                        textarea.id = newId;
+                        textarea.name = `${name}[${index}][answer]`;
+                    }
+                }
             }
         });
     }
 
     document.addEventListener('click', function(e) {
-        if (e.target.closest('.add-faq')) {
-            const repeater = e.target.closest('.faq-repeater');
+        const addBtn = e.target.closest('.add-faq');
+        if (addBtn) {
+            const repeater = addBtn.closest('.faq-repeater');
             const itemsContainer = repeater.querySelector('.faq-items');
             const name = repeater.dataset.name;
             const currentIndex = itemsContainer.querySelectorAll('.faq-item').length;
+            const newId = `faq_answer_${name}_${currentIndex}`;
 
             const newItem = document.createElement('div');
             newItem.className = 'faq-item group relative bg-gray-50 border-2 border-gray-200 rounded-xl p-5 hover:border-[#D4AF37]/50 transition-all';
@@ -128,34 +180,43 @@
                             <i class="fas fa-comment-dots text-[#D4AF37]"></i> Answer
                         </label>
                         <textarea 
+                            id="${newId}"
                             name="${name}[${currentIndex}][answer]" 
                             rows="3"
-                            class="w-full px-4 py-2.5 text-gray-800 bg-white border-2 border-gray-300 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder-gray-400 resize-none faq-answer"
+                            class="faq-editor w-full px-4 py-2.5 text-gray-800 bg-white border-2 border-gray-300 rounded-lg focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all placeholder-gray-400 faq-answer"
                             placeholder="Enter your answer..."></textarea>
                     </div>
                 </div>
             `;
             itemsContainer.appendChild(newItem);
             
-            // Focus on the new question field
-            const newQuestionInput = newItem.querySelector('.faq-question');
-            if (newQuestionInput) {
-                newQuestionInput.focus();
+            if (typeof CKEDITOR !== 'undefined') {
+                CKEDITOR.replace(newId, {
+                    height: 200,
+                    removeButtons: 'Image,Flash,Iframe,About'
+                });
             }
         }
 
-        if (e.target.closest('.remove-faq')) {
-            const item = e.target.closest('.faq-item');
+        const removeBtn = e.target.closest('.remove-faq');
+        if (removeBtn) {
+            const item = removeBtn.closest('.faq-item');
+            const repeater = item.closest('.faq-repeater');
             const container = item.closest('.faq-items');
+            const textarea = item.querySelector('.faq-editor');
+            
             if (container.querySelectorAll('.faq-item').length > 1) {
+                if (textarea && typeof CKEDITOR !== 'undefined' && CKEDITOR.instances[textarea.id]) {
+                    CKEDITOR.instances[textarea.id].destroy();
+                }
                 item.remove();
                 updateFaqNumbers(repeater);
             } else {
-                // Clear the fields instead of removing the last item
                 const questionInput = item.querySelector('.faq-question');
-                const answerInput = item.querySelector('.faq-answer');
                 if (questionInput) questionInput.value = '';
-                if (answerInput) answerInput.value = '';
+                if (textarea && typeof CKEDITOR !== 'undefined' && CKEDITOR.instances[textarea.id]) {
+                    CKEDITOR.instances[textarea.id].setData('');
+                }
             }
         }
     });

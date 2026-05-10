@@ -81,14 +81,16 @@
                             </div>
                             @endif
 
-                            @if($adminSettings->whatsapp)
+                            @if($adminSettings->telegram)
                             <div class="flex items-start gap-6">
-                                <div class="w-12 h-12 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center text-green-500">
-                                    <span class="text-xl font-black">W</span>
+                                <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-500">
+                                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.442c-.149.659-.539.822-1.089.511l-3.048-2.246-1.47 1.415c-.163.163-.299.299-.614.299l.219-3.104 5.65-5.103c.245-.218-.054-.339-.379-.122l-6.983 4.397-3.006-.939c-.654-.205-.666-.654.136-.967l11.741-4.524c.544-.197 1.02.129.846.636z"/></svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-white font-black uppercase tracking-widest text-sm">WhatsApp</h3>
-                                    <p class="text-gray-400 font-bold">{{ $adminSettings->whatsapp }}</p>
+                                    <h3 class="text-white font-black uppercase tracking-widest text-sm">Telegram</h3>
+                                    <p class="text-gray-400 font-bold">
+                                        <a href="{{ $adminSettings->telegram }}" target="_blank" class="hover:text-blue-400 transition-colors">Join Channel</a>
+                                    </p>
                                 </div>
                             </div>
                             @endif

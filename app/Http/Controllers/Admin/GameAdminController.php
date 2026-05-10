@@ -145,6 +145,7 @@ class GameAdminController extends Controller
             'description' => 'nullable|string',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'thumbnail_url' => 'nullable|url',
+            'thumbnail_alt' => 'nullable|string|max:255',
             'game_url' => 'nullable|url',
             'demo_url' => 'nullable|url',
             'rtp' => 'nullable|numeric|between:0,100',

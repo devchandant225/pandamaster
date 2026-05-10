@@ -44,7 +44,7 @@
                     <div class="rounded-2xl overflow-hidden mb-12 shadow-xl aspect-video border border-gray-100">
                         <img
                             src="{{ $post->image_url }}"
-                            alt="{{ $post->title }}"
+                            alt="{{ $post->image_alt ?? $post->title }}"
                             class="w-full h-full object-cover"
                         />
                     </div>

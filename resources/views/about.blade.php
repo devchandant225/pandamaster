@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 <div class="min-h-screen bg-black relative overflow-hidden">
     <!-- Sophisticated Background Lighting -->
@@ -26,20 +25,28 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
                 </span>
-                The Orion Star VIP Experience
+                {{ $about->title ?? 'The Orion Star VIP Experience' }}
             </div>
 
             <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-10 leading-[0.85] tracking-tighter animate-fade-in-up">
-                REDEFINING THE <span class="bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow uppercase">LEVEL</span> OF PLAY
+                @if($about->title)
+                    {!! str_replace(['Level', 'LEVEL'], '<span class="bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow uppercase">LEVEL</span>', e($about->title)) !!}
+                @else
+                    REDEFINING THE <span class="bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow uppercase">LEVEL</span> OF PLAY
+                @endif
             </h1>
             
-            <p class="text-2xl md:text-3xl text-gray-400 mb-16 leading-relaxed font-bold tracking-tight max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.2s;">
-                We're not just another gaming platform. We're your gateway to immersive experiences, high-stakes thrills, and a community built for winners.
-            </p>
+            <div class="prose prose-invert prose-lg max-w-4xl mx-auto text-gray-400 mb-16 leading-relaxed font-bold tracking-tight animate-fade-in-up" style="animation-delay: 0.2s;">
+                @if($about->description)
+                    {!! $about->description !!}
+                @else
+                    <p class="text-2xl md:text-3xl">We're not just another gaming platform. We're your gateway to immersive experiences, high-stakes thrills, and a community built for winners.</p>
+                @endif
+            </div>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="{{ route('contact') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white text-2xl font-black rounded-[2rem] transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
-                    <span class="relative z-10 uppercase tracking-tighter">🚀 JOIN THE ELITE</span>
+                <a href="{{ $about->cta_url ?? route('contact') }}" class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white text-2xl font-black rounded-[2rem] transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
+                    <span class="relative z-10 uppercase tracking-tighter">🚀 {{ $about->cta_label ?? 'JOIN THE ELITE' }}</span>
                 </a>
                 <a href="{{ route('games.index') }}" class="px-14 py-6 bg-gray-900/50 hover:bg-gray-800 text-white text-2xl font-black rounded-[2rem] transition-all border-2 border-gray-700 hover:border-yellow-500 shadow-xl backdrop-blur-sm transform hover:-translate-y-1.5 uppercase tracking-tighter">
                     Explore Games
@@ -49,28 +56,20 @@
     </section>
 
     <!-- Stats Section -->
+    @if($about->stats && count($about->stats) > 0)
     <section class="py-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-yellow-500/50 transition-all text-center">
-                    <div class="text-5xl md:text-6xl font-black text-yellow-500 mb-3 group-hover:scale-110 transition-transform text-glow-yellow tracking-tighter">$2M+</div>
-                    <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Weekly Payouts</div>
+                @foreach($about->stats as $index => $stat)
+                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-{{ ['yellow','purple','blue','green'][$index % 4] }}-500/50 transition-all text-center">
+                    <div class="text-5xl md:text-6xl font-black text-{{ ['yellow','purple','blue','green'][$index % 4] }}-500 mb-3 group-hover:scale-110 transition-transform text-glow-{{ ['yellow','purple','blue','green'][$index % 4] }} tracking-tighter">{{ $stat['value'] ?? '' }}</div>
+                    <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">{{ $stat['label'] ?? '' }}</div>
                 </div>
-                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all text-center">
-                    <div class="text-5xl md:text-6xl font-black text-purple-500 mb-3 group-hover:scale-110 transition-transform text-glow-purple tracking-tighter">50K+</div>
-                    <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Active Players</div>
-                </div>
-                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all text-center">
-                    <div class="text-5xl md:text-6xl font-black text-blue-500 mb-3 group-hover:scale-110 transition-transform tracking-tighter">100+</div>
-                    <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Premium Titles</div>
-                </div>
-                <div class="group relative p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-green-500/50 transition-all text-center">
-                    <div class="text-5xl md:text-6xl font-black text-green-500 mb-3 group-hover:scale-110 transition-transform tracking-tighter">24/7</div>
-                    <div class="text-gray-500 font-black uppercase tracking-widest text-[10px]">Live Support</div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
 
     <!-- Our Story -->
     <section class="py-24 relative">
@@ -81,29 +80,21 @@
                         OUR <span class="bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">LEGACY</span>
                     </h2>
                     <div class="space-y-6 text-gray-400 leading-relaxed text-xl font-medium">
-                        <p>
-                            Born from the passion for high-octane gaming, <span class="text-white font-black tracking-widest uppercase">Orion Star VIP</span> was created with one mission: to build the most immersive, rewarding, and secure online fish gaming ecosystem in the world.
-                        </p>
-                        <p>
-                            Built on the legendary Fire Kirin engine, we've combined industry-leading graphics with fair-play mechanics to deliver an experience that traditional platforms simply can't match. Every spin, every catch, and every bet is built on a foundation of transparency and VIP-level service.
-                        </p>
-                        <p>
-                            Today, we're proud to lead the frontier of global online gaming, connecting thousands of winners every minute across every timezone.
-                        </p>
-                    </div>
-                    <div class="mt-12">
-                        <a href="{{ route('contact') }}" class="inline-flex items-center gap-3 bg-white/5 border border-white/10 hover:border-purple-500 text-white px-10 py-5 rounded-[2rem] text-lg font-black transition-all uppercase tracking-tighter">
-                            Learn Our Methods
-                            <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
+                        @if($about->description)
+                             {!! $about->description !!}
+                        @else
+                            <p>
+                                Born from the passion for high-octane gaming, <span class="text-white font-black tracking-widest uppercase">Orion Star VIP</span> was created with one mission: to build the most immersive, rewarding, and secure online fish gaming ecosystem in the world.
+                            </p>
+                        @endif
                     </div>
                 </div>
 
                 <div class="relative group animate-fade-in-up" style="animation-delay: 0.2s;">
                     <div class="absolute -inset-4 bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 rounded-[3.5rem] opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700"></div>
                     <img
-                        src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200"
-                        alt="Pro Gaming Setup"
+                        src="{{ $about->image_url ?? 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200' }}"
+                        alt="{{ $about->image_alt ?? 'Pro Gaming Setup' }}"
                         class="relative rounded-[3rem] shadow-2xl border border-white/10 grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
                     />
                     <div class="absolute -bottom-10 -left-10 bg-black/80 backdrop-blur-xl border border-white/10 p-10 rounded-[2.5rem] shadow-2xl group-hover:-translate-y-2 transition-transform duration-500">
@@ -115,57 +106,32 @@
         </div>
     </section>
 
-    <!-- Our Values -->
-    <section class="py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl md:text-6xl font-black mb-6 tracking-tighter uppercase">
-                    OUR CORE <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">CODE</span>
-                </h2>
-                <p class="text-xl text-gray-500 font-bold max-w-3xl mx-auto uppercase tracking-widest">
-                    The principles that fuel our galaxy
-                </p>
+    <!-- FAQs Section -->
+    @if($about->faqs && count($about->faqs) > 0)
+    <section class="py-24 relative overflow-hidden bg-white/5 border-y border-white/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4 tracking-tighter uppercase text-white">FREQUENTLY ASKED <span class="text-yellow-500">QUESTIONS</span></h2>
             </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <!-- Winner-First -->
-                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-yellow-500/30 hover:-translate-y-3 transition-all duration-500 group">
-                    <div class="w-20 h-20 bg-yellow-500/10 text-yellow-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            
+            <div class="space-y-4" x-data="{ active: null }">
+                @foreach($about->faqs as $index => $faq)
+                    <div class="border border-white/10 rounded-2xl overflow-hidden bg-black/40">
+                        <button @click="active = (active === {{ $index }} ? null : {{ $index }})" class="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors">
+                            <span class="text-lg font-black uppercase tracking-tight text-white">{{ $faq['question'] ?? '' }}</span>
+                            <svg class="w-6 h-6 transform transition-transform text-gray-400" :class="active === {{ $index }} ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div x-show="active === {{ $index }}" x-collapse x-cloak>
+                            <div class="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/10 prose prose-invert prose-sm max-w-none">
+                                {!! $faq['answer'] ?? '' !!}
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">WINNER FIRST</h3>
-                    <p class="text-gray-500 leading-relaxed font-medium">Your success is our success. We build every algorithm to maximize player enjoyment and rewards.</p>
-                </div>
-
-                <!-- Security -->
-                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-purple-500/30 hover:-translate-y-3 transition-all duration-500 group">
-                    <div class="w-20 h-20 bg-purple-500/10 text-purple-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:-rotate-12 transition-transform">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">IRONCLAD</h3>
-                    <p class="text-gray-500 leading-relaxed font-medium">Your data and winnings are protected by the highest level of encryption known to mankind.</p>
-                </div>
-
-                <!-- Innovation -->
-                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-blue-500/30 hover:-translate-y-3 transition-all duration-500 group">
-                    <div class="w-20 h-20 bg-blue-500/10 text-blue-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">NEXT-GEN</h3>
-                    <p class="text-gray-500 leading-relaxed font-medium">We don't follow trends; we set them. Expect titles and features you won't find anywhere else.</p>
-                </div>
-
-                <!-- Community -->
-                <div class="bg-gray-900/50 border border-white/5 p-10 rounded-[3rem] hover:border-green-500/30 hover:-translate-y-3 transition-all duration-500 group">
-                    <div class="w-20 h-20 bg-green-500/10 text-green-500 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:-rotate-12 transition-transform">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">ONE GALAXY</h3>
-                    <p class="text-gray-500 leading-relaxed font-medium">We're building a global community of gamers who support each other's journey to the top.</p>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
 
     <!-- Final CTA -->
     <section class="py-24 relative overflow-hidden">
@@ -175,19 +141,13 @@
                 READY TO BECOME A <span class="bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 bg-clip-text text-transparent text-glow-yellow">LEGEND?</span>
             </h2>
             <p class="text-2xl md:text-3xl text-gray-300 mb-16 font-bold tracking-tight uppercase">
-                The next massive jackpot has your name on it
+                {{ $about->cta_label ?? 'The next massive jackpot has your name on it' }}
             </p>
 
             <div class="flex flex-wrap justify-center gap-10">
-                @auth
-                    <a href="{{ route('admin.dashboard') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
-                        <span class="relative z-10 uppercase tracking-tighter">🚀 START PLAYING NOW</span>
-                    </a>
-                @else
-                    <a href="{{ $adminSettings->register_url ?? '#' }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
-                        <span class="relative z-10 uppercase tracking-tighter">🎰 CREATE ACCOUNT & WIN</span>
-                    </a>
-                @endauth
+                <a href="{{ $about->cta_url ?? ($adminSettings->register_url ?? '#') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                    <span class="relative z-10 uppercase tracking-tighter">🚀 {{ $about->cta_label ?? 'START PLAYING NOW' }}</span>
+                </a>
             </div>
         </div>
     </section>
@@ -222,5 +182,7 @@
         animation: fade-in-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         opacity: 0;
     }
+
+    [x-cloak] { display: none !important; }
 </style>
 @endsection
