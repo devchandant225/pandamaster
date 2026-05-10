@@ -25,12 +25,18 @@
                 <h1 class="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85]">
                     {{ $game->hero_title ?? $game->title }}
                 </h1>
+
+                <div class="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed">
+                    {!! $game->description !!}
+                </div>
                 
                 <div class="h-1.5 w-32 bg-[#D4AF37] mx-auto"></div>
 
-                <p class="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed">
-                    {{ $game->hero_subtitle ?? $game->description }}
-                </p>
+                @if($game->hero_subtitle)
+                    <p class="text-lg text-gray-500 font-medium leading-relaxed">
+                        {{ $game->hero_subtitle }}
+                    </p>
+                @endif
 
                 <div class="flex flex-wrap justify-center gap-6 pt-8">
                     @if($game->hero_ctas && count($game->hero_ctas) > 0)
