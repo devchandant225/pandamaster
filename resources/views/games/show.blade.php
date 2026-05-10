@@ -192,9 +192,9 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-black mb-4 text-white uppercase tracking-tighter">
-                        {{ $game->special_title ?? 'Why Play ' . $game->title . '?' }}
+                        Why <span class="text-yellow-500">Play</span>
                     </h2>
-                    <div class="h-1.5 w-32 bg-yellow-500 rounded-full mx-auto"></div>
+                    <p class="text-xl text-gray-400">{{ $game->special_title ?? 'Discover why ' . $game->title . ' is the top choice for players.' }}</p>
                 </div>
 
                 <div class="max-w-4xl mx-auto space-y-6">
@@ -205,9 +205,9 @@
                                     {{ $loop->iteration }}
                                 </div>
                                 <div class="flex-1 pt-2">
-                                    @if(!empty($item['subtitle']))
+                                    @if(!empty($item['title']))
                                         <h3 class="text-xl md:text-2xl font-black text-white uppercase mb-3 tracking-widest">
-                                            {{ $item['subtitle'] }}
+                                            {{ $item['title'] }}
                                         </h3>
                                     @endif
                                     <div class="text-lg text-gray-400 leading-relaxed rich-text-content font-medium">
