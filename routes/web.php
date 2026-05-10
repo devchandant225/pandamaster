@@ -37,6 +37,7 @@ Route::get('/thanks', function () {
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [OrionStarController::class, 'contact'])->name('contact');
 Route::post('/contact', [OrionStarController::class, 'contactStore'])->name('contact.store');
+Route::post('/subscribe', [\App\Http\Controllers\SubscriberController::class, 'store'])->name('subscribe');
 
 // Blog Routes
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');

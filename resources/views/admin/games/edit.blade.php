@@ -172,33 +172,6 @@
                 </div>
             </div>
 
-            <!-- Key Features Section -->
-            <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 space-y-6">
-                <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                    <svg class="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    Key Features (Grid)
-                </h3>
-
-                <div x-data="{ features: {{ json_encode(old('features', $game->features ?: [])) }} }" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <template x-for="(feature, index) in features" :key="index">
-                            <div class="flex gap-4 items-start bg-gray-800 p-4 rounded-xl border border-gray-700 relative group">
-                                <div class="grid grid-cols-1 gap-4 flex-1">
-                                    <input type="text" x-model="feature.title" :name="'features['+index+'][title]'" placeholder="Feature Title (e.g. Free Spins)" class="px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-sm text-white focus:border-yellow-500 outline-none">
-                                    <input type="text" x-model="feature.icon" :name="'features['+index+'][icon]'" placeholder="Icon (e.g. 🎰)" class="px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg text-sm text-white focus:border-yellow-500 outline-none">
-                                </div>
-                                <button type="button" @click="features.splice(index, 1)" class="p-2 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                                </button>
-                            </div>
-                        </template>
-                    </div>
-                    <button type="button" @click="features.push({title: '', icon: '⭐'})" class="w-full py-3 border-2 border-dashed border-gray-700 rounded-xl text-gray-500 font-bold hover:border-yellow-500/50 hover:text-white transition-all">
-                        + Add Key Feature
-                    </button>
-                </div>
-            </div>
-
             <!-- Why Play Section -->
             <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 space-y-6">
                 <h3 class="text-xl font-bold text-white flex items-center gap-2">
