@@ -465,6 +465,54 @@ document.addEventListener('DOMContentLoaded', function() {
             removeButtons: 'PasteFromWord',
             skin: 'moono-lisa', // Use default or specific skin if available
         });
+        CKEDITOR.replace('extra_banner_description', {
+            height: 200,
+            removeButtons: 'PasteFromWord',
+            skin: 'moono-lisa',
+        });
+    }
+
+    const fileInput = document.getElementById('thumbnail-upload');
+    const previewDiv = document.getElementById('upload-preview');
+    const previewImage = document.getElementById('preview-image');
+    
+    if (fileInput) {
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewDiv.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewDiv.classList.add('hidden');
+            }
+        });
+    }
+});
+</script>
+@endpush
+@endsection
+dex') }}" class="px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-bold transition-colors">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize CKEditor
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('description', {
+            height: 300,
+            removeButtons: 'PasteFromWord',
+            skin: 'moono-lisa', // Use default or specific skin if available
+        });
     }
 
     const fileInput = document.getElementById('thumbnail-upload');

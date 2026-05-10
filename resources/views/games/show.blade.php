@@ -97,6 +97,24 @@
         </div>
     </section>
 
+    <!-- Extra Banner Section -->
+    @if($game->extra_banner_title || $game->extra_banner_description)
+        <section class="py-16 bg-gray-950 border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                @if($game->extra_banner_title)
+                    <h2 class="text-3xl md:text-5xl font-black mb-6 text-white uppercase tracking-tighter">
+                        {{ $game->extra_banner_title }}
+                    </h2>
+                @endif
+                @if($game->extra_banner_description)
+                    <div class="text-xl text-gray-400 font-medium leading-relaxed rich-text-content max-w-4xl mx-auto">
+                        {!! $game->extra_banner_description !!}
+                    </div>
+                @endif
+            </div>
+        </section>
+    @endif
+
     <!-- Special Note / Why Play Section -->
     @if($game->special_items && count($game->special_items) > 0)
         <section class="py-24 bg-gray-900 relative overflow-hidden">
@@ -178,10 +196,34 @@
         @endforeach
     @endif
 
+    <!-- Extra Banner Section -->
+    @if($game->extra_banner_title || $game->extra_banner_description)
+        <section class="py-24 bg-gray-950 border-y border-white/5 relative overflow-hidden">
+            <!-- Background Glows -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl aspect-square bg-yellow-500/5 rounded-full blur-[120px]"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                @if($game->extra_banner_title)
+                    <h2 class="text-4xl md:text-6xl font-black mb-8 text-white uppercase tracking-tighter">
+                        {{ $game->extra_banner_title }}
+                    </h2>
+                    <div class="h-1.5 w-32 bg-yellow-500 rounded-full mb-10 mx-auto"></div>
+                @endif
+                @if($game->extra_banner_description)
+                    <div class="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed rich-text-content max-w-4xl mx-auto">
+                        {!! $game->extra_banner_description !!}
+                    </div>
+                @endif
+            </div>
+        </section>
+    @endif
+
     <!-- How To Section -->
     @if($game->how_to && count($game->how_to) > 0)
-        <section class="py-24 bg-gray-950 border-y border-white/5">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="py-24 bg-gray-950 border-y border-white/5 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-black mb-4 text-white uppercase tracking-tighter">
                         How To <span class="text-yellow-500">Play</span>
@@ -189,16 +231,18 @@
                     <p class="text-xl text-gray-400">Follow these simple steps to start winning in {{ $game->title }}.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="space-y-6">
                     @foreach($game->how_to as $step)
-                        <div class="p-10 bg-gray-900 rounded-[2.5rem] border border-white/5 hover:border-yellow-500/30 transition-all group">
-                            <div class="flex items-start gap-6">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
+                        <div class="p-8 md:p-10 bg-gray-900/50 border border-white/5 rounded-[2.5rem] hover:border-yellow-500/30 transition-all group backdrop-blur-sm">
+                            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 text-center md:text-left">
+                                <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-2xl text-yellow-500 font-black group-hover:bg-yellow-500 group-hover:text-black transition-all">
                                     {{ $loop->iteration }}
                                 </div>
-                                <p class="text-lg text-gray-300 font-bold leading-relaxed pt-2">
-                                    {{ is_array($step) ? ($step['step'] ?? '') : $step }}
-                                </p>
+                                <div class="pt-2">
+                                    <p class="text-xl md:text-2xl text-gray-300 font-bold leading-relaxed">
+                                        {{ is_array($step) ? ($step['step'] ?? '') : $step }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     @endforeach

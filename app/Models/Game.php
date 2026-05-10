@@ -33,6 +33,8 @@ class Game extends Model
         'hero_title',
         'hero_subtitle',
         'hero_ctas',
+        'extra_banner_title',
+        'extra_banner_description',
         'sections',
         'how_to',
         'card_section_title',

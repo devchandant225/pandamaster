@@ -159,6 +159,8 @@ class GameAdminController extends Controller
             'hero_title' => 'nullable|string|max:255',
             'hero_subtitle' => 'nullable|string|max:255',
             'hero_ctas' => 'nullable|array',
+            'extra_banner_title' => 'nullable|string|max:255',
+            'extra_banner_description' => 'nullable|string',
             'sections' => 'nullable|array',
             'how_to' => 'nullable|array',
             'card_section_title' => 'nullable|string|max:255',
