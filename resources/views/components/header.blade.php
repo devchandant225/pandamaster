@@ -6,6 +6,7 @@
 >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
+
             <!-- Logo -->
             <a href="{{ url('/') }}" class="flex items-center gap-2 group">
                 @if(isset($adminSettings) && $adminSettings->logo)
@@ -23,25 +24,27 @@
                     Home
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                
+
                 <!-- Games Dropdown -->
                 <div class="relative group py-2" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
                     <button class="flex items-center gap-1 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase focus:outline-none">
                         Games
-                        <svg class="w-3 h-3 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="w-3 h-3 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
+                        </svg>
                     </button>
-                    <div 
-                        x-show="open" 
-                        x-transition:enter="transition ease-out duration-200" 
-                        x-transition:enter-start="opacity-0 translate-y-2" 
-                        x-transition:enter-end="opacity-100 translate-y-0" 
+                    <div
+                        x-show="open"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
                         class="absolute left-0 mt-2 w-64 bg-gray-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-[60]"
                     >
                         <div class="p-2 space-y-1">
                             @foreach($headerGames as $game)
-                            <a href="{{ route('games.show', $game->slug) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
-                                <span class="w-2 h-2 rounded-full bg-yellow-500"></span> {{ $game->title }}
-                            </a>
+                                <a href="{{ route('games.show', $game->slug) }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-gray-400 hover:text-yellow-500 hover:bg-white/5 rounded-xl transition-all">
+                                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span> {{ $game->title }}
+                                </a>
                             @endforeach
                             <a href="{{ route('games.index') }}" class="flex items-center gap-3 px-4 py-3 text-[10px] font-black uppercase text-yellow-500 hover:bg-white/5 rounded-xl transition-all border-t border-white/5 mt-1">
                                 View All Games
@@ -49,14 +52,16 @@
                         </div>
                     </div>
                 </div>
-<a href="{{ route('orionstar.casino') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-    Casino
-    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-</a>
-<a href="{{ route('orionstar.download') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-    Download
-    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-</a>
+
+                <a href="{{ route('orionstar.casino') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
+                    Casino
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+
+                <a href="{{ route('orionstar.download') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
+                    Download
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
 
                 <a href="{{ route('login') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
                     <span class="relative z-10 uppercase tracking-tighter text-xs">Login</span>
@@ -91,11 +96,13 @@
             style="display: none;"
         >
             <a href="{{ route('home') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Home</a>
-            
+
             <div x-data="{ gamesOpen: false }">
                 <button @click="gamesOpen = !gamesOpen" class="flex items-center justify-between w-full text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">
                     Games
-                    <svg class="w-4 h-4 transition-transform" :class="gamesOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-4 h-4 transition-transform" :class="gamesOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </button>
                 <div x-show="gamesOpen" class="mt-4 ml-4 space-y-3">
                     @foreach($headerGames as $game)
@@ -114,17 +121,6 @@
 
             <a href="{{ route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg uppercase tracking-widest">LOGIN</a>
         </nav>
-    </div>
-</header>
-     <a href="{{ route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg uppercase tracking-widest">LOGIN</a>
-        </nav>
-    </div>
-</header>
-ow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg uppercase tracking-widest">LOGIN</a>
-        </nav>
-    </div>
-</header>
-     <a href="{{ route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg uppercase tracking-widest">LOGIN</a>
-        </nav>
+
     </div>
 </header>
