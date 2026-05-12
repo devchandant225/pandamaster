@@ -49,26 +49,14 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="{{ route('orionstar.casino') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Casino
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('orionstar.download') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Download
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>                <a href="{{ route('orionstar.play-online') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Play Online
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('contact') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Contact
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('blog.index') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    Blog
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
+<a href="{{ route('orionstar.casino') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
+    Casino
+    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a href="{{ route('orionstar.download') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
+    Download
+    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+</a>
 
                 <a href="{{ route('login') }}" class="group relative bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black px-8 py-3 rounded-xl transition-all font-black shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 transform hover:-translate-y-0.5 overflow-hidden animate-shine">
                     <span class="relative z-10 uppercase tracking-tighter text-xs">Login</span>
@@ -123,10 +111,16 @@
 
             <a href="{{ route('orionstar.casino') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Casino</a>
             <a href="{{ route('orionstar.download') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Download</a>
-            <a href="{{ route('contact') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Contact</a>
-            <a href="{{ route('blog.index') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Blog</a>
 
             <a href="{{ route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg uppercase tracking-widest">LOGIN</a>
+        </nav>
+    </div>
+</header>
+     <a href="{{ route('login') }}" class="block py-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg uppercase tracking-widest">LOGIN</a>
+        </nav>
+    </div>
+</header>
+ow-500 to-yellow-400 text-black font-black rounded-xl shadow-lg uppercase tracking-widest">LOGIN</a>
         </nav>
     </div>
 </header>
