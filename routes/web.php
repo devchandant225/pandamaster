@@ -29,6 +29,7 @@ Route::get('/orion-stars-fish-games', [OrionStarController::class, 'fishGames'])
 Route::get('/orion-stars-slot-games', [OrionStarController::class, 'slotGames'])->name('orionstar.slot-games');
 Route::get('/orion-stars-sweepstakes-table-games', [OrionStarController::class, 'tableGames'])->name('orionstar.table-games');
 Route::get('/orion-stars-keno', [OrionStarController::class, 'keno'])->name('orionstar.keno');
+Route::get('/casino', [OrionStarController::class, 'casino'])->name('orionstar.casino');
 Route::get('/privacy-policy', [OrionStarController::class, 'privacy'])->name('privacy');
 Route::get('/terms-conditions', [OrionStarController::class, 'terms'])->name('terms');
 Route::get('/thanks', function () {

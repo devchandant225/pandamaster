@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Success - Orion Star VIP')
+@section('title', 'Success - Panda Master VIP')
 
 @section('content')
 <div class="min-h-screen bg-gray-950 flex flex-col items-center justify-center py-20 px-4 text-white">
@@ -30,7 +30,7 @@
         <div class="p-10 md:p-16 relative z-10">
             <!-- Process Timeline -->
             <div class="mb-16">
-                <h2 class="text-xs font-black text-gray-500 uppercase tracking-[0.3em] text-center mb-10">The Orion Star Experience: What to Expect</h2>
+                <h2 class="text-xs font-black text-gray-500 uppercase tracking-[0.3em] text-center mb-10">The Panda Master Experience: What to Expect</h2>
                 <div class="grid md:grid-cols-3 gap-10">
                     <div class="text-center group">
                         <div class="w-14 h-14 bg-gray-800 text-gray-500 group-hover:bg-yellow-500/10 group-hover:text-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-all duration-300 border border-white/5 group-hover:border-yellow-500/20">
@@ -83,7 +83,7 @@
 
     <!-- Contact Support Footer -->
     <div class="mt-12 text-center">
-        <p class="text-gray-500 text-sm font-medium uppercase tracking-widest">Official Orion Star VIP Platform</p>
+        <p class="text-gray-500 text-sm font-medium uppercase tracking-widest">Official Panda Master VIP Platform</p>
     </div>
 </div>
 @endsection

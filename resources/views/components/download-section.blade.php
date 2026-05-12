@@ -25,11 +25,11 @@
                         Anytime.
                     </h2>
                     <p class="text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-xl">
-                        Unleash the full power of Orion Star VIP in the palm of your hand. Our official application delivers a seamless, high-performance fish gaming experience optimized for elite players.
+                        Unleash the full power of Panda Master VIP in the palm of your hand. Our official application delivers a seamless, high-performance fish gaming experience optimized for elite players.
                     </p>
                 </div>
                 ...
-                                    <div class="text-sm font-black text-yellow-500 tracking-widest text-glow-yellow uppercase">Orion Star</div>
+                                    <div class="text-sm font-black text-yellow-500 tracking-widest text-glow-yellow uppercase">Panda Master</div>
                 <div class="grid sm:grid-cols-2 gap-6 pb-4">
                     <div class="flex items-center gap-4 p-4 bg-white/5 border border-white/5 rounded-2xl hover:border-white/10 transition-colors group">
                         <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -99,7 +99,7 @@
                                         <div class="w-5 h-0.5 bg-white/40 mb-1"></div>
                                         <div class="w-3 h-0.5 bg-white/40"></div>
                                     </div>
-                                    <div class="text-sm font-black text-yellow-500 tracking-widest text-glow-yellow">ORIONSTAR</div>
+                                    <div class="text-sm font-black text-yellow-500 tracking-widest text-glow-yellow">PANDAMASTER</div>
                                     <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center border border-yellow-500/20">
                                         <div class="w-5 h-5 text-yellow-500">
                                             <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>

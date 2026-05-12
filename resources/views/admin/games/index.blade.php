@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', ['active' => 'games'])
 
-@section('title', 'Game Management - Orion Star VIP')
+@section('title', 'Game Management - Panda Master VIP')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-900 min-h-screen">

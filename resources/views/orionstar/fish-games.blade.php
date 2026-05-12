@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Orion Stars Fish Games — Play Fish Shooting Games Online')
+@section('title', 'Panda Master Fish Games — Play Fish Shooting Games Online')
 
 @section('content')
 <div class="min-h-screen bg-black relative overflow-hidden font-sans">
     <!-- Animated Gaming Background -->
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
-        <!-- Orion Stars Blue/Purple Themed Glows -->
+        <!-- Panda Master Blue/Purple Themed Glows -->
         <div class="absolute top-0 -left-20 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse"></div>
         <div class="absolute bottom-0 -right-20 w-[800px] h-[800px] bg-purple-600/10 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
     </div>
@@ -16,7 +16,7 @@
         <!-- Hero Section -->
         <div class="text-center mb-24">
             <h1 class="text-5xl md:text-8xl font-black mb-6 tracking-tighter italic uppercase text-glow-blue">
-                Orion Stars <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Fish Games</span>
+                Panda Master <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Fish Games</span>
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 font-bold max-w-3xl mx-auto leading-relaxed">
                 Experience skill-based shooting games with real rewards. Fast action, competitive rooms, and genuine cash prizes await you!
@@ -36,13 +36,13 @@
                 <section class="prose prose-invert prose-2xl max-w-none">
                     <h2 class="text-4xl font-black text-white italic uppercase tracking-tight flex items-center gap-4">
                         <span class="w-12 h-1 bg-blue-500 rounded-full"></span>
-                        What Are Orion Stars Fish Games?
+                        What Are Panda Master Fish Games?
                     </h2>
                     <p class="text-gray-400 leading-relaxed font-medium">
-                        Orion Stars fish games are skill-based shooting games where you aim and fire at fish of different sizes swimming across your screen. Every fish you hit earns you points, and those points convert into real cash rewards. The bigger the fish, the bigger the payout. Some fish also carry special bonuses and multipliers that can significantly boost your winnings in a single shot.
+                        Panda Master fish games are skill-based shooting games where you aim and fire at fish of different sizes swimming across your screen. Every fish you hit earns you points, and those points convert into real cash rewards. The bigger the fish, the bigger the payout. Some fish also carry special bonuses and multipliers that can significantly boost your winnings in a single shot.
                     </p>
                     <p class="text-gray-400 leading-relaxed font-medium mt-4">
-                        These are not purely luck-based games. The more you play orion stars fish games online, the better your aim gets and the more efficiently you use your credits. That is a big part of why players keep coming back to the fish games category above everything else on the platform.
+                        These are not purely luck-based games. The more you play panda master fish games online, the better your aim gets and the more efficiently you use your credits. That is a big part of why players keep coming back to the fish games category above everything else on the platform.
                     </p>
                 </section>
 
@@ -52,7 +52,7 @@
                     <div class="space-y-6">
                         @php
                             $steps = [
-                                "Open the Orion Stars app or the browser version and log in to your account.",
+                                "Open the Panda Master app or the browser version and log in to your account.",
                                 "Go to the fish games section in your game lobby.",
                                 "Choose your room. Rooms have different bet sizes so pick one that suits your credit balance.",
                                 "Select your weapon. Stronger weapons cost more per shot but take down bigger fish faster.",
@@ -76,7 +76,7 @@
                     <div class="bg-blue-600/10 border border-blue-600/20 p-8 rounded-3xl">
                         <h3 class="text-2xl font-black text-white italic mb-4 uppercase">Web & Mobile</h3>
                         <p class="text-gray-400 text-sm font-medium leading-relaxed">
-                            Orion Stars fish games are fully compatible with Android, iPhone, iPad, Windows PC, and any device with a modern browser. Play directly in your browser without downloading anything.
+                            Panda Master fish games are fully compatible with Android, iPhone, iPad, Windows PC, and any device with a modern browser. Play directly in your browser without downloading anything.
                         </p>
                     </div>
                     <div class="bg-purple-600/10 border border-purple-600/20 p-8 rounded-3xl">
@@ -125,12 +125,12 @@
             <h2 class="text-4xl md:text-6xl font-black text-white italic uppercase tracking-tighter text-center mb-16">Frequently Asked <span class="text-blue-500">Intel</span></h2>
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
-                    <h4 class="text-white font-black mb-3 uppercase italic">What are Orion Stars fish games?</h4>
-                    <p class="text-gray-400 text-sm font-medium">Orion Stars fish games are skill-based shooting games where you fire at fish on screen to earn points and real cash rewards. They are the most popular game category on the platform.</p>
+                    <h4 class="text-white font-black mb-3 uppercase italic">What are Panda Master fish games?</h4>
+                    <p class="text-gray-400 text-sm font-medium">Panda Master fish games are skill-based shooting games where you fire at fish on screen to earn points and real cash rewards. They are the most popular game category on the platform.</p>
                 </div>
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
                     <h4 class="text-white font-black mb-3 uppercase italic">Can I play on my phone?</h4>
-                    <p class="text-gray-400 text-sm font-medium">Yes. Orion Stars fish games are available on Android and iPhone through the app and through the browser. For app installation, connect with our distributor on Facebook.</p>
+                    <p class="text-gray-400 text-sm font-medium">Yes. Panda Master fish games are available on Android and iPhone through the app and through the browser. For app installation, connect with our distributor on Facebook.</p>
                 </div>
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
                     <h4 class="text-white font-black mb-3 uppercase italic">Are they free to play?</h4>
@@ -138,7 +138,7 @@
                 </div>
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
                     <h4 class="text-white font-black mb-3 uppercase italic">What is a fish table game?</h4>
-                    <p class="text-gray-400 text-sm font-medium">An Orion Stars fish table game is the version designed to look and feel like a physical arcade machine. Mechanics are identical but the presentation is different.</p>
+                    <p class="text-gray-400 text-sm font-medium">An Panda Master fish table game is the version designed to look and feel like a physical arcade machine. Mechanics are identical but the presentation is different.</p>
                 </div>
             </div>
         </div>

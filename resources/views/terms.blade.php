@@ -9,7 +9,7 @@
             <h1 class="text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter">
                 Terms & <span class="text-purple-500">Conditions</span>
             </h1>
-            <p class="text-gray-400 font-bold uppercase tracking-widest">Last Updated: April 2026</p>
+            <p class="text-gray-400 font-bold uppercase tracking-widest">Last Updated: May 2026</p>
         </div>
     </section>
 
@@ -18,7 +18,7 @@
             <div class="bg-gray-900 border border-white/5 p-8 md:p-12 rounded-[3rem] shadow-2xl">
                 <div class="prose prose-invert prose-purple max-w-none text-gray-300 leading-relaxed">
                     <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-6">1. Introduction</h2>
-                    <p class="mb-8">Welcome to orionstarsbet.com. These Terms & Conditions govern your access to and use of this website and its services. By using this website, you agree to comply with these terms. If you do not agree, please do not use the website.</p>
+                    <p class="mb-8">Welcome to Panda Master. These Terms & Conditions govern your access to and use of this website and its services. By using this website, you agree to comply with these terms. If you do not agree, please do not use the website.</p>
 
                     <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-6">2. Eligibility</h2>
                     <ul class="list-disc pl-6 mb-8 space-y-2">
@@ -61,7 +61,7 @@
                     <p class="mb-8">You are allowed to access and use the website for personal, non-commercial use only. You may not copy, modify, distribute, or reuse content without permission. We reserve the right to revoke access at any time.</p>
 
                     <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-6">10. Indemnification</h2>
-                    <p class="mb-4">You agree to protect and hold harmless orionstarsbet.com, its team, and affiliates from any claims, damages, or losses arising from:</p>
+                    <p class="mb-4">You agree to protect and hold harmless Panda Master, its team, and affiliates from any claims, damages, or losses arising from:</p>
                     <ul class="list-disc pl-6 mb-8 space-y-2">
                         <li>Your use of the website</li>
                         <li>Violation of these terms</li>
@@ -86,7 +86,7 @@
                     <p class="mb-8">We may update these Terms & Conditions at any time. Continued use of the website means you accept any changes.</p>
 
                     <h2 class="text-2xl font-black text-white uppercase tracking-tighter mb-6">15. Contact</h2>
-                    <p class="mb-8">For any questions regarding these Terms, please contact us through the website.</p>
+                    <p class="mb-8">For any questions regarding these Terms, please contact us through the Panda Master website.</p>
                 </div>
             </div>
         </div>

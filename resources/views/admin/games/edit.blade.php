@@ -138,7 +138,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-bold text-gray-400 mb-2">Hero Title</label>
-                        <input type="text" name="hero_title" value="{{ old('hero_title', $game->hero_title) }}" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="Big Win at Orion Star">
+                        <input type="text" name="hero_title" value="{{ old('hero_title', $game->hero_title) }}" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="Big Win at Panda Master">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-400 mb-2">Hero Subtitle</label>
@@ -199,7 +199,7 @@
 
                 <div>
                     <label class="block text-sm font-bold text-gray-400 mb-2">Special Title</label>
-                    <input type="text" name="special_title" value="{{ old('special_title', $game->special_title) }}" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="Why Choose Orion Star?">
+                    <input type="text" name="special_title" value="{{ old('special_title', $game->special_title) }}" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="Why Choose Panda Master?">
                 </div>
 
                 <div x-data="{ items: {{ json_encode(old('special_items', $game->special_items ?: [])) }} }" class="space-y-4">

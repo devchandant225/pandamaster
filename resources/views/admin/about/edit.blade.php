@@ -27,7 +27,7 @@
                 <div class="space-y-6">
                     <div>
                         <label class="block text-sm font-bold text-gray-400 mb-2">Page Title</label>
-                        <input type="text" name="title" value="{{ old('title', $about->title) }}" required class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="e.g. About Orion Stars Official">
+                        <input type="text" name="title" value="{{ old('title', $about->title) }}" required class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:border-yellow-500 focus:outline-none" placeholder="e.g. About Panda Master Official">
                     </div>
 
                     <div>

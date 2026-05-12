@@ -11,7 +11,7 @@
                 <div class="relative overflow-hidden rounded-[2.5rem] border border-white/10 aspect-video lg:aspect-square">
                     <img 
                         src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200" 
-                        alt="OrionStar Gaming Experience" 
+                        alt="PandaMaster Gaming Experience" 
                         class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60"></div>
@@ -31,7 +31,7 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                     </span>
-                    The Orion Star Story
+                    The Panda Master Story
                 </div>
 
                 <h2 class="text-5xl md:text-6xl font-black mb-8 leading-[0.9] tracking-tighter text-white uppercase">
@@ -39,7 +39,7 @@
                 </h2>
 
                 <p class="text-xl text-gray-400 mb-10 leading-relaxed font-medium">
-                    Orion Star VIP is built on the legendary Fire Kirin engine, delivering the world's most immersive, rewarding, and secure online fish gaming platform. With over 30+ exclusive titles, we set the gold standard for social casino entertainment.
+                    Panda Master VIP is built on the legendary Fire Kirin engine, delivering the world's most immersive, rewarding, and secure online fish gaming platform. With over 30+ exclusive titles, we set the gold standard for social casino entertainment.
                 </p>
 
                 <div class="grid sm:grid-cols-2 gap-6 mb-12">

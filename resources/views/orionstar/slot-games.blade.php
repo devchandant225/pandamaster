@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Orion Stars Slot Games — Spin and Win Real Money Online')
+@section('title', 'Panda Master Slot Games — Spin and Win Real Money Online')
 
 @section('content')
 <div class="min-h-screen bg-black relative overflow-hidden font-sans">
     <!-- Animated Gaming Background -->
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1)_0%,rgba(0,0,0,1)_100%)]"></div>
-        <!-- Orion Stars Gold/Purple Themed Glows -->
+        <!-- Panda Master Gold/Purple Themed Glows -->
         <div class="absolute top-0 -left-20 w-[600px] h-[600px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse"></div>
         <div class="absolute bottom-0 -right-20 w-[800px] h-[800px] bg-purple-600/10 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
     </div>
@@ -16,7 +16,7 @@
         <!-- Hero Section -->
         <div class="text-center mb-24">
             <h1 class="text-5xl md:text-8xl font-black mb-6 tracking-tighter italic uppercase text-glow-yellow">
-                Orion Stars <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Slot Games</span>
+                Panda Master <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Slot Games</span>
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 font-bold max-w-3xl mx-auto leading-relaxed">
                 Spin the reels and win real money online. From classic 3-reel slots to modern video titles, the big jackpot is waiting!
@@ -36,13 +36,13 @@
                 <section class="prose prose-invert prose-2xl max-w-none">
                     <h2 class="text-4xl font-black text-white italic uppercase tracking-tight flex items-center gap-4">
                         <span class="w-12 h-1 bg-yellow-500 rounded-full"></span>
-                        What Are Orion Stars Slot Games?
+                        What Are Panda Master Slot Games?
                     </h2>
                     <p class="text-gray-400 leading-relaxed font-medium">
-                        Orion Stars slot games are casino-style slot machines where you spin the reels to land winning combinations. Each spin has the potential to trigger bonus rounds, free spins, and jackpot payouts. The orion stars slots library includes classic three-reel titles for simple, fast gameplay and more complex video slots with multiple paylines and feature-packed bonus systems.
+                        Panda Master slot games are casino-style slot machines where you spin the reels to land winning combinations. Each spin has the potential to trigger bonus rounds, free spins, and jackpot payouts. The panda master slots library includes classic three-reel titles for simple, fast gameplay and more complex video slots with multiple paylines and feature-packed bonus systems.
                     </p>
                     <p class="text-gray-400 leading-relaxed font-medium mt-4">
-                        The platform uses a certified Random Number Generator system to make sure every spin on every orion stars slot game is genuinely fair and random. No outcome is pre-determined and every player has the same odds on every spin.
+                        The platform uses a certified Random Number Generator system to make sure every spin on every panda master slot game is genuinely fair and random. No outcome is pre-determined and every player has the same odds on every spin.
                     </p>
                 </section>
 
@@ -52,7 +52,7 @@
                     <div class="space-y-6">
                         @php
                             $steps = [
-                                "Log in to your Orion Stars account through the app or browser version.",
+                                "Log in to your Panda Master account through the app or browser version.",
                                 "Go to the slot games section in your game lobby.",
                                 "Browse the available titles and pick one that catches your eye.",
                                 "Set your bet size using the controls at the bottom of the screen.",
@@ -76,13 +76,13 @@
                     <div class="bg-blue-600/10 border border-blue-600/20 p-8 rounded-3xl">
                         <h3 class="text-2xl font-black text-white italic mb-4 uppercase">Web & Mobile</h3>
                         <p class="text-gray-400 text-sm font-medium leading-relaxed">
-                            Orion Stars slot games work on Android, iPhone, iPad, Windows PC, and any browser-enabled device. Play directly in your browser without downloading anything.
+                            Panda Master slot games work on Android, iPhone, iPad, Windows PC, and any browser-enabled device. Play directly in your browser without downloading anything.
                         </p>
                     </div>
                     <div class="bg-purple-600/10 border border-purple-600/20 p-8 rounded-3xl">
                         <h3 class="text-2xl font-black text-white italic mb-4 uppercase">Login & Access</h3>
                         <p class="text-gray-400 text-sm font-medium leading-relaxed">
-                            To play Orion Stars slot games, log in using the button above. New players can connect with our trusted distributor on Facebook to get set up.
+                            To play Panda Master slot games, log in using the button above. New players can connect with our trusted distributor on Facebook to get set up.
                         </p>
                     </div>
                 </section>
@@ -130,15 +130,15 @@
                 </div>
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
                     <h4 class="text-white font-black mb-3 uppercase italic">Can I play slots on my phone?</h4>
-                    <p class="text-gray-400 text-sm font-medium">Yes. Orion Stars slot games are fully compatible with Android and iPhone. Play via browser or app.</p>
+                    <p class="text-gray-400 text-sm font-medium">Yes. Panda Master slot games are fully compatible with Android and iPhone. Play via browser or app.</p>
                 </div>
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
-                    <h4 class="text-white font-black mb-3 uppercase italic">Are Orion Stars slot games fair?</h4>
+                    <h4 class="text-white font-black mb-3 uppercase italic">Are Panda Master slot games fair?</h4>
                     <p class="text-gray-400 text-sm font-medium">Yes. All slot games run on a certified RNG system that ensures every spin is random and fair.</p>
                 </div>
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
                     <h4 class="text-white font-black mb-3 uppercase italic">Can I play without downloading?</h4>
-                    <p class="text-gray-400 text-sm font-medium">Yes. Orion Stars online slots are available through the browser version. No download or installation is required.</p>
+                    <p class="text-gray-400 text-sm font-medium">Yes. Panda Master online slots are available through the browser version. No download or installation is required.</p>
                 </div>
             </div>
         </div>

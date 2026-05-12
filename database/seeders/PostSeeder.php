@@ -24,7 +24,7 @@ class PostSeeder extends Seeder
 <p>Never bet more than 2% of your total bankroll on a single spin. This ensures you can weather losing streaks and stay in the game long enough to hit big wins.</p>
 
 <h2>Take Advantage of Bonuses</h2>
-<p>Orion Star offers generous bonus coins and free spins. Always check the promotions page and use these bonuses to extend your gameplay without additional deposits.</p>
+<p>Panda Master offers generous bonus coins and free spins. Always check the promotions page and use these bonuses to extend your gameplay without additional deposits.</p>
 
 <h2>Know When to Stop</h2>
 <p>Set win and loss limits before you start playing. If you hit your target, cash out and celebrate. Responsible gaming is the key to long-term enjoyment.</p>'
@@ -51,7 +51,7 @@ class PostSeeder extends Seeder
             ],
             [
                 'title' => 'VIP Program Explained: How to Reach Diamond Status',
-                'excerpt' => 'Unlock exclusive perks and rewards by climbing the Orion Star VIP ladder.',
+                'excerpt' => 'Unlock exclusive perks and rewards by climbing the Panda Master VIP ladder.',
                 'image_url' => 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1080',
                 'content' => '<p>Our VIP program rewards loyal players with exclusive benefits, faster withdrawals, personal account managers, and special bonuses. Here\'s how to climb the ranks.</p>
 
@@ -80,7 +80,7 @@ class PostSeeder extends Seeder
                     'excerpt' => $postData['excerpt'],
                     'image_url' => $postData['image_url'],
                     'content' => $postData['content'],
-                    'author' => 'Orion Star VIP Team'
+                    'author' => 'Panda Master VIP Team'
                 ]
             );
         }

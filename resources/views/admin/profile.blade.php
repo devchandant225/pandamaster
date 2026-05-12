@@ -1,5 +1,5 @@
 @extends('layouts.dashboard', ['active' => 'profile'])
-@section('title', 'Admin Profile & Branding - Orion Star')
+@section('title', 'Admin Profile & Branding - Panda Master')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-50 min-h-screen" x-data="{ activeTab: 'profile' }">
@@ -28,7 +28,7 @@
                             SYSTEM ADMINISTRATOR
                         </span>
                     </div>
-                    <p class="text-gray-400 font-medium text-lg italic mb-6">Managing Orion Star Digital Assets</p>
+                    <p class="text-gray-400 font-medium text-lg italic mb-6">Managing Panda Master Digital Assets</p>
                     
                     <div class="flex flex-wrap justify-center md:justify-start gap-4">
                         <div class="px-5 py-2 bg-white/5 border border-white/5 rounded-2xl flex items-center gap-3">

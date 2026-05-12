@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Admin Login - Orion Star VIP')
+@section('title', 'Admin Login - Panda Master VIP')
 
 @section('content')
 <div class="min-h-screen bg-gray-950 text-white flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -8,7 +8,7 @@
     
     <div class="relative z-10 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="text-center">
-            <h1 class="text-4xl font-black uppercase tracking-tighter text-white mb-2">Orion Star VIP</h1>
+            <h1 class="text-4xl font-black uppercase tracking-tighter text-white mb-2">Panda Master VIP</h1>
             <h2 class="text-xl font-bold text-gray-500 uppercase tracking-widest mb-8">Admin Dashboard</h2>
         </div>
 

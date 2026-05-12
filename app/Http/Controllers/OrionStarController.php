@@ -28,6 +28,11 @@ class OrionStarController extends Controller
         return view('orionstar.play-online');
     }
 
+    public function casino()
+    {
+        return view('orionstar.casino');
+    }
+
     public function fishGames()
     {
         return view('orionstar.fish-games');

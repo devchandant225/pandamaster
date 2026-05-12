@@ -46,19 +46,19 @@ class ContactController extends Controller
 
         // Send Professional Email to Admin
         try {
-            $adminEmail = 'info@orionstarvip.com';
+            $adminEmail = 'info@pandamastervip.com';
             
             Mail::send('emails.leads.notification', ['lead' => $lead], function ($message) use ($lead, $adminEmail) {
                 $message->to($adminEmail)
                     ->subject('New Lead: ' . $lead->name . ' - ' . ucfirst($lead->intent))
-                    ->from('noreply@orionstarvip.com', '888Realty Lead System');
+                    ->from('noreply@pandamastervip.com', '888Realty Lead System');
             });
 
             // Send Confirmation Email to Visitor
             Mail::send('emails.leads.confirmation', ['lead' => $lead], function ($message) use ($lead) {
                 $message->to($lead->email)
                     ->subject('Request Received: We\'re matching you with an agent!')
-                    ->from('info@orionstarvip.com', '888Realty Team');
+                    ->from('info@pandamastervip.com', '888Realty Team');
             });
         } catch (\Exception $e) {
             \Log::error('Failed to send lead email: ' . $e->getMessage());

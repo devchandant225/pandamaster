@@ -25,7 +25,7 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
                 </span>
-                {{ $about->title ?? 'The Orion Star VIP Experience' }}
+                {{ $about->title ?? 'The Panda Master VIP Experience' }}
             </div>
 
             <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-10 leading-[0.85] tracking-tighter animate-fade-in-up">
@@ -84,7 +84,7 @@
                              {!! $about->description !!}
                         @else
                             <p>
-                                Born from the passion for high-octane gaming, <span class="text-white font-black tracking-widest uppercase">Orion Star VIP</span> was created with one mission: to build the most immersive, rewarding, and secure online fish gaming ecosystem in the world.
+                                Born from the passion for high-octane gaming, <span class="text-white font-black tracking-widest uppercase">Panda Master VIP</span> was created with one mission: to build the most immersive, rewarding, and secure online fish gaming ecosystem in the world.
                             </p>
                         @endif
                     </div>

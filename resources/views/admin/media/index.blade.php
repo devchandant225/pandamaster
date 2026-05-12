@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', ['active' => 'media'])
 
-@section('title', 'Media Library - Orion Star Admin')
+@section('title', 'Media Library - Panda Master Admin')
 
 @section('content')
 <div class="p-6 md:p-10 bg-gray-50 min-h-screen" x-data="mediaLibrary()">

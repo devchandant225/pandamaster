@@ -24,7 +24,7 @@
             </h2>
 
             <p class="text-lg md:text-xl text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
-                We've engineered the core of Orion Star VIP to be truly device-agnostic. No compromises, no lag—just pure high-octane gaming wherever you go.
+                We've engineered the core of Panda Master VIP to be truly device-agnostic. No compromises, no lag—just pure high-octane gaming wherever you go.
             </p>
         </div>
 

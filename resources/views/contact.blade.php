@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Orion Stars - Get in Touch with Us')
+@section('title', 'Contact Panda Master - Get in Touch with Us')
 
 @section('content')
 <div class="min-h-screen bg-gray-950 text-white">
@@ -9,7 +9,7 @@
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1)_0%,rgba(0,0,0,1)_100%)]"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-6xl font-black mb-8 leading-tight animate-fade-in-up uppercase tracking-tighter">
-                Get in Touch with <span class="text-yellow-500">Orion Stars</span>
+                Get in Touch with <span class="text-yellow-500">Panda Master</span>
             </h1>
             <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto font-medium leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
                 Have questions about our games, bonuses, or VIP program? Our team is here to help you 24/7. Reach out to us using the form below or through our social channels.

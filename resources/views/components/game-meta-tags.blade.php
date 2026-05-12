@@ -1,5 +1,5 @@
 @php
-    $siteName = config('app.name', 'Orion Stars');
+    $siteName = config('app.name', 'Panda Master');
     $currentUrl = request()->url();
     
     $logoUrl = (isset($adminSettings) && $adminSettings->logo) 
@@ -8,7 +8,7 @@
 
     $title = $game->meta_title ?: $game->title . ' | ' . $siteName;
     $description = $game->meta_description ?: Str::limit(strip_tags($game->description), 160);
-    $keywords = $game->meta_keywords ?: 'Orion Stars game, ' . $game->game_type . ', ' . $game->title;
+    $keywords = $game->meta_keywords ?: 'Panda Master game, ' . $game->game_type . ', ' . $game->title;
     $image = $game->thumbnail ?: $logoUrl;
 
     $metaSchemas = (isset($game->meta_schema) && is_array($game->meta_schema)) ? $game->meta_schema : [];

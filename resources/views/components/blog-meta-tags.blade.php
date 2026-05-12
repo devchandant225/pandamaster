@@ -1,10 +1,10 @@
 @php
-    $siteName = config('app.name', 'Orion Stars');
+    $siteName = config('app.name', 'Panda Master');
     $currentUrl = request()->url();
     
     $title = $post->meta_title ?: $post->title . ' | ' . $siteName;
     $description = $post->meta_description ?: $post->excerpt;
-    $keywords = $post->meta_keywords ?: 'Orion Stars blog, fish games news';
+    $keywords = $post->meta_keywords ?: 'Panda Master blog, fish games news';
     $image = $post->image_url ?: asset('logo.png');
 
     $logoUrl = (isset($adminSettings) && $adminSettings->logo) 
@@ -20,7 +20,7 @@
         'image' => $image,
         'author' => [
             '@type' => 'Person', 
-            'name' => $post->author ?: 'Orion Star VIP Team'
+            'name' => $post->author ?: 'Panda Master VIP Team'
         ],
         'publisher' => [
             '@type' => 'Organization', 

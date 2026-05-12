@@ -9,10 +9,10 @@
             <!-- Logo -->
             <a href="{{ url('/') }}" class="flex items-center gap-2 group">
                 @if(isset($adminSettings) && $adminSettings->logo)
-                    <img src="{{ Storage::url($adminSettings->logo) }}" alt="Orion Star" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
+                    <img src="{{ Storage::url($adminSettings->logo) }}" alt="Panda Master" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
                 @else
                     <div class="text-3xl font-black transition-transform duration-300 group-hover:scale-110">
-                        <span class="text-yellow-500 text-glow-yellow uppercase">Orion</span><span class="text-white uppercase">Star</span>
+                        <span class="text-yellow-500 text-glow-yellow uppercase">Panda</span><span class="text-white uppercase">Master</span>
                     </div>
                 @endif
             </a>
@@ -50,8 +50,12 @@
                     </div>
                 </div>
 
-                <a href="{{ route('orionstar.777') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
-                    777
+                <a href="{{ route('orionstar.casino') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
+                    Casino
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="{{ route('orionstar.casino') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
+                    Casino
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <a href="{{ route('orionstar.download') }}" class="relative group py-2 text-gray-300 hover:text-yellow-500 transition-colors font-bold text-xs tracking-wider uppercase">
@@ -122,7 +126,7 @@
                 </div>
             </div>
 
-            <a href="{{ route('orionstar.777') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">777</a>
+            <a href="{{ route('orionstar.casino') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Casino</a>
             <a href="{{ route('orionstar.download') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Download</a>
             <a href="{{ route('orionstar.play-online') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Play Online</a>
             <a href="{{ route('contact') }}" class="block text-lg font-bold text-gray-300 hover:text-yellow-500 uppercase italic">Contact</a>
