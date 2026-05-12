@@ -109,7 +109,7 @@
             <div class="p-10 bg-gray-900 border border-white/5 rounded-3xl">
                 <h2 class="text-3xl font-black mb-6 uppercase tracking-tighter">Bonuses for Online Players</h2>
                 <p class="text-gray-400 mb-8 leading-relaxed">Playing Panda Master online through the browser does not mean missing out on any bonuses. All of the same promotions apply. Welcome bonus for new accounts, daily login rewards, weekly credits, and the referral program are all accessible through the browser version.</p>
-                <a href="{{ route('login') }}" class="inline-block px-10 py-4 bg-yellow-500 text-black font-black rounded-xl hover:bg-yellow-400 transition-colors uppercase tracking-tighter shadow-lg">Claim Your Bonus</a>
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block px-10 py-4 bg-yellow-500 text-black font-black rounded-xl hover:bg-yellow-400 transition-colors uppercase tracking-tighter shadow-lg">Claim Your Bonus</a>
             </div>
         </section>
 

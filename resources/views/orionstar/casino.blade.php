@@ -15,7 +15,7 @@
                 Welcome to the Panda Master casino. Fish games, panda slots, table games, and real money rewards are all here. Panda Master online casino gives you the kind of experience that keeps players coming back.
             </p>
             <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
-                <a href="{{ route('login') }}" class="px-12 py-5 bg-yellow-500 text-black text-2xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1 shadow-lg uppercase">Play Casino Games Now</a>
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="px-12 py-5 bg-yellow-500 text-black text-2xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1 shadow-lg uppercase">Play Casino Games Now</a>
             </div>
         </div>
     </section>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="text-center">
                     <div class="text-7xl mb-6">🎁</div>
-                    <a href="{{ route('login') }}" class="inline-block bg-yellow-500 text-black px-12 py-5 rounded-2xl text-2xl font-black hover:bg-yellow-400 transition-colors uppercase tracking-tighter shadow-lg">Claim Your Casino Bonus</a>
+                    <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block bg-yellow-500 text-black px-12 py-5 rounded-2xl text-2xl font-black hover:bg-yellow-400 transition-colors uppercase tracking-tighter shadow-lg">Claim Your Casino Bonus</a>
                 </div>
             </div>
         </section>

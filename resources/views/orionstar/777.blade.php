@@ -17,7 +17,7 @@
             <div class="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-up" style="animation-delay: 0.4s;">
                 <a href="{{ route('orionstar.download') }}" class="px-10 py-5 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1.5 shadow-lg uppercase">Download 777 APK</a>
                 <a href="{{ route('orionstar.play-online') }}" class="px-10 py-5 bg-purple-600 text-white text-xl font-black rounded-2xl hover:bg-purple-500 transition-all transform hover:-translate-y-1.5 shadow-lg uppercase">Play Online</a>
-                <a href="{{ route('login') }}" class="px-10 py-5 bg-white/10 text-white text-xl font-black rounded-2xl hover:bg-white/20 transition-all transform hover:-translate-y-1.5 border border-white/20 backdrop-blur-sm uppercase">Login to 777</a>
+                <a href="{{ $adminSettings->login_url ?? '#' }}" class="px-10 py-5 bg-white/10 text-white text-xl font-black rounded-2xl hover:bg-white/20 transition-all transform hover:-translate-y-1.5 border border-white/20 backdrop-blur-sm uppercase">Login to 777</a>
             </div>
         </div>
     </section>
@@ -92,7 +92,7 @@
                     <p>The Ultra Panda 777 experience includes the fish games, slots, and sweepstakes titles that the platform is built around. Your account credentials work across both, so there is no need to set up a separate account.</p>
                 </div>
                 <div class="mt-8">
-                    <a href="{{ route('login') }}" class="inline-block px-10 py-4 bg-purple-600 text-white font-black rounded-xl hover:bg-purple-500 transition-colors uppercase tracking-tighter">Access Ultra Panda 777</a>
+                    <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block px-10 py-4 bg-purple-600 text-white font-black rounded-xl hover:bg-purple-500 transition-colors uppercase tracking-tighter">Access Ultra Panda 777</a>
                 </div>
             </div>
         </section>
@@ -106,7 +106,7 @@
             <p class="text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
                 You can also log in through the browser version of Pandamaster 777 if you do not want to use the app. Visit the web portal, enter your credentials, and your full game lobby and account details load up instantly. Either way, your account history, credits, and bonuses are all there.
             </p>
-            <a href="{{ route('login') }}" class="inline-block px-12 py-5 bg-white text-black font-black rounded-2xl hover:bg-yellow-500 transition-colors uppercase tracking-tighter shadow-lg">Login to Panda Master 777</a>
+            <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block px-12 py-5 bg-white text-black font-black rounded-2xl hover:bg-yellow-500 transition-colors uppercase tracking-tighter shadow-lg">Login to Panda Master 777</a>
         </section>
 
         <!-- Games & Bonuses -->

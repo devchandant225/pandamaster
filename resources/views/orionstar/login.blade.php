@@ -16,7 +16,6 @@
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-up" style="animation-delay: 0.4s;">
                 <a href="{{ $adminSettings->login_url ?? '#' }}" class="px-10 py-5 bg-yellow-500 text-black text-xl font-black rounded-2xl hover:bg-yellow-400 transition-all transform hover:-translate-y-1 shadow-lg uppercase">Player Login</a>
-                <a href="{{ route('admin.login') }}" class="px-10 py-5 bg-purple-600 text-white text-xl font-black rounded-2xl hover:bg-purple-500 transition-all transform hover:-translate-y-1 shadow-lg uppercase">Admin Login</a>
                 <a href="{{ route('orionstar.play-online') }}" class="px-10 py-5 bg-white/10 text-white text-xl font-black rounded-2xl hover:bg-white/20 transition-all transform hover:-translate-y-1 border border-white/20 backdrop-blur-sm uppercase">Play Without Downloading</a>
             </div>
         </div>
@@ -116,15 +115,6 @@
                     </button>
                     <div x-show="active === 1" class="p-6 pt-0 text-gray-400 border-t border-white/5">
                         Open the Panda Master app or visit the web version in your browser. Enter the username and password that your distributor provided and tap Login. If you are logging in for the first time, you will need to get your credentials from a distributor first.
-                    </div>
-                </div>
-                <div class="bg-gray-900 border border-white/5 rounded-2xl overflow-hidden">
-                    <button @click="active = active === 2 ? null : 2" class="w-full p-6 text-left flex justify-between items-center">
-                        <span class="text-lg font-black text-white uppercase">What is the Panda Master admin login?</span>
-                        <span class="text-yellow-500 text-2xl" x-text="active === 2 ? '−' : '+'"></span>
-                    </button>
-                    <div x-show="active === 2" class="p-6 pt-0 text-gray-400 border-t border-white/5">
-                        The Panda Master admin login is for distributors and platform managers who need access to the backend management system. It is separate from the player login portal and gives access to account creation, credit management, and distributor tools.
                     </div>
                 </div>
                 <div class="bg-gray-900 border border-white/5 rounded-2xl overflow-hidden">

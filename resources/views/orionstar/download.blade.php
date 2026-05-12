@@ -117,7 +117,7 @@
             <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
                 Once your Panda Master download is done and the app is installed, you will need an account to log in. If you already have credentials, enter them and start exploring the game lobby. If you are a new player, connect with our distributor on <a href="{{ $adminSettings->facebook ?? '#' }}" target="_blank" class="text-yellow-500 font-bold hover:underline">Facebook</a> and they will get your account ready within a short time.
             </p>
-            <a href="{{ route('login') }}" class="inline-block bg-white text-black px-12 py-5 rounded-2xl text-2xl font-black hover:bg-yellow-500 transition-colors uppercase tracking-tighter shadow-lg">Login After Download</a>
+            <a href="{{ $adminSettings->login_url ?? '#' }}" class="inline-block bg-white text-black px-12 py-5 rounded-2xl text-2xl font-black hover:bg-yellow-500 transition-colors uppercase tracking-tighter shadow-lg">Login After Download</a>
         </section>
 
         <!-- FAQ Section -->
