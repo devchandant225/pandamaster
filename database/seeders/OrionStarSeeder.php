@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\MetaTag;
-use App\Models\GameCategory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,7 +15,6 @@ class OrionStarSeeder extends Seeder
         $this->command->info('🌟 Seeding Panda Master Official Platform...');
 
         $this->seedAdminProfile();
-        $this->seedGameCategories();
         $this->seedMetaTags();
         $this->seedBlogPosts();
 
@@ -28,10 +26,10 @@ class OrionStarSeeder extends Seeder
         $this->command->info('📝 Seeding Admin Profile...');
 
         User::updateOrCreate(
-            ['email' => 'admin@pandamasterbet.com'],
+            ['email' => 'admin@pandamaster777.xyz'],
             [
                 'name' => 'Panda Master Admin',
-                'password' => Hash::make('admin123'),
+                'password' => Hash::make('password'),
                 'role' => 'admin',
                 'phone' => '+1234567890',
                 'whatsapp' => '+1234567890',
@@ -52,25 +50,7 @@ class OrionStarSeeder extends Seeder
             ]
         );
 
-        $this->command->info('   ✓ Admin user created: admin@pandamasterbet.com');
-    }
-
-    protected function seedGameCategories(): void
-    {
-        $this->command->info('🎮 Seeding Game Categories...');
-
-        $categories = [
-            ['name' => 'Fish Games', 'slug' => 'fish-games', 'description' => 'Multiplayer boss battles — Ocean King, Thunder Dragon, and more', 'icon_url' => 'https://via.placeholder.com/100x100/00BFFF/FFFFFF?text=Fish', 'sort_order' => 1, 'is_active' => true],
-            ['name' => 'Panda Slots', 'slug' => 'panda-slots', 'description' => 'Spin and win with exciting slot games featuring progressive jackpots', 'icon_url' => 'https://via.placeholder.com/100x100/22C55E/FFFFFF?text=Slots', 'sort_order' => 2, 'is_active' => true],
-            ['name' => 'Arcade Games', 'slug' => 'arcade-games', 'description' => 'Fun arcade-style games with real rewards', 'icon_url' => 'https://via.placeholder.com/100x100/A855F7/FFFFFF?text=Arcade', 'sort_order' => 3, 'is_active' => true],
-            ['name' => 'Table Games', 'slug' => 'table-games', 'description' => 'Classic casino table games — roulette, blackjack, and more', 'icon_url' => 'https://via.placeholder.com/100x100/EF4444/FFFFFF?text=Table', 'sort_order' => 4, 'is_active' => true],
-            ['name' => 'Board Games', 'slug' => 'board-games', 'description' => 'Strategic board games for competitive players', 'icon_url' => 'https://via.placeholder.com/100x100/F59E0B/FFFFFF?text=Board', 'sort_order' => 5, 'is_active' => true],
-        ];
-
-        foreach ($categories as $cat) {
-            GameCategory::updateOrCreate(['slug' => $cat['slug']], $cat);
-            $this->command->info('   ✓ Game Category: ' . $cat['name']);
-        }
+        $this->command->info('   ✓ Admin user created: admin@admin.com');
     }
 
     protected function seedMetaTags(): void

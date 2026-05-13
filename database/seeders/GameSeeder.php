@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Game;
-use App\Models\GameCategory;
 use Illuminate\Database\Seeder;
 
 class GameSeeder extends Seeder
@@ -16,65 +15,11 @@ class GameSeeder extends Seeder
     public function run(): void
     {
         // ===========================================
-        // GAME CATEGORIES
-        // ===========================================
-        $slotsCategory = GameCategory::firstOrCreate(
-            ['name' => 'Slots'],
-            [
-                'slug' => 'slots',
-                'description' => 'Spin and win with our exciting collection of slot games',
-                'sort_order' => 1,
-                'is_active' => true,
-            ]
-        );
-
-        $fishCategory = GameCategory::firstOrCreate(
-            ['name' => 'Fish Games'],
-            [
-                'slug' => 'fish-games',
-                'description' => 'Dive deep into underwater adventures and catch big wins',
-                'sort_order' => 2,
-                'is_active' => true,
-            ]
-        );
-
-        $kenoCategory = GameCategory::firstOrCreate(
-            ['name' => 'Keno'],
-            [
-                'slug' => 'keno',
-                'description' => 'Pick your numbers and test your luck',
-                'sort_order' => 3,
-                'is_active' => true,
-            ]
-        );
-
-        $tableCategory = GameCategory::firstOrCreate(
-            ['name' => 'Table Games'],
-            [
-                'slug' => 'table-games',
-                'description' => 'Classic casino table games for every player',
-                'sort_order' => 4,
-                'is_active' => true,
-            ]
-        );
-
-        $cardCategory = GameCategory::firstOrCreate(
-            ['name' => 'Card Games'],
-            [
-                'slug' => 'card-games',
-                'description' => 'Strategic card games for skilled players',
-                'sort_order' => 5,
-                'is_active' => true,
-            ]
-        );
-
-        // ===========================================
         // SLOT GAMES
         // ===========================================
         Game::firstOrCreate(
             ['title' => 'Starlight Princess'],
             [
-                'game_category_id' => $slotsCategory->id,
                 'slug' => 'starlight-princess',
                 'description' => 'A magical slot game featuring cascading wins and multipliers up to 500x!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/D4AF37/000000?text=Starlight+Princess',
@@ -94,7 +39,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'Gates of Olympus'],
             [
-                'game_category_id' => $slotsCategory->id,
                 'slug' => 'gates-of-olympus',
                 'description' => 'Journey to Mount Olympus and win big with Zeus\'s powers!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/D4AF37/000000?text=Gates+of+Olympus',
@@ -114,7 +58,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'Sweet Bonanza'],
             [
-                'game_category_id' => $slotsCategory->id,
                 'slug' => 'sweet-bonanza',
                 'description' => 'A candy-themed slot with explosive wins and free spins!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/FF69B4/FFFFFF?text=Sweet+Bonanza',
@@ -134,7 +77,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'Wild West Gold'],
             [
-                'game_category_id' => $slotsCategory->id,
                 'slug' => 'wild-west-gold',
                 'description' => 'Strike gold in the Wild West with sticky wilds and big wins!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/D4AF37/000000?text=Wild+West+Gold',
@@ -157,7 +99,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'Ocean King'],
             [
-                'game_category_id' => $fishCategory->id,
                 'slug' => 'ocean-king',
                 'description' => 'The ultimate fish shooting game with massive bosses and jackpots!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/00BFFF/FFFFFF?text=Ocean+King',
@@ -177,7 +118,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'Fish Hunter'],
             [
-                'game_category_id' => $fishCategory->id,
                 'slug' => 'fish-hunter',
                 'description' => 'Hunt exotic fish and win incredible prizes!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/00BFFF/FFFFFF?text=Fish+Hunter',
@@ -200,7 +140,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'Classic Keno'],
             [
-                'game_category_id' => $kenoCategory->id,
                 'slug' => 'classic-keno',
                 'description' => 'Traditional keno with modern payouts. Pick up to 10 numbers!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/FF69B4/FFFFFF?text=Classic+Keno',
@@ -223,7 +162,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'European Roulette'],
             [
-                'game_category_id' => $tableCategory->id,
                 'slug' => 'european-roulette',
                 'description' => 'Classic European roulette with a single zero for better odds!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/D4AF37/000000?text=European+Roulette',
@@ -243,7 +181,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'Blackjack VIP'],
             [
-                'game_category_id' => $tableCategory->id,
                 'slug' => 'blackjack-vip',
                 'description' => 'Premium blackjack with perfect strategy potential!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/000000/D4AF37?text=Blackjack+VIP',
@@ -266,7 +203,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'Baccarat Pro'],
             [
-                'game_category_id' => $cardCategory->id,
                 'slug' => 'baccarat-pro',
                 'description' => 'Professional baccarat with road maps and statistics!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/FF69B4/FFFFFF?text=Baccarat+Pro',
@@ -286,7 +222,6 @@ class GameSeeder extends Seeder
         Game::firstOrCreate(
             ['title' => 'Texas Hold\'em Poker'],
             [
-                'game_category_id' => $cardCategory->id,
                 'slug' => 'texas-holdem-poker',
                 'description' => 'The world\'s most popular poker variant!',
                 'thumbnail_url' => 'https://via.placeholder.com/400x300/D4AF37/000000?text=Texas+Holdem',

@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         // ADMIN USER (Panda Master)
         // ===========================================
         User::updateOrCreate(
-            ['email' => 'admin@pandamaster.vip'],
+            ['email' => 'admin@pandamaster777.xyz'],
             [
                 'name' => 'Panda Master Admin',
                 'password' => Hash::make('password'),
