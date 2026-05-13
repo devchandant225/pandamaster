@@ -23,7 +23,6 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role' => ['required', 'string', 'in:user,agent'],
             'phone' => ['nullable', 'string', 'max:20'],
             'city' => ['nullable', 'string', 'max:255'],
         ]);
@@ -32,7 +31,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' => 'admin',
             'phone' => $request->phone,
             'city' => $request->city,
         ]);
@@ -41,11 +40,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        // Role-based redirect
-        if ($user->role === 'agent') {
-            return redirect()->route('agent.leads');
-        }
-
-        return redirect()->route('home');
+        return redirect()->route('admin.dashboard');
     }
 }
