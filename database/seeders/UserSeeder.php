@@ -36,5 +36,37 @@ class UserSeeder extends Seeder
                 'footer_description' => 'Panda Master is a leading online gaming platform offering the best fish games, slots, and sweepstakes for players across the US. Join thousands of players and experience the thrill of real-time gaming with secure access and fast rewards.',
             ]
         );
+
+        // ===========================================
+        // AGENT USER
+        // ===========================================
+        User::updateOrCreate(
+            ['email' => 'agent@pandamaster.vip'],
+            [
+                'name' => 'Panda Master Agent',
+                'password' => Hash::make('password'),
+                'role' => 'agent',
+                'phone' => '(555) 987-6543',
+                'city' => 'New York',
+                'performance_score' => 85,
+                'email_verified_at' => now(),
+                'description' => 'Certified agent for Panda Master VIP platform.',
+            ]
+        );
+
+        // ===========================================
+        // REGULAR USER
+        // ===========================================
+        User::updateOrCreate(
+            ['email' => 'user@example.com'],
+            [
+                'name' => 'Regular Player',
+                'password' => Hash::make('password'),
+                'role' => 'user',
+                'phone' => '(555) 000-1111',
+                'city' => 'Los Angeles',
+                'email_verified_at' => now(),
+            ]
+        );
     }
 }
