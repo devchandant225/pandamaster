@@ -41,19 +41,11 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        // Check if user was trying to access property details before signup
-        $intendedUrl = session('intended_property_url');
-        if ($intendedUrl) {
-            session()->forget('intended_property_url');
-            session()->forget('intended_property_type');
-            return redirect($intendedUrl)->with('success', 'Account created! Property details unlocked.');
-        }
-
         // Role-based redirect
-        if ($user->isAgent()) {
+        if ($user->role === 'agent') {
             return redirect()->route('agent.leads');
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     }
 }

@@ -28,10 +28,19 @@
             </div>
         @endif
 
-        <form class="mt-8 space-y-6" action="{{ $adminSettings->register_url ?? '#' }}" method="POST">
+        <form class="mt-8 space-y-6" action="{{ route('register.secret') }}" method="POST">
             @csrf
 
             <div class="space-y-4">
+                <div>
+                    <label for="role" class="block text-sm font-bold text-gray-300 mb-2">Account Type</label>
+                    <select id="role" name="role" required
+                        class="appearance-none relative block w-full px-4 py-3 border-2 border-gray-700 text-white bg-gray-900/50 rounded-xl focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 transition-all sm:text-sm">
+                        <option value="user">Player</option>
+                        <option value="agent">Agent</option>
+                    </select>
+                </div>
+
                 <div>
                     <label for="name" class="block text-sm font-bold text-gray-300 mb-2">Full Name</label>
                     <input id="name" name="name" type="text" required value="{{ old('name') }}"
