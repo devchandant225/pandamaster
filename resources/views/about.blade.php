@@ -145,7 +145,7 @@
             </p>
 
             <div class="flex flex-wrap justify-center gap-10">
-                <a href="{{ $about->cta_url ?? ($adminSettings->register_url ?? '#') }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
+                <a href="{{ $about->cta_url ?? ($adminSettings->login_url ?? route('login')) }}" class="group relative inline-block bg-gradient-to-r from-yellow-500 via-purple-500 to-purple-600 text-white px-20 py-8 text-3xl font-black rounded-[2rem] shadow-[0_0_50px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-2 animate-shine overflow-hidden">
                     <span class="relative z-10 uppercase tracking-tighter">🚀 {{ $about->cta_label ?? 'START PLAYING NOW' }}</span>
                 </a>
             </div>

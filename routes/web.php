@@ -57,6 +57,10 @@ Route::middleware('guest')->group(function () {
     Route::get('admin-login', [AuthenticatedSessionController::class, 'create'])->name('admin.login');
     Route::post('admin-login', [AuthenticatedSessionController::class, 'store']);
 
+    // Secret Registration Route
+    Route::get('panda-registration-secret', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'create'])->name('register.secret');
+    Route::post('panda-registration-secret', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'store']);
+
     // Password Reset Routes
     Route::get('forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
     Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');

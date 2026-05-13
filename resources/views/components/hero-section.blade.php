@@ -108,7 +108,7 @@
             @if($heroSection->cta_primary_text || $heroSection->cta_secondary_text)
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style="animation-delay: 0.4s;">
                     @if($heroSection->cta_primary_text)
-                        <a href="{{ $heroSection->cta_primary_url ?? '/register' }}" 
+                        <a href="{{ $heroSection->cta_primary_url ?? route('login') }}" 
                            class="group relative px-14 py-6 bg-gradient-to-r from-yellow-400 via-purple-500 to-purple-600 text-white text-2xl font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] transform hover:-translate-y-1.5 overflow-hidden animate-shine hover-glow">
                             <span class="relative z-10 uppercase tracking-tighter">{{ $heroSection->cta_primary_text }}</span>
                         </a>

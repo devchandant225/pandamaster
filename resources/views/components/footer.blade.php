@@ -39,6 +39,7 @@
                 <h3 class="text-white font-black uppercase tracking-widest text-xs mb-6">Experience</h3>
                 <ul class="space-y-4 text-sm font-bold">
                     <li><a href="{{ route('home') }}" class="hover:text-yellow-500 transition-colors uppercase">Home</a></li>
+                    <li><a href="{{ route('about') }}" class="hover:text-yellow-500 transition-colors uppercase">About Us</a></li>
                     <li><a href="{{ route('orionstar.777') }}" class="hover:text-yellow-500 transition-colors uppercase">777</a></li>
                     <li><a href="{{ route('orionstar.casino') }}" class="hover:text-yellow-500 transition-colors uppercase">Casino</a></li>
                     <li><a href="{{ route('orionstar.download') }}" class="hover:text-yellow-500 transition-colors uppercase">Download</a></li>

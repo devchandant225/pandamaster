@@ -33,7 +33,7 @@
                 $faqs = [
                     [
                         'q' => 'How do I initiate my first session?',
-                        'a' => 'Click "Join the Elite" or "Register", fill your basic data, and verify. You\'ll be granted instant access to the lobby and your initial $1000 bonus credits will be staged for activation.'
+                        'a' => 'Click "Login" to access your dashboard. If you don\'t have credentials yet, please contact our support commanders via the "Request Intel" button below to get your account staged for activation.'
                     ],
                     [
                         'q' => 'Is the Panda Master encryption ironclad?',
