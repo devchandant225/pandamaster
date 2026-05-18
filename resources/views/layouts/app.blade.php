@@ -2,6 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <!-- Global Header Scripts -->
+    @if(isset($adminSettings) && $adminSettings->header_scripts)
+        {!! $adminSettings->header_scripts !!}
+    @endif
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -36,13 +40,14 @@
     <!-- Styles & Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Global Header Scripts -->
-    @if(isset($adminSettings) && $adminSettings->header_scripts)
-        {!! $adminSettings->header_scripts !!}
-    @endif
+
 </head>
 
 <body class="font-sans antialiased bg-gray-900 text-white">
+       <!-- Global Footer Scripts -->
+    @if(isset($adminSettings) && $adminSettings->footer_scripts)
+        {!! $adminSettings->footer_scripts !!}
+    @endif
     <div class="min-h-screen">
         <!-- Flash Messages -->
         @if (session('success'))
@@ -114,10 +119,7 @@
             }, 5000);
         </script>
     @endif
-    <!-- Global Footer Scripts -->
-    @if(isset($adminSettings) && $adminSettings->footer_scripts)
-        {!! $adminSettings->footer_scripts !!}
-    @endif
+ 
     @stack('scripts')
 </body>
 
