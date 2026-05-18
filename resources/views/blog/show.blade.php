@@ -94,7 +94,7 @@
                                         <div class="px-6 pb-6 md:px-8 md:pb-8">
                                             <div class="pt-2 border-t border-gray-200">
                                                 <p class="text-gray-600 leading-relaxed text-base md:text-lg">
-                                                    {{ $faq->answer }}
+                                                    {!! $faq->answer !!}
                                                 </p>
                                             </div>
                                         </div>
